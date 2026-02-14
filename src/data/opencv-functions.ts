@@ -5485,9 +5485,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'repeat',
-    name: 'Repeat (반복)',
+    name: {
+      en: 'Repeat',
+      ko: '반복 (Repeat)',
+      zh: '重复',
+      ja: '反復',
+      de: 'Wiederholen',
+      es: 'Repetir',
+      fr: 'Répéter'
+    },
     category: 'matrix',
-    description: '이미지를 타일처럼 반복합니다.',
+    description: {
+      en: 'Repeats an image as a tile.',
+      ko: '이미지를 바둑판 모양으로 반복하여 배치합니다.',
+      zh: '将图像作为平铺重复。',
+      ja: '画像をタイルとして繰り返します。',
+      de: 'Wiederholt ein Bild als Kachel.',
+      es: 'Repite una imagen como un mosaico.',
+      fr: 'Répète une image sous forme de tuile.'
+    },
     parameters: [
       {
         name: 'ny',
@@ -5496,7 +5512,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 4,
         step: 1,
-        description: '세로 반복 횟수',
+        description: {
+          en: 'Vertical repeat count',
+          ko: '세로 반복 횟수',
+          zh: '垂直重复次数',
+          ja: '垂直方向の繰り返し回数',
+          de: 'Vertikale Wiederholungsanzahl',
+          es: 'Número de repeticiones verticales',
+          fr: 'Nombre de répétitions verticales'
+        },
       },
       {
         name: 'nx',
@@ -5505,17 +5529,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 4,
         step: 1,
-        description: '가로 반복 횟수',
+        description: {
+          en: 'Horizontal repeat count',
+          ko: '가로 반복 횟수',
+          zh: '水平重复次数',
+          ja: '水平方向の繰り返し回数',
+          de: 'Horizontale Wiederholungsanzahl',
+          es: 'Número de repeticiones horizontales',
+          fr: 'Nombre de répétitions horizontales'
+        },
       },
     ],
-    syntax: 'repeat(src, ny, nx, dst)',
+    syntax: 'cv2.repeat(src, ny, nx, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga496ba74e2e63cf7a7a02b7fddec00f06',
   },
   {
     id: 'hconcat',
-    name: 'Horizontal Concatenate (수평 연결)',
+    name: {
+      en: 'Horizontal Concatenate',
+      ko: '수평 연결 (Horizontal Concatenate)',
+      zh: '水平拼接',
+      ja: '水平結合',
+      de: 'Horizontales Verkettung',
+      es: 'Concatenar horizontalmente',
+      fr: 'Concaténation horizontale'
+    },
     category: 'matrix',
-    description: '이미지를 수평으로 연결합니다.',
+    description: {
+      en: 'Concatenates images horizontally.',
+      ko: '여러 이미지를 가로 방향으로 나란히 연결합니다.',
+      zh: '水平拼接图像。',
+      ja: '画像を水平方向に結合します。',
+      de: 'Verkettet Bilder horizontal.',
+      es: 'Concatena imágenes horizontalmente.',
+      fr: 'Concatène les images horizontalement.'
+    },
     parameters: [
       {
         name: 'count',
@@ -5524,17 +5572,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 4,
         step: 1,
-        description: '연결 횟수',
+        description: {
+          en: 'Number of concatenations',
+          ko: '연결할 이미지 수',
+          zh: '拼接次数',
+          ja: '結合回数',
+          de: 'Anzahl der Verkettungen',
+          es: 'Número de concatenaciones',
+          fr: 'Nombre de concaténations'
+        },
       },
     ],
-    syntax: 'hconcat(src, dst)',
+    syntax: 'cv2.hconcat(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#gaab5cecc0c84eea5d2f41f53e7f333e4b',
   },
   {
     id: 'vconcat',
-    name: 'Vertical Concatenate (수직 연결)',
+    name: {
+      en: 'Vertical Concatenate',
+      ko: '수직 연결 (Vertical Concatenate)',
+      zh: '垂直拼接',
+      ja: '垂直結合',
+      de: 'Vertikale Verkettung',
+      es: 'Concatenar verticalmente',
+      fr: 'Concaténation verticale'
+    },
     category: 'matrix',
-    description: '이미지를 수직으로 연결합니다.',
+    description: {
+      en: 'Concatenates images vertically.',
+      ko: '여러 이미지를 세로 방향으로 나란히 연결합니다.',
+      zh: '垂直拼接图像。',
+      ja: '画像を垂直方向に結合します Correntement.',
+      de: 'Verkettet Bilder vertikal.',
+      es: 'Concatena imágenes verticalmente.',
+      fr: 'Concatène les images verticalement.'
+    },
     parameters: [
       {
         name: 'count',
@@ -5543,17 +5615,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 4,
         step: 1,
-        description: '연결 횟수',
+        description: {
+          en: 'Number of concatenations',
+          ko: '연결할 이미지 수',
+          zh: '拼接次数',
+          ja: '結合回数',
+          de: 'Anzahl der Verkettungen',
+          es: 'Número de concatenaciones',
+          fr: 'Nombre de concaténations'
+        },
       },
     ],
-    syntax: 'vconcat(src, dst)',
+    syntax: 'cv2.vconcat(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga7c1f2efc34f3ab3f70d6b0d29d4e5ca9',
   },
   {
     id: 'convertScaleAbs',
-    name: 'Convert Scale Abs (스케일 변환 절댓값)',
+    name: {
+      en: 'Convert Scale Abs',
+      ko: '스케일 변환 및 절대값 (Convert Scale Abs)',
+      zh: '比例变换并取绝对值',
+      ja: 'スケール変換と絶対値',
+      de: 'Skalierung konvertieren und Absolutwert',
+      es: 'Convertir escala y valor absoluto',
+      fr: 'Convertir l\'échelle et la valeur absolue'
+    },
     category: 'matrix',
-    description: '이미지를 스케일링하고 절댓값을 취합니다.',
+    description: {
+      en: 'Scales, calculates absolute values, and converts the result to 8-bit.',
+      ko: '행렬의 각 원소에 특정 계수를 곱하고 오프셋을 더한 후, 결과값의 절댓값을 취하여 8비트 부호 없는 정수형으로 변환합니다.',
+      zh: '缩放、计算绝对值并将结果转换为 8 位。',
+      ja: 'スケーリングし、絶対値を計算して、結果を 8 ビットに変換します。',
+      de: 'Skaliert, berechnet Absolutwerte und konvertiert das Ergebnis in 8-Bit.',
+      es: 'Escala, calcula valores absolutos y convierte el resultado a 8 bits.',
+      fr: 'Met à l\'échelle, calcule les valeurs absolues et convertit le résultat en 8 bits.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -5562,7 +5658,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 3.0,
         step: 0.1,
-        description: '스케일 팩터',
+        description: {
+          en: 'Scale factor',
+          ko: '스케일 계수 (계수 곱)',
+          zh: '缩放因子',
+          ja: 'スケール要因',
+          de: 'Skalierungsfaktor',
+          es: 'Factor de escala',
+          fr: 'Facteur d\'échelle'
+        },
       },
       {
         name: 'beta',
@@ -5571,17 +5675,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -100,
         max: 100,
         step: 10,
-        description: '오프셋',
+        description: {
+          en: 'Offset value',
+          ko: '오프셋 값 (더하기)',
+          zh: '偏移值',
+          ja: 'オフセット値',
+          de: 'Offset-Wert',
+          es: 'Valor de desplazamiento',
+          fr: 'Valeur de décalage'
+        },
       },
     ],
-    syntax: 'convertScaleAbs(src, dst, alpha, beta)',
+    syntax: 'cv2.convertScaleAbs(src, dst, alpha, beta)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga3460e9c9f37b563ab9dd550c4d8c4e7d',
   },
   {
     id: 'absdiff',
-    name: 'Absolute Difference (절대 차이)',
+    name: {
+      en: 'Absolute Difference',
+      ko: '절대 차분 (Absolute Difference)',
+      zh: '绝对差值',
+      ja: '絶対差分',
+      de: 'Absolute Differenz',
+      es: 'Diferencia absoluta',
+      fr: 'Différence absolue'
+    },
     category: 'matrix',
-    description: '원본 이���지와 블러 처리한 이미지의 절대 차이를 계산합니다.',
+    description: {
+      en: 'Calculates the per-element absolute difference between two arrays.',
+      ko: '두 이미지 또는 행렬의 요소별 절대 차이를 계산합니다. 배경 차분이나 움직임 검출의 기초로 사용됩니다.',
+      zh: '计算两个数组之间的逐元素绝对差值。',
+      ja: '2つの配列間の要素ごとの絶対差を計算します。',
+      de: 'Berechnet die elementweise absolute Differenz zwischen zwei Arrays.',
+      es: 'Calcula la diferencia absoluta por elemento entre dos matrices.',
+      fr: 'Calcule la différence absolue par élément entre deux tableaux.'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -5591,47 +5719,111 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 31,
         step: 2,
-        description: '블러 커널 크기',
+        description: {
+          en: 'Blur kernel size (for pre-processing)',
+          ko: '블러 커널 크기 (전처리용)',
+          zh: '模糊核大小',
+          ja: 'ブラーカーネルサイズ',
+          de: 'Blur-Kernel-Größe',
+          es: 'Tamaño del núcleo de desenfoque',
+          fr: 'Taille du noyau de flou'
+        },
       },
     ],
-    syntax: 'absdiff(src1, src2, dst)',
+    syntax: 'cv2.absdiff(src1, src2, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga6fef31bc8c4071cbc114a758a2b79c14',
   },
   {
     id: 'magnitude',
-    name: 'Magnitude (크기)',
+    name: {
+      en: 'Magnitude',
+      ko: '크기 (Magnitude)',
+      zh: '幅度',
+      ja: 'マグニチュード',
+      de: 'Größe',
+      es: 'Magnitud',
+      fr: 'Magnitude'
+    },
     category: 'matrix',
-    description: '두 배열의 크기를 계산합니다 (Sobel X, Y의 크기).',
+    description: {
+      en: 'Calculates the magnitude of 2D vectors.',
+      ko: '2차원 벡터들의 크기를 계산합니다. 주로 소벨 필터의 x, y 미분값을 조합하여 엣지의 강도를 구할 때 사용됩니다.',
+      zh: '计算 2D 向量的幅度。',
+      ja: '2D ベクトルの大きさを計算します。',
+      de: 'Berechnet die Größe von 2D-Vektoren.',
+      es: 'Calcula la magnitud de los vectores 2D.',
+      fr: 'Calcule la magnitude des vecteurs 2D.'
+    },
     parameters: [],
-    syntax: 'magnitude(x, y, magnitude)',
+    syntax: 'cv2.magnitude(x, y, magnitude)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga6d3b097586bca4409873d64a90fe64c3',
   },
   {
     id: 'phase',
-    name: 'Phase (위상)',
+    name: {
+      en: 'Phase',
+      ko: '위상 (Phase)',
+      zh: '相位',
+      ja: '位相',
+      de: 'Phase',
+      es: 'Fase',
+      fr: 'Phase'
+    },
     category: 'matrix',
-    description: '두 배열의 위상각을 계산합니다.',
+    description: {
+      en: 'Calculates the rotation angle of 2D vectors.',
+      ko: '2차원 벡터들의 회전 각도(위상)를 계산합니다.',
+      zh: '计算 2D 向量的旋转角度。',
+      ja: '2D ベクトルの回転角を計算します。',
+      de: 'Berechnet den Rotationswinkel von 2D-Vektoren.',
+      es: 'Calcula el ángulo de rotación de los vectores 2D.',
+      fr: 'Calcule l\'angle de rotation des vecteurs 2D.'
+    },
     parameters: [],
-    syntax: 'phase(x, y, angle, angleInDegrees)',
+    syntax: 'cv2.phase(x, y, angle, angleInDegrees)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga49f0be7e00f7c7689fa0e7e66f9b8ef9',
   },
 
   // 통계 연산
   {
     id: 'mean',
-    name: 'Mean (평균)',
+    name: {
+      en: 'Mean',
+      ko: '평균 (Mean)',
+      zh: '平均值',
+      ja: '平均',
+      de: 'Mittelwert',
+      es: 'Media',
+      fr: 'Moyenne'
+    },
     category: 'statistical',
-    description: '이미지의 평균값을 계산하고 시각화합니다.',
+    description: {
+      en: 'Calculates the mean value of image pixel intensities.',
+      ko: '이미지 픽셀 값의 평균을 계산합니다.',
+      zh: '计算图像像素亮度的平均值。',
+      ja: '画像のピクセル強度の平均値を計算します。',
+      de: 'Berechnet den Mittelwert der Bildpixelintensitäten.',
+      es: 'Calcula el valor medio de las intensidades de los píxeles de la imagen.',
+      fr: 'Calcule la valeur moyenne des intensités des pixels de l\'image.'
+    },
     parameters: [
       {
         name: 'useMask',
         type: 'select',
         defaultValue: false,
         options: [
-          { label: '사용 안함', value: false },
-          { label: 'src2를 마스크로 사용', value: true },
+          { label: { en: 'Not used', ko: '사용 안함', zh: '不使用', ja: '使用しない', de: 'Nicht verwendet', es: 'No usado', fr: 'Pas utilisé' }, value: false },
+          { label: { en: 'Use src2 as mask', ko: 'src2를 마스크로 사용', zh: '将 src2 用作掩码', ja: 'src2 をマスクとして使用', de: 'src2 als Maske verwenden', es: 'Usar src2 como máscara', fr: 'Utiliser src2 comme masque' }, value: true },
         ],
-        description: '마스크 사용 여부',
+        description: {
+          en: 'Whether to use a mask',
+          ko: '마스크 사용 여부',
+          zh: '是否使用掩码',
+          ja: 'マスクを使用するかどうか',
+          de: 'Ob eine Maske verwendet werden soll',
+          es: 'Si usar una máscara',
+          fr: 'Si utiliser un masque'
+        },
       }
     ],
     syntax: 'mean(src, mask)',
@@ -5641,18 +5833,50 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'meanStdDev',
-    name: 'Mean & Standard Deviation (평균 & 표준편차)',
+    name: {
+      en: 'Mean & Standard Deviation',
+      ko: '평균 및 표준편차 (Mean & StdDev)',
+      zh: '平均值和标准差',
+      ja: '平均と標準偏差',
+      de: 'Mittelwert & Standardabweichung',
+      es: 'Media y desviación estándar',
+      fr: 'Moyenne et écart-type'
+    },
     category: 'statistical',
-    description: '이미���의 평균과 표준편차를 계산합니다.',
+    description: {
+      en: 'Calculates the mean and standard deviation of all pixels.',
+      ko: '이미지 픽셀의 평균과 표준편차를 계산합니다.',
+      zh: '计算所有像素的平均值和标准差。',
+      ja: 'すべてのピクセルの平均と標準偏差を計算します。',
+      de: 'Berechnet den Mittelwert und die Standardabweichung aller Pixel.',
+      es: 'Calcula la media y la desviación estándar de todos los píxeles.',
+      fr: 'Calcule la moyenne et l\'écart-type de tous les pixels.'
+    },
     parameters: [],
     syntax: 'meanStdDev(src, mean, stddev, mask)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga846c858f4004d59493d7c6a4354b301d',
   },
   {
     id: 'minMaxLoc',
-    name: 'Min Max Location (최소/최대값 위치)',
+    name: {
+      en: 'Min Max Location',
+      ko: '최소/최대값 위치 (MinMaxLoc)',
+      zh: '最小值/最大值位置',
+      ja: '最小・最大値の位置',
+      de: 'Min-Max-Position',
+      es: 'Ubicación mínima máxima',
+      fr: 'Localisation min-max'
+    },
     category: 'statistical',
-    description: '이미지에서 최소값과 최대값의 위치를 찾아 표시합니다.',
+    description: {
+      en: 'Finds the global minimum and maximum pixel values and their locations.',
+      ko: '이미지부에서 최소값과 최대값이 발생하는 위치를 찾아 표시합니다.',
+      zh: '查找全局最小值和最大值像素及其位置。',
+      ja: 'グローバルな最小・最大ピクセル値とその位置を検索します。',
+      de: 'Findet die globalen minimalen und maximalen Pixelwerte und deren Positionen.',
+      es: 'Encuentra los valores de píxel mínimo y máximo globales y sus ubicaciones.',
+      fr: 'Trouve les valeurs de pixel minimales et maximales globales et leurs emplacements.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'minMaxLoc(src, mask)',
@@ -5660,9 +5884,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'countNonZero',
-    name: 'Count Non-Zero (0이 아닌 픽셀 수)',
+    name: {
+      en: 'Count Non-Zero',
+      ko: '0이 아닌 픽셀 수 (CountNonZero)',
+      zh: '计算非零像素',
+      ja: '非ゼロのカウント',
+      de: 'Nicht-Null-Werte zählen',
+      es: 'Contar no ceros',
+      fr: 'Compter les non-nuls'
+    },
     category: 'statistical',
-    description: '0이 아닌 픽셀의 개수를 계산합니다.',
+    description: {
+      en: 'Counts the number of non-zero pixels in a single-channel image.',
+      ko: '0이 아닌 값을 가진 픽셀의 개수를 계산합니다.',
+      zh: '计算单通道图像中非零像素的数量。',
+      ja: 'シングルチャネル画像内の非ゼロピクセルの数をカウントします。',
+      de: 'Zählt die Anzahl der Nicht-Null-Pixel in einem Einkanalbild.',
+      es: 'Cuenta el número de píxeles no nulos en una imagen de un solo canal.',
+      fr: 'Compte le nombre de pixels non nuls dans une image à canal unique.'
+    },
     parameters: [
       {
         name: 'threshold',
@@ -5671,7 +5911,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '임계값',
+        description: {
+          en: 'Threshold value',
+          ko: '임계값',
+          zh: '阈值',
+          ja: 'しきい値',
+          de: 'Schwellenwert',
+          es: 'Valor de umbral',
+          fr: 'Valeur de seuil'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -5680,31 +5928,63 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'reduce',
-    name: 'Reduce (차원 축소)',
+    name: {
+      en: 'Reduce (Dimension Reduction)',
+      ko: '차원 축소 (Reduce)',
+      zh: '规约 (降维)',
+      ja: '縮退',
+      de: 'Reduzieren',
+      es: 'Reducir',
+      fr: 'Réduire'
+    },
     category: 'statistical',
-    description: '행렬을 한 차원으로 축소합니다.',
+    description: {
+      en: 'Reduces a matrix to a vector by applying a specific operation.',
+      ko: '행렬을 특정 연산을 적용하여 한 차원(행 또는 열)으로 축소합니다.',
+      zh: '通过应用特定操作将矩阵规约为向量。',
+      ja: '特定の操作を適用して、行列をベクトルに縮退させます。',
+      de: 'Reduziert eine Matrix durch Anwendung einer bestimmten Operation auf einen Vektor.',
+      es: 'Reduce una matriz a un vector aplicando una operación específica.',
+      fr: 'Réduit une matrice en un vecteur en appliquant une opération spécifique.'
+    },
     parameters: [
       {
         name: 'dim',
         type: 'select',
         defaultValue: 0,
         options: [
-          { label: '행 방향 (세로)', value: 0 },
-          { label: '열 방향 (가로)', value: 1 },
+          { label: { en: 'Rows (Vertical)', ko: '행 방향 (세로)', zh: '行方向 (垂直)', ja: '行方向 (垂直)', de: 'Zeilen (vertikal)', es: 'Filas (Vertical)', fr: 'Lignes (Vertical)' }, value: 0 },
+          { label: { en: 'Cols (Horizontal)', ko: '열 방향 (가로)', zh: '列方向 (水平)', ja: '列方向 (水平)', de: 'Spalten (horizontal)', es: 'Columnas (Horizontal)', fr: 'Colonnes (Horizontal)' }, value: 1 },
         ],
-        description: '축소 방향',
+        description: {
+          en: 'Dimension to reduce',
+          ko: '축소 방향',
+          zh: '规约维度',
+          ja: '縮退させる次元',
+          de: 'Zu reduzierende Dimension',
+          es: 'Dimensión a reducir',
+          fr: 'Dimension à réduire'
+        },
       },
       {
         name: 'rtype',
         type: 'select',
         defaultValue: 'REDUCE_AVG',
         options: [
-          { label: 'Average (평균)', value: 'REDUCE_AVG' },
-          { label: 'Sum (합)', value: 'REDUCE_SUM' },
-          { label: 'Max (최대)', value: 'REDUCE_MAX' },
-          { label: 'Min (최소)', value: 'REDUCE_MIN' },
+          { label: { en: 'Average', ko: '평균 (AVG)', zh: '平均', ja: '平均', de: 'Durchschnitt', es: 'Promedio', fr: 'Moyenne' }, value: 'REDUCE_AVG' },
+          { label: { en: 'Sum', ko: '합 (SUM)', zh: '求和', ja: '合計', de: 'Summe', es: 'Suma', fr: 'Somme' }, value: 'REDUCE_SUM' },
+          { label: { en: 'Max', ko: '최대 (MAX)', zh: '最大值', ja: '最大', de: 'Maximum', es: 'Máximo', fr: 'Maximum' }, value: 'REDUCE_MAX' },
+          { label: { en: 'Min', ko: '최소 (MIN)', zh: '最小值', ja: '最小', de: 'Minimum', es: 'Mínimo', fr: 'Minimum' }, value: 'REDUCE_MIN' },
         ],
-        description: '축소 방법',
+        description: {
+          en: 'Reduction operation type',
+          ko: '축소 방법',
+          zh: '规约操作类型',
+          ja: '縮退操作の種類',
+          de: 'Reduktionsoperationstyp',
+          es: 'Tipo de operación de reducción',
+          fr: 'Type d\'opération de réduction'
+        },
       },
     ],
     syntax: 'reduce(src, dst, dim, rtype, dtype)',
@@ -5712,29 +5992,69 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'sum',
-    name: 'Sum (합계)',
+    name: {
+      en: 'Sum',
+      ko: '합계 (Sum)',
+      zh: '求和',
+      ja: '合計',
+      de: 'Summe',
+      es: 'Suma',
+      fr: 'Somme'
+    },
     category: 'statistical',
-    description: '이미지의 모든 픽셀 값을 합산합니다.',
+    description: {
+      en: 'Calculates the sum of array elements.',
+      ko: '이미지의 모든 픽셀 값을 합산합니다.',
+      zh: '计算数组元素的和。',
+      ja: '配列要素の合計を計算します。',
+      de: 'Berechnet die Summe der Array-Elemente.',
+      es: 'Calcula la suma de los elementos de la matriz.',
+      fr: 'Calcule la somme des éléments du tableau.'
+    },
     parameters: [],
     syntax: 'sum(src)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga716e10a55dd8d85e4c24a8a0b6c3f5f7',
   },
   {
     id: 'norm',
-    name: 'Norm (노름)',
+    name: {
+      en: 'Norm',
+      ko: '노름 (Norm)',
+      zh: '范数',
+      ja: 'ノルム',
+      de: 'Norm',
+      es: 'Norma',
+      fr: 'Norme'
+    },
     category: 'statistical',
-    description: '이미지의 노름(크기)을 계산합니다.',
+    description: {
+      en: 'Calculates an absolute array norm or a relative difference norm.',
+      ko: '이미지 배열의 노름(크기 또는 거리)을 계산합니다.',
+      zh: '计算绝对数组范数或相对差异范数。',
+      ja: '絶対配列ノルム、または相対差ノルムを計算します。',
+      de: 'Berechnet eine absolute Array-Norm oder eine relative Differenznorm.',
+      es: 'Calcula una norma de matriz absoluta o una norma de diferencia relativa.',
+      fr: 'Calcule une norme de tableau absolue ou une norme de différence relative.'
+    },
     parameters: [
       {
         name: 'normType',
         type: 'select',
         defaultValue: 'NORM_L2',
         options: [
-          { label: 'L1 (절댓값 합)', value: 'NORM_L1' },
-          { label: 'L2 (유클리드)', value: 'NORM_L2' },
-          { label: 'INF (최대값)', value: 'NORM_INF' },
+          { label: { en: 'L1 (Manhattan)', ko: 'L1 (절댓값 합)', zh: 'L1 (曼哈顿)', ja: 'L1 (マンハッタン)', de: 'L1 (Manhattan)', es: 'L1 (Manhattan)', fr: 'L1 (Manhattan)' }, value: 'NORM_L1' },
+          { label: { en: 'L2 (Euclidean)', ko: 'L2 (유클리드)', zh: 'L2 (欧几里德)', ja: 'L2 (ユークリッド)', de: 'L2 (Euklidisch)', es: 'L2 (Euclidiana)', fr: 'L2 (Euclidienne)' }, value: 'NORM_L2' },
+          { label: { en: 'INF (Maximum)', ko: 'INF (최대값)', zh: 'INF (最大值)', ja: 'INF (最大)', de: 'INF (Maximum)', es: 'INF (Máximo)', fr: 'INF (Maximum)' }, value: 'NORM_INF' },
         ],
-        description: '노름 타입',
+        description: {
+          en: 'Norm type',
+          ko: '노름 타입',
+          zh: '范数类型',
+          ja: 'ノルムの種類',
+          de: 'Normtyp',
+          es: 'Tipo de norma',
+          fr: 'Type de norme'
+        },
       },
     ],
     syntax: 'norm(src1, normType, mask)',
@@ -5744,23 +6064,47 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 비교 연산
   {
     id: 'compare',
-    name: 'Compare (비교)',
+    name: {
+      en: 'Compare',
+      ko: '비교 (Compare)',
+      zh: '比较',
+      ja: '比較',
+      de: 'Vergleichen',
+      es: 'Comparar',
+      fr: 'Comparer'
+    },
     category: 'comparison',
-    description: '이미지를 임계값과 비교합니다.',
+    description: {
+      en: 'Performs per-element comparison of two arrays or an array and a scalar.',
+      ko: '두 이미지 또는 이미지와 임계값을 요소별로 비교합니다.',
+      zh: '对两个数组或一个数组和一个标量进行逐元素比较。',
+      ja: '2 つの配列、または配列とスカラーの要素ごとの比較を実行します。',
+      de: 'Führt einen elementweisen Vergleich von zwei Arrays oder einem Array und einem Skalar durch.',
+      es: 'Realiza la comparación por elementos de dos matrices o una matriz y un escalar.',
+      fr: 'Effectue une comparaison élément par élément de deux tableaux ou d\'un tableau et d\'un scalaire.'
+    },
     parameters: [
       {
         name: 'cmpop',
         type: 'select',
         defaultValue: 'CMP_GT',
         options: [
-          { label: 'Greater Than (>)', value: 'CMP_GT' },
-          { label: 'Greater or Equal (>=)', value: 'CMP_GE' },
-          { label: 'Equal (==)', value: 'CMP_EQ' },
-          { label: 'Less or Equal (<=)', value: 'CMP_LE' },
-          { label: 'Less Than (<)', value: 'CMP_LT' },
-          { label: 'Not Equal (!=)', value: 'CMP_NE' },
+          { label: { en: 'Greater Than (>)', ko: '큼 (>)', zh: '大于 (>)', ja: 'より大きい (>)', de: 'Größer als (>)', es: 'Mayor que (>)', fr: 'Plus grand que (>)' }, value: 'CMP_GT' },
+          { label: { en: 'Greater or Equal (>=)', ko: '크거나 같음 (>=)', zh: '大于等于 (>=)', ja: '以上 (>=)', de: 'Größer oder gleich (>=)', es: 'Mayor o igual (>=)', fr: 'Supérieur ou égal (>=)' }, value: 'CMP_GE' },
+          { label: { en: 'Equal (==)', ko: '같음 (==)', zh: '等于 (==)', ja: '等しい (==)', de: 'Gleich (==)', es: 'Igual (==)', fr: 'Égal (==)' }, value: 'CMP_EQ' },
+          { label: { en: 'Less or Equal (<=)', ko: '작거나 같음 (<=)', zh: '작거나 같음 (<=)', ja: '以下 (<=)', de: 'Kleiner oder gleich (<=)', es: 'Menor o igual (<=)', fr: 'Inférieur ou égal (<=)' }, value: 'CMP_LE' },
+          { label: { en: 'Less Than (<)', ko: '작음 (<)', zh: '小于 (<)', ja: 'より小さい (<)', de: 'Kleiner als (<)', es: 'Menor que (<)', fr: 'Plus petit que (<)' }, value: 'CMP_LT' },
+          { label: { en: 'Not Equal (!=)', ko: '다름 (!=)', zh: '不等于 (!=)', ja: '等しくない (!=)', de: 'Ungleich (!=)', es: 'No igual (!=)', fr: 'Différent (!=)' }, value: 'CMP_NE' },
         ],
-        description: '비교 연산자',
+        description: {
+          en: 'Comparison operator',
+          ko: '비교 연산자',
+          zh: '比较运算符',
+          ja: '比較演算子',
+          de: 'Vergleichsoperator',
+          es: 'Operador de comparación',
+          fr: 'Opérateur de comparaison'
+        },
       },
       {
         name: 'value',
@@ -5769,7 +6113,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '비교 값',
+        description: {
+          en: 'Comparison value',
+          ko: '비교 값',
+          zh: '比较值',
+          ja: '比較する値',
+          de: 'Vergleichswert',
+          es: 'Valor de comparación',
+          fr: 'Valeur de comparaison'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -5778,9 +6130,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'min',
-    name: 'Min (최소값)',
+    name: {
+      en: 'Minimum',
+      ko: '최소값 (Min)',
+      zh: '最小值',
+      ja: '最小',
+      de: 'Minimum',
+      es: 'Mínimo',
+      fr: 'Minimum'
+    },
     category: 'comparison',
-    description: '두 이미지의 각 픽셀에서 최소값을 선택합니다.',
+    description: {
+      en: 'Calculates per-element minimum of two arrays.',
+      ko: '두 이미지의 각 픽셀에서 최소값을 선택하여 새로운 이미지를 생성합니다.',
+      zh: '计算两个数组的逐元素最小值。',
+      ja: '2 つの配列の要素ごとの最小値を計算します。',
+      de: 'Berechnet das elementweise Minimum zweier Arrays.',
+      es: 'Calcula el mínimo por elementos de dos matrices.',
+      fr: 'Calcule le minimum élément par élément de deux tableaux.'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -5790,7 +6158,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 31,
         step: 2,
-        description: '블러 크기',
+        description: {
+          en: 'Blur size',
+          ko: '블러 크기',
+          zh: '模糊大小',
+          ja: 'ぼかしサイズ',
+          de: 'Unschärfegröße',
+          es: 'Tamaño de desenfoque',
+          fr: 'Taille du flou'
+        },
       },
     ],
     syntax: 'min(src1, src2, dst)',
@@ -5798,9 +6174,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'max',
-    name: 'Max (최대값)',
+    name: {
+      en: 'Maximum',
+      ko: '최대값 (Max)',
+      zh: '最大值',
+      ja: '最大',
+      de: 'Maximum',
+      es: 'Máximo',
+      fr: 'Maximum'
+    },
     category: 'comparison',
-    description: '두 이미지의 각 픽셀에서 최대값을 선택합니다.',
+    description: {
+      en: 'Calculates per-element maximum of two arrays.',
+      ko: '두 이미지의 각 픽셀에서 최대값을 선택하여 새로운 이미지를 생성합니다.',
+      zh: '计算两个数组的逐元素最大值。',
+      ja: '2 つの配列の要素ごとの最大値を計算します。',
+      de: 'Berechnet das elementweise Maximum zweier Arrays.',
+      es: 'Calcula el máximo por elementos de dos matrices.',
+      fr: 'Calcule le maximum élément par élément de deux tableaux.'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -5810,7 +6202,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 31,
         step: 2,
-        description: '블러 크기',
+        description: {
+          en: 'Blur size',
+          ko: '블러 크기',
+          zh: '模糊大小',
+          ja: 'ぼかしサイズ',
+          de: 'Unschärfegröße',
+          es: 'Tamaño de desenfoque',
+          fr: 'Taille du flou'
+        },
       },
     ],
     syntax: 'max(src1, src2, dst)',
@@ -5818,9 +6218,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'checkRange',
-    name: 'Check Range (범위 검사)',
+    name: {
+      en: 'Check Range',
+      ko: '범위 검사 (CheckRange)',
+      zh: '检查范围',
+      ja: '範囲内かチェック',
+      de: 'Bereich prüfen',
+      es: 'Comprobar rango',
+      fr: 'Vérifier la plage'
+    },
     category: 'comparison',
-    description: '배열의 모든 요소가 특정 범위 내에 있는지 확인합니다.',
+    description: {
+      en: 'Checks if every array element is within a specified range.',
+      ko: '이미지 배열의 모든 픽셀 값이 특정 범위 내에 있는지 확인합니다.',
+      zh: '检查每个数组元素是否在指定范围内。',
+      ja: 'すべての配列要素が指定された範囲内にあるかどうかをチェックします。',
+      de: 'Prüft, ob jedes Array-Element innerhalb eines bestimmten Bereichs liegt.',
+      es: 'Comprueba si todos los elementos de la matriz están dentro de un rango especificado.',
+      fr: 'Vérifie si chaque élément du tableau se trouve dans une plage spécifiée.'
+    },
     parameters: [
       {
         name: 'minVal',
@@ -5829,7 +6245,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 200,
         step: 10,
-        description: '최소값',
+        description: {
+          en: 'Minimum value',
+          ko: '최소값',
+          zh: '最小值',
+          ja: '最小値',
+          de: 'Minimalwert',
+          es: 'Valor mínimo',
+          fr: 'Valeur minimale'
+        },
       },
       {
         name: 'maxVal',
@@ -5838,7 +6262,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 50,
         max: 255,
         step: 10,
-        description: '최대값',
+        description: {
+          en: 'Maximum value',
+          ko: '최대값',
+          zh: '最大值',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
     ],
     syntax: 'checkRange(a, quiet, minVal, maxVal)',
@@ -7943,9 +8375,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 객체 추적 (Object Tracking)
   {
     id: 'trackerMIL',
-    name: 'Tracker MIL (Multiple Instance Learning)',
+    name: {
+      en: 'Tracker MIL',
+      ko: 'MIL 추적기 (Multiple Instance Learning)',
+      zh: 'MIL 跟踪器',
+      ja: 'MIL トラッカー',
+      de: 'MIL-Tracker',
+      es: 'Tracker MIL',
+      fr: 'Tracker MIL'
+    },
     category: 'tracking',
-    description: 'MIL(Multiple Instance Learning) 추��기입니다. 객체의 모양이 변하는 상황에서도 안정적으로 추적합니다.',
+    description: {
+      en: 'Discriminative MIL (Multiple Instance Learning) tracker. Stable even when the object shape changes.',
+      ko: 'MIL(Multiple Instance Learning) 기법을 사용한 추적기입니다. 객체의 모양이 변하는 상황에서도 비교적 안정적으로 추적을 유지합니다.',
+      zh: '判别式 MIL (多实例学习) 跟踪器。即使物体形状发生变化也能保持稳定。',
+      ja: '判別 MIL (多インスタンス学習) トラッカーです。オブジェクトの形状が変化する場合でも安定しています。',
+      de: 'Diskriminativer MIL-Tracker (Multiple Instance Learning). Stabil, auch wenn sich die Objektform ändert.',
+      es: 'Tracker MIL (Multiple Instance Learning) discriminativo. Estable incluso cuando la forma del objeto cambia.',
+      fr: 'Tracker MIL (Multiple Instance Learning) discriminatif. Stable même lorsque la forme de l\'objet change.'
+    },
     parameters: [
       {
         name: 'x',
@@ -7954,7 +8402,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -7963,7 +8419,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -7972,7 +8436,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -7981,7 +8453,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerMIL_create(); tracker.init(frame, bbox)',
@@ -7989,9 +8469,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerKCF',
-    name: 'Tracker KCF (Kernelized Correlation Filters)',
+    name: {
+      en: 'Tracker KCF',
+      ko: 'KCF 추적기 (Kernelized Correlation Filters)',
+      zh: 'KCF 跟踪器',
+      ja: 'KCF トラッカー',
+      de: 'KCF-Tracker',
+      es: 'Tracker KCF',
+      fr: 'Tracker KCF'
+    },
     category: 'tracking',
-    description: 'KCF(Kernelized Correlation Filters) 추적기입니다. 속도가 빠르고 정확도가 높습니다.',
+    description: {
+      en: 'Kernelized Correlation Filters tracker. Fast and accurate for many scenarios.',
+      ko: '커널 상관 필터(KCF)를 기반으로 한 추적기입니다. 처리 속도가 빠르고 정확도가 높아 널리 사용됩니다.',
+      zh: '核相关滤波器跟踪器。在许多场景下既快又准。',
+      ja: '核相関フィルタを用いたトラッカーです。多くのシナリオで高速かつ正確です。',
+      de: 'Kernelized Correlation Filters Tracker. Schnell und genau für viele Szenarien.',
+      es: 'Tracker KCF (Kernelized Correlation Filters). Rápido y preciso para muchos escenarios.',
+      fr: 'Tracker KCF (Kernelized Correlation Filters). Rapide et précis pour de nombreux scénarios.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8000,7 +8496,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8009,7 +8513,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8018,7 +8530,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8027,7 +8547,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
       {
         name: 'detect_thresh',
@@ -8036,7 +8564,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1,
         step: 0.05,
-        description: '검출 임계값',
+        description: {
+          en: 'Detection threshold',
+          ko: '검출 임계값',
+          zh: '检测阈值',
+          ja: '検出のしきい値',
+          de: 'Erkennungsschwellwert',
+          es: 'Umbral de detección',
+          fr: 'Seuil de détection'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerKCF_create(); tracker.init(frame, bbox)',
@@ -8044,9 +8580,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerCSRT',
-    name: 'Tracker CSRT (Discriminative Correlation Filter with Channel and Spatial Reliability)',
+    name: {
+      en: 'Tracker CSRT',
+      ko: 'CSRT 추적기 (Channel & Spatial Reliability)',
+      zh: 'CSRT 跟踪器',
+      ja: 'CSRT トラッカー',
+      de: 'CSRT-Tracker',
+      es: 'Tracker CSRT',
+      fr: 'Tracker CSRT'
+    },
     category: 'tracking',
-    description: 'CSRT 추적기입니다. 복잡한 환경에서도 높은 정확도를 제공하지만 속도는 느린 편입니다.',
+    description: {
+      en: 'Discriminative Correlation Filter with Channel and Spatial Reliability tracker. Highly accurate but slower.',
+      ko: '채널 및 공간 신뢰도를 고려한 상관 필터(CSRT) 추적기입니다. 복잡한 환경에서도 정확도가 매우 높지만 속도는 다소 느립니다.',
+      zh: '具有通道和空间可靠性的判别式相关滤波器跟踪器。精度高但速度慢。',
+      ja: 'チャネルおよび空間的な信頼性を備えたトラッカーです。精度が非常に高いですが、低速です。',
+      de: 'CSRT-Tracker (Discriminative Correlation Filter with Channel and Spatial Reliability). Hochpräzise, aber langsamer.',
+      es: 'Tracker CSRT (Discriminative Correlation Filter with Channel and Spatial Reliability). Muy preciso pero más lento.',
+      fr: 'Tracker CSRT (Discriminative Correlation Filter with Channel and Spatial Reliability). Très précis mais plus lent.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8055,7 +8607,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8064,7 +8624,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8073,7 +8641,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8082,17 +8658,33 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
       {
         name: 'use_hog',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: 'True (HOG 사용)', value: true },
-          { label: 'False (HOG 미사용)', value: false },
+          { label: { en: 'True (Use HOG)', ko: 'True (HOG 사용)', zh: 'True (使用 HOG)', ja: 'True (HOGを使用)', de: 'True (HOG verwenden)', es: 'True (Usar HOG)', fr: 'True (Utiliser HOG)' }, value: true },
+          { label: { en: 'False (No HOG)', ko: 'False (HOG 미사용)', zh: 'False (不使用 HOG)', ja: 'False (HOGを使用しない)', de: 'False (Kein HOG)', es: 'False (No usar HOG)', fr: 'False (Pas de HOG)' }, value: false },
         ],
-        description: 'HOG 특징 사용 여부',
+        description: {
+          en: 'Whether to use HOG features',
+          ko: 'HOG 특징 사용 여부',
+          zh: '是否使用 HOG 特征',
+          ja: 'HOG 特徴を使用するかどうか',
+          de: 'Ob HOG-Merkmale verwendet werden sollen',
+          es: 'Si usar características HOG',
+          fr: 'Si utiliser des caractéristiques HOG'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerCSRT_create(); tracker.init(frame, bbox)',
@@ -8100,9 +8692,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerMedianFlow',
-    name: 'Tracker Median Flow',
+    name: {
+      en: 'Tracker Median Flow',
+      ko: 'Median Flow 추적기',
+      zh: 'Median Flow 跟踪器',
+      ja: 'Median Flow トラッカー',
+      de: 'Median-Flow-Tracker',
+      es: 'Tracker Median Flow',
+      fr: 'Tracker Median Flow'
+    },
     category: 'tracking',
-    description: 'Median Flow 추적기입니다. 예측 가능한 움직임에 효과적이며, 추적 실패를 감지할 수 있습니다.',
+    description: {
+      en: 'Median Flow tracker. Effective for predictable motion and fail detection.',
+      ko: 'Median Flow 기법을 사용한 추적기입니다. 움직임이 급격하지 않을 때 효과적이며, 추적 실패를 잘 감지해냅니다.',
+      zh: 'Median Flow 跟踪器。对比可预测运动和失败检测非常有效。',
+      ja: 'Median Flow トラッカーです。予測可能な動きや、失敗の検出に効果的です。',
+      de: 'Median-Flow-Tracker. Effektiv für vorhersehbare Bewegungen und zur Fehlererkennung.',
+      es: 'Tracker Median Flow. Efectivo para el movimiento predecible y la detección de fallos.',
+      fr: 'Tracker Median Flow. Efficace pour les mouvements prévisibles et la détection d\'échecs.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8111,7 +8719,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8120,7 +8736,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8129,7 +8753,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8138,7 +8770,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
       {
         name: 'pointsInGrid',
@@ -8147,7 +8787,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 20,
         step: 1,
-        description: '격자당 점의 개수',
+        description: {
+          en: 'Number of points in grid',
+          ko: '격차당 점의 개수',
+          zh: '网格中的点数',
+          ja: 'グリッド内の点の数',
+          de: 'Anzahl der Punkte im Raster',
+          es: 'Número de puntos en la cuadrícula',
+          fr: 'Nombre de points dans la grille'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerMedianFlow_create(); tracker.init(frame, bbox)',
@@ -8155,9 +8803,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerMOSSE',
-    name: 'Tracker MOSSE (Minimum Output Sum of Squared Error)',
+    name: {
+      en: 'Tracker MOSSE',
+      ko: 'MOSSE 추적기 (Minimum Output Sum of Squared Error)',
+      zh: 'MOSSE 跟踪器',
+      ja: 'MOSSE トラッカー',
+      de: 'MOSSE-Tracker',
+      es: 'Tracker MOSSE',
+      fr: 'Tracker MOSSE'
+    },
     category: 'tracking',
-    description: 'MOSSE 추적기입니다. 매우 빠른 속도를 제공하지만 정확도는 다른 추적기보다 낮습니다.',
+    description: {
+      en: 'MOSSE (Minimum Output Sum of Squared Error) tracker. Extremely fast but low accuracy.',
+      ko: 'MOSSE 알고리즘을 사용한 추적기입니다. 처리 속도가 매우 빠르지만 다른 최신 추적기에 비해 정확도는 다소 떨어집니다.',
+      zh: 'MOSSE (最小输出平方误差和) 跟踪器。极快，但精度较低。',
+      ja: 'MOSSE トラッカーです。非常に高速ですが、精度は低くなります。',
+      de: 'MOSSE-Tracker (Minimum Output Sum of Squared Error). Extrem schnell, aber geringe Genauigkeit.',
+      es: 'Tracker MOSSE (Minimum Output Sum of Squared Error). Extremadamente rápido pero de baja precisión.',
+      fr: 'Tracker MOSSE (Minimum Output Sum of Squared Error). Extrêmement rapide mais de faible précision.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8166,7 +8830,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8175,7 +8847,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8184,7 +8864,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8193,7 +8881,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerMOSSE_create(); tracker.init(frame, bbox)',
@@ -8201,9 +8897,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerBoosting',
-    name: 'Tracker Boosting',
+    name: {
+      en: 'Tracker Boosting',
+      ko: 'Boosting 추적기',
+      zh: 'Boosting 跟踪器',
+      ja: 'Boosting トラッカー',
+      de: 'Boosting-Tracker',
+      es: 'Tracker Boosting',
+      fr: 'Tracker Boosting'
+    },
     category: 'tracking',
-    description: 'Boosting 기반 추적기입니다. 가장 오래된 추적 알고리즘 중 하나로, 실시간 성능이 낮습니다.',
+    description: {
+      en: 'Boosting tracker. Older algorithm based on online adaboost.',
+      ko: '온라인 아다부스트(AdaBoost)를 기반으로 한 초기 단계의 추적 알고리즘입니다. 현재는 다른 추적기에 비해 성능이 낮은 편입니다.',
+      zh: 'Boosting 跟踪器。基于在线 adaboost 的较旧算法。',
+      ja: 'Boosting トラッカーです。オンライン adaboost に基づく古いアルゴリズムです。',
+      de: 'Boosting-Tracker. Älterer Algorithmus basierend auf Online-Adaboost.',
+      es: 'Tracker Boosting. Algoritmo más antiguo basado en adaboost en línea.',
+      fr: 'Tracker Boosting. Algorithme plus ancien basé sur adaboost en ligne.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8212,7 +8924,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8221,7 +8941,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8230,7 +8958,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8239,7 +8975,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
       {
         name: 'numClassifiers',
@@ -8248,7 +8992,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 250,
         step: 10,
-        description: '분류기 개수',
+        description: {
+          en: 'Number of weak classifiers',
+          ko: '약한 분류기 개수',
+          zh: '弱分类器数量',
+          ja: '弱分類器の数',
+          de: 'Anzahl schwacher Klassifikatoren',
+          es: 'Número de clasificadores débiles',
+          fr: 'Nombre de classificateurs faibles'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerBoosting_create(); tracker.init(frame, bbox)',
@@ -8256,9 +9008,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerGOTURN',
-    name: 'Tracker GOTURN (Generic Object Tracking Using Regression Networks)',
+    name: {
+      en: 'Tracker GOTURN',
+      ko: 'GOTURN 추적기 (Generic Object Tracking Using Regression Networks)',
+      zh: 'GOTURN 跟踪器',
+      ja: 'GOTURN トラッカー',
+      de: 'GOTURN-Tracker',
+      es: 'Tracker GOTURN',
+      fr: 'Tracker GOTURN'
+    },
     category: 'tracking',
-    description: 'GOTURN 추적기입니다. 딥러닝 기반으로 학습 데이터를 통해 일반화된 추적을 수행합니다.',
+    description: {
+      en: 'Generic Object Tracking Using Regression Networks. Deep learning based tracker.',
+      ko: '딥러닝(회귀 네트워크)을 사용하여 사전에 학습된 데이터를 바탕으로 일반적인 객체를 추적합니다.',
+      zh: '使用回归网络的通用对象跟踪。基于深度学习的跟踪器。',
+      ja: '回帰ネットワークを使用した一般的なオブジェクトの追跡です。ディープラーニングベースのトラッカーです。',
+      de: 'Generic Object Tracking Using Regression Networks. Deep-Learning-basierter Tracker.',
+      es: 'Tracker GOTURN (Generic Object Tracking Using Regression Networks). Rastreador basado en aprendizaje profundo.',
+      fr: 'Tracker GOTURN (Generic Object Tracking Using Regression Networks). Suivi basé sur l\'apprentissage profond.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8267,7 +9035,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8276,7 +9052,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8285,7 +9069,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8294,7 +9086,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerGOTURN_create(); tracker.init(frame, bbox)',
@@ -8302,9 +9102,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'trackerTLD',
-    name: 'Tracker TLD (Tracking, Learning and Detection)',
+    name: {
+      en: 'Tracker TLD',
+      ko: 'TLD 추적기 (Tracking, Learning and Detection)',
+      zh: 'TLD 跟踪器',
+      ja: 'TLD トラッカー',
+      de: 'TLD-Tracker',
+      es: 'Tracker TLD',
+      fr: 'Tracker TLD'
+    },
     category: 'tracking',
-    description: 'TLD 추적기입니다. 추적, 학습, 검출을 결합하여 장기 추적에 효과적입니다.',
+    description: {
+      en: 'Tracking, Learning and Detection tracker. Good for long-term tracking.',
+      ko: '추적(Tracking), 학습(Learning), 검출(Detection) 세 가지 과정을 결합하여 장기간 객체 추적에 효과적인 성능을 발휘합니다.',
+      zh: '跟踪、学习和检测跟踪器。适合长期跟踪。',
+      ja: '追跡、学習、検出を組み合わせたトラッカーです。長期的な追跡に適しています。',
+      de: 'TLD-Tracker (Tracking, Learning and Detection). Gut für Langzeit-Tracking.',
+      es: 'Tracker TLD (Tracking, Learning and Detection). Bueno para el seguimiento a largo plazo.',
+      fr: 'Tracker TLD (Tracking, Learning and Detection). Bon pour le suivi à long terme.'
+    },
     parameters: [
       {
         name: 'x',
@@ -8313,7 +9129,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 640,
         step: 1,
-        description: '추적 영역 시작 X 좌표',
+        description: {
+          en: 'Initial X coordinate',
+          ko: '추적 영역 시작 X 좌표',
+          zh: '初始 X 坐标',
+          ja: '初期 X 座標',
+          de: 'Anfängliche X-Koordinate',
+          es: 'Coordenada X inicial',
+          fr: 'Coordonnée X initiale'
+        },
       },
       {
         name: 'y',
@@ -8322,7 +9146,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 480,
         step: 1,
-        description: '추적 영역 시작 Y 좌표',
+        description: {
+          en: 'Initial Y coordinate',
+          ko: '추적 영역 시작 Y 좌표',
+          zh: '初始 Y 坐标',
+          ja: '初期 Y 座標',
+          de: 'Anfängliche Y-Koordinate',
+          es: 'Coordenada Y inicial',
+          fr: 'Coordonnée Y initiale'
+        },
       },
       {
         name: 'width',
@@ -8331,7 +9163,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 너비',
+        description: {
+          en: 'Width of tracking box',
+          ko: '추적 영역 너비',
+          zh: '跟踪框宽度',
+          ja: '追跡ボックスの幅',
+          de: 'Breite der Tracking-Box',
+          es: 'Ancho del cuadro de seguimiento',
+          fr: 'Largeur de la boîte de suivi'
+        },
       },
       {
         name: 'height',
@@ -8340,7 +9180,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 400,
         step: 1,
-        description: '추적 영역 높이',
+        description: {
+          en: 'Height of tracking box',
+          ko: '추적 영역 높이',
+          zh: '跟踪框高度',
+          ja: '追跡ボックスの高さ',
+          de: 'Höhe der Tracking-Box',
+          es: 'Altura del cuadro de seguimiento',
+          fr: 'Hauteur de la boîte de suivi'
+        },
       },
     ],
     syntax: 'tracker = cv2.TrackerTLD_create(); tracker.init(frame, bbox)',
@@ -8348,9 +9196,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'createBackgroundSubtractorMOG2',
-    name: 'Background Subtractor MOG2',
+    name: {
+      en: 'Background Subtractor MOG2',
+      ko: '배경 차분 MOG2',
+      zh: '背景减除 MOG2',
+      ja: '背景差分 MOG2',
+      de: 'Hintergrund-Subtraktion MOG2',
+      es: 'Sustractor de fondo MOG2',
+      fr: 'Soustraction de fond MOG2'
+    },
     category: 'tracking',
-    description: 'MOG2 배경 차분 알고리즘입니다. 가우시안 혼합 모델을 사용하여 배경을 학습하고 전경 객체를 검출합니다.',
+    description: {
+      en: 'Gaussian Mixture-based Background/Foreground Segmentation algorithm.',
+      ko: '가우시안 혼합 모델(MOG2)을 사용하여 배경을 학습하고 움직이는 전경 객체를 검출합니다.',
+      zh: '基于高斯混合模型的背景/前景分割算法。',
+      ja: '混合ガウス分布に基づく背景・前景セグメンテーションアルゴリズムです。',
+      de: 'Gaußscher Mischmodell-basierter Hintergrund/Vordergrund-Segmentierungsalgorithmus.',
+      es: 'Algoritmo de segmentación de fondo/primer plano basado en mezcla gaussiana.',
+      fr: 'Algorithme de segmentation arrière-plan/avant-plan basé sur un mélange gaussien.'
+    },
     parameters: [
       {
         name: 'history',
@@ -8359,7 +9223,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 1000,
         step: 50,
-        description: '히스토리 길이 (프레임 수)',
+        description: {
+          en: 'Number of history frames',
+          ko: '히스토리 길이 (프레임 수)',
+          zh: '历史帧数',
+          ja: '履歴フレームの数',
+          de: 'Anzahl der Historien-Frames',
+          es: 'Número de fotogramas de historial',
+          fr: 'Nombre d\'images d\'historique'
+        },
       },
       {
         name: 'varThreshold',
@@ -8368,17 +9240,33 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 4,
         max: 100,
         step: 4,
-        description: '분산 임계값',
+        description: {
+          en: 'Threshold on the squared Mahalanobis distance',
+          ko: '분산 임계값',
+          zh: '马氏距离平方的阈值',
+          ja: 'マハラノビス距離の二乗のしきい値',
+          de: 'Schwellenwert für die quadrierte Mahalanobis-Distanz',
+          es: 'Umbral en la distancia de Mahalanobis al cuadrado',
+          fr: 'Seuil sur la distance de Mahalanobis au carré'
+        },
       },
       {
         name: 'detectShadows',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: 'True (그림자 검출)', value: true },
-          { label: 'False (그림자 미검출)', value: false },
+          { label: { en: 'True (Detect)', ko: 'True (그림자 검출)', zh: 'True (检测)', ja: 'True (検出する)', de: 'True (Erkennen)', es: 'True (Detectar)', fr: 'True (Détecter)' }, value: true },
+          { label: { en: 'False (Ignore)', ko: 'False (그림자 미검출)', zh: 'False (忽略)', ja: 'False (検出しない)', de: 'False (Ignorieren)', es: 'False (Ignorar)', fr: 'False (Ignorer)' }, value: false },
         ],
-        description: '그림자 검출 여부',
+        description: {
+          en: 'Whether to detect and mark shadows',
+          ko: '그림자 검출 여부',
+          zh: '是否检测并标记阴影',
+          ja: '影を検出してマークするかどうか',
+          de: 'Ob Schatten erkannt und markiert werden sollen',
+          es: 'Si detectar y marcar sombras',
+          fr: 'Si détecter et marquer les ombres'
+        },
       },
     ],
     syntax: 'backSub = cv2.createBackgroundSubtractorMOG2(history, varThreshold, detectShadows)',
@@ -8386,9 +9274,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'createBackgroundSubtractorKNN',
-    name: 'Background Subtractor KNN',
+    name: {
+      en: 'Background Subtractor KNN',
+      ko: '배경 차분 KNN',
+      zh: '背景减除 KNN',
+      ja: '背景差分 KNN',
+      de: 'Hintergrund-Subtraktion KNN',
+      es: 'Sustractor de fondo KNN',
+      fr: 'Soustraction de fond KNN'
+    },
     category: 'tracking',
-    description: 'KNN 배경 차분 알고리즘입니다. K-Nearest Neighbors를 사용하여 배경을 학습합니다.',
+    description: {
+      en: 'K-Nearest Neighbors based Background/Foreground Segmentation algorithm.',
+      ko: 'K-최근접 이웃(KNN) 알고리즘을 기반으로 배경을 학습하여 배경을 제거하고 객체를 검출합니다.',
+      zh: '基于 K 近邻的背景/前景分割算法。',
+      ja: 'K近傍法に基づく背景・前景セグメンテーションアルゴリズムです。',
+      de: 'K-Nearest-Neighbors-basierter Hintergrund/Vordergrund-Segmentierungsalgorithmus.',
+      es: 'Algoritmo de segmentación de fondo/primer plano basado en K-vecinos más cercanos.',
+      fr: 'Algorithme de segmentation arrière-plan/avant-plan basé sur les K plus proches voisins.'
+    },
     parameters: [
       {
         name: 'history',
@@ -8397,7 +9301,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 1000,
         step: 50,
-        description: '히스토리 길이 (프레임 수)',
+        description: {
+          en: 'Number of history frames',
+          ko: '히스토리 길이 (프레임 수)',
+          zh: '历史帧数',
+          ja: '履歴フレームの数',
+          de: 'Anzahl der Historien-Frames',
+          es: 'Número de fotogramas de historial',
+          fr: 'Nombre d\'images d\'historique'
+        },
       },
       {
         name: 'dist2Threshold',
@@ -8406,17 +9318,33 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 1000,
         step: 50,
-        description: '거리 제곱 임계값',
+        description: {
+          en: 'Threshold on the squared distance to decide background',
+          ko: '거리 제곱 임계값',
+          zh: '判定背景的距离平方阈值',
+          ja: '背景を決定するための距離の二乗のしきい値',
+          de: 'Schwellenwert für die quadrierte Distanz zur Hintergrundentscheidung',
+          es: 'Umbral en la distancia al cuadrado para decidir el fondo',
+          fr: 'Seuil sur la distance au carré pour décider de l\'arrière-plan'
+        },
       },
       {
         name: 'detectShadows',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: 'True (그림자 검출)', value: true },
-          { label: 'False (그림자 미검출)', value: false },
+          { label: { en: 'True (Detect)', ko: 'True (그림자 검출)', zh: 'True (检测)', ja: 'True (検出する)', de: 'True (Erkennen)', es: 'True (Detectar)', fr: 'True (Détecter)' }, value: true },
+          { label: { en: 'False (Ignore)', ko: 'False (그림자 미검출)', zh: 'False (忽略)', ja: 'False (検出하지 않음)', de: 'False (Ignorieren)', es: 'False (Ignorar)', fr: 'False (Ignorer)' }, value: false },
         ],
-        description: '그림자 검출 여부',
+        description: {
+          en: 'Whether to detect and mark shadows',
+          ko: '그림자 검출 여부',
+          zh: '是否检测并标记阴影',
+          ja: '影を検出してマークするかどうか',
+          de: 'Ob Schatten erkannt und markiert werden sollen',
+          es: 'Si detectar y marcar sombras',
+          fr: 'Si détecter et marquer les ombres'
+        },
       },
     ],
     syntax: 'backSub = cv2.createBackgroundSubtractorKNN(history, dist2Threshold, detectShadows)',
@@ -8424,21 +9352,45 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'multiTracker',
-    name: 'Multi Tracker (다중 객체 추적)',
+    name: {
+      en: 'Multi Tracker',
+      ko: '다중 객체 추적 (Multi Tracker)',
+      zh: '多对象跟踪',
+      ja: 'マルチトラッカー',
+      de: 'Multi-Tracker',
+      es: 'Multi Tracker',
+      fr: 'Multi Tracker'
+    },
     category: 'tracking',
-    description: '여러 객체를 동시에 추적합니다. 각 객체에 대해 독립적인 추적기를 생성합니다.',
+    description: {
+      en: 'Tracks multiple objects simultaneously. Creates independent trackers for each object.',
+      ko: '여러 객체를 동시에 추적합니다. 각 객체에 대해 독립적인 추적기 인스턴스를 생성하여 관리합니다.',
+      zh: '同时跟踪多个对象。为每个对象创建独立的跟踪器。',
+      ja: '複数のオブジェクトを同時に追跡します。各オブジェクトに対して独立したトラッカーを作成します Correntement.',
+      de: 'Verfolgt mehrere Objekte gleichzeitig. Erstellt für jedes Objekt unabhängige Tracker.',
+      es: 'Rastrea múltiples objetos simultáneamente. Crea rastreadores independientes para cada objeto.',
+      fr: 'Suit plusieurs objets simultanément. Crée des trackers indépendants pour chaque objet.'
+    },
     parameters: [
       {
         name: 'trackerType',
         type: 'select',
         defaultValue: 'KCF',
         options: [
-          { label: 'KCF (빠르고 정확)', value: 'KCF' },
-          { label: 'CSRT (높은 정확도)', value: 'CSRT' },
-          { label: 'MIL (안정적)', value: 'MIL' },
-          { label: 'MOSSE (매우 빠름)', value: 'MOSSE' },
+          { label: { en: 'KCF (Fast/Accurate)', ko: 'KCF (빠르고 정확)', zh: 'KCF (快速/准确)', ja: 'KCF (高速/正確)', de: 'KCF (Schnell/Genau)', es: 'KCF (Rápido/Preciso)', fr: 'KCF (Rapide/Précis)' }, value: 'KCF' },
+          { label: { en: 'CSRT (High Accuracy)', ko: 'CSRT (높은 정확도)', zh: 'CSRT (高精度)', ja: 'CSRT (高精度)', de: 'CSRT (Hohe Genauigkeit)', es: 'CSRT (Alta precisión)', fr: 'CSRT (Haute précision)' }, value: 'CSRT' },
+          { label: { en: 'MIL (Stable)', ko: 'MIL (안정적)', zh: 'MIL (稳定)', ja: 'MIL (安定的)', de: 'MIL (Stabil)', es: 'MIL (Estable)', fr: 'MIL (Stable)' }, value: 'MIL' },
+          { label: { en: 'MOSSE (Extremely Fast)', ko: 'MOSSE (매우 빠름)', zh: 'MOSSE (极快)', ja: 'MOSSE (極めて高速)', de: 'MOSSE (Extrem schnell)', es: 'MOSSE (Extremadamente rápido)', fr: 'MOSSE (Extrêmement rapide)' }, value: 'MOSSE' },
         ],
-        description: '추적기 유형',
+        description: {
+          en: 'Tracking algorithm type',
+          ko: '사용할 추적 알고리즘 유형',
+          zh: '跟踪算法类型',
+          ja: '追跡アルゴリズムの種類',
+          de: 'Tracking-Algorithmentyp',
+          es: 'Tipo de algoritmo de seguimiento',
+          fr: 'Type d\'algorithme de suivi'
+        },
       },
       {
         name: 'objectCount',
@@ -8447,7 +9399,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '추적할 객체 수',
+        description: {
+          en: 'Number of objects to track',
+          ko: '추적할 객체 수',
+          zh: '要跟踪的对象数',
+          ja: '追跡するオブジェクトの数',
+          de: 'Anzahl der zu verfolgenden Objekte',
+          es: 'Número de objetos a rastrear',
+          fr: 'Nombre d\'objets à suivre'
+        },
       },
     ],
     syntax: 'multiTracker = cv2.legacy.MultiTracker_create()',
@@ -8457,56 +9417,112 @@ export const opencvFunctions: OpenCVFunction[] = [
   // High-level GUI
   {
     id: 'namedWindow',
-    name: 'Named Window (윈도우 생성)',
+    name: {
+      en: 'Named Window',
+      ko: '윈도우 생성 (Named Window)',
+      zh: '创建窗口',
+      ja: 'ウィンドウの作成',
+      de: 'Fenster erstellen',
+      es: 'Crear ventana',
+      fr: 'Créer une fenêtre'
+    },
     category: 'highgui',
-    description: '지정된 이름으로 윈도우를 생성합니다. 이미지를 표시하기 전에 윈도우를 생성할 수 있습니다.',
+    description: {
+      en: 'Creates a window with the specified name. It can be used as a placeholder for images and trackbars.',
+      ko: '지정된 이름으로 윈도우를 생성합니다. 이미지를 표시하기 전에 윈도우를 생성할 수 있습니다.',
+      zh: '创建一个具有指定名称的窗口。可以用作图像和轨迹条的占位符。',
+      ja: '指定した名前のウィンドウを作成します。画像やトラックバーのプレースホルダーとして使用できます。',
+      de: 'Erstellt ein Fenster mit dem angegebenen Namen. Kann als Platzhalter für Bilder und Trackbars verwendet werden.',
+      es: 'Crea una ventana con el nombre especificado. Puede usarse como marcador de posición para imágenes y barras de seguimiento.',
+      fr: 'Crée une fenêtre avec le nom spécifié. Peut être utilisé comme espace réservé pour les images et les barres de suivi.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
-          { label: 'Custom Window', value: 'Custom Window' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '결과', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
+          { label: { en: 'Custom Window', ko: '사용자 지정 윈도우', zh: '自定义窗口', ja: 'カスタムウィンドウ', de: 'Benutzerdefiniertes Fenster', es: 'Ventana personalizada', fr: 'Fenêtre personnalisée' }, value: 'Custom Window' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'flags',
         type: 'select',
         defaultValue: 'WINDOW_AUTOSIZE',
         options: [
-          { label: 'WINDOW_AUTOSIZE (자동 크기)', value: 'WINDOW_AUTOSIZE' },
-          { label: 'WINDOW_NORMAL (크기 조절 가능)', value: 'WINDOW_NORMAL' },
-          { label: 'WINDOW_FULLSCREEN (전체 화면)', value: 'WINDOW_FULLSCREEN' },
-          { label: 'WINDOW_FREERATIO (자유 비율)', value: 'WINDOW_FREERATIO' },
-          { label: 'WINDOW_KEEPRATIO (비율 유지)', value: 'WINDOW_KEEPRATIO' },
+          { label: { en: 'WINDOW_AUTOSIZE', ko: 'WINDOW_AUTOSIZE (자동 크기)', zh: 'WINDOW_AUTOSIZE (自动大小)', ja: 'WINDOW_AUTOSIZE (自動サイズ)', de: 'WINDOW_AUTOSIZE', es: 'WINDOW_AUTOSIZE', fr: 'WINDOW_AUTOSIZE' }, value: 'WINDOW_AUTOSIZE' },
+          { label: { en: 'WINDOW_NORMAL', ko: 'WINDOW_NORMAL (크기 조절 가능)', zh: 'WINDOW_NORMAL (可调整大小)', ja: 'WINDOW_NORMAL (サイズ変更可能)', de: 'WINDOW_NORMAL', es: 'WINDOW_NORMAL', fr: 'WINDOW_NORMAL' }, value: 'WINDOW_NORMAL' },
+          { label: { en: 'WINDOW_FULLSCREEN', ko: 'WINDOW_FULLSCREEN (전체 화면)', zh: 'WINDOW_FULLSCREEN (全屏)', ja: 'WINDOW_FULLSCREEN (全画面)', de: 'WINDOW_FULLSCREEN', es: 'WINDOW_FULLSCREEN', fr: 'WINDOW_FULLSCREEN' }, value: 'WINDOW_FULLSCREEN' },
+          { label: { en: 'WINDOW_FREERATIO', ko: 'WINDOW_FREERATIO (자유 비율)', zh: 'WINDOW_FREERATIO (自由比例)', ja: 'WINDOW_FREERATIO (フリーレシオ)', de: 'WINDOW_FREERATIO', es: 'WINDOW_FREERATIO', fr: 'WINDOW_FREERATIO' }, value: 'WINDOW_KEEPRATIO' },
+          { label: { en: 'WINDOW_KEEPRATIO', ko: 'WINDOW_KEEPRATIO (비율 유지)', zh: 'WINDOW_KEEPRATIO (保持比例)', ja: 'WINDOW_KEEPRATIO (比率維持)', de: 'WINDOW_KEEPRATIO', es: 'WINDOW_KEEPRATIO', fr: 'WINDOW_KEEPRATIO' }, value: 'WINDOW_KEEPRATIO' },
         ],
-        description: '윈도우 플래그',
+        description: {
+          en: 'Window flags',
+          ko: '윈도우 플래그',
+          zh: '窗口标志',
+          ja: 'ウィンドウフラグ',
+          de: 'Fenster-Flags',
+          es: 'Banderas de ventana',
+          fr: 'Drapeaux de fenêtre'
+        },
       },
     ],
-    syntax: 'namedWindow(winname, flags=WINDOW_AUTOSIZE)',
+    syntax: 'cv2.namedWindow(winname, flags=WINDOW_AUTOSIZE)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga5afdf8410934fd099df85c75b2e0888b',
   },
   {
     id: 'destroyWindow',
-    name: 'Destroy Window (윈도우 삭제)',
+    name: {
+      en: 'Destroy Window',
+      ko: '윈도우 삭제 (Destroy Window)',
+      zh: '销毁窗口',
+      ja: 'ウィンドウの破棄',
+      de: 'Fenster zerstören',
+      es: 'Destruir ventana',
+      fr: 'Détruire la fenêtre'
+    },
     category: 'highgui',
-    description: '지정된 이름의 윈도우를 삭제합니다.',
+    description: {
+      en: 'Destroys the window with the specified name.',
+      ko: '지정된 이름의 윈도우를 삭제합니다.',
+      zh: '销毁具有指定名称的窗口。',
+      ja: '指定した名前のウィンドウを破棄します。',
+      de: 'Zerstört das Fenster mit dem angegebenen Namen.',
+      es: 'Destruye la ventana con el nombre especificado.',
+      fr: 'Détruit la fenêtre avec le nom spécifié.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
-          { label: 'All Windows', value: 'All Windows' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
+          { label: { en: 'All Windows', ko: '모든 윈도우', zh: '所有窗口', ja: 'すべてのウィンドウ', de: 'Alle Fenster', es: 'Todas las ventanas', fr: 'Toutes les fenêtres' }, value: 'All Windows' },
         ],
-        description: '삭제할 윈도우 이름',
+        description: {
+          en: 'Name of the window to destroy',
+          ko: '삭제할 윈도우 이름',
+          zh: '要销毁的窗口名称',
+          ja: '破棄するウィンドウの名前',
+          de: 'Name des zu zerstörenden Fensters',
+          es: 'Nombre de la ventana a destruir',
+          fr: 'Nom de la fenêtre à détruire'
+        },
       },
     ],
     syntax: 'destroyWindow(winname)',
@@ -8514,29 +9530,69 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'destroyAllWindows',
-    name: 'Destroy All Windows (모든 윈도우 삭제)',
+    name: {
+      en: 'Destroy All Windows',
+      ko: '모든 윈도우 삭제 (Destroy All Windows)',
+      zh: '销毁所有窗口',
+      ja: 'すべてのウィンドウの破棄',
+      de: 'Alle Fenster zerstören',
+      es: 'Destruir todas las ventanas',
+      fr: 'Détruire toutes les fenêtres'
+    },
     category: 'highgui',
-    description: '생성된 모든 HighGUI 윈도우를 삭제합니다.',
+    description: {
+      en: 'Destroys all of the HighGUI windows.',
+      ko: '현재 생성되어 있는 모든 HighGUI 윈도우를 한 번에 닫고 삭제합니다.',
+      zh: '销毁所有 HighGUI 窗口。',
+      ja: 'すべての HighGUI ウィンドウを破棄します。',
+      de: 'Zerstört alle HighGUI-Fenster.',
+      es: 'Destruye todas las ventanas HighGUI.',
+      fr: 'Détruit toutes les fenêtres HighGUI.'
+    },
     parameters: [],
-    syntax: 'destroyAllWindows()',
-    documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga6b7fc1c1a8960438156912027b38f481',
+    syntax: 'cv2.destroyAllWindows()',
+    documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga6b7fc1c1a8960453e16905f3dc82974a',
   },
   {
     id: 'resizeWindow',
-    name: 'Resize Window (윈도우 크기 조절)',
+    name: {
+      en: 'Resize Window',
+      ko: '윈도우 크기 조절 (Resize Window)',
+      zh: '调整窗口大小',
+      ja: 'ウィンドウサイズの変更',
+      de: 'Fenstergröße ändern',
+      es: 'Cambiar tamaño de ventana',
+      fr: 'Redimensionner la fenêtre'
+    },
     category: 'highgui',
-    description: '윈도우의 크기를 조절합니다. WINDOW_NORMAL 플래그로 생성된 윈도우에서만 작동합니다.',
+    description: {
+      en: 'Resizes the window to the specified size. Works only for windows created with WINDOW_NORMAL flag.',
+      ko: '윈도우의 크기를 조절합니다. WINDOW_NORMAL 플래그로 생성된 윈도우에서만 작동합니다.',
+      zh: '调整窗口大小。仅适用于使用 WINDOW_NORMAL 标志创建的窗口。',
+      ja: 'ウィンドウのサイズを変更します。WINDOW_NORMAL フラグで作成されたウィンドウでのみ機能します。',
+      de: 'Ändert die Fenstergröße. Funktioniert nur bei Fenstern, die mit dem Flag WINDOW_NORMAL erstellt wurden.',
+      es: 'Cambia el tamaño de la ventana. Solo funciona para ventanas creadas con la bandera WINDOW_NORMAL.',
+      fr: 'Redimensionne la fenêtre. Fonctionne uniquement pour les fenêtres créées avec le drapeau WINDOW_NORMAL.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'width',
@@ -8545,7 +9601,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 1920,
         step: 10,
-        description: '윈도우 너비 (픽셀)',
+        description: {
+          en: 'Window width (pixels)',
+          ko: '윈도우 너비 (픽셀)',
+          zh: '窗口宽度 (像素)',
+          ja: 'ウィンドウの幅 (ピクセル)',
+          de: 'Fensterbreite (Pixel)',
+          es: 'Ancho de la ventana (píxeles)',
+          fr: 'Largeur de la fenêtre (pixels)'
+        },
       },
       {
         name: 'height',
@@ -8554,28 +9618,60 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 1080,
         step: 10,
-        description: '윈도우 높이 (픽셀)',
+        description: {
+          en: 'Window height (pixels)',
+          ko: '윈도우 높이 (픽셀)',
+          zh: '窗口高度 (像素)',
+          ja: 'ウィンドウの高さ (ピクセル)',
+          de: 'Fensterhöhe (Pixel)',
+          es: 'Altura de la ventana (píxeles)',
+          fr: 'Hauteur de la fenêtre (pixels)'
+        },
       },
     ],
-    syntax: 'resizeWindow(winname, width, height)',
+    syntax: 'cv2.resizeWindow(winname, width, height)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga9e80e080f7ef33f897e415358aee7f08',
   },
   {
     id: 'moveWindow',
-    name: 'Move Window (윈도우 이동)',
+    name: {
+      en: 'Move Window',
+      ko: '윈도우 이동 (Move Window)',
+      zh: '移动窗口',
+      ja: 'ウィンドウの移動',
+      de: 'Fenster verschieben',
+      es: 'Mover ventana',
+      fr: 'Déplacer la fenêtre'
+    },
     category: 'highgui',
-    description: '윈도우를 화면의 지정된 위치로 이동합니다.',
+    description: {
+      en: 'Moves the window to the specified position.',
+      ko: '윈도우를 화면의 지정된 좌표(x, y)로 이동합니다.',
+      zh: '将窗口移动到指定位置。',
+      ja: 'ウィンドウを指定された位置に移動します。',
+      de: 'Verschiebt das Fenster an die angegebene Position.',
+      es: 'Mueve la ventana a la posición especificada.',
+      fr: 'Déplace la fenêtre à la position spécifiée.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'x',
@@ -8584,7 +9680,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1920,
         step: 10,
-        description: 'X 좌표 (픽셀)',
+        description: {
+          en: 'X coordinate (pixels)',
+          ko: 'X 좌표 (픽셀)',
+          zh: 'X 坐标 (像素)',
+          ja: 'X 座標 (ピクセル)',
+          de: 'X-Koordinate (Pixel)',
+          es: 'Coordenada X (píxeles)',
+          fr: 'Coordonnée X (pixels)'
+        },
       },
       {
         name: 'y',
@@ -8593,107 +9697,211 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1080,
         step: 10,
-        description: 'Y 좌표 (픽셀)',
+        description: {
+          en: 'Y coordinate (pixels)',
+          ko: 'Y 좌표 (픽셀)',
+          zh: 'Y 坐标 (像素)',
+          ja: 'Y 座標 (ピクセル)',
+          de: 'Y-Koordinate (Pixel)',
+          es: 'Coordenada Y (píxeles)',
+          fr: 'Coordonnée Y (pixels)'
+        },
       },
     ],
-    syntax: 'moveWindow(winname, x, y)',
+    syntax: 'cv2.moveWindow(winname, x, y)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga8b9c9f4e5b37c362ecb6bf8f7a0f3cfc',
   },
   {
     id: 'setWindowTitle',
-    name: 'Set Window Title (윈도우 제목 설정)',
+    name: {
+      en: 'Set Window Title',
+      ko: '윈도우 제목 설정 (Set Window Title)',
+      zh: '设置窗口标题',
+      ja: 'ウィンドウタイトルの設定',
+      de: 'Fenstertitel festlegen',
+      es: 'Establecer título de ventana',
+      fr: 'Définir le titre de la fenêtre'
+    },
     category: 'highgui',
-    description: '윈도우의 제목을 설정합니다.',
+    description: {
+      en: 'Updates the window title.',
+      ko: '실행 중인 윈도우의 제목 표시줄 텍스트를 변경합니다.',
+      zh: '更新窗口标题。',
+      ja: 'ウィンドウのタイトルを更新します。',
+      de: 'Aktualisiert den Fenstertitel.',
+      es: 'Actualiza el título de la ventana.',
+      fr: 'Met à jour le titre de la fenêtre.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'title',
         type: 'select',
         defaultValue: 'OpenCV Image',
         options: [
-          { label: 'OpenCV Image', value: 'OpenCV Image' },
-          { label: 'Processed Result', value: 'Processed Result' },
-          { label: 'Original Image', value: 'Original Image' },
-          { label: 'Custom Title', value: 'Custom Title' },
+          { label: { en: 'OpenCV Image', ko: 'OpenCV 이미지', zh: 'OpenCV 图像', ja: 'OpenCV 画像', de: 'OpenCV Bild', es: 'Imagen OpenCV', fr: 'Image OpenCV' }, value: 'OpenCV Image' },
+          { label: { en: 'Processed Result', ko: '처리 결과', zh: '处理结果', ja: '処理結果', de: 'Verarbeitungsergebnis', es: 'Resultado procesado', fr: 'Résultat traité' }, value: 'Processed Result' },
+          { label: { en: 'Original Image', ko: '원본 이미지', zh: '原始图像', ja: '元画像', de: 'Originalbild', es: 'Imagen original', fr: 'Image originale' }, value: 'Original Image' },
+          { label: { en: 'Custom Title', ko: '사용자 지정 제목', zh: '自定义标题', ja: 'カスタムタイトル', de: 'Benutzerdefinierter Titel', es: 'Título personalizado', fr: 'Titre personnalisé' }, value: 'Custom Title' },
         ],
-        description: '새로운 윈도우 제목',
+        description: {
+          en: 'New window title',
+          ko: '새로운 윈도우 제목',
+          zh: '新窗口标题',
+          ja: '新しいウィンドウのタイトル',
+          de: 'Neuer Fenstertitel',
+          es: 'Nuevo título de ventana',
+          fr: 'Nouveau titre de fenêtre'
+        },
       },
     ],
-    syntax: 'setWindowTitle(winname, title)',
+    syntax: 'cv2.setWindowTitle(winname, title)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga95d0c3d1ea38398aa8c41e95e049c1a5',
   },
   {
     id: 'getWindowProperty',
-    name: 'Get Window Property (윈도우 속성 가져오기)',
+    name: {
+      en: 'Get Window Property',
+      ko: '윈도우 속성 가져오기 (Get Window Property)',
+      zh: '获取窗口属性',
+      ja: 'ウィンドウプロパティの取得',
+      de: 'Fenstereigenschaft abrufen',
+      es: 'Obtener propiedad de ventana',
+      fr: 'Obtenir la propriété de la fenêtre'
+    },
     category: 'highgui',
-    description: '윈도우의 속성을 가져옵니다.',
+    description: {
+      en: 'Provides parameters of a window.',
+      ko: '지정된 윈도우의 특정 속성 값을 가져옵니다 (예: 전체 화면 모드 여부 등).',
+      zh: '提供窗口的参数。',
+      ja: 'ウィンドウのパラメータを提供します。',
+      de: 'Liefert Parameter eines Fensters.',
+      es: 'Proporciona parámetros de una ventana.',
+      fr: 'Fournit les paramètres d\'une fenêtre.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'propId',
         type: 'select',
         defaultValue: 'WND_PROP_FULLSCREEN',
         options: [
-          { label: 'WND_PROP_FULLSCREEN (전체 화면 여부)', value: 'WND_PROP_FULLSCREEN' },
-          { label: 'WND_PROP_AUTOSIZE (자동 크기 여부)', value: 'WND_PROP_AUTOSIZE' },
-          { label: 'WND_PROP_ASPECT_RATIO (비율)', value: 'WND_PROP_ASPECT_RATIO' },
-          { label: 'WND_PROP_OPENGL (OpenGL 지원 여부)', value: 'WND_PROP_OPENGL' },
-          { label: 'WND_PROP_VISIBLE (가시성)', value: 'WND_PROP_VISIBLE' },
+          { label: { en: 'WND_PROP_FULLSCREEN', ko: 'WND_PROP_FULLSCREEN (전체 화면 여부)', zh: 'WND_PROP_FULLSCREEN (全屏)', ja: 'WND_PROP_FULLSCREEN (全画面表示)', de: 'WND_PROP_FULLSCREEN (Vollbild)', es: 'WND_PROP_FULLSCREEN (Pantalla completa)', fr: 'WND_PROP_FULLSCREEN (Plein écran)' }, value: 'WND_PROP_FULLSCREEN' },
+          { label: { en: 'WND_PROP_AUTOSIZE', ko: 'WND_PROP_AUTOSIZE (자동 크기 여부)', zh: 'WND_PROP_AUTOSIZE (自动调整大小)', ja: 'WND_PROP_AUTOSIZE (自動サイズ調整)', de: 'WND_PROP_AUTOSIZE (Automatische Größe)', es: 'WND_PROP_AUTOSIZE (Tamaño automático)', fr: 'WND_PROP_AUTOSIZE (Taille automatique)' }, value: 'WND_PROP_AUTOSIZE' },
+          { label: { en: 'WND_PROP_ASPECT_RATIO', ko: 'WND_PROP_ASPECT_RATIO (비율)', zh: 'WND_PROP_ASPECT_RATIO (纵横比)', ja: 'WND_PROP_ASPECT_RATIO (アスペクト比)', de: 'WND_PROP_ASPECT_RATIO (Seitenverhältnis)', es: 'WND_PROP_ASPECT_RATIO (Relación de aspecto)', fr: 'WND_PROP_ASPECT_RATIO (Un rapport hauteur-largeur)' }, value: 'WND_PROP_ASPECT_RATIO' },
+          { label: { en: 'WND_PROP_OPENGL', ko: 'WND_PROP_OPENGL (OpenGL 지원 여부)', zh: 'WND_PROP_OPENGL (OpenGL)', ja: 'WND_PROP_OPENGL (OpenGL)', de: 'WND_PROP_OPENGL (OpenGL)', es: 'WND_PROP_OPENGL (OpenGL)', fr: 'WND_PROP_OPENGL (OpenGL)' }, value: 'WND_PROP_OPENGL' },
+          { label: { en: 'WND_PROP_VISIBLE', ko: 'WND_PROP_VISIBLE (가시성)', zh: 'WND_PROP_VISIBLE (可见性)', ja: 'WND_PROP_VISIBLE (可視性)', de: 'WND_PROP_VISIBLE (Sichtbarkeit)', es: 'WND_PROP_VISIBLE (Visibilidad)', fr: 'WND_PROP_VISIBLE (Visibilité)' }, value: 'WND_PROP_VISIBLE' },
         ],
-        description: '속성 ID',
+        description: {
+          en: 'Property ID',
+          ko: '속성 ID',
+          zh: '属性 ID',
+          ja: 'プロパティ ID',
+          de: 'Eigenschafts-ID',
+          es: 'ID de propiedad',
+          fr: 'ID de propriété'
+        },
       },
     ],
-    syntax: 'getWindowProperty(winname, prop_id)',
+    syntax: 'cv2.getWindowProperty(winname, prop_id)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#gaaf9504b8f9cf19024d9d44a14e461656',
   },
   {
     id: 'setWindowProperty',
-    name: 'Set Window Property (윈도우 속성 설정)',
+    name: {
+      en: 'Set Window Property',
+      ko: '윈도우 속성 설정 (Set Window Property)',
+      zh: '设置窗口属性',
+      ja: 'ウィンドウプロパティの設定',
+      de: 'Fenstereigenschaft festlegen',
+      es: 'Establecer propiedad de ventana',
+      fr: 'Définir la propriété de la fenêtre'
+    },
     category: 'highgui',
-    description: '윈도우의 속성을 설정합니다.',
+    description: {
+      en: 'Changes parameters of a window dynamically.',
+      ko: '윈도우의 속성을 동적으로 변경합니다 (예: 전체 화면 모드로 전환).',
+      zh: '动态更改窗口的参数。',
+      ja: 'ウィンドウのパラメータを動的に変更します。',
+      de: 'Ändert Parameter eines Fensters dynamisch.',
+      es: 'Cambia los parámetros de una ventana dinámicamente.',
+      fr: 'Modifie dynamiquement les paramètres d\'une fenêtre.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'propId',
         type: 'select',
         defaultValue: 'WND_PROP_FULLSCREEN',
         options: [
-          { label: 'WND_PROP_FULLSCREEN (전체 화면)', value: 'WND_PROP_FULLSCREEN' },
-          { label: 'WND_PROP_AUTOSIZE (자동 크기)', value: 'WND_PROP_AUTOSIZE' },
-          { label: 'WND_PROP_ASPECT_RATIO (비율)', value: 'WND_PROP_ASPECT_RATIO' },
-          { label: 'WND_PROP_TOPMOST (최상위)', value: 'WND_PROP_TOPMOST' },
+          { label: { en: 'WND_PROP_FULLSCREEN', ko: 'WND_PROP_FULLSCREEN (전체 화면)', zh: 'WND_PROP_FULLSCREEN (全屏)', ja: 'WND_PROP_FULLSCREEN (全画面表示)', de: 'WND_PROP_FULLSCREEN (Vollbild)', es: 'WND_PROP_FULLSCREEN (Pantalla completa)', fr: 'WND_PROP_FULLSCREEN (Plein écran)' }, value: 'WND_PROP_FULLSCREEN' },
+          { label: { en: 'WND_PROP_AUTOSIZE', ko: 'WND_PROP_AUTOSIZE (자동 크기)', zh: 'WND_PROP_AUTOSIZE (自动调整大小)', ja: 'WND_PROP_AUTOSIZE (自動サイズ調整)', de: 'WND_PROP_AUTOSIZE (Automatische Größe)', es: 'WND_PROP_AUTOSIZE (Tamaño automático)', fr: 'WND_PROP_AUTOSIZE (Taille automatique)' }, value: 'WND_PROP_AUTOSIZE' },
+          { label: { en: 'WND_PROP_ASPECT_RATIO', ko: 'WND_PROP_ASPECT_RATIO (비율)', zh: 'WND_PROP_ASPECT_RATIO (纵横比)', ja: 'WND_PROP_ASPECT_RATIO (アスペクト比)', de: 'WND_PROP_ASPECT_RATIO (Seitenverhältnis)', es: 'WND_PROP_ASPECT_RATIO (Relación de aspecto)', fr: 'WND_PROP_ASPECT_RATIO (Un rapport hauteur-largeur)' }, value: 'WND_PROP_ASPECT_RATIO' },
+          { label: { en: 'WND_PROP_TOPMOST', ko: 'WND_PROP_TOPMOST (최상위)', zh: 'WND_PROP_TOPMOST (最顶层)', ja: 'WND_PROP_TOPMOST (最前面)', de: 'WND_PROP_TOPMOST (Immer im Vordergrund)', es: 'WND_PROP_TOPMOST (Siempre visible)', fr: 'WND_PROP_TOPMOST (Toujours au premier plan)' }, value: 'WND_PROP_TOPMOST' },
         ],
-        description: '속성 ID',
+        description: {
+          en: 'Property ID',
+          ko: '속성 ID',
+          zh: '属性 ID',
+          ja: 'プロパティ ID',
+          de: 'Eigenschafts-ID',
+          es: 'ID de propiedad',
+          fr: 'ID de propriété'
+        },
       },
       {
         name: 'propValue',
@@ -8702,17 +9910,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1,
         step: 1,
-        description: '속성 값 (0 또는 1)',
+        description: {
+          en: 'Property value (0 or 1)',
+          ko: '속성 값 (0 또는 1)',
+          zh: '属性值 (0 或 1)',
+          ja: 'プロパティ値 (0 または 1)',
+          de: 'Eigenschaftswert (0 oder 1)',
+          es: 'Valor de propiedad (0 o 1)',
+          fr: 'Valeur de propriété (0 ou 1)'
+        },
       },
     ],
-    syntax: 'setWindowProperty(winname, prop_id, prop_value)',
+    syntax: 'cv2.setWindowProperty(winname, prop_id, prop_value)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga66e4a6db4d4e06148bcdfe0d70a5df27',
   },
   {
     id: 'waitKey',
-    name: 'Wait Key (키보드 입력 대기)',
+    name: {
+      en: 'Wait Key',
+      ko: '키 입력 대기 (Wait Key)',
+      zh: '等待按键',
+      ja: 'キー入力待機',
+      de: 'Wartetaste',
+      es: 'Esperar tecla',
+      fr: 'Attendre une touche'
+    },
     category: 'highgui',
-    description: '키보드 입력을 대기합니다. GUI 이벤트 처리를 위해 필수적입니다.',
+    description: {
+      en: 'Waits for a pressed key. If delay is 0, it waits indefinitely.',
+      ko: '지정된 시간 동안 키 입력이 있을 때까지 기다립니다. 대기 시간(delay)이 0이면 무한히 기다립니다.',
+      zh: '等待按下按键。如果延迟为 0，则无限期等待。',
+      ja: 'キーが押されるのを待ちます。遅延が 0 の場合、無期限に待ちます。',
+      de: 'Wartet auf eine gedrückte Taste. Wenn die Verzögerung 0 ist, wird unendlich lange gewartet.',
+      es: 'Espera a que se presione una tecla. Si el retraso es 0, espera indefinidamente.',
+      fr: 'Attend l\'appui sur une touche. Si le délai est 0, l\'attente est indéfinie.'
+    },
     parameters: [
       {
         name: 'delay',
@@ -8720,50 +9952,106 @@ export const opencvFunctions: OpenCVFunction[] = [
         defaultValue: 0,
         min: 0,
         max: 5000,
-        step: 100,
-        description: '대기 시간 (밀리초, 0=무한 대기)',
+        step: 1,
+        description: {
+          en: 'Delay in milliseconds (0 = infinite)',
+          ko: '대기 시간 (밀리초 단위, 0은 무한 대기)',
+          zh: '延迟（毫秒，0 表示无限期）',
+          ja: 'ミリ秒単位の遅延（0 = 無期限）',
+          de: 'Verzögerung in Millisekunden (0 = unendlich)',
+          es: 'Retraso en milisegundos (0 = infinito)',
+          fr: 'Délai en millisecondes (0 = infini)'
+        },
       },
     ],
-    syntax: 'waitKey(delay=0)',
+    syntax: 'cv2.waitKey(delay=0)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga5628525ad33f52eab17feebcfba38bd7',
   },
   {
     id: 'pollKey',
-    name: 'Poll Key (키보드 상태 확인)',
+    name: {
+      en: 'Poll Key',
+      ko: '키보드 상태 확인 (Poll Key)',
+      zh: '轮询按键',
+      ja: 'キーポーリング',
+      de: 'Taste abfragen',
+      es: 'Sondear tecla',
+      fr: 'Sonder la touche'
+    },
     category: 'highgui',
-    description: '현재 눌린 키를 확인합니다. 대기하지 않고 즉시 반환됩니다.',
+    description: {
+      en: 'Checks for a pressed key. Returns immediately without waiting.',
+      ko: '현재 눌린 키를 확인합니다. 대기하지 않고 즉시 반환됩니다.',
+      zh: '检查按下的按键。立即返回而不等待。',
+      ja: '押されたキーを確認します。待たずにすぐに戻ります。',
+      de: 'Prüft auf eine gedrückte Taste. Kehrt sofort zurück, ohne zu warten.',
+      es: 'Verifica si se ha presionado una tecla. Regresa inmediatamente sin esperar.',
+      fr: 'Vérifie si une touche est enfoncée. Revient immédiatement sans attendre.'
+    },
     parameters: [],
-    syntax: 'pollKey()',
+    syntax: 'cv2.pollKey()',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga8b3b7fc6228a2c7dab04e318ed1fc0fc',
   },
   {
     id: 'createTrackbar',
-    name: 'Create Trackbar (트랙바 생성)',
+    name: {
+      en: 'Create Trackbar',
+      ko: '트랙바 생성 (Create Trackbar)',
+      zh: '创建轨迹条',
+      ja: 'トラックバーの作成',
+      de: 'Trackbar erstellen',
+      es: 'Crear barra de seguimiento',
+      fr: 'Créer une barre de suivi'
+    },
     category: 'highgui',
-    description: '윈도우에 트랙바(슬라이더)를 생성합니다.',
+    description: {
+      en: 'Creates a trackbar and attaches it to the specified window.',
+      ko: '윈도우에 트랙바(슬라이더)를 생성하고 지정된 윈도우에 붙입니다.',
+      zh: '创建一个轨迹条并将其附加到指定的窗口。',
+      ja: 'トラックバーを作成し、指定されたウィンドウにアタッチします。',
+      de: 'Erstellt eine Trackbar und fügt sie dem angegebenen Fenster hinzu.',
+      es: 'Crea una barra de seguimiento y la adjunta a la ventana especificada.',
+      fr: 'Crée une barre de suivi et l\'attache à la fenêtre spécifiée.'
+    },
     parameters: [
       {
         name: 'trackbarName',
         type: 'select',
         defaultValue: 'Threshold',
         options: [
-          { label: 'Threshold', value: 'Threshold' },
-          { label: 'Brightness', value: 'Brightness' },
-          { label: 'Contrast', value: 'Contrast' },
-          { label: 'Value', value: 'Value' },
+          { label: { en: 'Threshold', ko: '임계값', zh: '阈值', ja: 'しきい値', de: 'Schwellenwert', es: 'Umbral', fr: 'Seuil' }, value: 'Threshold' },
+          { label: { en: 'Brightness', ko: '밝기', zh: '亮度', ja: '明るさ', de: 'Helligkeit', es: 'Brillo', fr: 'Luminosité' }, value: 'Brightness' },
+          { label: { en: 'Contrast', ko: '대비', zh: '对比度', ja: 'コントラスト', de: 'Kontrast', es: 'Contraste', fr: 'Contraste' }, value: 'Contrast' },
+          { label: { en: 'Value', ko: '값', zh: '值', ja: '値', de: 'Wert', es: 'Valor', fr: 'Valeur' }, value: 'Value' },
         ],
-        description: '트랙바 이름',
+        description: {
+          en: 'Trackbar name',
+          ko: '트랙바 이름',
+          zh: '轨迹条名称',
+          ja: 'トラックバー名',
+          de: 'Trackbar-Name',
+          es: 'Nombre de la barra de seguimiento',
+          fr: 'Nom de la barre de suivi'
+        },
       },
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'value',
@@ -8772,7 +10060,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '초기 값',
+        description: {
+          en: 'Initial value',
+          ko: '초기 값',
+          zh: '初始值',
+          ja: '初期値',
+          de: 'Anfangswert',
+          es: 'Valor inicial',
+          fr: 'Valeur initiale'
+        },
       },
       {
         name: 'count',
@@ -8781,73 +10077,145 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 500,
         step: 1,
-        description: '최대 값',
+        description: {
+          en: 'Maximum value',
+          ko: '최대 값',
+          zh: '最大值',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
     ],
-    syntax: 'createTrackbar(trackbarname, winname, value, count, onChange)',
+    syntax: 'cv2.createTrackbar(trackbarname, winname, value, count, onChange)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#gaf78d2155d30b728fc413803745b67a9b',
   },
   {
     id: 'getTrackbarPos',
-    name: 'Get Trackbar Position (트랙바 위치 가져오기)',
+    name: {
+      en: 'Get Trackbar Position',
+      ko: '트랙바 위치 가져오기 (Get Trackbar Position)',
+      zh: '获取轨迹条位置',
+      ja: 'トラックバー位置の取得',
+      de: 'Trackbar-Position abrufen',
+      es: 'Obtener posición de barra de seguimiento',
+      fr: 'Obtenir la position de la barre de suivi'
+    },
     category: 'highgui',
-    description: '트랙바의 현재 위치를 가져옵니다.',
+    description: {
+      en: 'Returns the trackbar position.',
+      ko: '트랙바의 현재 위치(값)를 가져옵니다.',
+      zh: '返回轨迹条位置。',
+      ja: 'トラックバーの位置を返します。',
+      de: 'Gibt die Trackbar-Position zurück.',
+      es: 'Devuelve la posición de la barra de seguimiento.',
+      fr: 'Renvoie la position de la barre de suivi.'
+    },
     parameters: [
       {
         name: 'trackbarName',
         type: 'select',
         defaultValue: 'Threshold',
         options: [
-          { label: 'Threshold', value: 'Threshold' },
-          { label: 'Brightness', value: 'Brightness' },
-          { label: 'Contrast', value: 'Contrast' },
-          { label: 'Value', value: 'Value' },
+          { label: { en: 'Threshold', ko: '임계값', zh: '阈值', ja: 'しきい値', de: 'Schwellenwert', es: 'Umbral', fr: 'Seuil' }, value: 'Threshold' },
+          { label: { en: 'Brightness', ko: '밝기', zh: '亮度', ja: '明るさ', de: 'Helligkeit', es: 'Brillo', fr: 'Luminosité' }, value: 'Brightness' },
+          { label: { en: 'Contrast', ko: '대비', zh: '对比度', ja: 'コントラスト', de: 'Kontrast', es: 'Contraste', fr: 'Contraste' }, value: 'Contrast' },
+          { label: { en: 'Value', ko: '값', zh: '值', ja: '値', de: 'Wert', es: 'Valor', fr: 'Valeur' }, value: 'Value' },
         ],
-        description: '트랙바 이름',
+        description: {
+          en: 'Trackbar name',
+          ko: '트랙바 이름',
+          zh: '轨迹条名称',
+          ja: 'トラックバー名',
+          de: 'Trackbar-Name',
+          es: 'Nombre de la barra de seguimiento',
+          fr: 'Nom de la barre de suivi'
+        },
       },
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
     ],
-    syntax: 'getTrackbarPos(trackbarname, winname)',
+    syntax: 'cv2.getTrackbarPos(trackbarname, winname)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga122632e9e91b9ec06943472c55d9cda8',
   },
   {
     id: 'setTrackbarPos',
-    name: 'Set Trackbar Position (트랙바 위치 설정)',
+    name: {
+      en: 'Set Trackbar Position',
+      ko: '트랙바 위치 설정 (Set Trackbar Position)',
+      zh: '设置轨迹条位置',
+      ja: 'トラックバー位置の設定',
+      de: 'Trackbar-Position festlegen',
+      es: 'Establecer posición de barra de seguimiento',
+      fr: 'Définir la position de la barre de suivi'
+    },
     category: 'highgui',
-    description: '트랙바의 위치를 설정합니다.',
+    description: {
+      en: 'Sets the trackbar position.',
+      ko: '트랙바의 위치(값)를 설정합니다.',
+      zh: '设置轨迹条位置。',
+      ja: 'トラックバーの位置を設定します。',
+      de: 'Legt die Trackbar-Position fest.',
+      es: 'Establece la posición de la barra de seguimiento.',
+      fr: 'Définit la position de la barre de suivi.'
+    },
     parameters: [
       {
         name: 'trackbarName',
         type: 'select',
         defaultValue: 'Threshold',
         options: [
-          { label: 'Threshold', value: 'Threshold' },
-          { label: 'Brightness', value: 'Brightness' },
-          { label: 'Contrast', value: 'Contrast' },
-          { label: 'Value', value: 'Value' },
+          { label: { en: 'Threshold', ko: '임계값', zh: '阈值', ja: 'しきい値', de: 'Schwellenwert', es: 'Umbral', fr: 'Seuil' }, value: 'Threshold' },
+          { label: { en: 'Brightness', ko: '밝기', zh: '亮度', ja: '明るさ', de: 'Helligkeit', es: 'Brillo', fr: 'Luminosité' }, value: 'Brightness' },
+          { label: { en: 'Contrast', ko: '대비', zh: '对比度', ja: 'コントラスト', de: 'Kontrast', es: 'Contraste', fr: 'Contraste' }, value: 'Contrast' },
+          { label: { en: 'Value', ko: '값', zh: '值', ja: '値', de: 'Wert', es: 'Valor', fr: 'Valeur' }, value: 'Value' },
         ],
-        description: '트랙바 이름',
+        description: {
+          en: 'Trackbar name',
+          ko: '트랙바 이름',
+          zh: '轨迹条名称',
+          ja: 'トラックバー名',
+          de: 'Trackbar-Name',
+          es: 'Nombre de la barra de seguimiento',
+          fr: 'Nom de la barre de suivi'
+        },
       },
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '결과', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'pos',
@@ -8856,40 +10224,80 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '새로운 위치',
+        description: {
+          en: 'New position',
+          ko: '새로운 위치',
+          zh: '新位置',
+          ja: '新しい位置',
+          de: 'Neue Position',
+          es: 'Nueva posición',
+          fr: 'Nouvelle position'
+        },
       },
     ],
-    syntax: 'setTrackbarPos(trackbarname, winname, pos)',
+    syntax: 'cv2.setTrackbarPos(trackbarname, winname, pos)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga67d73c4c9430f13481fd58410d01bd8d',
   },
   {
     id: 'setTrackbarMin',
-    name: 'Set Trackbar Min (트랙바 최소값 설정)',
+    name: {
+      en: 'Set Trackbar Min',
+      ko: '트랙바 최소값 설정 (Set Trackbar Min)',
+      zh: '设置轨迹条最小值',
+      ja: 'トラックバー最小値の設定',
+      de: 'Trackbar-Minimum festlegen',
+      es: 'Establecer mínimo de barra de seguimiento',
+      fr: 'Définir le minimum de la barre de suivi'
+    },
     category: 'highgui',
-    description: '트랙바의 최소값을 설정합니다.',
+    description: {
+      en: 'Sets the trackbar minimum value.',
+      ko: '트랙바의 최소값을 설정합니다.',
+      zh: '设置轨迹条最小值。',
+      ja: 'トラックバーの最小値を設定します。',
+      de: 'Legt den Mindestwert der Trackbar fest.',
+      es: 'Establece el valor mínimo de la barra de seguimiento.',
+      fr: 'Définit la valeur minimale de la barre de suivi.'
+    },
     parameters: [
       {
         name: 'trackbarName',
         type: 'select',
         defaultValue: 'Threshold',
         options: [
-          { label: 'Threshold', value: 'Threshold' },
-          { label: 'Brightness', value: 'Brightness' },
-          { label: 'Contrast', value: 'Contrast' },
-          { label: 'Value', value: 'Value' },
+          { label: { en: 'Threshold', ko: '임계값', zh: '阈值', ja: 'しきい値', de: 'Schwellenwert', es: 'Umbral', fr: 'Seuil' }, value: 'Threshold' },
+          { label: { en: 'Brightness', ko: '밝기', zh: '亮度', ja: '明るさ', de: 'Helligkeit', es: 'Brillo', fr: 'Luminosité' }, value: 'Brightness' },
+          { label: { en: 'Contrast', ko: '대비', zh: '对比度', ja: 'コントラスト', de: 'Kontrast', es: 'Contraste', fr: 'Contraste' }, value: 'Contrast' },
+          { label: { en: 'Value', ko: '값', zh: '值', ja: '値', de: 'Wert', es: 'Valor', fr: 'Valeur' }, value: 'Value' },
         ],
-        description: '트랙바 이름',
+        description: {
+          en: 'Trackbar name',
+          ko: '트랙바 이름',
+          zh: '轨迹条名称',
+          ja: 'トラックバー名',
+          de: 'Trackbar-Name',
+          es: 'Nombre de la barra de seguimiento',
+          fr: 'Nom de la barre de suivi'
+        },
       },
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '결과', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'minval',
@@ -8898,40 +10306,80 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 100,
         step: 1,
-        description: '최소값',
+        description: {
+          en: 'Minimum value',
+          ko: '최소값',
+          zh: '最小值',
+          ja: '最小値',
+          de: 'Mindestwert',
+          es: 'Valor mínimo',
+          fr: 'Valeur minimale'
+        },
       },
     ],
-    syntax: 'setTrackbarMin(trackbarname, winname, minval)',
+    syntax: 'cv2.setTrackbarMin(trackbarname, winname, minval)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#gabe26ffe8d2b60cc678895595a581b7aa',
   },
   {
     id: 'setTrackbarMax',
-    name: 'Set Trackbar Max (트랙바 최대값 설정)',
+    name: {
+      en: 'Set Trackbar Max',
+      ko: '트랙바 최대값 설정 (Set Trackbar Max)',
+      zh: '设置轨迹条最大值',
+      ja: 'トラックバー最大値の設定',
+      de: 'Trackbar-Maximum festlegen',
+      es: 'Establecer máximo de barra de seguimiento',
+      fr: 'Définir le maximum de la barre de suivi'
+    },
     category: 'highgui',
-    description: '트랙바의 최대값을 설정합니다.',
+    description: {
+      en: 'Sets the trackbar maximum value.',
+      ko: '트랙바의 최대값을 설정합니다.',
+      zh: '设置轨迹条最大值。',
+      ja: 'トラックバーの最大値を設定します。',
+      de: 'Legt den Maximalwert der Trackbar fest.',
+      es: 'Establece el valor máximo de la barra de seguimiento.',
+      fr: 'Définit la valeur maximale de la barre de suivi.'
+    },
     parameters: [
       {
         name: 'trackbarName',
         type: 'select',
         defaultValue: 'Threshold',
         options: [
-          { label: 'Threshold', value: 'Threshold' },
-          { label: 'Brightness', value: 'Brightness' },
-          { label: 'Contrast', value: 'Contrast' },
-          { label: 'Value', value: 'Value' },
+          { label: { en: 'Threshold', ko: '임계값', zh: '阈值', ja: 'しきい値', de: 'Schwellenwert', es: 'Umbral', fr: 'Seuil' }, value: 'Threshold' },
+          { label: { en: 'Brightness', ko: '밝기', zh: '亮度', ja: '明るさ', de: 'Helligkeit', es: 'Brillo', fr: 'Luminosité' }, value: 'Brightness' },
+          { label: { en: 'Contrast', ko: '대비', zh: '对比度', ja: 'コントラスト', de: 'Kontrast', es: 'Contraste', fr: 'Contraste' }, value: 'Contrast' },
+          { label: { en: 'Value', ko: '값', zh: '值', ja: '値', de: 'Wert', es: 'Valor', fr: 'Valeur' }, value: 'Value' },
         ],
-        description: '트랙바 이름',
+        description: {
+          en: 'Trackbar name',
+          ko: '트랙바 이름',
+          zh: '轨迹条名称',
+          ja: 'トラックバー名',
+          de: 'Trackbar-Name',
+          es: 'Nombre de la barra de seguimiento',
+          fr: 'Nom de la barre de suivi'
+        },
       },
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Result', value: 'Result' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Result', ko: '결과', zh: '결과', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'maxval',
@@ -8940,133 +10388,269 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 500,
         step: 1,
-        description: '최대값',
+        description: {
+          en: 'Maximum value',
+          ko: '최대값',
+          zh: '最大值',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
     ],
-    syntax: 'setTrackbarMax(trackbarname, winname, maxval)',
+    syntax: 'cv2.setTrackbarMax(trackbarname, winname, maxval)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga7e5437ccba37f1154b65210902fc4480',
   },
   {
     id: 'selectROI',
-    name: 'Select ROI (관심 영역 선택)',
+    name: {
+      en: 'Select ROI',
+      ko: '관심 영역 선택 (Select ROI)',
+      zh: '选择感兴趣区域',
+      ja: 'ROI の選択',
+      de: 'ROI auswählen',
+      es: 'Seleccionar ROI',
+      fr: 'Sélectionner ROI'
+    },
     category: 'highgui',
-    description: '이미지에서 관심 영역(ROI)을 마우스로 선택합니다.',
+    description: {
+      en: 'Selects a Region of Interest (ROI) from an image.',
+      ko: '이미지에서 관심 영역(ROI)을 마우스로 선택합니다.',
+      zh: '从图像中选择感兴趣区域 (ROI)。',
+      ja: '画像から関心領域 (ROI) を選択します。',
+      de: 'Wählt einen Interessenbereich (ROI) aus einem Bild aus.',
+      es: 'Selecciona una Región de Interés (ROI) de una imagen.',
+      fr: 'Sélectionne une région d\'intérêt (ROI) dans une image.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'ROI Selection',
         options: [
-          { label: 'ROI Selection', value: 'ROI Selection' },
-          { label: 'Select Area', value: 'Select Area' },
-          { label: 'Image Display', value: 'Image Display' },
+          { label: { en: 'ROI Selection', ko: 'ROI 선택', zh: 'ROI 选择', ja: 'ROI 選択', de: 'ROI-Auswahl', es: 'Selección de ROI', fr: 'Sélection de ROI' }, value: 'ROI Selection' },
+          { label: { en: 'Select Area', ko: '영역 선택', zh: '选择区域', ja: '領域選択', de: 'Bereich auswählen', es: 'Seleccionar área', fr: 'Sélectionner une zone' }, value: 'Select Area' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'showCrosshair',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: '표시', value: true },
-          { label: '숨김', value: false },
+          { label: { en: 'Show', ko: '표시', zh: '显示', ja: '表示', de: 'Anzeigen', es: 'Mostrar', fr: 'Afficher' }, value: true },
+          { label: { en: 'Hide', ko: '숨김', zh: '隐藏', ja: '非表示', de: 'Verbergen', es: 'Ocultar', fr: 'Masquer' }, value: false },
         ],
-        description: '십자선 표시 여부',
+        description: {
+          en: 'Show crosshair',
+          ko: '십자선 표시 여부',
+          zh: '显示十字准线',
+          ja: '十字線を表示',
+          de: 'Fadenkreuz anzeigen',
+          es: 'Mostrar punto de mira',
+          fr: 'Afficher le réticule'
+        },
       },
       {
         name: 'fromCenter',
         type: 'select',
         defaultValue: false,
         options: [
-          { label: '중심에서', value: true },
-          { label: '모서리에서', value: false },
+          { label: { en: 'From center', ko: '중심에서', zh: '从中心', ja: '中心から', de: 'Vom Zentrum', es: 'Desde el centro', fr: 'Depuis le centre' }, value: true },
+          { label: { en: 'From corner', ko: '모서리에서', zh: '从角落', ja: '角から', de: 'Von der Ecke', es: 'Desde la esquina', fr: 'Depuis le coin' }, value: false },
         ],
-        description: '선택 시작 위치',
+        description: {
+          en: 'Start selection from center',
+          ko: '선택 시작 위치 (중심/모서리)',
+          zh: '从中心开始选择',
+          ja: '中心から選択を開始',
+          de: 'Auswahl vom Zentrum starten',
+          es: 'Iniciar selección desde el centro',
+          fr: 'Lancer la sélection depuis le centre'
+        },
       },
     ],
-    syntax: 'selectROI(windowName, img, showCrosshair=True, fromCenter=False)',
+    syntax: 'cv2.selectROI(windowName, img, showCrosshair=True, fromCenter=False)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga8daf4730d3adf7035b6de9be4c469af5',
   },
   {
     id: 'selectROIs',
-    name: 'Select ROIs (여러 관심 영역 선택)',
+    name: {
+      en: 'Select ROIs',
+      ko: '여러 관심 영역 선택 (Select ROIs)',
+      zh: '选择多个感兴趣区域',
+      ja: 'ROI の複数選択',
+      de: 'ROIs auswählen',
+      es: 'Seleccionar ROIs',
+      fr: 'Sélectionner des ROIs'
+    },
     category: 'highgui',
-    description: '이미지에서 여러 개의 관심 영역(ROI)을 마우스로 선택합니다.',
+    description: {
+      en: 'Selects multiple Regions of Interest (ROIs) from an image.',
+      ko: '이미지에서 여러 개의 관심 영역(ROI)을 마우스로 선택합니다.',
+      zh: '从图像中选择多个感兴趣区域 (ROI)。',
+      ja: '画像から複数の関心領域 (ROI) を選択します。',
+      de: 'Wählt mehrere Interessenbereiche (ROIs) aus einem Bild aus.',
+      es: 'Selecciona múltiples Regiones de Interés (ROIs) de una imagen.',
+      fr: 'Sélectionne plusieurs régions d\'intérêt (ROI) dans une image.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'ROI Selection',
         options: [
-          { label: 'ROI Selection', value: 'ROI Selection' },
-          { label: 'Select Areas', value: 'Select Areas' },
-          { label: 'Multi Selection', value: 'Multi Selection' },
+          { label: { en: 'ROI Selection', ko: 'ROI 선택', zh: 'ROI 选择', ja: 'ROI 選択', de: 'ROI-Auswahl', es: 'Selección de ROI', fr: 'Sélection de ROI' }, value: 'ROI Selection' },
+          { label: { en: 'Select Areas', ko: '영역 선택', zh: '选择区域', ja: '領域選択', de: 'Bereiche auswählen', es: 'Seleccionar áreas', fr: 'Sélectionner des zones' }, value: 'Select Areas' },
+          { label: { en: 'Multi Selection', ko: '다중 선택', zh: '多重选择', ja: '多重選択', de: 'Mehrfachauswahl', es: 'Selección múltiple', fr: 'Sélection multiple' }, value: 'Multi Selection' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'showCrosshair',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: '표시', value: true },
-          { label: '숨김', value: false },
+          { label: { en: 'Show', ko: '표시', zh: '显示', ja: '表示', de: 'Anzeigen', es: 'Mostrar', fr: 'Afficher' }, value: true },
+          { label: { en: 'Hide', ko: '숨김', zh: '隐藏', ja: '非表示', de: 'Verbergen', es: 'Ocultar', fr: 'Masquer' }, value: false },
         ],
-        description: '십자선 표시 여부',
+        description: {
+          en: 'Show crosshair',
+          ko: '십자선 표시 여부',
+          zh: '显示十字准线',
+          ja: '十字線を表示',
+          de: 'Fadenkreuz anzeigen',
+          es: 'Mostrar punto de mira',
+          fr: 'Afficher le réticule'
+        },
       },
       {
         name: 'fromCenter',
         type: 'select',
         defaultValue: false,
         options: [
-          { label: '중심에서', value: true },
-          { label: '모서리에서', value: false },
+          { label: { en: 'From center', ko: '중심에서', zh: '从中心', ja: '中心から', de: 'Vom Zentrum', es: 'Desde el centro', fr: 'Depuis le centre' }, value: true },
+          { label: { en: 'From corner', ko: '모서리에서', zh: '从角落', ja: '角から', de: 'Von der Ecke', es: 'Desde la esquina', fr: 'Depuis le coin' }, value: false },
         ],
-        description: '선택 시작 위치',
+        description: {
+          en: 'Start selection from center',
+          ko: '선택 시작 위치 (중심/모서리)',
+          zh: '从中心开始选择',
+          ja: '中心から選択を開始',
+          de: 'Auswahl vom Zentrum starten',
+          es: 'Iniciar selección desde el centro',
+          fr: 'Lancer la sélection depuis le centre'
+        },
       },
     ],
-    syntax: 'selectROIs(windowName, img, showCrosshair=True, fromCenter=False)',
+    syntax: 'cv2.selectROIs(windowName, img, showCrosshair=True, fromCenter=False)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga0f11fad74a6432b8055fb21621a0f893',
   },
   {
     id: 'setMouseCallback',
-    name: 'Set Mouse Callback (마우스 콜백 설정)',
+    name: {
+      en: 'Set Mouse Callback',
+      ko: '마우스 콜백 설정 (Set Mouse Callback)',
+      zh: '设置鼠标回调',
+      ja: 'マウスコールバックの設定',
+      de: 'Maus-Callback festlegen',
+      es: 'Establecer devolución de llamada del mouse',
+      fr: 'Définir le rappel de souris'
+    },
     category: 'highgui',
-    description: '윈도우에 마우스 이벤트 콜백 함수를 설정합니다.',
+    description: {
+      en: 'Sets the mouse callback function for a window.',
+      ko: '윈도우에 마우스 이벤트 콜백 함수를 설정합니다.',
+      zh: '为窗口设置鼠标回调函数。',
+      ja: 'ウィンドウのマウスコールバック関数を設定します。',
+      de: 'Legt die Maus-Callback-Funktion für ein Fenster fest.',
+      es: 'Establece la función de devolución de llamada del mouse para una ventana.',
+      fr: 'Définit la fonction de rappel de la souris pour une fenêtre.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'OpenCV Window',
         options: [
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'Interactive Window', value: 'Interactive Window' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'Interactive Window', ko: '대화형 윈도우', zh: '交互式窗口', ja: '対話型ウィンドウ', de: 'Interaktives Fenster', es: 'Ventana interactiva', fr: 'Fenêtre interactive' }, value: 'Interactive Window' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
       {
         name: 'eventType',
         type: 'select',
         defaultValue: 'EVENT_LBUTTONDOWN',
         options: [
-          { label: 'EVENT_LBUTTONDOWN (좌클릭)', value: 'EVENT_LBUTTONDOWN' },
-          { label: 'EVENT_RBUTTONDOWN (우클릭)', value: 'EVENT_RBUTTONDOWN' },
-          { label: 'EVENT_MBUTTONDOWN (중간클릭)', value: 'EVENT_MBUTTONDOWN' },
-          { label: 'EVENT_MOUSEMOVE (마우스 이동)', value: 'EVENT_MOUSEMOVE' },
-          { label: 'EVENT_LBUTTONDBLCLK (더블클릭)', value: 'EVENT_LBUTTONDBLCLK' },
+          { label: { en: 'EVENT_LBUTTONDOWN', ko: 'EVENT_LBUTTONDOWN (좌클릭)', zh: 'EVENT_LBUTTONDOWN (左键单击)', ja: 'EVENT_LBUTTONDOWN (左クリック)', de: 'EVENT_LBUTTONDOWN (Linksklick)', es: 'EVENT_LBUTTONDOWN (Clic izquierdo)', fr: 'EVENT_LBUTTONDOWN (Clic gauche)' }, value: 'EVENT_LBUTTONDOWN' },
+          { label: { en: 'EVENT_RBUTTONDOWN', ko: 'EVENT_RBUTTONDOWN (우클릭)', zh: 'EVENT_RBUTTONDOWN (右键单击)', ja: 'EVENT_RBUTTONDOWN (右クリック)', de: 'EVENT_RBUTTONDOWN (Rechtsklick)', es: 'EVENT_RBUTTONDOWN (Clic derecho)', fr: 'EVENT_RBUTTONDOWN (Clic droit)' }, value: 'EVENT_RBUTTONDOWN' },
+          { label: { en: 'EVENT_MBUTTONDOWN', ko: 'EVENT_MBUTTONDOWN (휠클릭)', zh: 'EVENT_MBUTTONDOWN (中键单击)', ja: 'EVENT_MBUTTONDOWN (中クリック)', de: 'EVENT_MBUTTONDOWN (Mittelklick)', es: 'EVENT_MBUTTONDOWN (Clic central)', fr: 'EVENT_MBUTTONDOWN (Clic milieu)' }, value: 'EVENT_MBUTTONDOWN' },
+          { label: { en: 'EVENT_MOUSEMOVE', ko: 'EVENT_MOUSEMOVE (이동)', zh: 'EVENT_MOUSEMOVE (移动)', ja: 'EVENT_MOUSEMOVE (移動)', de: 'EVENT_MOUSEMOVE (Bewegung)', es: 'EVENT_MOUSEMOVE (Movimiento)', fr: 'EVENT_MOUSEMOVE (Déménagement)' }, value: 'EVENT_MOUSEMOVE' },
+          { label: { en: 'EVENT_LBUTTONDBLCLK', ko: 'EVENT_LBUTTONDBLCLK (더블클릭)', zh: 'EVENT_LBUTTONDBLCLK (双击)', ja: 'EVENT_LBUTTONDBLCLK (ダブルクリック)', de: 'EVENT_LBUTTONDBLCLK (Doppelklick)', es: 'EVENT_LBUTTONDBLCLK (Doble clic)', fr: 'EVENT_LBUTTONDBLCLK (Double clic)' }, value: 'EVENT_LBUTTONDBLCLK' },
         ],
-        description: '마우스 이벤트 타입',
+        description: {
+          en: 'Mouse event type',
+          ko: '마우스 이벤트 타입',
+          zh: '鼠标事件类型',
+          ja: 'マウスイベントの種類',
+          de: 'Mausereignistyp',
+          es: 'Tipo de evento de mouse',
+          fr: 'Type d\'événement de souris'
+        },
       },
     ],
-    syntax: 'setMouseCallback(windowName, onMouse, param=None)',
+    syntax: 'cv2.setMouseCallback(windowName, onMouse, param=None)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga89e7806b0a616f6f1d502bd8c183ad3e',
   },
   {
     id: 'getMouseWheelDelta',
-    name: 'Get Mouse Wheel Delta (마우스 휠 변화량)',
+    name: {
+      en: 'Get Mouse Wheel Delta',
+      ko: '마우스 휠 변화량 (Get Mouse Wheel Delta)',
+      zh: '获取鼠标滚轮增量',
+      ja: 'マウスホイールデルタの取得',
+      de: 'Mausrad-Delta abrufen',
+      es: 'Obtener delta de rueda del mouse',
+      fr: 'Obtenir le delta de la molette de la souris'
+    },
     category: 'highgui',
-    description: '마우스 휠의 변화량을 가져옵니다.',
+    description: {
+      en: 'Gets the mouse wheel delta.',
+      ko: '마우스 휠의 변화량을 가져옵니다.',
+      zh: '获取鼠标滚轮的增量。',
+      ja: 'マウスホイールのデルタを取得します。',
+      de: 'Ruft das Mausrad-Delta ab.',
+      es: 'Obtiene el delta de la rueda del mouse.',
+      fr: 'Obtient le delta de la molette de la souris.'
+    },
     parameters: [
       {
         name: 'flags',
@@ -9075,41 +10659,89 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 10,
         step: 1,
-        description: '플래그 값',
+        description: {
+          en: 'Flags',
+          ko: '플래그 값',
+          zh: '标志',
+          ja: 'フラグ',
+          de: 'Flaggen',
+          es: 'Banderas',
+          fr: 'Drapeaux'
+        },
       },
     ],
-    syntax: 'getMouseWheelDelta(flags)',
+    syntax: 'cv2.getMouseWheelDelta(flags)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#gaab0b7e141d9e1b5e4c5331d6e8d8e5b3',
   },
   {
     id: 'startWindowThread',
-    name: 'Start Window Thread (윈도우 스레드 시작)',
+    name: {
+      en: 'Start Window Thread',
+      ko: '윈도우 스레드 시작 (Start Window Thread)',
+      zh: '启动窗口线程',
+      ja: 'ウィンドウ スレッドの開始',
+      de: 'Fenster-Thread starten',
+      es: 'Iniciar hilo de ventana',
+      fr: 'Démarrer le fil de la fenêtre'
+    },
     category: 'highgui',
-    description: 'GUI 윈도우를 처리하는 스레드를 시작합니다.',
+    description: {
+      en: 'Starts the thread that handles the GUI window.',
+      ko: 'GUI 윈도우를 처리하는 스레드를 시작합니다.',
+      zh: '启动处理 GUI 窗口的线程。',
+      ja: 'GUI ウィンドウを処理するスレッドを開始します。',
+      de: 'Startet den Thread, der das GUI-Fenster verwaltet.',
+      es: 'Inicia el hilo que maneja la ventana GUI.',
+      fr: 'Démarre le thread qui gère la fenêtre GUI.'
+    },
     parameters: [],
-    syntax: 'startWindowThread()',
+    syntax: 'cv2.startWindowThread()',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga45bba0d82d8b63ba7e3e5c0e0bb68355',
   },
   {
     id: 'imshow',
-    name: 'Show Image (이미지 표시)',
+    name: {
+      en: 'Show Image',
+      ko: '이미지 표시 (Show Image)',
+      zh: '显示图像',
+      ja: '画像表示',
+      de: 'Bild anzeigen',
+      es: 'Mostrar imagen',
+      fr: 'Afficher l\'image'
+    },
     category: 'highgui',
-    description: '윈도우에 이미지를 표시합니다. 웹 환경에서는 Canvas를 통해 표시됩니다.',
+    description: {
+      en: 'Displays an image in the specified window.',
+      ko: '지정된 윈도우에 이미지를 표시합니다. 웹 환경에서는 Canvas를 통해 표시됩니다.',
+      zh: '在指定窗口中显示图像。',
+      ja: '指定されたウィンドウに画像を表示します。',
+      de: 'Zeigt ein Bild im angegebenen Fenster an.',
+      es: 'Muestra una imagen en la ventana especificada.',
+      fr: 'Affiche une image dans la fenêtre spécifiée.'
+    },
     parameters: [
       {
         name: 'windowName',
         type: 'select',
         defaultValue: 'Image Display',
         options: [
-          { label: 'Image Display', value: 'Image Display' },
-          { label: 'OpenCV Window', value: 'OpenCV Window' },
-          { label: 'Result', value: 'Result' },
-          { label: 'Original', value: 'Original' },
+          { label: { en: 'Image Display', ko: '이미지 표시', zh: '图像显示', ja: '画像表示', de: 'Bildanzeige', es: 'Visualización de imagen', fr: 'Affichage d\'image' }, value: 'Image Display' },
+          { label: { en: 'OpenCV Window', ko: 'OpenCV 윈도우', zh: 'OpenCV 窗口', ja: 'OpenCV ウィンドウ', de: 'OpenCV Fenster', es: 'Ventana OpenCV', fr: 'Fenêtre OpenCV' }, value: 'OpenCV Window' },
+          { label: { en: 'Result', ko: '결과', zh: '结果', ja: '結果', de: 'Ergebnis', es: 'Resultado', fr: 'Résultat' }, value: 'Result' },
+          { label: { en: 'Original', ko: '원본', zh: '原始', ja: 'オリジナル', de: 'Original', es: 'Original', fr: 'Original' }, value: 'Original' },
         ],
-        description: '윈도우 이름',
+        description: {
+          en: 'Window name',
+          ko: '윈도우 이름',
+          zh: '窗口名称',
+          ja: 'ウィンドウ名',
+          de: 'Fenstername',
+          es: 'Nombre de la ventana',
+          fr: 'Nom de la fenêtre'
+        },
       },
     ],
-    syntax: 'imshow(winname, mat)',
+    syntax: 'cv2.imshow(winname, mat)',
     documentation: 'https://docs.opencv.org/4.x/d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563',
   },
 
@@ -9516,9 +11148,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'getOptimalNewCameraMatrix',
-    name: 'Get Optimal New Camera Matrix (최적 카메라 행렬)',
+    name: {
+      en: 'Get Optimal New Camera Matrix',
+      ko: '최적 카메라 행렬 계산',
+      zh: '获取最佳新相机矩阵',
+      ja: '最適な新しいカメラ行列의取得',
+      de: 'Optimale neue Kameramatrix erhalten',
+      es: 'Obtener la nueva matriz de cámara óptima',
+      fr: 'Obtenir la nouvelle matrice de caméra optimale'
+    },
     category: 'calib3d',
-    description: '왜곡 보정 후 최적의 새로운 카메라 행렬을 계산합니다.',
+    description: {
+      en: 'Returns the optimal new camera matrix based on the free scaling parameter.',
+      ko: '자유 스케일링 파라미터를 기반으로 왜곡 보정 후의 최적의 새로운 카메라 행렬을 반환합니다.',
+      zh: '根据自由缩放参数返回最佳新相机矩阵。',
+      ja: '自由スケーリングパラメータに基づいて、新しい最適なカメラ行列を返します。',
+      de: 'Gibt die optimale neue Kameramatrix basierend auf dem freien Skalierungsparameter zurück.',
+      es: 'Devuelve la nueva matriz de cámara óptima basada en el parámetro de escalado libre.',
+      fr: 'Renvoie la nouvelle matrice de caméra optimale en fonction du paramètre de mise à l\'échelle libre.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -9527,7 +11175,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1,
         step: 0.1,
-        description: 'Free scaling 파라미터 (0=모든 픽셀 유효, 1=모든 원본 픽셀 유지)',
+        description: {
+          en: 'Free scaling parameter (0=all pixels valid, 1=keep all original pixels)',
+          ko: '자유 스케일링 파라미터 (0=모든 픽셀 유효, 1=모든 원본 픽셀 유지)',
+          zh: '自由缩放参数 (0=所有像素有效, 1=保留所有原始像素)',
+          ja: '自由スケーリングパラメータ (0=すべてのピクセルが有効, 1=すべての元のピクセルを保持)',
+          de: 'Freier Skalierungsparameter (0=alle Pixel gültig, 1=alle Originalpixel beibehalten)',
+          es: 'Parámetro de escalado libre (0=todos los píxeles válidos, 1=mantener todos los píxeles originales)',
+          fr: 'Paramètre de mise à l\'échelle libre (0=tous les pixels valides, 1=conserver tous les pixels d\'origine)'
+        },
       },
     ],
     syntax: 'getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, alpha, newImgSize=None)',
@@ -9535,9 +11191,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'initUndistortRectifyMap',
-    name: 'Init Undistort Rectify Map (왜곡 보정 맵 초기화)',
+    name: {
+      en: 'Init Undistort Rectify Map',
+      ko: '왜곡 보정 맵 초기화',
+      zh: '初始化去畸变校正映射',
+      ja: '歪み補正・平行化マップの初期化',
+      de: 'Undistort-Rectify-Map initialisieren',
+      es: 'Inicializar mapa de rectificación de distorsión',
+      fr: 'Initialiser la carte de rectification de distorsion'
+    },
     category: 'calib3d',
-    description: '왜곡 보정 및 정류를 위한 매핑 맵을 생성합니다.',
+    description: {
+      en: 'Computes the undistortion and rectification transformation map.',
+      ko: '왜곡 보정 및 정류 변형을 위한 매핑 맵을 생성합니다.',
+      zh: '计算去畸变和校正变换映射。',
+      ja: '歪み補正と平行化変換のマップを計算します。',
+      de: 'Berechnet die Undistortion- und Rectification-Transformations-Map.',
+      es: 'Calcula el mapa de transformación de rectificación y corrección de distorsión.',
+      fr: 'Calcule la carte de transformation de rectification et de correction de distorsion.'
+    },
     parameters: [
       {
         name: 'mapType',
@@ -9548,7 +11220,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'CV_32FC2', value: 16 },
           { label: 'CV_16SC2', value: 17 },
         ],
-        description: '맵 타입',
+        description: {
+          en: 'Type of the first output map',
+          ko: '출력 맵 데이터 타입',
+          zh: '第一个输出映射的类型',
+          ja: '最初の出力マップの型',
+          de: 'Typ der ersten Ausgabe-Map',
+          es: 'Tipo del primer mapa de salida',
+          fr: 'Type de la première carte de sortie'
+        },
       },
     ],
     syntax: 'initUndistortRectifyMap(cameraMatrix, distCoeffs, R, newCameraMatrix, size, m1type, map1, map2)',
@@ -9556,9 +11236,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'findHomography',
-    name: 'Find Homography (호모그래피 찾기)',
+    name: {
+      en: 'Find Homography',
+      ko: '호모그래피 찾기',
+      zh: '查找单应性矩阵',
+      ja: 'ホモグラフィ行列の検出',
+      de: 'Homographie finden',
+      es: 'Encontrar homografía',
+      fr: 'Trouver l\'homographie'
+    },
     category: 'calib3d',
-    description: '두 평면 사이의 원근 변환 호모그래피 행렬을 찾습니다.',
+    description: {
+      en: 'Finds a perspective transformation between two planes.',
+      ko: '두 평면 사이의 원근 변환(호모그래피) 행렬을 찾습니다.',
+      zh: '寻找两个平面之间的透视变换。',
+      ja: '2つの平面間の透視変換を検出します。',
+      de: 'Findet eine Perspektivtransformation zwischen zwei Ebenen.',
+      es: 'Encuentra una transformación de perspectiva entre dos planos.',
+      fr: 'Trouve une transformation de perspective entre deux plans.'
+    },
     parameters: [
       {
         name: 'method',
@@ -9570,7 +11266,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'LMEDS (4)', value: 4 },
           { label: 'RHO (16)', value: 16 },
         ],
-        description: '호모그래피 계산 방법',
+        description: {
+          en: 'Method used to compute a homography matrix',
+          ko: '호모그래피 계산 방법',
+          zh: '用于计算单应性矩阵的方法',
+          ja: 'ホ모グラフィ行列の計算に使用される手法',
+          de: 'Methode zur Berechnung der Homographiematrix',
+          es: 'Método utilizado para calcular la matriz de homografía',
+          fr: 'Méthode utilisée pour calculer une matrice d\'homographie'
+        },
       },
       {
         name: 'ransacReprojThreshold',
@@ -9579,7 +11283,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 10,
         step: 0.1,
-        description: 'RANSAC 재투영 임계값 (픽셀)',
+        description: {
+          en: 'Maximum allowed reprojection error to treat a point pair as an inlier',
+          ko: 'RANSAC 재투영 임계값 (인라이어로 처리할 최대 픽셀 오차)',
+          zh: 'RANSAC 重投影阈值（认定为内点的最大像素误差）',
+          ja: 'RANSAC 再投影しきい値（インライアとして処理する最大ピクセル誤差）',
+          de: 'Maximal zulässiger Reprojektionsfehler für Inlier',
+          es: 'Error de reproyección máximo permitido para tratar un par de puntos como inlier',
+          fr: 'Erreur de reprojection maximale autorisée pour traiter une paire de points comme inlier'
+        },
       },
     ],
     syntax: 'findHomography(srcPoints, dstPoints, method=0, ransacReprojThreshold=3)',
@@ -9587,9 +11299,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'perspectiveTransform',
-    name: 'Perspective Transform (원근 변환)',
+    name: {
+      en: 'Perspective Transform',
+      ko: '원근 변환',
+      zh: '透视变换',
+      ja: '透視変換',
+      de: 'Perspektivtransformation',
+      es: 'Transformación de perspectiva',
+      fr: 'Transformation de perspective'
+    },
     category: 'calib3d',
-    description: '호모그래피 행렬을 사용하여 점들을 원근 변환합니다.',
+    description: {
+      en: 'Performs perspective matrix transformation of vectors.',
+      ko: '호모그래피 행렬을 사용하여 벡터(점)들을 원근 변환합니다.',
+      zh: '对向量进行透视矩阵变换。',
+      ja: 'ベクトルの透視変換行列変換を実行します。',
+      de: 'Führt die perspektivische Matrixtransformation von Vektoren durch.',
+      es: 'Realiza la transformación de matriz de perspectiva de vectores.',
+      fr: 'Effectue la transformation de matrice de perspective des vecteurs.'
+    },
     parameters: [
       {
         name: 'scaleX',
@@ -9598,7 +11326,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 3,
         step: 0.1,
-        description: 'X축 스케일',
+        description: {
+          en: 'X-axis scale factor',
+          ko: 'X축 스케일 계수',
+          zh: 'X 轴缩放因子',
+          ja: 'X軸スケール係数',
+          de: 'X-Achsen-Skalierungsfaktor',
+          es: 'Factor de escala del eje X',
+          fr: 'Facteur d\'échelle de l\'axe X'
+        },
       },
       {
         name: 'scaleY',
@@ -9607,7 +11343,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 3,
         step: 0.1,
-        description: 'Y축 스케일',
+        description: {
+          en: 'Y-axis scale factor',
+          ko: 'Y축 스케일 계수',
+          zh: 'Y 轴缩放因子',
+          ja: 'Y軸スケール係数',
+          de: 'Y-Achsen-Skalierungsfaktor',
+          es: 'Factor de escala del eje Y',
+          fr: 'Facteur d\'échelle de l\'axe Y'
+        },
       },
     ],
     syntax: 'perspectiveTransform(src, dst, m)',
@@ -9615,18 +11359,50 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'decomposeHomographyMat',
-    name: 'Decompose Homography Matrix (호모그래피 행렬 분해)',
+    name: {
+      en: 'Decompose Homography Matrix',
+      ko: '호모그래피 행렬 분해',
+      zh: '分解单应性矩阵',
+      ja: 'ホモグラフィ行列の分解',
+      de: 'Homographiematrix zerlegen',
+      es: 'Descomponer la matriz de homografía',
+      fr: 'Décomposer la matrice d\'homographie'
+    },
     category: 'calib3d',
-    description: '호모그래피 행렬을 회전, 이동, 법선 벡터로 분해합니다.',
+    description: {
+      en: 'Decomposes a homography matrix to rotation, translation, and normal vectors.',
+      ko: '호모그래피 행렬을 회전, 이동, 그리고 평면 법선 벡터들로 분해합니다.',
+      zh: '将单应性矩阵分解为旋转、平移和法向量。',
+      ja: 'ホモグラフィ行列を回転、並進、法線ベクトルに分解します。',
+      de: 'Zerlegt eine Homographiematrix in Rotations-, Translations- und Normalvektoren.',
+      es: 'Descompone una matriz de homografía en rotación, traslación y vectores normales.',
+      fr: 'Décompose une matrice d\'homographie en rotation, translation et vecteurs normaux.'
+    },
     parameters: [],
     syntax: 'decomposeHomographyMat(H, K, rotations, translations, normals)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga7f60bdff78833d1e3fd6d9d0fd538d92',
   },
   {
     id: 'stereoCalibrate',
-    name: 'Stereo Calibrate (스테레오 캘리브레이션)',
+    name: {
+      en: 'Stereo Calibrate',
+      ko: '스테레오 캘리브레이션',
+      zh: '立体标定',
+      ja: 'ステレオキャリブレーション',
+      de: 'Stereo-Kalibrierung',
+      es: 'Calibración estéreo',
+      fr: 'Étalonnage stéréo'
+    },
     category: 'calib3d',
-    description: '스테레오 카메라 시스템을 캘리브레이션합니다.',
+    description: {
+      en: 'Calibrates a stereo camera system.',
+      ko: '스테레오 카메라 시스템의 내부 및 외부 파라미터를 캘리브레이션합니다.',
+      zh: '标定立体相机系统。',
+      ja: 'ステレオカメラシステムをキャリブレーションします。',
+      de: 'Kalibriert ein Stereokamerasystem.',
+      es: 'Calibra un sistema de cámara estéreo.',
+      fr: 'Étalonne un système de caméra stéréo.'
+    },
     parameters: [
       {
         name: 'flags',
@@ -9637,9 +11413,17 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'CALIB_USE_INTRINSIC_GUESS', value: 1 },
           { label: 'CALIB_FIX_FOCAL_LENGTH', value: 16 },
           { label: 'CALIB_RATIONAL_MODEL', value: 16384 },
-          { label: 'Default', value: 0 },
+          { label: { en: 'Default', ko: '기본값', zh: '默认', ja: 'デフォルト', de: 'Standard', es: 'Predeterminado', fr: 'Par défaut' }, value: 0 },
         ],
-        description: '캘리브레이션 플래그',
+        description: {
+          en: 'Calibration flags',
+          ko: '캘리브레이션 플래그',
+          zh: '标定标志',
+          ja: 'キャリブレーションフラグ',
+          de: 'Kalibrierungsflags',
+          es: 'Banderas de calibración',
+          fr: 'Indicateurs d\'étalonnage'
+        },
       },
     ],
     syntax: 'stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, flags=0)',
@@ -9647,9 +11431,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'stereoRectify',
-    name: 'Stereo Rectify (스테레오 정류)',
+    name: {
+      en: 'Stereo Rectify',
+      ko: '스테레오 정류',
+      zh: '立体校正',
+      ja: 'ステレオ平行化',
+      de: 'Stereo-Rectify',
+      es: 'Rectificación estéreo',
+      fr: 'Rectification stéréo'
+    },
     category: 'calib3d',
-    description: '스테레오 이미지 쌍을 정류하여 에피폴라 라인을 수평으로 만듭니다.',
+    description: {
+      en: 'Computes rectification transforms for each head of a calibrated stereo camera.',
+      ko: '캘리브레이션된 스테레오 카메라의 각 이미지에 대한 정류 변환을 계산하여 에피폴라 라인을 수평으로 만듭니다.',
+      zh: '为已标定的立体相机的每个镜头计算校正变换。',
+      ja: 'キャリブレーションされたステレオカメラの各ヘッドに対して平行化変換を計算します。',
+      de: 'Berechnet Rectification-Transformationen für jeden Kopf einer kalibrierten Stereokamera.',
+      es: 'Calcula las transformaciones de rectificación para cada cabezal de una cámara estéreo calibrada.',
+      fr: 'Calcule les transformations de rectification pour chaque tête d\'une caméra stéréo étalonnée.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -9658,7 +11458,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -1,
         max: 1,
         step: 0.1,
-        description: 'Free scaling 파라미터',
+        description: {
+          en: 'Free scaling parameter',
+          ko: '자유 스케일링 파라미터',
+          zh: '自由缩放参数',
+          ja: '自由スケーリングパラメータ',
+          de: 'Freier Skalierungsparameter',
+          es: 'Parámetro de escalado libre',
+          fr: 'Paramètre de mise à l\'échelle libre'
+        },
       },
     ],
     syntax: 'stereoRectify(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, R1, R2, P1, P2, Q, flags=CALIB_ZERO_DISPARITY, alpha=-1)',
@@ -9666,9 +11474,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'StereoBM_compute',
-    name: 'Stereo Block Matching (스테레오 블록 매칭)',
+    name: {
+      en: 'Stereo Block Matching',
+      ko: '스테레오 블록 매칭',
+      zh: '立体块匹配',
+      ja: 'ステレオブロックマッチング',
+      de: 'Stereo-Block-Matching',
+      es: 'Emparejamiento de bloques estéreo',
+      fr: 'Appariement de blocs stéréo'
+    },
     category: 'calib3d',
-    description: 'Block Matching 알고리즘으로 스테레오 이미지의 시차 맵을 계산합니다.',
+    description: {
+      en: 'Computes disparity map using the block matching algorithm.',
+      ko: 'Block Matching 알고리즘을 사용하여 스테레오 이미지 쌍으로부터 시차(disparity) 맵을 계산합니다.',
+      zh: '使用块匹配算法计算视差图。',
+      ja: 'ブロックマッチングアルゴリズムを使用して視差マップを計算します。',
+      de: 'Berechnet die Disparitätskarte mit dem Blockvergleichsalgorithmus.',
+      es: 'Calcula el mapa de disparidad utilizando el algoritmo de coincidencia de bloques.',
+      fr: 'Calcule la carte de disparité à l\'aide de l\'algorithme d\'appariement de blocs.'
+    },
     inputCount: 2,
     requiresGrayscale: true,
     parameters: [
@@ -9679,7 +11503,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 16,
         max: 256,
         step: 16,
-        description: '최대 시차 값 (16의 배수)',
+        description: {
+          en: 'Maximum disparity minus minimum disparity (must be divisible by 16)',
+          ko: '최대 시차 범위 (16의 배수여야 함)',
+          zh: '最大视差减去最小视差（必须能被 16 整除）',
+          ja: '最大視差から最小視差を引いたもの（16で割り切れる必要があります）',
+          de: 'Maximale Disparität minus minimale Disparität (muss durch 16 teilbar sein)',
+          es: 'Disparidad máxima menos disparidad mínima (debe ser divisible por 16)',
+          fr: 'Disparité maximale moins disparité minimale (doit être divisible par 16)'
+        },
       },
       {
         name: 'blockSize',
@@ -9688,7 +11520,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 51,
         step: 2,
-        description: '매칭 블록 크기 (홀수)',
+        description: {
+          en: 'Matched block size. It must be an odd number >=1.',
+          ko: '매칭 블록 크기 (1보다 큰 홀수여야 함)',
+          zh: '匹配的块大小。必须是 >=1 的奇数。',
+          ja: 'マッチングブロックサイズ。1以上の奇数である必要があります。',
+          de: 'Größe des verglichenen Blocks. Es muss eine ungerade Zahl >=1 sein.',
+          es: 'Tamaño del bloque coincidente. Debe ser un número impar >=1.',
+          fr: 'Taille du bloc apparié. Il doit s\'agir d\'un nombre impair >=1.'
+        },
       },
       {
         name: 'preFilterCap',
@@ -9697,7 +11537,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 63,
         step: 1,
-        description: '사전 필터 캡',
+        description: {
+          en: 'Truncation value for pre-filtering',
+          ko: '사전 필터링 결과의 잘림(truncation) 값',
+          zh: '预滤波的截断值',
+          ja: 'プリフィルタリングの切り捨て値',
+          de: 'Abschneidewert für die Vorfilterung',
+          es: 'Valor de truncamiento para el prefiltrado',
+          fr: 'Valeur de troncature pour le pré-filtrage'
+        },
       },
       {
         name: 'uniquenessRatio',
@@ -9706,7 +11554,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 100,
         step: 1,
-        description: '유일성 비율 (%)',
+        description: {
+          en: 'Margin in percentage by which the best cost function value should "win" the second best',
+          ko: '최선값이 차선값보다 나아야 하는 마진 비율 (%)',
+          zh: '最佳代价函数值应优于次佳值的百分比边缘',
+          ja: '最適なコスト関数値が2番目に最適な値を「上回る」必要があるパーセンテージの許容範囲',
+          de: 'Marge in Prozent, um die der beste Kostenfunktionswert den zweitbesten „gewinnen“ sollte',
+          es: 'Margen en porcentaje por el cual el mejor valor de la función de costo debería "ganar" al segundo mejor',
+          fr: 'Marge en pourcentage par laquelle la meilleure valeur de la fonction de coût doit "gagner" la deuxième meilleure'
+        },
       },
     ],
     syntax: 'StereoBM.compute(left, right, disparity)',
@@ -9714,9 +11570,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'StereoSGBM_compute',
-    name: 'Stereo Semi-Global Block Matching (스테레오 SGBM)',
+    name: {
+      en: 'Stereo Semi-Global Block Matching',
+      ko: '스테레오 SGBM',
+      zh: '立体半全局块匹配',
+      ja: 'ステレオセミグローバルブロックマッチング',
+      de: 'Stereo-Semi-Global-Block-Matching',
+      es: 'Emparejamiento de bloques semiglobal estéreo',
+      fr: 'Appariement de blocs semi-global stéréo'
+    },
     category: 'calib3d',
-    description: 'Semi-Global Block Matching 알고리즘으로 고품질 시차 맵을 계산합니다.',
+    description: {
+      en: 'Computes disparity map using the semi-global block matching algorithm.',
+      ko: 'Semi-Global Block Matching 알고리즘을 사용하여 고품질 시차 맵을 계산합니다.',
+      zh: '使用半全局块匹配算法计算视差图。',
+      ja: 'セミグローバルブロックマッチングアルゴリズムを使用して視差マップを計算します。',
+      de: 'Berechnet die Disparitätskarte mit dem Semi-Global-Block-Matching-Algorithmus.',
+      es: 'Calcula el mapa de disparidad utilizando el algoritmo de coincidencia de bloques semiglobal.',
+      fr: 'Calcule la carte de disparité à l\'aide de l\'algorithme d\'appariement de blocs semi-global.'
+    },
     inputCount: 2,
     requiresGrayscale: true,
     parameters: [
@@ -9727,7 +11599,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 64,
         step: 1,
-        description: '최소 시차 값',
+        description: {
+          en: 'Minimum possible disparity value',
+          ko: '최소 가능한 시차 값',
+          zh: '最小可能的视差值',
+          ja: '最小の視差値',
+          de: 'Minimal möglicher Disparitätswert',
+          es: 'Valor de disparidad mínimo posible',
+          fr: 'Valeur de disparité minimale possible'
+        },
       },
       {
         name: 'numDisparities',
@@ -9736,7 +11616,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 16,
         max: 256,
         step: 16,
-        description: '시차 범위 (16의 배수)',
+        description: {
+          en: 'Maximum disparity minus minimum disparity (must be divisible by 16)',
+          ko: '시차 범위 (16의 배수여야 함)',
+          zh: '最大视差减去最小视差（必须能被 16 整除）',
+          ja: '最大視差から最小視差를引いたもの（16で割り切れる必要があります）',
+          de: 'Maximale Disparität minus minimale Disparität (muss durch 16 teilbar sein)',
+          es: 'Disparidad máxima menos disparidad mínima (debe ser divisible por 16)',
+          fr: 'Disparité maximale moins disparité minimale (doit être divisible par 16)'
+        },
       },
       {
         name: 'blockSize',
@@ -9745,7 +11633,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 21,
         step: 2,
-        description: '매칭 블록 크기 (홀수)',
+        description: {
+          en: 'Matched block size (must be an odd number >=1)',
+          ko: '매칭 블록 크기 (1보다 큰 홀수여야 함)',
+          zh: '匹配的块大小（必须是 >=1 的奇数）',
+          ja: 'マッチングブロックサイズ（1以上の奇数である必要があります）',
+          de: 'Größe des verglichenen Blocks (muss eine ungerade Zahl >=1 sein)',
+          es: 'Tamaño del bloque coincidente (debe ser un número impar >=1)',
+          fr: 'Taille du bloc apparié (doit être un nombre impair >=1)'
+        },
       },
       {
         name: 'P1',
@@ -9754,7 +11650,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1000,
         step: 10,
-        description: '작은 시차 변화 패널티',
+        description: {
+          en: 'Penalty for small disparity change between neighbor pixels',
+          ko: '인접 픽셀 간의 작은 시차 변화에 대한 패널티',
+          zh: '相邻像素之间小视差变化的惩罚',
+          ja: '隣接ピクセル間の小さな視差変化に対するペナルティ',
+          de: 'Strafe für kleine Disparitätsänderungen zwischen benachbarten Pixeln',
+          es: 'Penalización por pequeño cambio de disparidad entre píxeles vecinos',
+          fr: 'Pénalité pour un petit changement de disparité entre les pixels voisins'
+        },
       },
       {
         name: 'P2',
@@ -9763,7 +11667,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 5000,
         step: 100,
-        description: '큰 시차 변화 패널티',
+        description: {
+          en: 'Penalty for large disparity change between neighbor pixels',
+          ko: '인접 픽셀 간의 큰 시차 변화에 대한 패널티',
+          zh: '相邻像素之间大视差变化的惩罚',
+          ja: '隣接ピクセル間の大きな視差変化に対するペナルティ',
+          de: 'Strafe für große Disparitätsänderungen zwischen benachbarten Pixeln',
+          es: 'Penalización por gran cambio de disparidad entre píxeles vecinos',
+          fr: 'Pénalité pour un changement de disparité important entre les pixels voisins'
+        },
       },
       {
         name: 'mode',
@@ -9774,7 +11686,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'MODE_HH', value: 1 },
           { label: 'MODE_SGBM_3WAY', value: 2 },
         ],
-        description: 'SGBM 모드',
+        description: {
+          en: 'SGBM mode',
+          ko: 'SGBM 모드',
+          zh: 'SGBM 模式',
+          ja: 'SGBMモード',
+          de: 'SGBM-Modus',
+          es: 'Modo SGBM',
+          fr: 'Mode SGBM'
+        },
       },
     ],
     syntax: 'StereoSGBM.compute(left, right, disparity)',
@@ -9782,19 +11702,43 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'reprojectImageTo3D',
-    name: 'Reproject Image to 3D (이미지를 3D로 재투영)',
+    name: {
+      en: 'Reproject Image to 3D',
+      ko: '이미지를 3D로 재투영',
+      zh: '将图像重投影为 3D',
+      ja: '画像を3Dに再投影',
+      de: 'Bild in 3D reprojizieren',
+      es: 'Reproyectar imagen a 3D',
+      fr: 'Reprojeter l\'image en 3D'
+    },
     category: 'calib3d',
-    description: '시차 맵을 3D 포인트 클라우드로 재투영합니다.',
+    description: {
+      en: 'Reprojects a disparity image to 3D space.',
+      ko: '시차 맵을 3D 포인트 클라우드로 재투영합니다.',
+      zh: '将视差图重投影到 3D 空间。',
+      ja: '視差マップを3D空間に再投影します。',
+      de: 'Reprojiziert ein Disparitätsbild in den 3D-Raum.',
+      es: 'Reproyecta una imagen de disparidad al espacio 3D.',
+      fr: 'Reprojette une image de disparité dans l\'espace 3D.'
+    },
     parameters: [
       {
         name: 'handleMissingValues',
         type: 'select',
         defaultValue: 0,
         options: [
-          { label: 'False', value: 0 },
-          { label: 'True', value: 1 },
+          { label: { en: 'False', ko: '거짓', zh: '假', ja: '偽', de: 'Falsch', es: 'Falso', fr: 'Faux' }, value: 0 },
+          { label: { en: 'True', ko: '참', zh: '真', ja: '真', de: 'Wahr', es: 'Verdadero', fr: 'Vrai' }, value: 1 },
         ],
-        description: '결측값 처리 여부',
+        description: {
+          en: 'Indicates whether to handle missing values',
+          ko: '결측값 처리 여부',
+          zh: '是否处理缺失值',
+          ja: '欠損値を処理するかどうかを示します',
+          de: 'Gibt an, ob fehlende Werte behandelt werden sollen',
+          es: 'Indica si se deben manejar los valores faltantes',
+          fr: 'Indique s\'il faut gérer les valeurs manquantes'
+        },
       },
     ],
     syntax: 'reprojectImageTo3D(disparity, _3dImage, Q, handleMissingValues=False)',
@@ -9802,45 +11746,125 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'triangulatePoints',
-    name: 'Triangulate Points (삼각 측량)',
+    name: {
+      en: 'Triangulate Points',
+      ko: '점 삼각 측량',
+      zh: '三角测量点',
+      ja: '点の三角測量',
+      de: 'Punkte triangulieren',
+      es: 'Triangular puntos',
+      fr: 'Trianguler les points'
+    },
     category: 'calib3d',
-    description: '두 뷰에서 대응되는 점들로부터 3D 점을 삼각측량합니다.',
+    description: {
+      en: 'Reconstructs 3D points by triangulation from two views.',
+      ko: '두 뷰에서 대응되는 점들로부터 3D 점을 삼각측량하여 복원합니다.',
+      zh: '通过两个视图的三角测量重建 3D 点。',
+      ja: '2つのビューからの三角測量によって3Dポイントを再構成します。',
+      de: 'Rekonstruiert 3D-Punkte durch Triangulation aus zwei Ansichten.',
+      es: 'Reconstruye puntos 3D por triangulación de dos vistas.',
+      fr: 'Reconstruit des points 3D par triangulation à partir de deux vues.'
+    },
     parameters: [],
     syntax: 'triangulatePoints(projMatr1, projMatr2, projPoints1, projPoints2, points4D)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gad3fc9a0c82b08df034234979960b778c',
   },
   {
     id: 'correctMatches',
-    name: 'Correct Matches (매칭 포인트 보정)',
+    name: {
+      en: 'Correct Matches',
+      ko: '매칭 포인트 보정',
+      zh: '校正匹配',
+      ja: 'マッチングの補正',
+      de: 'Übereinstimmungen korrigieren',
+      es: 'Corregir coincidencias',
+      fr: 'Corriger les correspondances'
+    },
     category: 'calib3d',
-    description: '에피폴라 제약 조건을 만족하도록 대응점을 보정합니다.',
+    description: {
+      en: 'Refines coordinates of matching points to satisfy epipolar constraint.',
+      ko: '에피폴라 제약 조건을 만족하도록 대응되는 점들의 좌표를 보정합니다.',
+      zh: '完善匹配点的坐标以满足极线约束。',
+      ja: 'エピポーラ制約を満たすようにマッチングポイントの座標を調整します。',
+      de: 'Verfeinert die Koordinaten übereinstimmender Punkte, um die Epipolarbeschränkung zu erfüllen.',
+      es: 'Refina las coordenadas de los puntos coincidentes para satisfacer la restricción epipolar.',
+      fr: 'Affine les coordonnées des points correspondants pour satisfaire la contrainte épipolaire.'
+    },
     parameters: [],
     syntax: 'correctMatches(F, points1, points2, newPoints1, newPoints2)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga7c1c3a3d6c06e8f8c40a59d5d0dd8e48',
   },
   {
     id: 'convertPointsToHomogeneous',
-    name: 'Convert Points to Homogeneous (동차 좌표로 변환)',
+    name: {
+      en: 'Convert Points to Homogeneous',
+      ko: '동차 좌표로 변환',
+      zh: '转换为齐次坐标',
+      ja: '同次座標への変換',
+      de: 'Punkte in homogene Koordinaten umwandeln',
+      es: 'Convertir puntos a homogéneos',
+      fr: 'Convertir les points en coordonnées homogènes'
+    },
     category: 'calib3d',
-    description: '점들을 동차 좌표계로 변환합니다.',
+    description: {
+      en: 'Converts points from Euclidean to homogeneous coordinates.',
+      ko: '유클리드 좌표계의 점들을 동차(homogeneous) 좌표계로 변환합니다.',
+      zh: '将点从欧几里得坐标转换为齐次坐标。',
+      ja: 'ポイントをユークリッド座標から同次座標に変換します。',
+      de: 'Konvertiert Punkte von euklidischen in homogene Koordinaten.',
+      es: 'Convierte puntos de coordenadas euclidianas a homogéneas.',
+      fr: 'Convertit les points des coordonnées euclidiennes en coordonnées homogènes.'
+    },
     parameters: [],
     syntax: 'convertPointsToHomogeneous(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gad10a5ef12ee3499d0774c7904a801e99',
   },
   {
     id: 'convertPointsFromHomogeneous',
-    name: 'Convert Points from Homogeneous (동차 좌표에서 변환)',
+    name: {
+      en: 'Convert Points from Homogeneous',
+      ko: '동차 좌표에서 유클리드 좌표로 변환',
+      zh: '从齐次坐标转换为欧几里得坐标',
+      ja: '同次座標からユークリッド座標への変換',
+      de: 'Punkte von homogenen Koordinaten umwandeln',
+      es: 'Convertir puntos de homogéneos a euclidianos',
+      fr: 'Convertir les points des coordonnées homogènes en coordonnées euclidiennes'
+    },
     category: 'calib3d',
-    description: '동차 좌표계의 점들을 유클리드 좌표로 변환합니다.',
+    description: {
+      en: 'Converts points from homogeneous to Euclidean coordinates.',
+      ko: '동차(homogeneous) 좌표계의 점들을 유클리드 좌표계로 변환합니다.',
+      zh: '将点从齐次坐标转换为欧几里得坐标。',
+      ja: 'ポイントを同次座標からユークリッド座標に変換します。',
+      de: 'Konvertiert Punkte von homogenen in euklidische Koordinaten.',
+      es: 'Convierte puntos de coordenadas homogéneas a euclidianas.',
+      fr: 'Convertit les points des coordonnées homogènes en coordonnées euclidiennes.'
+    },
     parameters: [],
     syntax: 'convertPointsFromHomogeneous(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gaf9135b54f6a0f6b8c761a4f3b0c4caa9',
   },
   {
     id: 'solvePnP',
-    name: 'Solve PnP (Pose 추정)',
+    name: {
+      en: 'Solve PnP',
+      ko: 'PnP 문제 해결 (Pose 추정)',
+      zh: '解 PnP 问题',
+      ja: 'PnP問題の解決',
+      de: 'PnP-Problem lösen',
+      es: 'Resolver PnP',
+      fr: 'Résoudre PnP'
+    },
     category: 'calib3d',
-    description: '3D-2D 점 대응으로부터 객체의 자세(위치와 방향)를 추정합니다.',
+    description: {
+      en: 'Estimates the object pose from 3D-2D point correspondences.',
+      ko: '3D 점들과 그에 대응하는 2D 이미지 점들의 쌍으로부터 객체의 자세(위치와 방향)를 추정합니다.',
+      zh: '通过 3D-2D 点对应关系估计物体的姿态。',
+      ja: '3D-2Dの点の対応関係からオブジェクトの姿勢を推定します。',
+      de: 'Schätzt die Objektpose aus 3D-2D-Punktkorrespondenzen.',
+      es: 'Estima la pose del objeto a partir de correspondencias de puntos 3D-2D.',
+      fr: 'Estime la pose de l\'objet à partir des correspondances de points 3D-2D.'
+    },
     parameters: [
       {
         name: 'method',
@@ -9857,7 +11881,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'SOLVEPNP_IPPE_SQUARE', value: 7 },
           { label: 'SOLVEPNP_SQPNP', value: 8 },
         ],
-        description: 'PnP 해결 방법',
+        description: {
+          en: 'PnP solution method',
+          ko: 'PnP 해결 방법',
+          zh: 'PnP 解决方法',
+          ja: 'PnP解決手法',
+          de: 'PnP-Lösungsmethode',
+          es: 'Método de resolución PnP',
+          fr: 'Méthode de résolution PnP'
+        },
       },
     ],
     syntax: 'solvePnP(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess=False, flags=SOLVEPNP_ITERATIVE)',
@@ -9865,9 +11897,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'solvePnPRansac',
-    name: 'Solve PnP RANSAC (RANSAC Pose 추정)',
+    name: {
+      en: 'Solve PnP RANSAC',
+      ko: 'PnP RANSAC (강건한 Pose 추정)',
+      zh: '解 PnP RANSAC',
+      ja: 'PnP RANSACの解決',
+      de: 'PnP RANSAC lösen',
+      es: 'Resolver PnP RANSAC',
+      fr: 'Résoudre PnP RANSAC'
+    },
     category: 'calib3d',
-    description: 'RANSAC을 사용하여 아웃라이어에 강건한 Pose를 추정합니다.',
+    description: {
+      en: 'Estimates the object pose from 3D-2D point correspondences using RANSAC to be robust to outliers.',
+      ko: 'RANSAC 알고리즘을 사용하여 이상치(outlier)에 강건하게 3D-2D 대응으로부터 객체의 자세를 추정합니다.',
+      zh: '使用 RANSAC 通过 3D-2D 点对应关系估计物体的姿态，对离群点具有鲁棒性。',
+      ja: 'RANSACを使用して、外れ値に対して堅牢に3D-2Dの点の対応関係からオブジェクトの姿勢を推定します。',
+      de: 'Schätzt die Objektpose aus 3D-2D-Punktkorrespondenzen mithilfe von RANSAC, um robust gegenüber Ausreißern zu sein.',
+      es: 'Estima la pose del objeto a partir de correspondencias de puntos 3D-2D utilizando RANSAC para ser robusto a los valores atípicos.',
+      fr: 'Estime la pose de l\'objet à partir des correspondances de points 3D-2D en utilisant RANSAC pour être robuste aux valeurs aberrantes.'
+    },
     parameters: [
       {
         name: 'iterationsCount',
@@ -9876,7 +11924,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 1000,
         step: 10,
-        description: 'RANSAC 반복 횟수',
+        description: {
+          en: 'Maximum number of RANSAC iterations',
+          ko: 'RANSAC 최대 반복 횟수',
+          zh: 'RANSAC 最大迭代次数',
+          ja: 'RANSACの最大反復回数',
+          de: 'Maximale Anzahl der RANSAC-Iterationen',
+          es: 'Número máximo de iteraciones de RANSAC',
+          fr: 'Nombre maximum d\'itérations RANSAC'
+        },
       },
       {
         name: 'reprojectionError',
@@ -9885,7 +11941,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 20,
         step: 0.5,
-        description: '재투영 오차 임계값 (픽셀)',
+        description: {
+          en: 'Inlier threshold; maximum allowed distance between observed and projected points',
+          ko: '인라이어 임계값 (관측된 점과 투영된 점 사이의 최대 허용 거리)',
+          zh: '内点阈值；观测点与投影点之间允许的最大距离',
+          ja: 'インライアしきい値。観測された点と投影された点の間の最大許容距離',
+          de: 'Inlier-Schwellenwert; maximal zulässiger Abstand zwischen beobachteten und projizierten Punkten',
+          es: 'Umbral de inlier; distancia máxima permitida entre puntos observados y proyectados',
+          fr: 'Seuil d\'inlier ; distance maximale autorisée entre les points observés et projetés'
+        },
       },
       {
         name: 'confidence',
@@ -9894,7 +11958,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.8,
         max: 0.999,
         step: 0.01,
-        description: '신뢰도',
+        description: {
+          en: 'Confidence level for the result',
+          ko: '결과에 대한 신뢰도 수준',
+          zh: '结果的置信度',
+          ja: '結果の信頼レベル',
+          de: 'Konfidenzniveau für das Ergebnis',
+          es: 'Nivel de confianza para el resultado',
+          fr: 'Niveau de confiance pour le résultat'
+        },
       },
     ],
     syntax: 'solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess=False, iterationsCount=100, reprojectionError=8.0, confidence=0.99)',
@@ -9902,36 +11974,100 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'solvePnPRefineLM',
-    name: 'Solve PnP Refine LM (Levenberg-Marquardt Pose 정제)',
+    name: {
+      en: 'Solve PnP Refine LM',
+      ko: 'PnP 오차 정제 (LM 최적화)',
+      zh: '解 PnP LM 细化',
+      ja: 'PnP LMの精緻化',
+      de: 'PnP LM verfeinern',
+      es: 'Refinar PnP LM',
+      fr: 'Affiner PnP LM'
+    },
     category: 'calib3d',
-    description: 'Levenberg-Marquardt 최적화로 Pose 추정을 정제합니다.',
+    description: {
+      en: 'Refines the pose estimate using Levenberg-Marquardt optimization.',
+      ko: 'Levenberg-Marquardt 최적화 방법을 사용하여 추정된 자세(pose)를 더 정확하게 정제합니다.',
+      zh: '使用 Levenberg-Marquardt 优化完善姿态估计。',
+      ja: 'Levenberg-Marquardt最適化を使用して姿勢推定を精緻化します。',
+      de: 'Verfeinert die Posenschätzung mithilfe der Levenberg-Marquardt-Optimierung.',
+      es: 'Refina la estimación de la pose utilizando la optimización de Levenberg-Marquardt.',
+      fr: 'Affine l\'estimation de la pose en utilisant l\'optimisation de Levenberg-Marquardt.'
+    },
     parameters: [],
     syntax: 'solvePnPRefineLM(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gade26b44ae74a6eb58eb08c4ab94c6222',
   },
   {
     id: 'Rodrigues',
-    name: 'Rodrigues Transform (로드리게스 변환)',
+    name: {
+      en: 'Rodrigues Transform',
+      ko: '로드리게스 변환',
+      zh: '罗德里格斯变换',
+      ja: 'ロドリゲス変換',
+      de: 'Rodrigues-Transformation',
+      es: 'Transformación de Rodrigues',
+      fr: 'Transformation de Rodrigues'
+    },
     category: 'calib3d',
-    description: '회전 벡터와 회전 행렬 간 상호 변환을 수행합니다.',
+    description: {
+      en: 'Converts a rotation vector to a rotation matrix or vice versa.',
+      ko: '회전 벡터(3x1)를 회전 행렬(3x3)로, 또는 그 반대로 변환합니다.',
+      zh: '将旋转向量转换为旋转矩阵，反之亦然。',
+      ja: '回転ベクトルを回転行列に、またはその逆に変換します。',
+      de: 'Konvertiert einen Rotationsvektor in eine Rotationsmatrix oder umgekehrt.',
+      es: 'Convierte un vector de rotación en una matriz de rotación o viceversa.',
+      fr: 'Convertit un vecteur de rotation en une matrice de rotation ou vice versa.'
+    },
     parameters: [],
     syntax: 'Rodrigues(src, dst, jacobian=None)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga61585db663d9da06b68e70cfbf6a1eac',
   },
   {
     id: 'projectPoints',
-    name: 'Project Points (포인트 투영)',
+    name: {
+      en: 'Project Points',
+      ko: '3D 점 투영',
+      zh: '投影点',
+      ja: '点の投影',
+      de: 'Punkte projizieren',
+      es: 'Proyectar puntos',
+      fr: 'Projeter des points'
+    },
     category: 'calib3d',
-    description: '3D 점들을 2D 이미지 평면에 투영합니다.',
+    description: {
+      en: 'Projects 3D points to an image plane.',
+      ko: '3D 공간상의 점들을 카메라 파라미터를 기반으로 2D 이미지 평면에 투영합니다.',
+      zh: '将 3D 点投影到图像平面上。',
+      ja: '3Dポイントを画像平面に投影します。',
+      de: 'Projiziert 3D-Punkte auf eine Bildebene.',
+      es: 'Proyecta puntos 3D en un plano de imagen.',
+      fr: 'Projette des points 3D sur un plan d\'image.'
+    },
     parameters: [],
     syntax: 'projectPoints(objectPoints, rvec, tvec, cameraMatrix, distCoeffs, imagePoints, jacobian=None)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga1019495a2c8d1743ed5cc23fa0daff8c',
   },
   {
     id: 'drawFrameAxes',
-    name: 'Draw Frame Axes (좌표축 그리기)',
+    name: {
+      en: 'Draw Frame Axes',
+      ko: '좌표축 그리기',
+      zh: '绘制坐标轴',
+      ja: '座標軸の描画',
+      de: 'Achsen zeichnen',
+      es: 'Dibujar ejes de coordenadas',
+      fr: 'Dessiner les axes de coordonnées'
+    },
     category: 'calib3d',
-    description: '3D 좌표축을 이미지에 그립니다.',
+    description: {
+      en: 'Draws 3D axes into an image.',
+      ko: '3D 좌표축(X, Y, Z)을 이미지 상의 특정 자세에 맞게 그립니다.',
+      zh: '在图像中绘制 3D 坐标轴。',
+      ja: '画像内に3D座標軸を描画します。',
+      de: 'Zeichnet 3D-Achsen in ein Bild.',
+      es: 'Dibuja ejes 3D en una imagen.',
+      fr: 'Dessine des axes 3D dans une image.'
+    },
     parameters: [
       {
         name: 'length',
@@ -9940,7 +12076,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 500,
         step: 10,
-        description: '축 길이 (픽셀)',
+        description: {
+          en: 'Length of the axes to be drawn',
+          ko: '그려질 축의 길이 (픽셀)',
+          zh: '待绘制坐标轴的长度',
+          ja: '描画される軸の長さ',
+          de: 'Länge der zu zeichnenden Achsen',
+          es: 'Longitud de los ejes a dibujar',
+          fr: 'Longueur des axes à dessiner'
+        },
       },
       {
         name: 'thickness',
@@ -9949,7 +12093,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Thickness of the axes lines',
+          ko: '축 선의 두께',
+          zh: '坐标轴线的粗细',
+          ja: '軸線の太さ',
+          de: 'Dicke der Achsenlinien',
+          es: 'Grosor de las líneas de los ejes',
+          fr: 'Épaisseur des lignes des axes'
+        },
       },
     ],
     syntax: 'drawFrameAxes(image, cameraMatrix, distCoeffs, rvec, tvec, length, thickness=3)',
@@ -9957,27 +12109,75 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'decomposeProjectionMatrix',
-    name: 'Decompose Projection Matrix (투영 행렬 분해)',
+    name: {
+      en: 'Decompose Projection Matrix',
+      ko: '투영 행렬 분해',
+      zh: '分解投影矩阵',
+      ja: '投影行列の分解',
+      de: 'Projektionsmatrix zerlegen',
+      es: 'Descomponer la matriz de proyección',
+      fr: 'Décomposer la matrice de projection'
+    },
     category: 'calib3d',
-    description: '투영 행렬을 카메라 행렬, 회전, 이동으로 분해합니다.',
+    description: {
+      en: 'Decomposes a projection matrix into a camera matrix and a rotation-translation matrix.',
+      ko: '3x4 투영 행렬을 카메라 내부 파라미터 행렬(K), 회전 행렬(R), 그리고 이동 벡터(t)로 분해합니다.',
+      zh: '将投影矩阵分解为相机矩阵和旋转-平移矩阵。',
+      ja: '投影行列をカメラ行列と回転・並進行列に分解します。',
+      de: 'Zerlegt eine Projektionsmatrix in eine Kameramatrix und eine Rotations-Translations-Matrix.',
+      es: 'Descompone una matriz de proyección en una matriz de cámara y una matriz de rotación-traslación.',
+      fr: 'Décompose une matrice de projection en une matrice de caméra et une matrice de rotation-translation.'
+    },
     parameters: [],
     syntax: 'decomposeProjectionMatrix(projMatrix, cameraMatrix, rotMatrix, transVect)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gaaae5a7899faa1ffdf268cd9088940248',
   },
   {
     id: 'composeRT',
-    name: 'Compose RT (회전과 이동 결합)',
+    name: {
+      en: 'Compose RT',
+      ko: '회전과 이동 결합',
+      zh: '组合旋转和平移',
+      ja: '回転と並進の結合',
+      de: 'RT kombinieren',
+      es: 'Componer RT',
+      fr: 'Composer RT'
+    },
     category: 'calib3d',
-    description: '두 개의 회전-이동 변환을 하나로 결합합니다.',
+    description: {
+      en: 'Combines two rotation-translation transformations.',
+      ko: '두 개의 연속적인 회전-이동 변환을 하나의 결과 변환으로 결합합니다.',
+      zh: '将两个旋转-平移变换组合在一起。',
+      ja: '2つの連続する回転・並進変換を1つに結合します。',
+      de: 'Kombiniert zwei Rotations-Translations-Transformationen.',
+      es: 'Combina dos transformaciones de rotación-traslación.',
+      fr: 'Combine deux transformations de rotation-translation.'
+    },
     parameters: [],
     syntax: 'composeRT(rvec1, tvec1, rvec2, tvec2, rvec3, tvec3)',
     documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga7e00a2b5e455e81b229c2c2a159d216f',
   },
   {
     id: 'computeCorrespondEpilines',
-    name: 'Compute Correspond Epilines (에피폴라 라인 계산)',
+    name: {
+      en: 'Compute Correspond Epilines',
+      ko: '에피폴라 라인 계산',
+      zh: '计算对应的极线',
+      ja: '対応するエピポーラ線の計算',
+      de: 'Epipolarlinien berechnen',
+      es: 'Calcular líneas epipolares correspondientes',
+      fr: 'Calculer les lignes épipolaires correspondantes'
+    },
     category: 'calib3d',
-    description: '점들에 대응하는 에피폴라 라인을 계산합니다.',
+    description: {
+      en: 'For points in one image of a stereo pair, computes the corresponding epipolar lines in the other image.',
+      ko: '스테레오 이미지 쌍 중 한 이미지의 점들에 대해, 다른 이미지 상의 대응되는 에피폴라 라인을 계산합니다.',
+      zh: '对于立体图像对中一幅图像的点，计算其在另一幅图像中对应的极线。',
+      ja: 'ステレオペアの一方の画像のポイントに対して、他方の画像内の対応するエピポーラ線を計算します。',
+      de: 'Berechnet für Punkte in einem Bild eines Stereopaares die entsprechenden Epipolarlinien im anderen Bild.',
+      es: 'Para los puntos en una imagen de un par estéreo, calcula las líneas epipolares correspondientes en la otra imagen.',
+      fr: 'Pour les points d\'une image d\'une paire stéréo, calcule les lignes épipolaires correspondantes dans l\'autre image.'
+    },
     parameters: [
       {
         name: 'whichImage',
@@ -9987,7 +12187,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'Image 1', value: 1 },
           { label: 'Image 2', value: 2 },
         ],
-        description: '점이 속한 이미지',
+        description: {
+          en: 'Index of the image that contains the points',
+          ko: '점이 포함된 이미지 번호',
+          zh: '包含这些点的图像索引',
+          ja: 'ポイントが含まれている画像のインデックス',
+          de: 'Index des Bildes, das die Punkte enthält',
+          es: 'Índice de la imagen que contiene los puntos',
+          fr: 'Index de l\'image qui contient les points'
+        },
       },
     ],
     syntax: 'computeCorrespondEpilines(points, whichImage, F, lines)',
@@ -9995,9 +12203,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'validateDisparity',
-    name: 'Validate Disparity (시차 검증)',
+    name: {
+      en: 'Validate Disparity',
+      ko: '시차 맵 검증',
+      zh: '验证视差',
+      ja: '視差の検証',
+      de: 'Disparität validieren',
+      es: 'Validar disparidad',
+      fr: 'Valider la disparité'
+    },
     category: 'calib3d',
-    description: '시차 맵의 품질을 검증하고 잘못된 값을 제거합니다.',
+    description: {
+      en: 'Validates the disparity map and removes outliers.',
+      ko: '시차(disparity) 맵의 품질을 검증하고 신뢰할 수 없는 아웃라이어를 제거합니다.',
+      zh: '验证视差图并移除离群点。',
+      ja: '視差マップを検証し、外れ値を除去します。',
+      de: 'Validiert die Disparitätskarte und entfernt Ausreißer.',
+      es: 'Valida el mapa de disparidad y elimina los valores atípicos.',
+      fr: 'Valide la carte de disparité et supprime les valeurs aberrantes.'
+    },
     parameters: [
       {
         name: 'minDisparity',
@@ -10006,7 +12230,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 64,
         step: 1,
-        description: '최소 시차 값',
+        description: {
+          en: 'Minimum possible disparity value',
+          ko: '최소 가능한 시차 값',
+          zh: '最小可能的视差值',
+          ja: '最小の視差値',
+          de: 'Minimal möglicher Disparitätswert',
+          es: 'Valor de disparidad mínimo posible',
+          fr: 'Valeur de disparité minimale possible'
+        },
       },
       {
         name: 'numberOfDisparities',
@@ -10015,7 +12247,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 16,
         max: 256,
         step: 16,
-        description: '시차 범위',
+        description: {
+          en: 'Number of disparities to search',
+          ko: '검색할 시차 범위',
+          zh: '要搜索的视差数量',
+          ja: '検索する視差の数',
+          de: 'Anzahl der zu suchenden Disparitäten',
+          es: 'Número de disparidades para buscar',
+          fr: 'Nombre de disparités à rechercher'
+        },
       },
     ],
     syntax: 'validateDisparity(disparity, cost, minDisparity, numberOfDisparities, disp12MaxDiff=1)',
