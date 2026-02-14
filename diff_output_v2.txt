@@ -1,0 +1,55 @@
+22d21
+< advanced_filter
+46,47d44
+< arcLength
+< arithmetic
+49d45
+< basic
+65d60
+< calib3d
+70,71d64
+< color
+< colormap
+80d72
+< comparison
+84d75
+< contour
+90d80
+< convexityDefects
+123d112
+< derivative
+132,133d120
+< drawing
+< edge
+136d122
+< equalizeHist
+140d125
+< feature
+143d127
+< filter
+151d134
+< fitLine
+166,167d148
+< highgui
+< histogram
+175d155
+< matrix
+187d166
+< misc
+189d167
+< morphology
+192d169
+< motion
+198d174
+< normalize
+211d186
+< pyramid
+231d205
+< shape
+239d212
+< statistical
+244d216
+< threshold
+255,256d226
+< tracking
+< transform

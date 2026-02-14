@@ -1,0 +1,38 @@
+45d44
+< arcLength
+67a67
+> compareHist_BHATTACHARYYA
+68a69
+> compareHist_CHISQR
+69a71
+> compareHist_CHISQR_ALT
+70a73
+> compareHist_CORREL
+71a75
+> compareHist_HELLINGER
+72a77
+> compareHist_INTERSECT
+73a79
+> compareHist_KL_DIV
+76a83
+> contourArea
+81d87
+< convexityDefects
+124d129
+< equalizeHist
+126a132
+> estimateAffine2D
+127a134
+> estimateAffinePartial2D
+129a137
+> filter2D
+136d143
+< fitLine
+169a177,178
+> morphologyEx_CLOSE
+> morphologyEx_OPEN
+175d183
+< normalize
+217a226,227
+> threshold_BINARY
+> threshold_OTSU

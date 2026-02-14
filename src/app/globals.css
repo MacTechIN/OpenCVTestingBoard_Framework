@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --background: #f8f9fa;
+    --foreground: #1a1a1a;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
