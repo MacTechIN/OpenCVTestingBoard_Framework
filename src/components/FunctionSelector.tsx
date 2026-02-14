@@ -43,7 +43,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
 
       <div className="flex flex-col gap-6 flex-1 overflow-y-auto">
         {/* Categories Grid - 5(C) x 5(R) */}
-        <div className="bg-black rounded-xl p-4 sm:p-6 shadow-lg shrink-0">
+        <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-100 shrink-0">
           <div className="grid grid-cols-5 gap-2 sm:gap-4">
             {categories.map((cat) => (
               <button
@@ -53,15 +53,15 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
                    // Reset selection or auto-select first?
                    // Default: just filter the dropdown.
                 }}
-                className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all aspect-square ${
+                className={`flex flex-col items-center justify-center p-0.5 rounded-lg transition-all aspect-square border ${
                   selectedCategoryId === cat.id
-                    ? 'bg-blue-600 text-white ring-2 ring-blue-400 ring-offset-2 ring-offset-black'
-                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-blue-50 border-blue-200 text-blue-700 ring-1 ring-blue-300 shadow-sm'
+                    : 'bg-white border-transparent hover:bg-gray-50 text-gray-600 hover:text-gray-900 hover:border-gray-200'
                 }`}
                 title={translate(cat.name)}
               >
-                <span className="text-2xl sm:text-3xl mb-1 sm:mb-2">{cat.icon}</span>
-                <span className="text-[9px] sm:text-[10px] text-center leading-tight line-clamp-2 w-full px-1">
+                <span className="text-2xl sm:text-3xl mb-0.5 sm:mb-1 transform scale-110">{cat.icon}</span>
+                <span className="text-[11px] sm:text-xs text-center leading-tight line-clamp-2 w-full px-0.5 font-medium">
                   {translate(cat.name)}
                 </span>
                 {/* Small indicator if search matches content in this category - Optional improvement */}

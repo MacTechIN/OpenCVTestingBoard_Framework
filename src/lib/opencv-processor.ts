@@ -629,8 +629,9 @@ export class OpenCVProcessor {
           }
           
           dst = gftOutput;
+          const gftCornerCount = corners.rows;
           corners.delete();
-          info = `검출된 코너: ${corners.rows}개, 품질 레벨: ${gftQuality}, 최소 거리: ${gftMinDist}px`;
+          info = `검출된 코너: ${gftCornerCount}개, 품질 레벨: ${gftQuality}, 최소 거리: ${gftMinDist}px`;
           break;
 
         case 'HoughLines':
@@ -659,8 +660,9 @@ export class OpenCVProcessor {
           }
           
           dst = houghOutput;
+          const houghLinesCount = Math.min(lines.rows, 50);
           lines.delete();
-          info = `검출된 직선: ${Math.min(lines.rows, 50)}개, 임계값: ${houghThreshold}`;
+          info = `검출된 직선: ${houghLinesCount}개, 임계값: ${houghThreshold}`;
           break;
 
         case 'HoughLinesP':
@@ -687,8 +689,9 @@ export class OpenCVProcessor {
           }
           
           dst = hlpOutput;
+          const houghLinesPCount = linesP.rows;
           linesP.delete();
-          info = `검출된 선분: ${linesP.rows}개, 최소 길이: ${hlpMinLength}px, 최대 간격: ${hlpMaxGap}px`;
+          info = `검출된 선분: ${houghLinesPCount}개, 최소 길이: ${hlpMinLength}px, 최대 간격: ${hlpMaxGap}px`;
           break;
 
         case 'HoughCircles':
@@ -716,8 +719,9 @@ export class OpenCVProcessor {
           }
           
           dst = hcOutput;
+          const houghCirclesCount = circles.cols;
           circles.delete();
-          info = `검출된 원: ${circles.cols}개, 반지름 범위: ${hcMinRadius}~${hcMaxRadius}px`;
+          info = `검출된 원: ${houghCirclesCount}개, 반지름 범위: ${hcMinRadius}~${hcMaxRadius}px`;
           break;
 
         case 'cornerSubPix':
@@ -744,8 +748,9 @@ export class OpenCVProcessor {
           }
           
           dst = cspOutput;
+          const subPixCornerCount = cspCorners.rows;
           cspCorners.delete();
-          info = `정제된 코너: ${cspCorners.rows}개, 윈도우 크기: ${cspWinSize}x${cspWinSize}`;
+          info = `정제된 코너: ${subPixCornerCount}개, 윈도우 크기: ${cspWinSize}x${cspWinSize}`;
           break;
 
         case 'cornerMinEigenVal':
