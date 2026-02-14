@@ -134,9 +134,10 @@ export class OpenCVProcessor {
           info = `변환: RGB → HSV, 출력 채널: 3 (Hue, Saturation, Value)`;
           break;
 
-        case 'cvtColor_LAB':
-          cv.cvtColor(src, dst, cv.COLOR_RGBA2RGB);
-          cv.cvtColor(dst, dst, cv.COLOR_RGB2Lab);
+        case 'cvtColor_Lab':
+          console.log('Processing color conversion: RGB to LAB');
+          cv.cvtColor(src, dst, cv.COLOR_RGBA2BGR);
+          cv.cvtColor(dst, dst, cv.COLOR_BGR2Lab);
           info = `변환: RGB → LAB, 출력 채널: 3 (L, A, B)`;
           break;
 

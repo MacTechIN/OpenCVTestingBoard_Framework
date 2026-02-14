@@ -8,9 +8,11 @@ import { ParameterInput } from '@/components/ParameterInput';
 import { OutputPanel } from '@/components/OutputPanel';
 import { UsagePanel } from '@/components/UsagePanel';
 import { OpenCVFunction } from '@/types/opencv';
-import { OpenCVProcessor } from '@/lib/opencv-processor'; // Updated import path using lib
-import opencvLogo from '@/components/ui/pencv-logo.png';
+import { OpenCVProcessor } from '@/lib/opencv-processor';
+import { useLanguage, LANGUAGES } from '@/lib/i18n';
+
 export default function App() {
+  const { language, setLanguage, t, translate } = useLanguage();
   // State Management
   const [isOpenCVLoaded, setIsOpenCVLoaded] = useState(false);
   const [loadingError, setLoadingError] = useState<string | null>(null);
@@ -18,7 +20,7 @@ export default function App() {
   const [inputImage, setInputImage] = useState<string | null>(null);
   const [inputCanvas2, setInputCanvas2] = useState<HTMLCanvasElement | null>(null);
   const [inputImage2, setInputImage2] = useState<string | null>(null);
-  const [selectedFunction, setSelectedFunction] = useState<OpenCVFunction | null>(null);
+  const [selectedFunction, setSelectedFunction] = useState<OpenCVFunction | null>(null); // - [x] UI Layout: Move 'Run Function' button next to 'Select Function & Parameters' title and increase its size by 1.5x
   const [parameters, setParameters] = useState<Record<string, any>>({});
   const [outputImage, setOutputImage] = useState<string | null>(null);
   const [processingInfo, setProcessingInfo] = useState('');
@@ -88,7 +90,7 @@ export default function App() {
     if (!inputCanvas || !selectedFunction) return;
 
     if (selectedFunction.inputCount && selectedFunction.inputCount >= 2 && !inputCanvas2) {
-      alert('이 함수는 src1과 src2 두 개의 입력이 필요합니다.');
+      alert(t('twoInputsRequired'));
       return;
     }
 
@@ -108,7 +110,7 @@ export default function App() {
       setProcessingInfo(result.info);
       setProcessingTime(endTime - startTime);
     } catch (error) {
-      alert(`처리 중 오류가 발생했습니다: ${error instanceof Error ? error.message : '알 수 없는 오류'}`);
+      alert(`${t('processingError')}: ${error instanceof Error ? error.message : t('unknownError')}`);
     } finally {
       setIsProcessing(false);
     }
@@ -130,14 +132,14 @@ export default function App() {
           {loadingError ? (
             <>
               <AlertCircle size={48} className="mx-auto mb-4 text-red-500" />
-              <p className="text-lg text-gray-700 mb-2">OpenCV 로드 실패</p>
+              <p className="text-lg text-gray-700 mb-2">{t('openCVLoadFailed')}</p>
               <p className="text-sm text-gray-500">{loadingError}</p>
             </>
           ) : (
             <>
               <Loader2 size={48} className="mx-auto mb-4 text-blue-500 animate-spin" />
-              <p className="text-lg text-gray-700">OpenCV 라이브러리 로딩 중...</p>
-              <p className="text-sm text-gray-500 mt-2">잠시만 기다려주세요</p>
+              <p className="text-lg text-gray-700">{t('openCVLoading')}</p>
+              <p className="text-sm text-gray-500 mt-2">{t('pleaseWait')}</p>
             </>
           )}
         </div>
@@ -152,26 +154,45 @@ export default function App() {
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 sm:px-6 py-3 sm:py-4 shadow-lg shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-            <img src={opencvLogo.src} alt="OpenCV Logo" className="h-8 sm:h-10 md:h-12 w-auto" />
+            <img src="/opencv-logo.png" alt="OpenCV Logo" className="h-8 sm:h-10 md:h-12 w-auto" />
             <div className="flex-1 min-w-0">
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold truncate">
-                OpenCV Function Testing Board
+                {t('appName')}
               </h1>
-              <p className="text-xs sm:text-sm text-blue-100 mt-1 hidden sm:block">
-                학생들을 위한 OpenCV 함수 학습 및 실습 도구
+              <p className="text-xs sm:text-sm text-blue-100 mt-0.5 hidden sm:block">
+                {t('appSubName')}
               </p>
             </div>
           </div>
-          <div className="hidden lg:flex items-center gap-4 text-right">
-            <div className="text-xs xl:text-sm text-blue-100 max-w-md leading-tight">
-              This project needs your help! Please contribute to <span className="text-white font-medium">enhancements, bug fixes, and UI improvements</span> at:
+
+          <div className="hidden lg:flex items-center gap-6">
+            <div className="flex items-center gap-2 bg-blue-800/30 p-1 rounded-lg border border-blue-400/20">
+              {LANGUAGES.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`px-2 py-1 rounded text-xs font-bold transition-all flex items-center gap-1 ${
+                    language === lang.code
+                      ? 'bg-blue-500 text-white shadow-sm'
+                      : 'text-blue-200 hover:text-white hover:bg-blue-700/50'
+                  }`}
+                  title={lang.label}
+                >
+                  <span>{lang.flag}</span>
+                  <span className="uppercase">{lang.code}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="text-[10px] xl:text-xs text-blue-100 max-w-[280px] leading-tight text-right border-l border-blue-400/30 pl-6">
+              {t('contributionMessage')}
               <a 
                 href="https://github.com/MacTechIN/OpenCVTestingBoard_Framework.git" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block mt-1 text-white hover:text-yellow-200 transition-colors font-semibold underline decoration-blue-300 underline-offset-4"
               >
-                github.com/MacTechIN/OpenCVTestingBoard_Framework
+                GitHub Repository
               </a>
             </div>
           </div>
@@ -179,7 +200,7 @@ export default function App() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden ml-2 p-2 hover:bg-blue-600 rounded-lg transition-colors"
-            aria-label="메뉴"
+            aria-label="Menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -197,7 +218,7 @@ export default function App() {
                 : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
             }`}
           >
-            📥 입력
+            {t('input')}
           </button>
           <button
             onClick={() => setActiveTab('function')}
@@ -207,7 +228,7 @@ export default function App() {
                 : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
             }`}
           >
-            ⚙️ 함수
+            {t('function')}
           </button>
           <button
             onClick={() => setActiveTab('output')}
@@ -217,7 +238,7 @@ export default function App() {
                 : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
             }`}
           >
-            📤 출력
+            {t('output')}
           </button>
         </div>
       </div>
@@ -231,7 +252,7 @@ export default function App() {
             <div className="p-4 lg:p-6">
               <h2 className="text-base lg:text-lg font-semibold mb-3 lg:mb-4 flex items-center gap-2">
                 <span className="text-xl lg:text-2xl">📥</span>
-                <span>입력 이미지 (src1)</span>
+                <span>{t('inputImageSrc1')}</span>
               </h2>
               <ImageUploader
                 onImageLoad={handleImageLoad}
@@ -243,7 +264,7 @@ export default function App() {
                 <div className="mt-4 lg:mt-6">
                   <h2 className="text-base lg:text-lg font-semibold mb-3 lg:mb-4 flex items-center gap-2">
                     <span className="text-xl lg:text-2xl">📥</span>
-                    <span>입력 이미지 (src2)</span>
+                    <span>{t('inputImageSrc2')}</span>
                   </h2>
                   <ImageUploader
                     onImageLoad={handleImageLoad2}
@@ -258,10 +279,27 @@ export default function App() {
           {/* Center Panel - Function Selection */}
           <div className="flex-1 overflow-y-auto bg-white">
             <div className="p-4 lg:p-6">
-              <h2 className="text-base lg:text-lg font-semibold mb-3 lg:mb-4 flex items-center gap-2">
-                <span className="text-xl lg:text-2xl">⚙️</span>
-                <span>함수 선택 및 파라미터 설정</span>
-              </h2>
+              <div className="flex items-center justify-between mb-4 lg:mb-6">
+                <h2 className="text-base lg:text-lg font-semibold flex items-center gap-2">
+                  <span className="text-xl lg:text-2xl">⚙️</span>
+                  <span>{t('selectFunction')}</span>
+                </h2>
+                
+                {selectedFunction && (
+                  <button
+                    onClick={handleProcess}
+                    disabled={!inputCanvas || isProcessing}
+                    className="flex items-center justify-center gap-2 px-6 py-3 text-base font-bold bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 ring-2 ring-blue-100"
+                  >
+                    {isProcessing ? (
+                      <Loader2 size={20} className="animate-spin" />
+                    ) : (
+                      <Play size={20} fill="currentColor" />
+                    )}
+                    <span>{isProcessing ? t('processing') : t('runFunction')}</span>
+                  </button>
+                )}
+              </div>
 
               <FunctionSelector
                 selectedFunction={selectedFunction}
@@ -270,11 +308,11 @@ export default function App() {
 
               {selectedFunction && (
                 <div className="mt-4 lg:mt-6">
-                  <h3 className="text-sm lg:text-md font-semibold mb-2 lg:mb-3">파라미터 설정</h3>
+                  <h3 className="text-sm lg:text-md font-semibold mb-2 lg:mb-3">{t('parameters')}</h3>
                   <div className="p-3 lg:p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="mb-3 lg:mb-4 pb-3 lg:pb-4 border-b border-gray-300">
-                      <div className="font-medium text-sm lg:text-base">{selectedFunction.name}</div>
-                      <div className="text-xs lg:text-sm text-gray-600 mt-1">{selectedFunction.description}</div>
+                      <div className="font-medium text-sm lg:text-base">{translate(selectedFunction.name)}</div>
+                      <div className="text-xs lg:text-sm text-gray-600 mt-1">{translate(selectedFunction.description)}</div>
                     </div>
                     <ParameterInput
                       selectedFunction={selectedFunction}
@@ -290,7 +328,7 @@ export default function App() {
               {!selectedFunction && (
                 <div className="mt-4 lg:mt-6 p-6 lg:p-8 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
                   <p className="text-sm lg:text-base text-blue-700">
-                    👆 위에서 함수를 선택하여 OpenCV 기능을 테스트하세요
+                    {t('noFunctionSelected')}
                   </p>
                 </div>
               )}
@@ -303,22 +341,8 @@ export default function App() {
               <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm py-3 flex items-center justify-between mb-4 border-b border-gray-200 -mx-4 lg:-mx-6 px-4 lg:px-6">
                 <h2 className="text-base lg:text-lg font-bold flex items-center gap-2 text-slate-800">
                   <span className="text-xl lg:text-2xl">📤</span>
-                  <span>출력 결과</span>
+                  <span>{t('outputResult')}</span>
                 </h2>
-                {selectedFunction && (
-                  <button
-                    onClick={handleProcess}
-                    disabled={!inputCanvas || isProcessing}
-                    className="flex items-center justify-center gap-2 px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
-                  >
-                    {isProcessing ? (
-                      <Loader2 size={16} className="animate-spin" />
-                    ) : (
-                      <Play size={16} />
-                    )}
-                    <span>함수 실행</span>
-                  </button>
-                )}
               </div>
               <OutputPanel
                 outputImage={outputImage}
@@ -330,7 +354,7 @@ export default function App() {
               <div className="mt-4 lg:mt-6">
                 <h2 className="text-base lg:text-lg font-semibold mb-3 lg:mb-4 pt-4 border-t border-gray-100 flex items-center gap-2">
                   <span className="text-xl lg:text-2xl">📖</span>
-                  <span>상세 사용법</span>
+                  <span>{t('usageGuide')}</span>
                 </h2>
                 <UsagePanel selectedFunction={selectedFunction} />
               </div>
@@ -344,7 +368,7 @@ export default function App() {
             <div className="p-4">
               <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
                 <span className="text-xl">📥</span>
-                <span>입력 이미지 (src1)</span>
+                <span>{t('inputImageSrc1')}</span>
               </h2>
               <ImageUploader
                 onImageLoad={handleImageLoad}
@@ -356,7 +380,7 @@ export default function App() {
                 <div className="mt-6">
                   <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
                     <span className="text-xl">📥</span>
-                    <span>입력 이미지 (src2)</span>
+                    <span>{t('inputImageSrc2')}</span>
                   </h2>
                   <ImageUploader
                     onImageLoad={handleImageLoad2}
@@ -372,7 +396,7 @@ export default function App() {
             <div className="p-4">
               <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
                 <span className="text-xl">⚙️</span>
-                <span>함수 선택 및 파라미터 설정</span>
+                <span>{t('selectFunction')}</span>
               </h2>
 
               <FunctionSelector
@@ -382,11 +406,11 @@ export default function App() {
 
               {selectedFunction && (
                 <div className="mt-4">
-                  <h3 className="text-sm font-semibold mb-2">파라미터 설정</h3>
+                  <h3 className="text-sm font-semibold mb-2">{t('parameters')}</h3>
                   <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="mb-3 pb-3 border-b border-gray-300">
-                      <div className="font-medium text-sm">{selectedFunction.name}</div>
-                      <div className="text-xs text-gray-600 mt-1">{selectedFunction.description}</div>
+                      <div className="font-medium text-sm">{translate(selectedFunction.name)}</div>
+                      <div className="text-xs text-gray-600 mt-1">{translate(selectedFunction.description)}</div>
                     </div>
                     <ParameterInput
                       selectedFunction={selectedFunction}
@@ -398,17 +422,17 @@ export default function App() {
                   <button
                     onClick={handleProcess}
                     disabled={!inputCanvas || isProcessing}
-                    className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors active:scale-95"
+                    className="mt-4 w-full flex items-center justify-center gap-3 px-6 py-4 text-base font-bold bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all active:scale-95 shadow-lg ring-2 ring-blue-100"
                   >
                     {isProcessing ? (
                       <>
-                        <Loader2 size={18} className="animate-spin" />
-                        처리 중...
+                        <Loader2 size={20} className="animate-spin" />
+                        {t('processing')}
                       </>
                     ) : (
                       <>
-                        <Play size={18} />
-                        함수 실행
+                        <Play size={20} fill="currentColor" />
+                        {t('runFunction')}
                       </>
                     )}
                   </button>
@@ -418,7 +442,7 @@ export default function App() {
               {!selectedFunction && (
                 <div className="mt-4 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
                   <p className="text-sm text-blue-700">
-                    👆 위에서 함수를 선택하여 OpenCV 기능을 테스트하세요
+                    {t('noFunctionSelected')}
                   </p>
                 </div>
               )}
@@ -429,7 +453,7 @@ export default function App() {
             <div className="p-4">
               <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
                 <span className="text-xl">📤</span>
-                <span>출력 결과</span>
+                <span>{t('outputResult')}</span>
               </h2>
               <OutputPanel
                 outputImage={outputImage}
@@ -441,7 +465,7 @@ export default function App() {
               <div className="mt-6">
                 <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
                   <span className="text-xl">📖</span>
-                  <span>사용법</span>
+                  <span>{t('usageGuide')}</span>
                 </h2>
                 <UsagePanel selectedFunction={selectedFunction} />
               </div>

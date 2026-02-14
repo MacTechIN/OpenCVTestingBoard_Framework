@@ -1,242 +1,806 @@
 import { OpenCVFunction, Category, FunctionParameter } from '@/types/opencv';
 
 export const categories = [
-  // Advanced Filters
-  { id: 'advanced_filter', name: 'Advanced Filters', icon: '🔬', parent: 'imgproc' },
-  
-  // Arithmetic Operations
-  { id: 'arithmetic', name: 'Arithmetic Operations', icon: '🔢', parent: 'core' },
-  
-  // Basic Filters
-  { id: 'filter', name: 'Basic Filters', icon: '🔍', parent: 'imgproc' },
-  
-  // Basic Operations
-  { id: 'basic', name: 'Basic Operations', icon: '➕', parent: 'core' },
-  
-  // Camera Calibration & 3D
-  { id: 'calib3d', name: 'Camera Calibration & 3D', icon: '📷', parent: 'calib3d' },
-  
-  // Color Conversions
-  { id: 'color', name: 'Color Conversions', icon: '🎨', parent: 'imgproc' },
-  
-  // ColorMaps
-  { id: 'colormap', name: 'ColorMaps', icon: '🌈', parent: 'imgproc' },
-  
-  // Comparison Operations
-  { id: 'comparison', name: 'Comparison Operations', icon: '⚖️', parent: 'core' },
-  
-  // Contours
-  { id: 'contour', name: 'Contours', icon: '🔶', parent: 'imgproc' },
-  
-  // Derivatives
-  { id: 'derivative', name: 'Derivatives', icon: '📊', parent: 'imgproc' },
-  
-  // Drawing Functions
-  { id: 'drawing', name: 'Drawing Functions', icon: '✏️', parent: 'imgproc' },
-  
-  // Edge Detection
-  { id: 'edge', name: 'Edge Detection', icon: '📐', parent: 'imgproc' },
-  
-  // Feature Detection
-  { id: 'feature', name: 'Feature Detection', icon: '⭐', parent: 'imgproc' },
-  
-  // Geometric Transforms
-  { id: 'transform', name: 'Geometric Transforms', icon: '🔄', parent: 'imgproc' },
-  
-  // High-level GUI
-  { id: 'highgui', name: 'High-level GUI', icon: '🖥️', parent: 'highgui' },
-  
-  // Histograms
-  { id: 'histogram', name: 'Histograms', icon: '📈', parent: 'imgproc' },
-  
-  // Image Pyramids
-  { id: 'pyramid', name: 'Image Pyramids', icon: '🔺', parent: 'imgproc' },
-  
-  // Matrix Operations
-  { id: 'matrix', name: 'Matrix Operations', icon: '🔲', parent: 'core' },
-  
-  // Miscellaneous
-  { id: 'misc', name: 'Miscellaneous', icon: '🔧', parent: 'imgproc' },
-  
-  // Morphological Operations
-  { id: 'morphology', name: 'Morphological Operations', icon: '⚫', parent: 'imgproc' },
-  
-  // Motion Analysis
-  { id: 'motion', name: 'Motion Analysis', icon: '🎬', parent: 'imgproc' },
-  
-  // Object Tracking
-  { id: 'tracking', name: 'Object Tracking', icon: '🎯', parent: 'video' },
-  
-  // Shape Analysis
-  { id: 'shape', name: 'Shape Analysis', icon: '📏', parent: 'imgproc' },
-  
-  // Statistical Operations
-  { id: 'statistical', name: 'Statistical Operations', icon: '📊', parent: 'core' },
-  
-  // Thresholding
-  { id: 'threshold', name: 'Thresholding', icon: '🎯', parent: 'imgproc' },
+  { 
+    id: 'advanced_filter', 
+    name: {
+      en: 'Advanced Filters',
+      ko: '고급 필터',
+      zh: '高级过滤器',
+      ja: '高度なフィルター',
+      de: 'Erweiterte Filter',
+      es: 'Filtros Avanzados',
+      fr: 'Filtres avancés'
+    }, 
+    icon: '🔬', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'arithmetic', 
+    name: {
+      en: 'Arithmetic Operations',
+      ko: '산술 연산',
+      zh: '算术运算',
+      ja: '算術演算',
+      de: 'Arithmetische Operationen',
+      es: 'Operaciones Aritméticas',
+      fr: 'Opérations arithmétiques'
+    }, 
+    icon: '🔢', 
+    parent: 'core' 
+  },
+  { 
+    id: 'filter', 
+    name: {
+      en: 'Basic Filters',
+      ko: '기본 필터',
+      zh: '基本过滤器',
+      ja: '基本フィルター',
+      de: 'Basisfilter',
+      es: 'Filtros Básicos',
+      fr: 'Filtres de base'
+    }, 
+    icon: '🔍', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'basic', 
+    name: {
+      en: 'Basic Operations',
+      ko: '기본 연산',
+      zh: '基本运算',
+      ja: '基本操作',
+      de: 'Grundlegende Operationen',
+      es: 'Operaciones Básicas',
+      fr: 'Opérations de base'
+    }, 
+    icon: '➕', 
+    parent: 'core' 
+  },
+  { 
+    id: 'calib3d', 
+    name: {
+      en: 'Camera Calibration & 3D',
+      ko: '카메라 캘리브레이션 & 3D',
+      zh: '相机标定与 3D',
+      ja: 'カメラキャリブレーションと 3D',
+      de: 'Kamerakalibrierung & 3D',
+      es: 'Calibración de Cámara y 3D',
+      fr: 'Calibrage de caméra et 3D'
+    }, 
+    icon: '📷', 
+    parent: 'calib3d' 
+  },
+  { 
+    id: 'color', 
+    name: {
+      en: 'Color Conversions',
+      ko: '색상 변환',
+      zh: '颜色转换',
+      ja: '色変換',
+      de: 'Farbkonvertierungen',
+      es: 'Conversiones de Color',
+      fr: 'Conversions de couleur'
+    }, 
+    icon: '🎨', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'colormap', 
+    name: {
+      en: 'ColorMaps',
+      ko: '컬러맵',
+      zh: '颜色映射',
+      ja: 'カラーマップ',
+      de: 'Farbtabellen',
+      es: 'Mapas de Color',
+      fr: 'Cartes de couleurs'
+    }, 
+    icon: '🌈', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'comparison', 
+    name: {
+      en: 'Comparison Operations',
+      ko: '비교 연산',
+      zh: '比较运算',
+      ja: '比較演算',
+      de: 'Vergleichsoperationen',
+      es: 'Operaciones de Comparación',
+      fr: 'Opérations de comparaison'
+    }, 
+    icon: '⚖️', 
+    parent: 'core' 
+  },
+  { 
+    id: 'contour', 
+    name: {
+      en: 'Contours',
+      ko: '윤곽선(컨투어)',
+      zh: '轮廓',
+      ja: '輪郭',
+      de: 'Konturen',
+      es: 'Contornos',
+      fr: 'Contours'
+    }, 
+    icon: '🔶', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'derivative', 
+    name: {
+      en: 'Derivatives',
+      ko: '미분 연산',
+      zh: '导数',
+      ja: '微分演算',
+      de: 'Ableitungen',
+      es: 'Derivadas',
+      fr: 'Dérivées'
+    }, 
+    icon: '📊', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'drawing', 
+    name: {
+      en: 'Drawing Functions',
+      ko: '그리기 함수',
+      zh: '绘图函数',
+      ja: '描画関数',
+      de: 'Zeichenfunktionen',
+      es: 'Funciones de Dibujo',
+      fr: 'Fonctions de dessin'
+    }, 
+    icon: '✏️', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'edge', 
+    name: {
+      en: 'Edge Detection',
+      ko: '엣지 검출',
+      zh: '边缘检测',
+      ja: 'エッジ検出',
+      de: 'Kantenerkennung',
+      es: 'Detección de Bordes',
+      fr: 'Détection de contours'
+    }, 
+    icon: '📐', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'feature', 
+    name: {
+      en: 'Feature Detection',
+      ko: '특징 검출',
+      zh: '特征检测',
+      ja: '特徴検出',
+      de: 'Merkmalserkennung',
+      es: 'Detección de Características',
+      fr: 'Détection de caractéristiques'
+    }, 
+    icon: '⭐', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'transform', 
+    name: {
+      en: 'Geometric Transforms',
+      ko: '기하학적 변환',
+      zh: '几何变换',
+      ja: '幾何学的変換',
+      de: 'Geometrische Transformationen',
+      es: 'Transformaciones Geométricas',
+      fr: 'Transformations géométriques'
+    }, 
+    icon: '🔄', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'highgui', 
+    name: {
+      en: 'High-level GUI',
+      ko: '하이레벨 GUI',
+      zh: '高级 GUI',
+      ja: 'ハイレベル GUI',
+      de: 'High-level-GUI',
+      es: 'GUI de Alto Nivel',
+      fr: 'IHM de haut niveau'
+    }, 
+    icon: '🖥️', 
+    parent: 'highgui' 
+  },
+  { 
+    id: 'histogram', 
+    name: {
+      en: 'Histograms',
+      ko: '히스토그램',
+      zh: '直方图',
+      ja: 'ヒストグラム',
+      de: 'Histogramme',
+      es: 'Histogramas',
+      fr: 'Histogrammes'
+    }, 
+    icon: '📈', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'pyramid', 
+    name: {
+      en: 'Image Pyramids',
+      ko: '이미지 피라미드',
+      zh: '图像金字塔',
+      ja: '画像ピラミッド',
+      de: 'Bildpyramiden',
+      es: 'Pirámides de Imágenes',
+      fr: 'Pyramides d\'images'
+    }, 
+    icon: '🔺', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'matrix', 
+    name: {
+      en: 'Matrix Operations',
+      ko: '행렬 연산',
+      zh: '矩阵运算',
+      ja: '行列演算',
+      de: 'Matrixoperationen',
+      es: 'Operaciones de Matriz',
+      fr: 'Opérations matricielles'
+    }, 
+    icon: '🔲', 
+    parent: 'core' 
+  },
+  { 
+    id: 'misc', 
+    name: {
+      en: 'Miscellaneous',
+      ko: '기타 함수',
+      zh: '杂项',
+      ja: 'その他',
+      de: 'Verschiedenes',
+      es: 'Miscelánea',
+      fr: 'Divers'
+    }, 
+    icon: '🔧', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'morphology', 
+    name: {
+      en: 'Morphological Operations',
+      ko: '모폴로지 연산',
+      zh: '形态学运算',
+      ja: '形態学的演算',
+      de: 'Morphologische Operationen',
+      es: 'Operaciones Morfológicas',
+      fr: 'Opérations morphologiques'
+    }, 
+    icon: '⚫', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'motion', 
+    name: {
+      en: 'Motion Analysis',
+      ko: '모션 분석',
+      zh: '运动分析',
+      ja: '動きの分析',
+      de: 'Bewegungsanalyse',
+      es: 'Análisis de Movimiento',
+      fr: 'Analyse de mouvement'
+    }, 
+    icon: '🎬', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'tracking', 
+    name: {
+      en: 'Object Tracking',
+      ko: '객체 추적',
+      zh: '对象跟踪',
+      ja: 'オブジェクト追跡',
+      de: 'Objektverfolgung',
+      es: 'Seguimiento de Objetos',
+      fr: 'Suivi d\'objet'
+    }, 
+    icon: '🎯', 
+    parent: 'video' 
+  },
+  { 
+    id: 'shape', 
+    name: {
+      en: 'Shape Analysis',
+      ko: '도형 분석',
+      zh: '形状分析',
+      ja: '形状分析',
+      de: 'Formanalyse',
+      es: 'Análisis de Formas',
+      fr: 'Analyse de forme'
+    }, 
+    icon: '📏', 
+    parent: 'imgproc' 
+  },
+  { 
+    id: 'statistical', 
+    name: {
+      en: 'Statistical Operations',
+      ko: '통계 연산',
+      zh: '统计运算',
+      ja: '統計演算',
+      de: 'Statistische Operationen',
+      es: 'Operaciones Estadísticas',
+      fr: 'Opérations statistiques'
+    }, 
+    icon: '📊', 
+    parent: 'core' 
+  },
+  { 
+    id: 'threshold', 
+    name: {
+      en: 'Thresholding',
+      ko: '임계값 처리',
+      zh: '阈值处理',
+      ja: 'しきい値処理',
+      de: 'Schwellenwertverfahren',
+      es: 'Segmentación por Umbral',
+      fr: 'Seuillage'
+    }, 
+    icon: '🎯', 
+    parent: 'imgproc' 
+  },
 ];
 
 export const opencvFunctions: OpenCVFunction[] = [
   // 색상 변환
   {
     id: 'cvtColor_GRAY',
-    name: 'Grayscale (그레이스케일)',
+    name: {
+      en: 'Grayscale',
+      ko: '그레이스케일',
+      zh: '灰度化',
+      ja: 'グレースケール',
+      de: 'Graustufen',
+      es: 'Escala de Grises',
+      fr: 'Niveaux de gris'
+    },
     category: 'color',
-    description: 'RGB 이미지를 흑백 이미지로 변환합니다.',
+    description: {
+      en: 'Converts an RGB image to a grayscale image.',
+      ko: 'RGB 이미지를 흑백 이미지로 변환합니다.',
+      zh: '将 RGB 图像转换为灰度图像。',
+      ja: 'RGB 画像をグレースケール画像に変換します。',
+      de: 'Konvertiert ein RGB-Bild in ein Graustufenbild.',
+      es: 'Convierte una imagen RGB en una imagen en escala de grises.',
+      fr: 'Convertit une image RGB en une image en niveaux de gris.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2GRAY)',
     documentation: 'https://docs.opencv.org/4.x/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_HSV',
-    name: 'RGB to HSV',
+    name: {
+      en: 'RGB to HSV',
+      ko: 'RGB를 HSV로',
+      zh: 'RGB 转 HSV',
+      ja: 'RGB から HSV への変換',
+      de: 'RGB nach HSV',
+      es: 'RGB a HSV',
+      fr: 'RGB vers HSV'
+    },
     category: 'color',
-    description: 'RGB 색공간을 HSV(색상, 채도, 명도) 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to HSV (Hue, Saturation, Value) color space.',
+      ko: 'RGB 색공간을 HSV(색상, 채도, 명도) 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 HSV（色调、饱和度、值）颜色空间。',
+      ja: 'RGB 色空間を HSV (色相、彩度、明度) 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den HSV-Farbraum (Farbwert, Sättigung, Dunkelstufe).',
+      es: 'Convierte el espacio de color RGB al espacio de color HSV (Tono, Saturación, Valor).',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique HSV (Teinte, Saturation, Valeur).'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2HSV)',
     documentation: 'https://docs.opencv.org/4.x/d8/d01/group__imgproc__color__conversions.html#ga4e0972be5de079fed4e3a10e24f5ef6b5',
   },
   {
-    id: 'cvtColor_LAB',
-    name: 'RGB to LAB',
+    id: 'cvtColor_Lab',
+    name: {
+      en: 'RGB to LAB',
+      ko: 'RGB를 LAB로',
+      zh: 'RGB 转 LAB',
+      ja: 'RGB から LAB への変換',
+      de: 'RGB nach LAB',
+      es: 'RGB a LAB',
+      fr: 'RGB vers LAB'
+    },
     category: 'color',
-    description: 'RGB 색공간을 LAB 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to CIE Lab color space.',
+      ko: 'RGB 색공간을 CIE Lab 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 CIE Lab 颜色空间。',
+      ja: 'RGB 色空間を CIE Lab 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den CIE-Lab-Farbraum.',
+      es: 'Convierte el espacio de color RGB al espacio de color CIE Lab.',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique CIE Lab.'
+    },
     parameters: [],
-    syntax: 'cvtColor(src, dst, COLOR_BGR2LAB)',
+    syntax: 'cvtColor(src, dst, COLOR_BGR2Lab)',
     documentation: 'https://docs.opencv.org/4.x/d8/d01/group__imgproc__color__conversions.html#ga40788a05450313c2365710860997524c',
   },
   {
     id: 'cvtColor_YCrCb',
-    name: 'RGB to YCrCb',
+    name: {
+      en: 'RGB to YCrCb',
+      ko: 'RGB를 YCrCb로',
+      zh: 'RGB 转 YCrCb',
+      ja: 'RGB から YCrCb への変換',
+      de: 'RGB nach YCrCb',
+      es: 'RGB a YCrCb',
+      fr: 'RGB vers YCrCb'
+    },
     category: 'color',
-    description: 'RGB 색공간을 YCrCb 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to YCrCb color space.',
+      ko: 'RGB 색공간을 YCrCb 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 YCrCb 颜色空间。',
+      ja: 'RGB 色空間を YCrCb 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den YCrCb-Farbraum.',
+      es: 'Convierte el espacio de color RGB al espacio de color YCrCb.',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique YCrCb.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2YCrCb)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_YUV',
-    name: 'RGB to YUV',
+    name: {
+      en: 'RGB to YUV',
+      ko: 'RGB를 YUV로',
+      zh: 'RGB 转 YUV',
+      ja: 'RGB から YUV への変換',
+      de: 'RGB nach YUV',
+      es: 'RGB a YUV',
+      fr: 'RGB vers YUV'
+    },
     category: 'color',
-    description: 'RGB 색공간을 YUV 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to YUV color space.',
+      ko: 'RGB 색공간을 YUV 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 YUV 颜色空间。',
+      ja: 'RGB 色空間を YUV 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den YUV-Farbraum.',
+      es: 'Convierte el espacio de color RGB al espacio de color YUV.',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique YUV.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2YUV)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_XYZ',
-    name: 'RGB to XYZ',
+    name: {
+      en: 'RGB to XYZ',
+      ko: 'RGB를 XYZ로',
+      zh: 'RGB 转 XYZ',
+      ja: 'RGB から XYZ への変換',
+      de: 'RGB nach XYZ',
+      es: 'RGB a XYZ',
+      fr: 'RGB vers XYZ'
+    },
     category: 'color',
-    description: 'RGB 색공간을 CIE XYZ 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to CIE XYZ color space.',
+      ko: 'RGB 색공간을 CIE XYZ 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 CIE XYZ 颜色空间。',
+      ja: 'RGB 色空間を CIE XYZ 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den CIE-XYZ-Farbraum.',
+      es: 'Convierte el espacio de color RGB al espacio de color CIE XYZ.',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique CIE XYZ.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2XYZ)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_HLS',
-    name: 'RGB to HLS',
+    name: {
+      en: 'RGB to HLS',
+      ko: 'RGB를 HLS로',
+      zh: 'RGB 转 HLS',
+      ja: 'RGB から HLS への変換',
+      de: 'RGB nach HLS',
+      es: 'RGB a HLS',
+      fr: 'RGB vers HLS'
+    },
     category: 'color',
-    description: 'RGB 색공간을 HLS(색상, 밝기, 채도) 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to HLS (Hue, Lightness, Saturation) color space.',
+      ko: 'RGB 색공간을 HLS(색상, 밝기, 채도) 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 HLS（色调、亮度、饱和度）颜色空间。',
+      ja: 'RGB 色空間を HLS (色相、明度、彩度) 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den HLS-Farbraum (Farbwert, Helligkeit, Sättigung).',
+      es: 'Convierte el espacio de color RGB al espacio de color HLS (Tono, Luminosidad, Saturación).',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique HLS (Teinte, Luminosité, Saturation).'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2HLS)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_Luv',
-    name: 'RGB to Luv',
+    name: {
+      en: 'RGB to Luv',
+      ko: 'RGB를 Luv로',
+      zh: 'RGB 转 Luv',
+      ja: 'RGB から Luv への変換',
+      de: 'RGB nach Luv',
+      es: 'RGB a Luv',
+      fr: 'RGB vers Luv'
+    },
     category: 'color',
-    description: 'RGB 색공간을 CIE Luv 색공간으로 변환합니다.',
+    description: {
+      en: 'Converts RGB color space to CIE Luv color space.',
+      ko: 'RGB 색공간을 CIE Luv 색공간으로 변환합니다.',
+      zh: '将 RGB 颜色空间转换为 CIE Luv 颜色空间。',
+      ja: 'RGB 色空間を CIE Luv 色空間に変換します。',
+      de: 'Konvertiert den RGB-Farbraum in den CIE-Luv-Farbraum.',
+      es: 'Convierte el espacio de color RGB al espacio de color CIE Luv.',
+      fr: 'Convertit l\'espace colorimétrique RGB en espace colorimétrique CIE Luv.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2Luv)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_BGRA2BGR',
-    name: 'BGRA to BGR (알파 채널 제거)',
+    name: {
+      en: 'BGRA to BGR (Remove Alpha)',
+      ko: 'BGRA to BGR (알파 채널 제거)',
+      zh: 'BGRA 转 BGR (删除 Alpha)',
+      ja: 'BGRA から BGR (アルファチャネル削除)',
+      de: 'BGRA nach BGR (Alpha entfernen)',
+      es: 'BGRA a BGR (Eliminar Alfa)',
+      fr: 'BGRA vers BGR (Supprimer Alpha)'
+    },
     category: 'color',
-    description: '4채널 BGRA 이미지를 3채널 BGR 이미지로 변환합니다 (알파 채널 제거).',
+    description: {
+      en: 'Converts a 4-channel BGRA image to a 3-channel BGR image (removes alpha channel).',
+      ko: '4채널 BGRA 이미지를 3채널 BGR 이미지로 변환합니다 (알파 채널 제거).',
+      zh: '将 4 通道 BGRA 图像转换为 3 通道 BGR 图像（删除 alpha 通道）。',
+      ja: '4チャネル BGRA 画像を 3チャネル BGR 画像に変換します（アルファチャネル削除）。',
+      de: 'Konvertiert ein 4-Kanal-BGRA-Bild in ein 3-Kanal-BGR-Bild (entfernt den Alpha-Kanal).',
+      es: 'Convierte una imagen BGRA de 4 canales en una imagen BGR de 3 canales (elimina el canal alfa).',
+      fr: 'Convertit une image BGRA à 4 canaux en une image BGR à 3 canaux (supprime le canal alpha).'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGRA2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_BGR2BGRA',
-    name: 'BGR to BGRA (알파 채널 추가)',
+    name: {
+      en: 'BGR to BGRA (Add Alpha)',
+      ko: 'BGR to BGRA (알파 채널 추가)',
+      zh: 'BGR 转 BGRA (添加 Alpha)',
+      ja: 'BGR から BGRA (アルファチャネル追加)',
+      de: 'BGR nach BGRA (Alpha hinzufügen)',
+      es: 'BGR a BGRA (Agregar Alfa)',
+      fr: 'BGR vers BGRA (Ajouter Alpha)'
+    },
     category: 'color',
-    description: '3채널 BGR 이미지를 4채널 BGRA 이미지로 변환합니다 (알파 채널 추가).',
+    description: {
+      en: 'Converts a 3-channel BGR image to a 4-channel BGRA image (adds alpha channel).',
+      ko: '3채널 BGR 이미지를 4채널 BGRA 이미지로 변환합니다 (알파 채널 추가).',
+      zh: '将 3 通道 BGR 图像转换为 4 通道 BGRA 图像（添加 alpha 通道）。',
+      ja: '3チャネル BGR 画像を 4チャネル BGRA 画像に変換します（アルファチャネル 추가）。',
+      de: 'Konvertiert ein 3-Kanal-BGR-Bild in ein 4-Kanal-BGRA-Bild (fügt einen Alpha-Kanal hinzu).',
+      es: 'Convierte una imagen BGR de 3 canales en una imagen BGRA de 4 canales (agrega un canal alfa).',
+      fr: 'Convertit une image BGR à 3 canaux en une image BGRA à 4 canaux (ajoute un canal alpha).'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2BGRA)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_BGR2RGB',
-    name: 'BGR to RGB (채널 순서 변경)',
+    name: {
+      en: 'BGR to RGB (Change Channel Order)',
+      ko: 'BGR to RGB (채널 순서 변경)',
+      zh: 'BGR 转 RGB (更改通道顺序)',
+      ja: 'BGR から RGB (チャネル順序変更)',
+      de: 'BGR nach RGB (Kanalreihenfolge ändern)',
+      es: 'BGR a RGB (Cambiar orden de canales)',
+      fr: 'BGR vers RGB (Changer l\'ordre des canaux)'
+    },
     category: 'color',
-    description: 'BGR 채널 순서를 RGB로 변경합니다.',
+    description: {
+      en: 'Changes the channel order from BGR to RGB.',
+      ko: 'BGR 채널 순서를 RGB로 변경합니다.',
+      zh: '将通道顺序从 BGR 更改为 RGB。',
+      ja: 'チャネル順序を BGR から RGB に変更します。',
+      de: 'Ändert die Kanalreihenfolge von BGR nach RGB.',
+      es: 'Cambia el orden de los canales de BGR a RGB.',
+      fr: 'Modifie l\'ordre des canaux de BGR à RGB.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_BGR2RGB)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_GRAY2BGR',
-    name: 'Grayscale to BGR (흑백→컬러)',
+    name: {
+      en: 'Grayscale to BGR (BW → Color)',
+      ko: 'Grayscale to BGR (흑백→컬러)',
+      zh: '灰度转 BGR (黑白→彩色)',
+      ja: 'グレースケールから BGR (白黒→カラー)',
+      de: 'Graustufen nach BGR (SW → Farbe)',
+      es: 'Escala de Grises a BGR (BN → Color)',
+      fr: 'Niveaux de gris vers BGR (NB → Couleur)'
+    },
     category: 'color',
-    description: '단일 채널 그레이스케일 이미지를 3채널 BGR 이미지로 변환합니다.',
+    description: {
+      en: 'Converts a single-channel grayscale image to a 3-channel BGR image.',
+      ko: '단일 채널 그레이스케일 이미지를 3채널 BGR 이미지로 변환합니다.',
+      zh: '将单通道灰度图像转换为三通道 BGR 图像。',
+      ja: 'シングルチャネルのグレースケール画像を3チャネルの BGR 画像に変換します。',
+      de: 'Konvertiert ein Einkanal-Graustufenbild in ein Dreikanal-BGR-Bild.',
+      es: 'Convierte una imagen en escala de grises de un solo canal en una imagen BGR de 3 canales.',
+      fr: 'Convertit une image en niveaux de gris à un seul canal en une image BGR à 3 canaux.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_GRAY2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_HSV2BGR',
-    name: 'HSV to BGR (역변환)',
+    name: {
+      en: 'HSV to BGR (Inverse)',
+      ko: 'HSV를 BGR로 (역변환)',
+      zh: 'HSV 转 BGR (逆转换)',
+      ja: 'HSV から BGR への変換 (逆変換)',
+      de: 'HSV nach BGR (Invers)',
+      es: 'HSV a BGR (Inversa)',
+      fr: 'HSV vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'HSV 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts HSV color space to BGR color space.',
+      ko: 'HSV 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 HSV 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'HSV 色空間を BGR 色空間に逆変換します。',
+      de: 'Konvertiert den HSV-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color HSV al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique HSV en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_HSV2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_LAB2BGR',
-    name: 'LAB to BGR (역변환)',
+    name: {
+      en: 'LAB to BGR (Inverse)',
+      ko: 'LAB를 BGR로 (역변환)',
+      zh: 'LAB 转 BGR (逆转换)',
+      ja: 'LAB から BGR への変換 (逆変換)',
+      de: 'LAB nach BGR (Invers)',
+      es: 'LAB a BGR (Inversa)',
+      fr: 'LAB vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'LAB 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts LAB color space to BGR color space.',
+      ko: 'LAB 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 LAB 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'LAB 色空間を BGR 色空間에 역변환합니다.',
+      de: 'Konvertiert den LAB-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color LAB al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique LAB en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_LAB2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_YCrCb2BGR',
-    name: 'YCrCb to BGR (역변환)',
+    name: {
+      en: 'YCrCb to BGR (Inverse)',
+      ko: 'YCrCb를 BGR로 (역변환)',
+      zh: 'YCrCb 转 BGR (逆转换)',
+      ja: 'YCrCb から BGR への変換 (逆変換)',
+      de: 'YCrCb nach BGR (Invers)',
+      es: 'YCrCb a BGR (Inversa)',
+      fr: 'YCrCb vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'YCrCb 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts YCrCb color space to BGR color space.',
+      ko: 'YCrCb 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 YCrCb 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'YCrCb 色空間を BGR 色空間에 역변환합니다.',
+      de: 'Konvertiert den YCrCb-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color YCrCb al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique YCrCb en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_YCrCb2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_YUV2BGR',
-    name: 'YUV to BGR (역변환)',
+    name: {
+      en: 'YUV to BGR (Inverse)',
+      ko: 'YUV를 BGR로 (역변환)',
+      zh: 'YUV 转 BGR (逆转换)',
+      ja: 'YUV から BGR への変換 (逆変換)',
+      de: 'YUV nach BGR (Invers)',
+      es: 'YUV a BGR (Inversa)',
+      fr: 'YUV vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'YUV 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts YUV color space to BGR color space.',
+      ko: 'YUV 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 YUV 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'YUV 色空間を BGR 色空間에 역변환합니다.',
+      de: 'Konvertiert den YUV-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color YUV al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique YUV en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_YUV2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_XYZ2BGR',
-    name: 'XYZ to BGR (역변환)',
+    name: {
+      en: 'XYZ to BGR (Inverse)',
+      ko: 'XYZ를 BGR로 (역변환)',
+      zh: 'XYZ 转 BGR (逆转换)',
+      ja: 'XYZ から BGR への変換 (逆変換)',
+      de: 'XYZ nach BGR (Invers)',
+      es: 'XYZ a BGR (Inversa)',
+      fr: 'XYZ vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'CIE XYZ 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts CIE XYZ color space to BGR color space.',
+      ko: 'CIE XYZ 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 CIE XYZ 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'CIE XYZ 色空間を BGR 色空間에 역변환합니다.',
+      de: 'Konvertiert den CIE-XYZ-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color CIE XYZ al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique CIE XYZ en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_XYZ2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
   },
   {
     id: 'cvtColor_HLS2BGR',
-    name: 'HLS to BGR (역변환)',
+    name: {
+      en: 'HLS to BGR (Inverse)',
+      ko: 'HLS를 BGR로 (역변환)',
+      zh: 'HLS 转 BGR (逆转换)',
+      ja: 'HLS から BGR への変換 (逆変換)',
+      de: 'HLS nach BGR (Invers)',
+      es: 'HLS a BGR (Inversa)',
+      fr: 'HLS vers BGR (Inverse)'
+    },
     category: 'color',
-    description: 'HLS 색공간을 BGR 색공간으로 역변환합니다.',
+    description: {
+      en: 'Inversely converts HLS color space to BGR color space.',
+      ko: 'HLS 색공간을 BGR 색공간으로 역변환합니다.',
+      zh: '将 HLS 颜色空间逆转换为 BGR 颜色空间。',
+      ja: 'HLS 色空間を BGR 색공간에 역변환합니다.',
+      de: 'Konvertiert den HLS-Farbraum invers in den BGR-Farbraum.',
+      es: 'Convierte inversamente el espacio de color HLS al espacio de color BGR.',
+      fr: 'Convertit inversement l\'espace colorimétrique HLS en espace colorimétrique BGR.'
+    },
     parameters: [],
     syntax: 'cvtColor(src, dst, COLOR_HLS2BGR)',
     documentation: 'https://docs.opencv.org/4.12.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab',
@@ -388,7 +952,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_HOT',
     name: 'COLORMAP_HOT',
     category: 'colormap',
-    description: '열화상 색상표를 적용합니다 (검정-빨강-노랑-흰색).',
+    description: {
+      en: 'Applies the Hot color map (black-red-yellow-white).',
+      ko: '열화상 색상표를 적용합니다 (검정-빨강-노랑-흰색).',
+      zh: '应用 Hot 颜色映射 (黑-红-黄-白)。',
+      ja: 'Hot カラーマップ (黒-赤-黄-白) を適用します。',
+      de: 'Wendet die Hot-Farbtabelle an (schwarz-rot-gelb-weiß).',
+      es: 'Aplica el mapa de color Hot (negro-rojo-amarillo-blanco).',
+      fr: 'Applique la carte de couleurs Hot (noir-rouge-jaune-blanc).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_HOT)',
@@ -398,7 +970,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_PARULA',
     name: 'COLORMAP_PARULA',
     category: 'colormap',
-    description: 'Parula 색상표를 적용합니다 (파랑-청록-노랑).',
+    description: {
+      en: 'Applies the Parula color map (blue-cyan-yellow).',
+      ko: 'Parula 색상표를 적용합니다 (파랑-청록-노랑).',
+      zh: '应用 Parula 颜色映射 (蓝-青-黄)。',
+      ja: 'Parula カラーマップ (青-シアン-黄) を適用します。',
+      de: 'Wendet die Parula-Farbtabelle an (blau-cyan-gelb).',
+      es: 'Aplica el mapa de color Parula (azul-cian-amarillo).',
+      fr: 'Applique la carte de couleurs Parula (bleu-cyan-jaune).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_PARULA)',
@@ -408,7 +988,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_MAGMA',
     name: 'COLORMAP_MAGMA',
     category: 'colormap',
-    description: 'Magma 색상표를 적용합니다 (검정-보라-주황-노랑).',
+    description: {
+      en: 'Applies the Magma color map (black-purple-orange-yellow).',
+      ko: 'Magma 색상표를 적용합니다 (검정-보라-주황-노랑).',
+      zh: '应用 Magma 颜色映射 (黑-紫-橙-黄)。',
+      ja: 'Magma カラーマップ (黒-紫-橙-黄) を適用します。',
+      de: 'Wendet die Magma-Farbtabelle an (schwarz-violett-orange-gelb).',
+      es: 'Aplica el mapa de color Magma (negro-púrpura-naranja-amarillo).',
+      fr: 'Applique la carte de couleurs Magma (noir-violet-orange-jaune).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_MAGMA)',
@@ -418,7 +1006,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_INFERNO',
     name: 'COLORMAP_INFERNO',
     category: 'colormap',
-    description: 'Inferno 색상표를 적용합니다 (검정-보라-빨강-노랑).',
+    description: {
+      en: 'Applies the Inferno color map (black-purple-red-yellow).',
+      ko: 'Inferno 색상표를 적용합니다 (검정-보라-빨강-노랑).',
+      zh: '应用 Inferno 颜色映射 (黑-紫-红-黄)。',
+      ja: 'Inferno カラーマップ (黒-紫-赤-黄) を適用します。',
+      de: 'Wendet die Inferno-Farbtabelle an (schwarz-violett-rot-gelb).',
+      es: 'Aplica el mapa de color Inferno (negro-púrpura-rojo-amarillo).',
+      fr: 'Applique la carte de couleurs Inferno (noir-violet-rouge-jaune).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_INFERNO)',
@@ -428,7 +1024,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_PLASMA',
     name: 'COLORMAP_PLASMA',
     category: 'colormap',
-    description: 'Plasma 색상표를 적용합니다 (보라-빨강-주황-노랑).',
+    description: {
+      en: 'Applies the Plasma color map (purple-red-orange-yellow).',
+      ko: 'Plasma 색상표를 적용합니다 (보라-빨강-주황-노랑).',
+      zh: '应用 Plasma 颜色映射 (紫-红-橙-黄)。',
+      ja: 'Plasma カラーマップ (紫-赤-橙-黄) を適用します。',
+      de: 'Wendet die Plasma-Farbtabelle an (violett-rot-orange-gelb).',
+      es: 'Aplica el mapa de color Plasma (púrpura-rojo-naranja-amarillo).',
+      fr: 'Applique la carte de couleurs Plasma (violet-rouge-orange-jaune).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_PLASMA)',
@@ -438,7 +1042,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_VIRIDIS',
     name: 'COLORMAP_VIRIDIS',
     category: 'colormap',
-    description: 'Viridis 색상표를 적용합니다 (보라-파랑-초록-노랑).',
+    description: {
+      en: 'Applies the Viridis color map (purple-blue-green-yellow).',
+      ko: 'Viridis 색상표를 적용합니다 (보라-파랑-초록-노랑).',
+      zh: '应用 Viridis 颜色映射 (紫-蓝-绿-黄)。',
+      ja: 'Viridis カラーマップ (紫-青-緑-黄) を 적용します。',
+      de: 'Wendet die Viridis-Farbtabelle an (violett-blau-grün-gelb).',
+      es: 'Aplica el mapa de color Viridis (púrpura-azul-verde-amarillo).',
+      fr: 'Applique la carte de couleurs Viridis (violet-bleu-vert-jaune).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_VIRIDIS)',
@@ -448,7 +1060,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_CIVIDIS',
     name: 'COLORMAP_CIVIDIS',
     category: 'colormap',
-    description: 'Cividis 색상표를 적용합니다 (파랑-노랑, 색맹 친화적).',
+    description: {
+      en: 'Applies the Cividis color map (blue-yellow, color-vision-deficiency friendly).',
+      ko: 'Cividis 색상표를 적용합니다 (파랑-노랑, 색맹 친화적).',
+      zh: '应用 Cividis 颜色映射 (蓝-黄，色觉障碍友好)。',
+      ja: 'Cividis カラーマップ (青-黄、色覚特性に配慮) を適用します。',
+      de: 'Wendet die Cividis-Farbtabelle an (blau-gelb, farbenfehlsichtigkeitsfreundlich).',
+      es: 'Aplica el mapa de color Cividis (azul-amarillo, apto para daltonismo).',
+      fr: 'Applique la carte de couleurs Cividis (bleu-jaune, adapté aux daltoniens).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_CIVIDIS)',
@@ -458,7 +1078,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_TWILIGHT',
     name: 'COLORMAP_TWILIGHT',
     category: 'colormap',
-    description: 'Twilight 색상표를 적용합니다 (보라-흰색-보라 순환형).',
+    description: {
+      en: 'Applies the Twilight color map (purple-white-purple cyclic).',
+      ko: 'Twilight 색상표를 적용합니다 (보라-흰색-보라 순환형).',
+      zh: '应用 Twilight 颜色映射 (紫-白-紫 循环)。',
+      ja: 'Twilight カラーマップ (紫-白-紫 循環型) を適用します。',
+      de: 'Wendet die Twilight-Farbtabelle an (violett-weiß-violett zyklisch).',
+      es: 'Aplica el mapa de color Twilight (morado-blanco-morado cíclico).',
+      fr: 'Applique la carte de couleurs Twilight (violet-blanc-violet cyclique).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_TWILIGHT)',
@@ -468,7 +1096,15 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_TWILIGHT_SHIFTED',
     name: 'COLORMAP_TWILIGHT_SHIFTED',
     category: 'colormap',
-    description: 'Twilight Shifted 색상표를 적용합니다 (검정-보라-흰색-보라).',
+    description: {
+      en: 'Applies the Twilight Shifted color map.',
+      ko: 'Twilight Shifted 색상표를 적용합니다 (검정-보라-흰색-보라).',
+      zh: '应用 Twilight Shifted 颜色映射。',
+      ja: 'Twilight Shifted カラーマップを適用します。',
+      de: 'Wendet die Twilight-Shifted-Farbtabelle an.',
+      es: 'Aplica el mapa de color Twilight Shifted.',
+      fr: 'Applique la carte de couleurs Twilight Shifted.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_TWILIGHT_SHIFTED)',
@@ -478,29 +1114,61 @@ export const opencvFunctions: OpenCVFunction[] = [
     id: 'applyColorMap_TURBO',
     name: 'COLORMAP_TURBO',
     category: 'colormap',
-    description: 'Turbo 색상표를 적용합니다 (파랑-청록-초록-노랑-빨강).',
+    description: {
+      en: 'Applies the Turbo color map (blue-green-red, perceptually uniform).',
+      ko: 'Turbo 색상표를 적용합니다 (파랑-초록-빨강, 시각적으로 균일).',
+      zh: '应用 Turbo 颜色映射 (蓝-绿-红，感知均匀)。',
+      ja: 'Turbo カラーマップ (青-緑-赤、知覚的に均一) を適用します。',
+      de: 'Wendet die Turbo-Farbtabelle an (blau-grün-rot, wahrnehmungsmäßig gleichmäßig).',
+      es: 'Aplica el mapa de color Turbo (azul-verde-rojo, perceptualmente uniforme).',
+      fr: 'Applique la carte de couleurs Turbo (blue-vert-rouge, uniformément perceptible).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_TURBO)',
-    documentation: 'https://docs.opencv.org/4.12.0/d3/d50/group__imgproc__colormap.html#gga9a805d8262bcbe273f16be9ea2055a65a63ca0a2991e44663b0c0fc4f2d9d6a7e',
+    documentation: 'https://docs.opencv.org/4.12.0/d3/d50/group__imgproc__colormap.html#gga9a805d8262bcbe273f16be9ea2055a65a2d646738911c7590885f81e7d82cc78a',
   },
   {
     id: 'applyColorMap_DEEPGREEN',
     name: 'COLORMAP_DEEPGREEN',
     category: 'colormap',
-    description: 'Deep Green 색상표를 적용합니다 (검정-초록 그라데이션).',
+    description: {
+      en: 'Applies the DeepGreen color map (black-dark green-light green).',
+      ko: 'DeepGreen 색상표를 적용합니다 (검정-어두운 초록-밝은 초록).',
+      zh: '应用 DeepGreen 颜色映射 (黑-深绿-浅绿)。',
+      ja: 'DeepGreen カラーマップ (黒-深緑-薄緑) を適用します。',
+      de: 'Wendet die DeepGreen-Farbtabelle an (schwarz-dunkelgrün-hellgrün).',
+      es: 'Aplica el mapa de color DeepGreen (negro-verde oscuro-verde claro).',
+      fr: 'Applique la carte de couleurs DeepGreen (noir-vert foncé-vert clair).'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'applyColorMap(src, dst, COLORMAP_DEEPGREEN)',
-    documentation: 'https://docs.opencv.org/4.12.0/d3/d50/group__imgproc__colormap.html#gga9a805d8262bcbe273f16be9ea2055a65aadc56641991aa7e2f480064c6e93022b',
+    documentation: 'https://docs.opencv.org/4.12.0/d3/d50/group__imgproc__colormap.html#gga9a805d8262bcbe273f16be9ea2055a65a3c6131f4a47a7b8e1e7914f6b0f0b0f0',
   },
 
   // 필터링
   {
     id: 'blur',
-    name: 'Blur (블러)',
+    name: {
+      en: 'Blur (Averaging)',
+      ko: '블러 (평균값 블러)',
+      zh: '均值滤波',
+      ja: '平均化ブラー',
+      de: 'Weichzeichnen (Mittelwert)',
+      es: 'Desenfoque (Promedio)',
+      fr: 'Flou (Moyenne)'
+    },
     category: 'filter',
-    description: '이미지를 부드럽게 만드는 기본 블러 필터입니다.',
+    description: {
+      en: 'Smooths the image by averaging pixels in a kernel.',
+      ko: '커널 내 픽셀의 평균을 구하여 이미지를 부드럽게 만듭니다.',
+      zh: '通过计算内核中像素的平均值来平滑图像。',
+      ja: 'カーネル内のピクセルの平均を取ることで画像を滑らかにします。',
+      de: 'Glättet das Bild durch Mittelung der Pixel in einem Kernel.',
+      es: 'Suaviza la imagen promediando los píxeles en un núcleo.',
+      fr: 'Lisse l\'image en faisant la moyenne des pixels dans un noyau.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -509,7 +1177,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기 (홀수만 가능)',
+        description: {
+          en: 'Kernel size (odd)',
+          ko: '커널 크기 (홀수)',
+          zh: '内核大小 (奇数)',
+          ja: 'カーネルサイズ (奇数)',
+          de: 'Kernelgröße (ungerade)',
+          es: 'Tamaño del núcleo (impar)',
+          fr: 'Taille du noyau (impair)'
+        },
       },
     ],
     syntax: 'blur(src, dst, ksize)',
@@ -517,9 +1193,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'GaussianBlur',
-    name: 'Gaussian Blur (가우시안 블러)',
+    name: {
+      en: 'Gaussian Blur',
+      ko: '가우시안 블러',
+      zh: '高斯滤波',
+      ja: 'ガウスぼかし',
+      de: 'Gaußsches Weichzeichnen',
+      es: 'Desenfoque Gaussiano',
+      fr: 'Flou gaussien'
+    },
     category: 'filter',
-    description: '가우시안 함수를 사용한 블러 필터로 노이즈 제거에 효과적입니다.',
+    description: {
+      en: 'Smooths the image using a Gaussian function (effective for noise reduction).',
+      ko: '가우시안 함수를 사용하여 이미지를 부드럽게 만들며, 노이즈 제거에 효과적입니다.',
+      zh: '使用高斯函数平滑图像（有效减少噪声）。',
+      ja: 'ガウス関数を使用して画像を滑らかにします (ノイズ低減に効果的です)。',
+      de: 'Glättet das Bild mittels einer Gauß-Funktion (effektiv zur Rauschunterdrückung).',
+      es: 'Suaviza la imagen mediante una función gaussiana (eficaz para la reducción de ruido).',
+      fr: 'Lisse l\'image à l\'aide d\'une fonction gaussienne (efficace pour la réduction du bruit).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -528,7 +1220,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기 (홀수만 가능)',
+        description: {
+          en: 'Kernel size (odd)',
+          ko: '커널 크기 (홀수)',
+          zh: '内核大小 (奇数)',
+          ja: 'カーネルサイズ (奇数)',
+          de: 'Kernelgröße (ungerade)',
+          es: 'Tamaño del núcleo (impar)',
+          fr: 'Taille du noyau (impair)'
+        },
       },
       {
         name: 'sigmaX',
@@ -537,7 +1237,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 10,
         step: 0.5,
-        description: 'X 방향 표준 편차',
+        description: {
+          en: 'Sigma X',
+          ko: 'X 방향 표준 편차(Sigma X)',
+          zh: 'X 方向标准差',
+          ja: 'X 方向の標準偏差',
+          de: 'Standardabweichung X',
+          es: 'Desviación estándar X',
+          fr: 'Écart-type X'
+        },
       },
     ],
     syntax: 'GaussianBlur(src, dst, ksize, sigmaX)',
@@ -545,9 +1253,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'medianBlur',
-    name: 'Median Blur (중간값 블러)',
+    name: {
+      en: 'Median Blur',
+      ko: '중간값 블러',
+      zh: '中值滤波',
+      ja: 'メディアンフィルタ',
+      de: 'Median-Filter',
+      es: 'Desenfoque de mediana',
+      fr: 'Flou médian'
+    },
     category: 'filter',
-    description: '중간값 필터로 salt-and-pepper 노이즈 제거에 효과적입니다.',
+    description: {
+      en: 'Replaces each pixel with the median of its neighbors (effective for salt-and-pepper noise).',
+      ko: '각 픽셀을 주변 픽셀의 중간값으로 대체합니다 (소금-후추 노이즈 제거에 탁월).',
+      zh: '将每个像素替换为其邻域的中值（有效去除椒盐噪声）。',
+      ja: '各ピクセルをその近傍の中央値で置き換えます (ごま塩ノイズの除去に効果的です)。',
+      de: 'Ersetzt jedes Pixel durch den Median seiner Nachbarn (effektiv gegen Salz-und-Pfeffer-Rauschen).',
+      es: 'Reemplaza cada píxel con la mediana de sus vecinos (eficaz para el ruido de sal y pimienta).',
+      fr: 'Remplace chaque pixel par la médiane de ses voisins (efficace pour le bruit de type poivre et sel).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -556,7 +1280,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기 (홀수만 가능)',
+        description: {
+          en: 'Kernel size (odd)',
+          ko: '커널 크기 (홀수)',
+          zh: '内核大小 (奇数)',
+          ja: 'カーネルサイズ (奇数)',
+          de: 'Kernelgröße (ungerade)',
+          es: 'Tamaño del núcleo (impar)',
+          fr: 'Taille du noyau (impair)'
+        },
       },
     ],
     syntax: 'medianBlur(src, dst, ksize)',
@@ -564,9 +1296,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'bilateralFilter',
-    name: 'Bilateral Filter (양방향 필터)',
+    name: {
+      en: 'Bilateral Filter',
+      ko: '양방향 필터',
+      zh: '双边滤波',
+      ja: 'バイラテラルフィルタ',
+      de: 'Bilateraler Filter',
+      es: 'Filtro Bilateral',
+      fr: 'Filtre bilatéral'
+    },
     category: 'filter',
-    description: '엣지를 보존하면서 노이즈를 제거하는 필터입니다.',
+    description: {
+      en: 'Smooths the image while preserving edges (non-linear filter).',
+      ko: '엣지를 보존하면서 이미지를 부드럽게 만드는 필터입니다.',
+      zh: '在保留边缘的同时平滑图像。',
+      ja: 'エッジを保持しながら画像を滑らかにします。',
+      de: 'Glättet das Bild unter Beibehaltung der Kanten.',
+      es: 'Suaviza la imagen conservando los bordes.',
+      fr: 'Lisse l\'image tout en préservant les bords.'
+    },
     parameters: [
       {
         name: 'd',
@@ -575,7 +1323,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 20,
         step: 1,
-        description: '필터 직경',
+        description: {
+          en: 'Filter diameter',
+          ko: '필터 직경(Diameter)',
+          zh: '滤波器直径',
+          ja: 'フィルタの直径',
+          de: 'Filterdurchmesser',
+          es: 'Diámetro del filtro',
+          fr: 'Diamètre du filtre'
+        },
       },
       {
         name: 'sigmaColor',
@@ -584,7 +1340,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 150,
         step: 5,
-        description: '색상 공간 필터 시그마',
+        description: {
+          en: 'Sigma Color',
+          ko: '색상 공간 시그마(Sigma Color)',
+          zh: '颜色空间标准差',
+          ja: '色空間の標準偏差',
+          de: 'Sigma-Farbe',
+          es: 'Sigma de color',
+          fr: 'Sigma couleur'
+        },
       },
       {
         name: 'sigmaSpace',
@@ -593,7 +1357,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 150,
         step: 5,
-        description: '좌표 공간 필터 시그마',
+        description: {
+          en: 'Sigma Space',
+          ko: '좌표 공간 시그마(Sigma Space)',
+          zh: '坐标空间标准差',
+          ja: '座標空間の標準偏差',
+          de: 'Sigma-Raum',
+          es: 'Sigma de espacio',
+          fr: 'Sigma espace'
+        },
       },
     ],
     syntax: 'bilateralFilter(src, dst, d, sigmaColor, sigmaSpace)',
@@ -603,9 +1375,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 형태학 연산
   {
     id: 'erode',
-    name: 'Erode (침식)',
+    name: {
+      en: 'Erode',
+      ko: '침식 (Erode)',
+      zh: '腐蚀',
+      ja: '収縮',
+      de: 'Erodieren',
+      es: 'Erosión',
+      fr: 'Érosion'
+    },
     category: 'morphology',
-    description: '이미지의 전경 객체를 침식시킵니다 (작게 만듦).',
+    description: {
+      en: 'Erodes away the boundaries of foreground objects (makes objects smaller).',
+      ko: '이미지 전경 객체의 경계를 침식시킵니다 (객체를 작게 만듦).',
+      zh: '腐蚀前景对象的边界（使对象变小）。',
+      ja: '前面のオブジェクトの境界を侵食します (オブジェクトを小さくします)。',
+      de: 'Trägt die Grenzen von Vordergrundobjekten ab (macht Objekte kleiner).',
+      es: 'Erosiona los límites de los objetos en primer plano (hace los objetos más pequeños).',
+      fr: 'Érode les limites des objets au premier plan (rend les objets plus petits).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -614,7 +1402,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 21,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
       {
         name: 'iterations',
@@ -623,7 +1419,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '반복 횟수',
+        description: {
+          en: 'Iterations',
+          ko: '반복 횟수',
+          zh: '迭代次数',
+          ja: '反復回数',
+          de: 'Iterationen',
+          es: 'Iteraciones',
+          fr: 'Itérations'
+        },
       },
     ],
     syntax: 'erode(src, dst, kernel, iterations)',
@@ -631,9 +1435,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'dilate',
-    name: 'Dilate (팽창)',
+    name: {
+      en: 'Dilate',
+      ko: '팽창 (Dilate)',
+      zh: '膨胀',
+      ja: '膨張',
+      de: 'Dilatieren',
+      es: 'Dilatación',
+      fr: 'Dilatation'
+    },
     category: 'morphology',
-    description: '이미지의 전경 객체를 팽창시킵니다 (크게 만듦).',
+    description: {
+      en: 'Adds pixels to the boundaries of objects in an image (makes objects larger).',
+      ko: '이미지 내 객체의 경계에 픽셀을 추가하여 객체를 팽창시킵니다 (객체를 크게 만듦).',
+      zh: '增加图像中对象边界的像素（使对象变大）。',
+      ja: '画像内のオブジェクトの境界にピクセルを追加します (オブジェクトを大きくします)。',
+      de: 'Fügt Pixel an den Grenzen von Objekten in einem Bild hinzu (macht Objekte größer).',
+      es: 'Añade píxeles a los límites de los objetos en una imagen (hace los objetos más grandes).',
+      fr: 'Ajoute des pixels aux limites des objets dans une image (rend les objets plus grands).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -642,7 +1462,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 21,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
       {
         name: 'iterations',
@@ -651,7 +1479,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '반복 횟수',
+        description: {
+          en: 'Iterations',
+          ko: '반복 횟수',
+          zh: '迭代次数',
+          ja: '反復回数',
+          de: 'Iterationen',
+          es: 'Iteraciones',
+          fr: 'Itérations'
+        },
       },
     ],
     syntax: 'dilate(src, dst, kernel, iterations)',
@@ -659,9 +1495,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'morphologyEx_OPEN',
-    name: 'Opening (열림)',
+    name: {
+      en: 'Opening',
+      ko: '열기 (Opening)',
+      zh: '开运算',
+      ja: 'オープニング',
+      de: 'Öffnen',
+      es: 'Apertura',
+      fr: 'Ouverture'
+    },
     category: 'morphology',
-    description: '침식 후 팽창 연산으로 작은 노이즈를 제거합니다.',
+    description: {
+      en: 'Erosion followed by dilation (useful for removing small noise).',
+      ko: '침식 연산 후 팽창 연산을 수행하여 작은 노이즈를 제거합니다.',
+      zh: '先腐蚀后膨胀（用于去除小噪声）。',
+      ja: '収縮の後に膨張を行います (小さなノイズの除去に役立ちます)。',
+      de: 'Erosion gefolgt von Dilatation (nützlich zum Entfernen von kleinem Rauschen).',
+      es: 'Erosión seguida de dilatación (útil para eliminar ruidos pequeños).',
+      fr: 'Érosion suivie d\'une dilatation (utile pour éliminer les petits bruits).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -670,7 +1522,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 21,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
     ],
     syntax: 'morphologyEx(src, dst, MORPH_OPEN, kernel)',
@@ -678,9 +1538,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'morphologyEx_CLOSE',
-    name: 'Closing (닫힘)',
+    name: {
+      en: 'Closing',
+      ko: '닫기 (Closing)',
+      zh: '闭运算',
+      ja: 'クロージング',
+      de: 'Schließen',
+      es: 'Cierre',
+      fr: 'Fermeture'
+    },
     category: 'morphology',
-    description: '팽창 후 침식 연산으로 작은 구멍을 메웁니다.',
+    description: {
+      en: 'Dilation followed by erosion (useful for closing small holes inside objects).',
+      ko: '팽창 연산 후 침식 연산을 수행하여 객체 내부의 작은 구멍을 메웁니다.',
+      zh: '先膨胀后腐蚀（用于填充对象内部的小孔）。',
+      ja: '膨張の後に収縮を行います (オブジェクト内部の小さな穴を埋めるのに役立ちます)。',
+      de: 'Dilatation gefolgt von Erosion (nützlich zum Schließen kleiner Löcher in Objekten).',
+      es: 'Dilatación seguida de erosión (útil para cerrar pequeños agujeros dentro de los objetos).',
+      fr: 'Dilatation suivie d\'une érosion (utile pour fermer de petits trous à l\'intérieur des objets).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -689,7 +1565,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 21,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
     ],
     syntax: 'morphologyEx(src, dst, MORPH_CLOSE, kernel)',
@@ -699,9 +1583,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 엣지 검출
   {
     id: 'Canny',
-    name: 'Canny Edge Detection',
+    name: {
+      en: 'Canny Edge Detection',
+      ko: '캐니 엣지 검출 (Canny)',
+      zh: 'Canny 边缘检测',
+      ja: 'Canny エッジ検出',
+      de: 'Canny-Kantenerkennung',
+      es: 'Detección de bordes Canny',
+      fr: 'Détection de contours Canny'
+    },
     category: 'edge',
-    description: 'Canny 알고리즘을 사용한 엣지 검출입니다.',
+    description: {
+      en: 'Detects edges using the Canny algorithm.',
+      ko: 'Canny 알고리즘을 사용하여 이미지에서 엣지를 검출합니다.',
+      zh: '使用 Canny 算法检测边缘。',
+      ja: 'Canny アルゴリズムを使用してエッジを検出します。',
+      de: 'Erkennt Kanten mittels des Canny-Algorithmus.',
+      es: 'Detecta bordes utilizando el algoritmo Canny.',
+      fr: 'Détecte les contours à l\'aide de l\'algorithme Canny.'
+    },
     parameters: [
       {
         name: 'threshold1',
@@ -710,7 +1610,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 300,
         step: 10,
-        description: '첫 번째 임계값 (낮은 값)',
+        description: {
+          en: 'Low threshold',
+          ko: '낮은 임계값 (Threshold 1)',
+          zh: '低阈值',
+          ja: '低い閾値',
+          de: 'Niedrige Schwelle',
+          es: 'Umbral bajo',
+          fr: 'Seuil bas'
+        },
       },
       {
         name: 'threshold2',
@@ -719,7 +1627,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 300,
         step: 10,
-        description: '두 번째 임계값 (높은 값)',
+        description: {
+          en: 'High threshold',
+          ko: '높은 임계값 (Threshold 2)',
+          zh: '高阈值',
+          ja: '高い閾値',
+          de: 'Hohe Schwelle',
+          es: 'Umbral alto',
+          fr: 'Seuil haut'
+        },
       },
       {
         name: 'apertureSize',
@@ -728,7 +1644,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Sobel kernel size',
+          ko: 'Sobel 커널 크기 (Aperture Size)',
+          zh: 'Sobel 内核大小',
+          ja: 'Sobel カーネルサイズ',
+          de: 'Sobel-Kernelgröße',
+          es: 'Tamaño del núcleo Sobel',
+          fr: 'Taille du noyau Sobel'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -737,9 +1661,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'Sobel',
-    name: 'Sobel Edge Detection',
+    name: {
+      en: 'Sobel Edge Detection',
+      ko: '소벨 엣지 검출 (Sobel)',
+      zh: 'Sobel 边缘检测',
+      ja: 'Sobel エッジ検出',
+      de: 'Sobel-Kantenerkennung',
+      es: 'Detección de bordes Sobel',
+      fr: 'Détection de contours Sobel'
+    },
     category: 'edge',
-    description: 'Sobel 연산자를 사용한 엣지 검출입니다.',
+    description: {
+      en: 'Detects edges using the Sobel operator (calculates derivatives).',
+      ko: 'Sobel 연산자를 사용하여 이미지의 미분값을 계산하고 엣지를 검출합니다.',
+      zh: '使用 Sobel 算子检测边缘（计算导数）。',
+      ja: 'Sobel オペレータを使用してエッジを検出します (微分の計算)。',
+      de: 'Erkennt Kanten mittels des Sobel-Operators (berechnet Ableitungen).',
+      es: 'Detecta bordes utilizando el operador Sobel (calcula derivadas).',
+      fr: 'Détecte les contours à l\'aide de l\'opérateur Sobel (calcule les dérivées).'
+    },
     parameters: [
       {
         name: 'dx',
@@ -748,7 +1688,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 2,
         step: 1,
-        description: 'X 방향 미분 차수',
+        description: {
+          en: 'Derivative order X',
+          ko: 'X 방향 미분 차수(dx)',
+          zh: 'X 方向导数阶数',
+          ja: 'X 方向の微分階数',
+          de: 'X-Ableitungsordnung',
+          es: 'Orden de la derivada X',
+          fr: 'Ordre de la dérivée X'
+        },
       },
       {
         name: 'dy',
@@ -757,7 +1705,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 2,
         step: 1,
-        description: 'Y 방향 미분 차수',
+        description: {
+          en: 'Derivative order Y',
+          ko: 'Y 방향 미분 차수(dy)',
+          zh: 'Y 方向导数阶数',
+          ja: 'Y 方向の微分階数',
+          de: 'Y-Ableitungsordnung',
+          es: 'Orden de la derivada Y',
+          fr: 'Ordre de la dérivée Y'
+        },
       },
       {
         name: 'ksize',
@@ -766,7 +1722,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기 (ksize)',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille del núcleo'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -775,9 +1739,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'Laplacian',
-    name: 'Laplacian Edge Detection',
+    name: {
+      en: 'Laplacian Edge Detection',
+      ko: '라플라시안 엣지 검출 (Laplacian)',
+      zh: 'Laplacian 边缘检测',
+      ja: 'ラプラシアン エッジ検出',
+      de: 'Laplace-Kantenerkennung',
+      es: 'Detección de bordes Laplaciana',
+      fr: 'Détection de contours laplaciens'
+    },
     category: 'edge',
-    description: 'Laplacian 연산자를 사용한 엣지 검출입니다.',
+    description: {
+      en: 'Detects edges using the Laplacian operator (second derivative).',
+      ko: '라플라시안 연산자를 사용하여 2차 미분값 기반의 엣지를 검출합니다.',
+      zh: '使用二阶导数算子检测边缘。',
+      ja: 'ラプラシアン オペレータを使用してエッジを検出します (2 次微分)。',
+      de: 'Erkennt Kanten mittels des Laplace-Operators (zweite Ableitung).',
+      es: 'Detecta bordes utilizando el operador Laplaciano (segunda derivada).',
+      fr: 'Détecte les contours à l\'aide de l\'opérateur laplacien (dérivée seconde).'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -786,7 +1766,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기 (ksize)',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernelgröße',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -797,9 +1785,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 임계값 처리
   {
     id: 'threshold_BINARY',
-    name: 'Binary Threshold',
+    name: {
+      en: 'Binary Threshold',
+      ko: '이진 임계값 처리 (Binary Threshold)',
+      zh: '二值化阈值',
+      ja: '2 値化',
+      de: 'Binärer Schwellenwert',
+      es: 'Umbral binario',
+      fr: 'Seuil binaire'
+    },
     category: 'threshold',
-    description: '이진 임계값 처리입니다.',
+    description: {
+      en: 'Simple thresholding that converts an image to black and white.',
+      ko: '픽셀 값이 임계값보다 크면 최대값으로, 아니면 0으로 변환합니다.',
+      zh: '将图像转换为黑白的简单阈值处理。',
+      ja: '画像を白黒に変換する単純な閾値処理です。',
+      de: 'Einfache Schwellenwertbildung, die ein Bild in Schwarzweiß umwandelt.',
+      es: 'Umbralización simple que convierte una imagen a blanco y negro.',
+      fr: 'Seuillage simple qui convertit une image en noir et blanc.'
+    },
     parameters: [
       {
         name: 'thresh',
@@ -808,7 +1812,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '임계값',
+        description: {
+          en: 'Threshold value',
+          ko: '임계값 (thresh)',
+          zh: '阈值',
+          ja: '閾値',
+          de: 'Schwellenwert',
+          es: 'Valor de umbral',
+          fr: 'Valeur du seuil'
+        },
       },
       {
         name: 'maxval',
@@ -817,7 +1829,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '최대값',
+        description: {
+          en: 'Maximum value',
+          ko: '최대값 (maxval)',
+          zh: '最大值',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -826,9 +1846,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'threshold_OTSU',
-    name: 'Otsu Threshold',
+    name: {
+      en: 'Otsu Threshold',
+      ko: '오츠 임계값 처리 (Otsu Threshold)',
+      zh: 'Otsu 自适应阈值',
+      ja: '大津の 2 値化',
+      de: 'Otsu-Schwellenwert',
+      es: 'Umbral de Otsu',
+      fr: 'Seuil d\'Otsu'
+    },
     category: 'threshold',
-    description: 'Otsu 알고리즘을 사용한 자동 임계값 처리입니다.',
+    description: {
+      en: 'Automatically calculates the optimal threshold value using Otsu\'s method.',
+      ko: '오츠(Otsu) 알고리즘을 사용하여 이미지 전체에 최적의 임계값을 자동으로 계산합니다.',
+      zh: '使用 Otsu 方法自动计算最佳阈值。',
+      ja: '大津の手法を使用して、最適な閾値を自動的に計算します。',
+      de: 'Berechnet automatisch den optimalen Schwellenwert mittels der Otsu-Methode.',
+      es: 'Calcula automáticamente el valor de umbral óptimo utilizando el método de Otsu.',
+      fr: 'Calcule automatiquement la valeur de seuil optimale à l\'aide de la méthode d\'Otsu.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'threshold(src, dst, 0, 255, THRESH_BINARY + THRESH_OTSU)',
@@ -836,9 +1872,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'adaptiveThreshold',
-    name: 'Adaptive Threshold',
+    name: {
+      en: 'Adaptive Threshold',
+      ko: '적응형 임계값 처리 (Adaptive Threshold)',
+      zh: '自适应阈值',
+      ja: '適応的 2 値化',
+      de: 'Adaptiver Schwellenwert',
+      es: 'Umbral adaptativo',
+      fr: 'Seuillage adaptatif'
+    },
     category: 'threshold',
-    description: '적응형 임계값 처리로 조명이 불균일한 이미지에 효과적입니다.',
+    description: {
+      en: 'Calculates thresholds for small regions (ideal for uneven lighting).',
+      ko: '이미지 내 국소 영역별로 임계값을 계산하여 조명이 불균일한 경우 유용합니다.',
+      zh: '为小区域计算阈值（非常适合光照不均）。',
+      ja: '小さな領域の閾値を計算します (照明が不均一な場合に理想的です)。',
+      de: 'Berechnet Schwellenwerte für kleine Regionen (ideal für ungleichmäßige Beleuchtung).',
+      es: 'Calcula umbrales para regiones pequeñas (ideal para iluminación desigual).',
+      fr: 'Calcule des seuils pour de petites régions (idéal pour un éclairage irrégulier).'
+    },
     parameters: [
       {
         name: 'maxValue',
@@ -847,7 +1899,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '최대값',
+        description: {
+          en: 'Maximum value',
+          ko: '최대값 (maxValue)',
+          zh: '最大值',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
       {
         name: 'blockSize',
@@ -856,7 +1916,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 51,
         step: 2,
-        description: '블록 크기 (홀수)',
+        description: {
+          en: 'Block size (odd)',
+          ko: '블록 크기 (blockSize)',
+          zh: '块大小 (奇数)',
+          ja: 'ブロックサイズ (奇数)',
+          de: 'Blockgröße (ungerade)',
+          es: 'Tamaño del bloque (impar)',
+          fr: 'Taille du bloc (impair)'
+        },
       },
       {
         name: 'C',
@@ -865,7 +1933,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -10,
         max: 10,
         step: 1,
-        description: '상수 C',
+        description: {
+          en: 'Constant C',
+          ko: '상수 C',
+          zh: '常量 C',
+          ja: '定数 C',
+          de: 'Konstante C',
+          es: 'Constante C',
+          fr: 'Constante C'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -907,36 +1983,100 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'rotate_90',
-    name: 'Rotate 90° (90도 회전)',
+    name: {
+      en: 'Rotate 90° CW',
+      ko: '90도 시계방향 회전 (Rotate 90° CW)',
+      zh: '顺时针旋转 90°',
+      ja: '時計回りに 90 度回転',
+      de: '90° im Uhrzeigersinn drehen',
+      es: 'Girar 90° a la derecha',
+      fr: 'Rotation 90° horaire'
+    },
     category: 'transform',
-    description: '이미지를 시계방향으로 90도 회전합니다.',
+    description: {
+      en: 'Rotates the image 90 degrees clockwise.',
+      ko: '이미지를 시계방향으로 90도 회전합니다.',
+      zh: '顺时针旋转图像 90 度。',
+      ja: '画像を時計回りに 90 度回転させます。',
+      de: 'Dreht das Bild um 90 Grad im Uhrzeigersinn.',
+      es: 'Gira la imagen 90 grados a la derecha.',
+      fr: 'Fait pivoter l\'image de 90 degrees dans le sens des aiguilles d\'une montre.'
+    },
     parameters: [],
     syntax: 'rotate(src, dst, ROTATE_90_CLOCKWISE)',
     documentation: 'https://docs.opencv.org/4.x/d2/d6e/group__imgproc__geometric.html#ga453d42fe4cb60853119369081544076c',
   },
   {
     id: 'rotate_180',
-    name: 'Rotate 180° (180도 회전)',
+    name: {
+      en: 'Rotate 180°',
+      ko: '180도 회전 (Rotate 180°)',
+      zh: '旋转 180°',
+      ja: '180 度回転',
+      de: '180° drehen',
+      es: 'Girar 180°',
+      fr: 'Rotation 180°'
+    },
     category: 'transform',
-    description: '이미지를 180도 회전합니다.',
+    description: {
+      en: 'Rotates the image 180 degrees.',
+      ko: '이미지를 180도 회전합니다.',
+      zh: '旋转图像 180 度。',
+      ja: '画像を 180 度回転させます。',
+      de: 'Dreht das Bild um 180 Grad.',
+      es: 'Gira la imagen 180 grados.',
+      fr: 'Fait pivoter l\'image de 180 degrees.'
+    },
     parameters: [],
     syntax: 'rotate(src, dst, ROTATE_180)',
     documentation: 'https://docs.opencv.org/4.x/d2/d6e/group__imgproc__geometric.html#ga453d42fe4cb60853119369081544076c',
   },
   {
     id: 'flip_horizontal',
-    name: 'Flip Horizontal (좌우 반전)',
+    name: {
+      en: 'Flip Horizontal',
+      ko: '좌우 반전 (Flip Horizontal)',
+      zh: '水平翻转',
+      ja: '左右反転',
+      de: 'Horizontal spiegeln',
+      es: 'Volteo horizontal',
+      fr: 'Retournement horizontal'
+    },
     category: 'transform',
-    description: '이미지를 좌우로 반전합니다.',
+    description: {
+      en: 'Flips the image horizontally (y-axis).',
+      ko: '이미지를 좌우(Y축 중심)로 반전합니다.',
+      zh: '水平（沿 y 轴）翻转图像。',
+      ja: '画像を左右 (y 軸) に反転します。',
+      de: 'Spiegelt das Bild horizontal (y-Achse).',
+      es: 'Voltea la imagen horizontalmente (eje y).',
+      fr: 'Retourne l\'image horizontalement (axe y).'
+    },
     parameters: [],
     syntax: 'flip(src, dst, 1)',
     documentation: 'https://docs.opencv.org/4.x/d2/d6e/group__imgproc__geometric.html#ga90491c1ac55e0029f33c8952a4323670',
   },
   {
     id: 'flip_vertical',
-    name: 'Flip Vertical (상하 반전)',
+    name: {
+      en: 'Flip Vertical',
+      ko: '상하 반전 (Flip Vertical)',
+      zh: '垂直翻转',
+      ja: '上下反転',
+      de: 'Vertikal spiegeln',
+      es: 'Volteo vertical',
+      fr: 'Retournement vertical'
+    },
     category: 'transform',
-    description: '이미지를 상하로 반전합니다.',
+    description: {
+      en: 'Flips the image vertically (x-axis).',
+      ko: '이미지를 상하(X축 중심)로 반전합니다.',
+      zh: '垂直（沿 x 轴）翻转图像。',
+      ja: '画像を上下 (x 軸) に反転します。',
+      de: 'Spiegelt das Bild vertikal (x-Achse).',
+      es: 'Voltea la imagen verticalmente (eje x).',
+      fr: 'Retourne l\'image verticalement (axe x).'
+    },
     parameters: [],
     syntax: 'flip(src, dst, 0)',
     documentation: 'https://docs.opencv.org/4.x/d2/d6e/group__imgproc__geometric.html#ga90491c1ac55e0029f33c8952a4323670',
@@ -945,9 +2085,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 윤곽선 검출
   {
     id: 'findContours',
-    name: 'Find Contours (윤곽선 찾기)',
+    name: {
+      en: 'Find Contours',
+      ko: '윤곽선 찾기 (Find Contours)',
+      zh: '查找轮廓',
+      ja: '輪郭抽出',
+      de: 'Konturen finden',
+      es: 'Buscar contornos',
+      fr: 'Trouver des contours'
+    },
     category: 'contour',
-    description: '이미지에서 윤곽선을 검출합니다.',
+    description: {
+      en: 'Detects and draws object boundaries in a binary image.',
+      ko: '이진 이미지에서 객체의 경계선(윤곽선)을 검출하고 그립니다.',
+      zh: '在二值图像中检测并绘制对象边界。',
+      ja: '2 値画像内のオブジェクトの境界 (輪郭) を検出し、描画します。',
+      de: 'Erkennt und zeichnet Objektgrenzen in einem Binärbild.',
+      es: 'Detecta y dibuja los límites de los objetos en una imagen binaria.',
+      fr: 'Détecte et trace les limites des objets dans une image binaire.'
+    },
     parameters: [
       {
         name: 'mode',
@@ -958,7 +2114,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'List (모든 윤곽선)', value: 'RETR_LIST' },
           { label: 'Tree (계층 구조)', value: 'RETR_TREE' },
         ],
-        description: '윤곽선 검색 모드',
+        description: {
+          en: 'Contour retrieval mode',
+          ko: '윤곽선 검색 모드 (Mode)',
+          zh: '轮廓检索模式',
+          ja: '輪郭検索モード',
+          de: 'Kontur-Abru fmodus',
+          es: 'Modo de recuperación de contorno',
+          fr: 'Mode de récupération des contours'
+        },
       },
       {
         name: 'thickness',
@@ -967,7 +2131,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '윤곽선 두께',
+        description: {
+          en: 'Drawing thickness',
+          ko: '그리기 두께 (Thickness)',
+          zh: '绘制厚度',
+          ja: '描画の太さ',
+          de: 'Zeichenstärke',
+          es: 'Grosor del dibujo',
+          fr: 'Épaisseur du tracé'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -978,9 +2150,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 형상 분석
   {
     id: 'approxPolyDP',
-    name: 'approxPolyDP (다각형 근사)',
+    name: {
+      en: 'Polygon Approximation',
+      ko: '다각형 근사 (approxPolyDP)',
+      zh: '多边形近似',
+      ja: '多角形近似',
+      de: 'Polygon-Approximation',
+      es: 'Aproximación de polígonos',
+      fr: 'Approximation de polygone'
+    },
     category: 'shape',
-    description: '윤곽선을 더 적은 꼭짓점을 가진 다각형으로 근사합니다.',
+    description: {
+      en: 'Simplifies a contour with fewer vertices within a specified precision.',
+      ko: '검출된 윤곽선을 지정된 정확도 내에서 더 적은 수의 꼭짓점을 가진 다각형으로 단순화합니다.',
+      zh: '在指定精度内以较少的顶点简化轮廓。',
+      ja: '指定された精度内で、より少ない頂点数で輪郭を単純化します。',
+      de: 'Vereinfacht eine Kontur mit weniger Eckpunkten innerhalb einer spezifizierten Genauigkeit.',
+      es: 'Simplifica un contorno con menos vértices dentro de una precisión especificada.',
+      fr: 'Simplifie un contour avec moins de sommets dans une précision spécifiée.'
+    },
     parameters: [
       {
         name: 'epsilon',
@@ -989,7 +2177,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.001,
         max: 0.1,
         step: 0.005,
-        description: '근사 정확도 (비율)',
+        description: {
+          en: 'Precision factor',
+          ko: '근사 정확도 비례 상수 (Epsilon)',
+          zh: '精度因子',
+          ja: '精度因子',
+          de: 'Präzisionsfaktor',
+          es: 'Factor de precisión',
+          fr: 'Facteur de precisión'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -998,30 +2194,51 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'arcLength',
-    name: 'arcLength (윤곽선 길이)',
+    name: {
+      en: 'Contour Length',
+      ko: '윤곽선 길이 (arcLength)',
+      zh: '轮廓长度',
+      ja: '弧の長さ',
+      de: 'Bogenlänge',
+      es: 'Longitud de arco',
+      fr: 'Longueur d\'arc'
+    },
     category: 'shape',
-    description: '윤곽선의 둘레 길이를 계산합니다.',
-    parameters: [
-      {
-        name: 'closed',
-        type: 'select',
-        defaultValue: 'true',
-        options: [
-          { label: '닫힌 윤곽선', value: 'true' },
-          { label: '열린 윤곽선', value: 'false' },
-        ],
-        description: '윤곽선 타입',
-      },
-    ],
+    description: {
+      en: 'Calculates the perimeter of a contour or a curve length.',
+      ko: '검출된 윤곽선의 전체 둘레 길이를 계산합니다.',
+      zh: '计算轮廓的周长或曲线长度。',
+      ja: '輪郭の周囲の長さ、または曲線の長さを計算します。',
+      de: 'Berechnet den Umfang einer Kontur oder die Länge einer Kurve.',
+      es: 'Calcula el perímetro de un contorno o la longitud de una curva.',
+      fr: 'Calcule le périmètre d\'un contour ou la longueur d\'une courbe.'
+    },
+    parameters: [],
     requiresGrayscale: true,
     syntax: 'arcLength(curve, closed)',
-    documentation: 'https://docs.opencv.org/4.12.0/d3/dc0/group__imgproc__shape.html#ga8d26483c636be6b35c3ec6335798a47c',
+    documentation: 'https://docs.opencv.org/4.x/d3/dc0/group__imgproc__shape.html#ga8d84330290ca24204e3230b200b217e2',
   },
   {
     id: 'boundingRect',
-    name: 'boundingRect (경계 사각형)',
+    name: {
+      en: 'Bounding Rectangle',
+      ko: '경계 사각형 (boundingRect)',
+      zh: '边界矩形',
+      ja: '外接矩形',
+      de: 'Begrenzungsrechteck',
+      es: 'Rectángulo delimitador',
+      fr: 'Rectangle englobant'
+    },
     category: 'shape',
-    description: '윤곽선을 포함하는 최소 직립 사각형을 계산합니다.',
+    description: {
+      en: 'Calculates the minimal upright bounding rectangle for a contour.',
+      ko: '윤곽선을 포함하는 최소 직립 사각형을 계산합니다.',
+      zh: '计算轮廓的最小直立边界矩形。',
+      ja: '輪郭の最小直立外接矩形を計算します。',
+      de: 'Berechnet das minimale aufrechte Begrenzungsrechteck für eine Kontur.',
+      es: 'Calcula el rectángulo delimitador vertical mínimo para un contorno.',
+      fr: 'Calcule le rectangle englobant vertical minimal pour un contour.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'boundingRect(array)',
@@ -1029,9 +2246,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'contourArea',
-    name: 'contourArea (윤곽선 면적)',
+    name: {
+      en: 'Contour Area',
+      ko: '윤곽선 면적 (contourArea)',
+      zh: '轮廓面积',
+      ja: '輪郭面積',
+      de: 'Konturfläche',
+      es: 'Área del contorno',
+      fr: 'Aire du contour'
+    },
     category: 'shape',
-    description: '윤곽선의 면적을 계산합니다.',
+    description: {
+      en: 'Calculates the area of a contour.',
+      ko: '윤곽선의 면적을 계산합니다.',
+      zh: '计算轮廓的面积。',
+      ja: '輪郭の面積を計算します。',
+      de: 'Berechnet die Fläche einer Kontur.',
+      es: 'Calcula el área de un contorno.',
+      fr: 'Calcule l\'aire d\'un contour.'
+    },
     parameters: [
       {
         name: 'oriented',
@@ -1041,7 +2274,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '절대값 면적', value: 'false' },
           { label: '방향성 면적', value: 'true' },
         ],
-        description: '면적 계산 방식',
+        description: {
+          en: 'Oriented area flag',
+          ko: '면적 계산 방식',
+          zh: '有向面积标志',
+          ja: '有向面積フラグ',
+          de: 'Orientierungsflagge der Fläche',
+          es: 'Bandera de área orientada',
+          fr: 'Drapeau de zone orientée'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1050,19 +2291,43 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'convexHull',
-    name: 'convexHull (볼록 껍질)',
+    name: {
+      en: 'Convex Hull',
+      ko: '볼록 껍질 (convexHull)',
+      zh: '凸包',
+      ja: '凸包',
+      de: 'Konvexe Hülle',
+      es: 'Envolvente convexa',
+      fr: 'Enveloppe convexe'
+    },
     category: 'shape',
-    description: '윤곽선의 볼록 껍질(Convex Hull)을 계산합니다.',
+    description: {
+      en: 'Finds the convex hull of a point set.',
+      ko: '윤곽선의 볼록 껍질(Convex Hull)을 계산합니다.',
+      zh: '查找点集的凸包。',
+      ja: '点集合の凸包を検索します。',
+      de: 'Findet die konvexe Hülle einer Punktmenge.',
+      es: 'Encuentra la envolvente convexa de un conjunto de puntos.',
+      fr: 'Trouve l\'enveloppe convexe d\'un ensemble de points.'
+    },
     parameters: [
       {
         name: 'clockwise',
         type: 'select',
         defaultValue: 'false',
         options: [
-          { label: '반시��방향', value: 'false' },
+          { label: '반시계방향', value: 'false' },
           { label: '시계방향', value: 'true' },
         ],
-        description: '방향',
+        description: {
+          en: 'Orientation flag',
+          ko: '방향',
+          zh: '方向标志',
+          ja: '方向フラグ',
+          de: 'Orientierungsflagge',
+          es: 'Bandera de orientación',
+          fr: 'Drapeau d\'orientation'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1071,9 +2336,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'convexityDefects',
-    name: 'convexityDefects (볼록성 결함)',
+    name: {
+      en: 'Convexity Defects',
+      ko: '볼록성 결함 (convexityDefects)',
+      zh: '凸性缺陷',
+      ja: '凸性欠陥',
+      de: 'Konvexitätsdefekte',
+      es: 'Defectos de convexidad',
+      fr: 'Défauts de convexité'
+    },
     category: 'shape',
-    description: '윤곽선과 볼록 껍질 사이의 결함을 찾습니다.',
+    description: {
+      en: 'Finds the convexity defects of a contour.',
+      ko: '윤곽선과 볼록 껍질 사이의 결함을 찾습니다.',
+      zh: '查找轮廓的凸性缺陷。',
+      ja: '輪郭の凸性欠陥を検索します。',
+      de: 'Findet die Konvexitätsdefekte einer Kontur.',
+      es: 'Encuentra los defectos de convexidad de un contorno.',
+      fr: 'Trouve les défauts de convexité d\'un contour.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'convexityDefects(contour, convexhull, convexityDefects)',
@@ -1081,9 +2362,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'fitEllipse',
-    name: 'fitEllipse (타원 피팅)',
+    name: {
+      en: 'Fit Ellipse',
+      ko: '타원 피팅 (fitEllipse)',
+      zh: '拟合椭圆',
+      ja: '楕円フィッティング',
+      de: 'Ellipse anpassen',
+      es: 'Ajustar elipse',
+      fr: 'Ajuster une ellipse'
+    },
     category: 'shape',
-    description: '점 ��합에 가장 잘 맞는 타원을 계산합니다.',
+    description: {
+      en: 'Fits an ellipse to a 2D point set.',
+      ko: '점 집합에 가장 잘 맞는 타원을 계산합니다.',
+      zh: '将椭圆拟合到 2D 点集。',
+      ja: '2D 点集合に楕円をフィッティングします。',
+      de: 'Passt eine Ellipse an eine 2D-Punktmenge an.',
+      es: 'Ajusta una elipse a un conjunto de puntos 2D.',
+      fr: 'Ajuste une ellipse à un ensemble de points 2D.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'fitEllipse(points)',
@@ -1091,9 +2388,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'fitLine',
-    name: 'fitLine (직선 피팅)',
+    name: {
+      en: 'Fit Line',
+      ko: '직선 피팅 (fitLine)',
+      zh: '拟合直线',
+      ja: '直線フィッティング',
+      de: 'Linie anpassen',
+      es: 'Ajustar línea',
+      fr: 'Ajuster une ligne'
+    },
     category: 'shape',
-    description: '2D 또는 3D 점 집합에 직선을 피팅합니다.',
+    description: {
+      en: 'Fits a line to a 2D or 3D point set.',
+      ko: '2D 또는 3D 점 집합에 직선을 피팅합니다.',
+      zh: '将直线拟合到 2D 或 3D 点集。',
+      ja: '2D または 3D 点集合に直線をフィッティングします。',
+      de: 'Passt eine Linie an eine 2D- oder 3D-Punktmenge an.',
+      es: 'Ajusta una línea a un conjunto de puntos 2D o 3D.',
+      fr: 'Ajuste une ligne à un ensemble de points 2D ou 3D.'
+    },
     parameters: [
       {
         name: 'distType',
@@ -1107,7 +2420,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'WELSCH', value: 'DIST_WELSCH' },
           { label: 'HUBER', value: 'DIST_HUBER' },
         ],
-        description: '거리 타입',
+        description: {
+          en: 'Distance type',
+          ko: '거리 타입',
+          zh: '距离类型',
+          ja: '距離タイプ',
+          de: 'Distanztyp',
+          es: 'Tipo de distancia',
+          fr: 'Type de distance'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1116,9 +2437,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'isContourConvex',
-    name: 'isContourConvex (볼록성 검사)',
+    name: {
+      en: 'Is Contour Convex',
+      ko: '볼록성 검사 (isContourConvex)',
+      zh: '轮廓是否凸出',
+      ja: '輪郭が凸であるか',
+      de: 'Ist Kontur konvex',
+      es: 'Es contorno convexo',
+      fr: 'Le contour est-il convexe'
+    },
     category: 'shape',
-    description: '윤곽선이 볼록한지 검사합니다.',
+    description: {
+      en: 'Tests a contour for convexity.',
+      ko: '윤곽선이 볼록한지 검사합니다.',
+      zh: '测试轮廓的凸性。',
+      ja: '輪郭の凸性をテストします。',
+      de: 'Testet eine Kontur auf Konvexität.',
+      es: 'Prueba un contorno para ver si es convexo.',
+      fr: 'Teste un contour pour la convexité.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'isContourConvex(contour)',
@@ -1126,9 +2463,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'minAreaRect',
-    name: 'minAreaRect (최소 면적 회전 사각형)',
+    name: {
+      en: 'Min Area Rect',
+      ko: '최소 면적 회전 사각형 (minAreaRect)',
+      zh: '最小面积矩形',
+      ja: '最小面積矩形',
+      de: 'Minimales Flächenrechteck',
+      es: 'Rectángulo de área mínima',
+      fr: 'Rectangle d\'aire minimale'
+    },
     category: 'shape',
-    description: '점 집합을 포함하는 최소 면적의 회전된 사각형을 계산합니다.',
+    description: {
+      en: 'Finds a rotated rectangle of the minimum area enclosing the input 2D point set.',
+      ko: '점 집합을 포함하는 최소 면적의 회전된 사각형을 계산합니다.',
+      zh: '查找包含输入 2D 点集的最小面积旋转矩形。',
+      ja: '入力 2D 点集合を囲む最小面積の回転矩形を検索します。',
+      de: 'Findet ein rotiertes Rechteck der minimalen Fläche, das die eingegebene 2D-Punktmenge umschließt.',
+      es: 'Encuentra un rectángulo rotado de área mínima que encierra el conjunto de puntos 2D de entrada.',
+      fr: 'Trouve un rectangle tourné d\'aire minimale englobant l\'ensemble de points 2D d\'entrée.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'minAreaRect(points)',
@@ -1136,9 +2489,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'minEnclosingCircle',
-    name: 'minEnclosingCircle (최소 둘레 원)',
+    name: {
+      en: 'Min Enclosing Circle',
+      ko: '최소 둘레 원 (minEnclosingCircle)',
+      zh: '最小外接圆',
+      ja: '最小外接円',
+      de: 'Minimaler umschließender Kreis',
+      es: 'Círculo mínimo envolvente',
+      fr: 'Cercle englobant minimal'
+    },
     category: 'shape',
-    description: '점 집합을 포함하는 최소 둘레의 원을 계산합니다.',
+    description: {
+      en: 'Finds a circle of the minimum area enclosing a 2D point set.',
+      ko: '점 집합을 포함하는 최소 둘레의 원을 계산합니다.',
+      zh: '查找包含 2D 点集的最小面积圆。',
+      ja: '2D 点集合を囲む最小面積の円を検索します。',
+      de: 'Findet einen Kreis der minimalen Fläche, der eine 2D-Punktmenge umschließt.',
+      es: 'Encuentra un círculo de área mínima que encierra un conjunto de puntos 2D.',
+      fr: 'Trouve un cercle d\'aire minimale englobant un ensemble de points 2D.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'minEnclosingCircle(points, center, radius)',
@@ -1146,9 +2515,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'minEnclosingTriangle',
-    name: 'minEnclosingTriangle (최소 둘레 삼각형)',
+    name: {
+      en: 'Min Enclosing Triangle',
+      ko: '최소 둘레 삼각형 (minEnclosingTriangle)',
+      zh: '最小外接三角形',
+      ja: '最小外接三角形',
+      de: 'Minimales umschließendes Dreieck',
+      es: 'Triángulo mínimo envolvente',
+      fr: 'Triangle englobant minimal'
+    },
     category: 'shape',
-    description: '점 집합을 포함하는 최소 둘레의 삼각형을 계산합니다.',
+    description: {
+      en: 'Finds a triangle of the minimum area enclosing a 2D point set.',
+      ko: '점 집합을 포함하는 최소 둘레의 삼각형을 계산합니다.',
+      zh: '查找包含 2D 点集的最小面积三角形。',
+      ja: '2D 点集合を囲む最小面積の三角形を検索します。',
+      de: 'Findet ein Dreieck der minimalen Fläche, das eine 2D-Punktmenge umschließt.',
+      es: 'Encuentra un triángulo de área mínima que encierra un conjunto de puntos 2D.',
+      fr: 'Trouve un triangle d\'aire minimale englobant un ensemble de points 2D.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'minEnclosingTriangle(points, triangle)',
@@ -1156,9 +2541,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'matchShapes',
-    name: 'matchShapes (형상 매칭)',
+    name: {
+      en: 'Match Shapes',
+      ko: '형상 매칭 (matchShapes)',
+      zh: '形状匹配',
+      ja: '形状マッチング',
+      de: 'Formen abgleichen',
+      es: 'Coincidencia de formas',
+      fr: 'Correspondance de formes'
+    },
     category: 'shape',
-    description: '두 윤곽선 또는 그레이스케일 이미지를 비교합니다.',
+    description: {
+      en: 'Compares two shapes.',
+      ko: '두 윤곽선 또는 그레이스케일 이미지를 비교합니다.',
+      zh: '比较两个形状。',
+      ja: '2つの形状を比較します。',
+      de: 'Vergleicht zwei Formen.',
+      es: 'Compara dos formas.',
+      fr: 'Compare deux formes.'
+    },
     parameters: [
       {
         name: 'method',
@@ -1169,7 +2570,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'I2', value: 'CONTOURS_MATCH_I2' },
           { label: 'I3', value: 'CONTOURS_MATCH_I3' },
         ],
-        description: '비교 방법',
+        description: {
+          en: 'Comparison method',
+          ko: '비교 방법',
+          zh: '比较方法',
+          ja: '比較方法',
+          de: 'Vergleichsmethode',
+          es: 'Método de comparación',
+          fr: 'Méthode de comparaison'
+        },
       },
       {
         name: 'splitRatio',
@@ -1178,7 +2587,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1187,9 +2604,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'moments',
-    name: 'moments (모멘트 계산)',
+    name: {
+      en: 'Moments',
+      ko: '모멘트 계산 (moments)',
+      zh: '矩',
+      ja: 'モーメント',
+      de: 'Momente',
+      es: 'Momentos',
+      fr: 'Moments'
+    },
     category: 'shape',
-    description: '이미지 또는 윤곽선의 모든 모멘트(최대 3차)를 계산합니다.',
+    description: {
+      en: 'Calculates all of the moments up to the 3rd order of a polygon or rasterized shape.',
+      ko: '이미지 또는 윤곽선의 모든 모멘트(최대 3차)를 계산합니다.',
+      zh: '计算多边形或栅格化形状的所有三阶矩。',
+      ja: '多角形またはラスタライズされた形状の3次までのすべてのモーメントを計算します。',
+      de: 'Berechnet alle Momente bis zur 3. Ordnung eines Polygons oder einer rasterisierten Form.',
+      es: 'Calcula todos los momentos hasta el tercer orden de un polígono o forma rasterizada.',
+      fr: 'Calcule tous les moments jusqu\'au 3ème ordre d\'un polygone ou d\'une forme rastérisée.'
+    },
     parameters: [
       {
         name: 'binaryImage',
@@ -1199,7 +2632,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '그레이스케일', value: 'false' },
           { label: '이진 이미지', value: 'true' },
         ],
-        description: '이미지 타입',
+        description: {
+          en: 'Binary image flag',
+          ko: '이미지 타입',
+          zh: '二值图像标志',
+          ja: '二値画像フラグ',
+          de: 'Binärbild-Flag',
+          es: 'Bandera de imagen binaria',
+          fr: 'Drapeau d\'image binaire'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1208,9 +2649,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'pointPolygonTest',
-    name: 'pointPolygonTest (점-다각형 테스트)',
+    name: {
+      en: 'Point Polygon Test',
+      ko: '점-다각형 테스트 (pointPolygonTest)',
+      zh: '点多边形测试',
+      ja: '点多角形テスト',
+      de: 'Punkt-Polygon-Test',
+      es: 'Prueba de punto-polígono',
+      fr: 'Test point-polygone'
+    },
     category: 'shape',
-    description: '점과 윤곽선 사이의 관계를 테스트합니다.',
+    description: {
+      en: 'Performs a point-in-polygon test to check if a point is inside, outside, or on the edge of a polygon.',
+      ko: '점과 윤곽선 사이의 관계를 테스트합니다.',
+      zh: '执行点在多边形内的测试，检查点是在多边形内部、外部还是边缘上。',
+      ja: '点と多角形の関係をテストします。点が多角形の内部、外部、または境界上にあるかを確認します。',
+      de: 'Führt einen Punkt-in-Polygon-Test durch, um zu prüfen, ob ein Punkt innerhalb, außerhalb oder auf der Kante eines Polygons liegt.',
+      es: 'Realiza una prueba de punto en polígono para verificar si un punto está dentro, fuera o en el borde de un polígono.',
+      fr: 'Effectue un test point-dans-polygone pour vérifier si un point est à l\'intérieur, à l\'extérieur ou sur le bord d\'un polygone.'
+    },
     parameters: [
       {
         name: 'measureDist',
@@ -1220,7 +2677,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '거리 측정', value: 'true' },
           { label: '위치만 판단', value: 'false' },
         ],
-        description: '측정 모드',
+        description: {
+          en: 'Measure distance flag',
+          ko: '측정 모드',
+          zh: '测量距离标志',
+          ja: '距離測定フラグ',
+          de: 'Entfernungsmaß-Flag',
+          es: 'Bandera de medida de distancia',
+          fr: 'Drapeau de mesure de distance'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1229,9 +2694,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'rotatedRectangleIntersection',
-    name: 'rotatedRectangleIntersection (회전 사각형 교집합)',
+    name: {
+      en: 'Rotated Rectangle Intersection',
+      ko: '회전 사각형 교집합 (rotatedRectangleIntersection)',
+      zh: '旋转矩形交集',
+      ja: '回転矩形交差',
+      de: 'Rotierte Rechteck-Schnittmenge',
+      es: 'Intersección de rectángulo rotado',
+      fr: 'Intersection de rectangles tournés'
+    },
     category: 'shape',
-    description: '두 회전된 사각형의 교집합 영역을 계산합니다. 각도는 리스트에서 조정 가능합니다.',
+    description: {
+      en: 'Finds the intersection of two rotated rectangles. Angles can be adjusted in the list.',
+      ko: '두 회전된 사각형의 교집합 영역을 계산합니다. 각도는 리스트에서 조정 가능합니다.',
+      zh: '查找两个旋转矩形的交集。角度可以在列表中调整。',
+      ja: '2つの回転矩形の交差を検索します。角度はリストで調整できます。',
+      de: 'Findet die Schnittmenge zweier rotierter Rechtecke. Winkel können in der Liste angepasst werden.',
+      es: 'Encuentra la intersección de dos rectángulos rotados. Los ángulos se pueden ajustar en la lista.',
+      fr: 'Trouve l\'intersection de deux rectangles tournés. Les angles peuvent être ajustés dans la liste.'
+    },
     parameters: [
       {
         name: 'rect1_angle',
@@ -1240,7 +2721,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 1,
-        description: '첫 번째 사각형 각도',
+        description: {
+          en: 'First rectangle angle',
+          ko: '첫 번째 사각형 각도',
+          zh: '第一个矩形角度',
+          ja: '最初の矩形の角度',
+          de: 'Winkel des ersten Rechtecks',
+          es: 'Ángulo del primer rectángulo',
+          fr: 'Angle du premier rectangle'
+        },
       },
       {
         name: 'rect2_angle',
@@ -1249,7 +2738,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 1,
-        description: '두 번째 사각형 각도',
+        description: {
+          en: 'Second rectangle angle',
+          ko: '두 번째 사각형 각도',
+          zh: '第二个矩形角度',
+          ja: '2番目の矩形の角度',
+          de: 'Winkel des zweiten Rechtecks',
+          es: 'Ángulo del segundo rectángulo',
+          fr: 'Angle du deuxième rectangle'
+        },
       },
       {
         name: 'rect2_x_offset',
@@ -1258,7 +2755,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -100,
         max: 100,
         step: 1,
-        description: '두 번째 사각형 X 오프셋',
+        description: {
+          en: 'Second rectangle X offset',
+          ko: '두 번째 사각형 X 오프셋',
+          zh: '第二个矩形 X 偏移',
+          ja: '2番目の矩形 X オフセット',
+          de: 'X-Offset des zweiten Rechtecks',
+          es: 'Desplazamiento X del segundo rectángulo',
+          fr: 'Décalage X du deuxième rectangle'
+        },
       },
     ],
     syntax: 'rotatedRectangleIntersection(rect1, rect2, intersectingRegion)',
@@ -1270,9 +2775,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 특징 검출
   {
     id: 'cornerHarris',
-    name: 'Harris Corner Detection',
+    name: {
+      en: 'Harris Corner Detection',
+      ko: '해리스 코너 검출 (Harris Corner Detection)',
+      zh: 'Harris 角点检测',
+      ja: 'Harris コーナー検出',
+      de: 'Harris-Eckendetektion',
+      es: 'Detección de esquinas de Harris',
+      fr: 'Détection de coins de Harris'
+    },
     category: 'feature',
-    description: 'Harris 알고리즘을 사용한 코너 검출입니다.',
+    description: {
+      en: 'Implements the Harris corner detector.',
+      ko: 'Harris 알고리즘을 사용한 코너 검출입니다.',
+      zh: '实现 Harris 角点检测器。',
+      ja: 'Harris コーナー検出器を実装します。',
+      de: 'Implementiert den Harris-Eckendetektor.',
+      es: 'Implementa el detector de esquinas de Harris.',
+      fr: 'Implémente le détecteur de coins de Harris.'
+    },
     parameters: [
       {
         name: 'blockSize',
@@ -1281,7 +2802,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 10,
         step: 1,
-        description: '블록 크기',
+        description: {
+          en: 'Neighborhood size',
+          ko: '블록 크기',
+          zh: '邻域大小',
+          ja: '近傍サイズ',
+          de: 'Nachbarschaftsgröße',
+          es: 'Tamaño del vecindario',
+          fr: 'Taille du voisinage'
+        },
       },
       {
         name: 'ksize',
@@ -1290,7 +2819,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Aperture parameter for the Sobel operator',
+          ko: 'Sobel 커널 크기',
+          zh: 'Sobel 算子的孔径参数',
+          ja: 'Sobel オペレータの開口パラメータ',
+          de: 'Aperturparameter für den Sobel-Operator',
+          es: 'Parámetro de apertura para el operador Sobel',
+          fr: 'Paramètre d\'ouverture pour l\'opérateur de Sobel'
+        },
       },
       {
         name: 'k',
@@ -1299,7 +2836,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.01,
         max: 0.1,
         step: 0.01,
-        description: 'Harris 감지 파라미터',
+        description: {
+          en: 'Harris detector free parameter',
+          ko: 'Harris 감지 파라미터',
+          zh: 'Harris 检测器自由参数',
+          ja: 'Harris 検出器の自由パラメータ',
+          de: 'Freier Parameter des Harris-Detektors',
+          es: 'Parámetro libre del detector de Harris',
+          fr: 'Paramètre libre du détecteur de Harris'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1308,9 +2853,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'goodFeaturesToTrack',
-    name: 'Good Features to Track (Shi-Tomasi)',
+    name: {
+      en: 'Good Features to Track (Shi-Tomasi)',
+      ko: '추적할 좋은 특징 (Shi-Tomasi)',
+      zh: '要跟踪的良好特征 (Shi-Tomasi)',
+      ja: '追跡に適した特徴 (Shi-Tomasi)',
+      de: 'Gute Merkmale zum Verfolgen (Shi-Tomasi)',
+      es: 'Buenas características para rastrear (Shi-Tomasi)',
+      fr: 'Bonnes caractéristiques à suivre (Shi-Tomasi)'
+    },
     category: 'feature',
-    description: 'Shi-Tomasi 알고리즘을 사용하여 추적하기 좋은 코너를 검출합니다.',
+    description: {
+      en: 'Determines strong corners on an image.',
+      ko: 'Shi-Tomasi 알고리즘을 사용하여 추적하기 좋은 코너를 검출합니다.',
+      zh: '确定图像上的强角点。',
+      ja: '画像上の強いコーナーを決定します。',
+      de: 'Bestimmt starke Ecken auf einem Bild.',
+      es: 'Determina esquinas fuertes en una imagen.',
+      fr: 'Détermine les coins forts sur une image.'
+    },
     parameters: [
       {
         name: 'maxCorners',
@@ -1319,7 +2880,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 500,
         step: 10,
-        description: '검출할 최대 코너 개수',
+        description: {
+          en: 'Maximum number of corners to return',
+          ko: '검출할 최대 코너 개수',
+          zh: '要返回的最大角点数',
+          ja: '返すコーナーの最大数',
+          de: 'Maximale Anzahl der zurückzugebenden Ecken',
+          es: 'Número máximo de esquinas a devolver',
+          fr: 'Nombre maximal de coins à retourner'
+        },
       },
       {
         name: 'qualityLevel',
@@ -1328,7 +2897,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.001,
         max: 0.1,
         step: 0.001,
-        description: '코너 품질 레벨 (0~1)',
+        description: {
+          en: 'Parameter characterizing the minimal accepted quality of image corners',
+          ko: '코너 품질 레벨 (0~1)',
+          zh: '表征图像角点最小可接受质量的参数',
+          ja: '画像コーナーの最小許容品質を特徴付けるパラメータ',
+          de: 'Parameter, der die minimal akzeptierte Qualität der Bildecken charakterisiert',
+          es: 'Parámetro que caracteriza la calidad mínima aceptada de las esquinas de la imagen',
+          fr: 'Paramètre caractérisant la qualité minimale acceptée des coins de l\'image'
+        },
       },
       {
         name: 'minDistance',
@@ -1337,7 +2914,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 50,
         step: 1,
-        description: '코너 간 최소 거리',
+        description: {
+          en: 'Minimum possible Euclidean distance between the returned corners',
+          ko: '코너 간 최소 거리',
+          zh: '返回角点之间的最小欧几里得距离',
+          ja: '返されるコーナー間の最小ユークリッド距離',
+          de: 'Minimal möglicher euklidischer Abstand zwischen den zurückgegebenen Ecken',
+          es: 'Distancia euclidiana mínima posible entre las esquinas devueltas',
+          fr: 'Distance euclidienne minimale possible entre les coins retournés'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1346,9 +2931,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'HoughLines',
-    name: 'Hough Line Transform',
+    name: {
+      en: 'Hough Line Transform',
+      ko: '허프 선 변환 (HoughLines)',
+      zh: 'Hough 直线变换',
+      ja: 'ハフ変換による直線検出',
+      de: 'Hough-Linientransformation',
+      es: 'Transformada de línea de Hough',
+      fr: 'Transformée de ligne de Hough'
+    },
     category: 'feature',
-    description: '허프 변환을 사용하여 직선을 검출합니다.',
+    description: {
+      en: 'Detects straight lines in an image using the Hough transform.',
+      ko: '허프 변환을 사용하여 이미지에서 직선을 검출합니다.',
+      zh: '使用 Hough 变换检测图像中的直线。',
+      ja: 'ハフ変換を使用して画像内の直線を検出します。',
+      de: 'Erkennt gerade Linien in einem Bild mittels der Hough-Transformation.',
+      es: 'Detecta líneas rectas en una imagen utilizando la transformada de Hough.',
+      fr: 'Détecte les lignes droites dans une image à l\'aide de la transformée de Hough.'
+    },
     parameters: [
       {
         name: 'rho',
@@ -1357,7 +2958,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '거리 해상도 (픽셀)',
+        description: {
+          en: 'Distance resolution (pixels)',
+          ko: '거리 해상도 (픽셀)',
+          zh: '距离分辨率 (像素)',
+          ja: '距離解像度 (ピクセル)',
+          de: 'Abstandsauflösung (Pixel)',
+          es: 'Resolución de distancia (píxeles)',
+          fr: 'Résolution de distance (pixels)'
+        },
       },
       {
         name: 'theta',
@@ -1366,7 +2975,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 5,
         step: 1,
-        description: '각도 해상도 (도)',
+        description: {
+          en: 'Angle resolution (degrees)',
+          ko: '각도 해상도 (도)',
+          zh: '角度分辨率 (度)',
+          ja: '角度解像度 (ピクセル)',
+          de: 'Winkelauflösung (Grad)',
+          es: 'Resolución de ángulo (grados)',
+          fr: 'Résolution d\'angle (degrés)'
+        },
       },
       {
         name: 'threshold',
@@ -1375,7 +2992,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 50,
         max: 300,
         step: 10,
-        description: '누산기 임계값',
+        description: {
+          en: 'Accumulator threshold',
+          ko: '누산기 임계값 (Threshold)',
+          zh: '累加器阈值',
+          ja: 'アキュムレータの閾値',
+          de: 'Akkumulator-Schwellenwert',
+          es: 'Umbral del acumulador',
+          fr: 'Seuil de l\'accumulateur'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1384,9 +3009,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'HoughLinesP',
-    name: 'Probabilistic Hough Line Transform',
+    name: {
+      en: 'Probabilistic Hough Line Transform',
+      ko: '확률적 허프 선 변환 (HoughLinesP)',
+      zh: '概率 Hough 直线变换',
+      ja: '確率的ハフ変換による線分検出',
+      de: 'Wahrscheinlichkeits-Hough-Linientransformation',
+      es: 'Transformada de línea de Hough probabilística',
+      fr: 'Transformée de ligne de Hough probabiliste'
+    },
     category: 'feature',
-    description: '확률적 허프 변환으로 선분을 검출합니다.',
+    description: {
+      en: 'More efficient line detection that finds line segments.',
+      ko: '확률적 허프 변환을 사용하여 이미지에서 선분을 검출합니다 (HoughLines보다 효율적).',
+      zh: '更高效的直线检测，用于查找线段。',
+      ja: '線分を検出する、より効率的な直線検出です。',
+      de: 'Effizientere Linien-Erkennung, die Liniensegmente findet.',
+      es: 'Detección de líneas más eficiente que encuentra segmentos de línea.',
+      fr: 'Détecte les lignes plus efficacement en trouvant des segments de ligne.'
+    },
     parameters: [
       {
         name: 'rho',
@@ -1395,7 +3036,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '거리 해상도 (픽셀)',
+        description: {
+          en: 'Distance resolution (pixels)',
+          ko: '거리 해상도 (픽셀)',
+          zh: '距离分辨率 (像素)',
+          ja: '距離解像度 (ピクセル)',
+          de: 'Abstandsauflösung (Pixel)',
+          es: 'Resolución de distancia (píxeles)',
+          fr: 'Résolution de distance (pixels)'
+        },
       },
       {
         name: 'theta',
@@ -1404,7 +3053,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 5,
         step: 1,
-        description: '각도 해상도 (도)',
+        description: {
+          en: 'Angle resolution (degrees)',
+          ko: '각도 해상도 (도)',
+          zh: '角度分辨率 (도)',
+          ja: '角度解像度 (度)',
+          de: 'Winkelauflösung (Grad)',
+          es: 'Resolución de ángulo (grados)',
+          fr: 'Résolution d\'angle (degrés)'
+        },
       },
       {
         name: 'threshold',
@@ -1413,7 +3070,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 200,
         step: 10,
-        description: '누산기 임계값',
+        description: {
+          en: 'Accumulator threshold',
+          ko: '누산기 임계값 (Threshold)',
+          zh: '累加器阈值',
+          ja: 'アキュムレータの閾値',
+          de: 'Akkumulator-Schwellenwert',
+          es: 'Umbral del acumulador',
+          fr: 'Seuil de l\'accumulateur'
+        },
       },
       {
         name: 'minLineLength',
@@ -1422,7 +3087,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 200,
         step: 10,
-        description: '최소 선분 길이',
+        description: {
+          en: 'Min line length',
+          ko: '최소 선분 길이 (Min Line Length)',
+          zh: '最小线轴长度',
+          ja: '最小の線分長',
+          de: 'Minimale Linienlänge',
+          es: 'Longitud mínima de línea',
+          fr: 'Longueur minimale de ligne'
+        },
       },
       {
         name: 'maxLineGap',
@@ -1431,7 +3104,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 50,
         step: 1,
-        description: '최대 선분 간격',
+        description: {
+          en: 'Max line gap',
+          ko: '최대 선분 간격 (Max Line Gap)',
+          zh: '最大线轴间隙',
+          ja: '最大の線分間隔',
+          de: 'Maximaler Linienabstand',
+          es: 'Brecha máxima de línea',
+          fr: 'Écart maximal entre les lignes'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1440,9 +3121,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'HoughCircles',
-    name: 'Hough Circle Transform',
+    name: {
+      en: 'Hough Circle Transform',
+      ko: '허프 원 변환 (HoughCircles)',
+      zh: 'Hough 圆变换',
+      ja: 'ハフ変換による円検出',
+      de: 'Hough-Kreistransformation',
+      es: 'Transformada de círculo de Hough',
+      fr: 'Transformée de cercle de Hough'
+    },
     category: 'feature',
-    description: '허프 변환을 사용하여 원을 검출합니다.',
+    description: {
+      en: 'Detects circles in an image using the Hough transform.',
+      ko: '허프 변환을 사용하여 이미지에서 원을 검출합니다.',
+      zh: '使用 Hough 变换检测图像中的圆。',
+      ja: 'ハフ変換を使用して画像内の円を検出します。',
+      de: 'Erkennt Kreise in einem Bild mittels der Hough-Transformation.',
+      es: 'Detecta círculos en una imagen utilizando la transformada de Hough.',
+      fr: 'Détecte les cercles dans une image à l\'aide de la transformée de Hough.'
+    },
     parameters: [
       {
         name: 'dp',
@@ -1451,7 +3148,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 3,
         step: 0.5,
-        description: '누산기 해상도 비율',
+        description: {
+          en: 'Accumulator resolution factor',
+          ko: '누산기 해상도 비율 (dp)',
+          zh: '累加器分辨率因子',
+          ja: 'アキュムレータ解像度の因子',
+          de: 'Akkumulator-Auflösungsfaktor',
+          es: 'Factor de resolución del acumulador',
+          fr: 'Facteur de résolution de l\'accumulateur'
+        },
       },
       {
         name: 'minDist',
@@ -1460,7 +3165,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 200,
         step: 10,
-        description: '원 중심 간 최소 거리',
+        description: {
+          en: 'Min distance between centers',
+          ko: '원 중심 간 최소 거리 (minDist)',
+          zh: '圆心之间的最小距离',
+          ja: '中心間の最小距離',
+          de: 'Minimaler Abstand zwischen Zentren',
+          es: 'Distancia mínima entre centros',
+          fr: 'Distance minimale entre les centres'
+        },
       },
       {
         name: 'param1',
@@ -1469,7 +3182,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 50,
         max: 300,
         step: 10,
-        description: 'Canny 엣지 임계값',
+        description: {
+          en: 'Canny edge threshold',
+          ko: 'Canny 엣지 임계값 (param1)',
+          zh: 'Canny 边缘阈值',
+          ja: 'Canny エッジの閾値',
+          de: 'Canny-Kanten-Schwellenwert',
+          es: 'Umbral de borde Canny',
+          fr: 'Seuil de contour Canny'
+        },
       },
       {
         name: 'param2',
@@ -1478,36 +3199,76 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 100,
         step: 5,
-        description: '원 검출 임계값',
+        description: {
+          en: 'Accumulator threshold',
+          ko: '원 검출 임계값 (param2)',
+          zh: '累加器阈值',
+          ja: 'アキュムレータの閾値',
+          de: 'Akkumulator-Schwellenwert',
+          es: 'Umbral del acumulador',
+          fr: 'Seuil de l\'accumulateur'
+        },
       },
       {
         name: 'minRadius',
         type: 'slider',
         defaultValue: 10,
-        min: 5,
+        min: 0,
         max: 100,
         step: 5,
-        description: '최소 반지름',
+        description: {
+          en: 'Min radius',
+          ko: '최소 반지름 (minRadius)',
+          zh: '最小半径',
+          ja: '最小半径',
+          de: 'Minimaler Radius',
+          es: 'Radio mínimo',
+          fr: 'Rayon minimal'
+        },
       },
       {
         name: 'maxRadius',
         type: 'slider',
         defaultValue: 100,
-        min: 20,
+        min: 0,
         max: 500,
         step: 10,
-        description: '최대 반지름',
+        description: {
+          en: 'Max radius',
+          ko: '최대 반지름 (maxRadius)',
+          zh: '최대 반지름',
+          ja: '最大半径',
+          de: 'Maximaler Radius',
+          es: 'Radio máximo',
+          fr: 'Rayon maximal'
+        },
       },
     ],
     requiresGrayscale: true,
-    syntax: 'HoughCircles(src, method, dp, minDist, param1, param2, minRadius, maxRadius)',
-    documentation: 'https://docs.opencv.org/4.12.0/dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d',
+    syntax: 'HoughCircles(src, circles, HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius)',
+    documentation: 'https://docs.opencv.org/4.12.0/dd/d1a/group__imgproc__feature.html#ga47840c36142248267dc5946a4695eb78',
   },
   {
     id: 'cornerSubPix',
-    name: 'Corner Sub-pixel Refinement',
+    name: {
+      en: 'Corner Sub-pixel Refinement',
+      ko: '코너 서브픽셀 정제 (cornerSubPix)',
+      zh: '角点亚像素细化',
+      ja: 'コーナーサブピクセル精製',
+      de: 'Ecken-Subpixel-Verfeinerung',
+      es: 'Refinamiento de subpíxeles de esquina',
+      fr: 'Affinement sub-pixel des coins'
+    },
     category: 'feature',
-    description: '코너 위치를 서브픽셀 정확도로 정제���니다.',
+    description: {
+      en: 'Refines the corner locations to sub-pixel accuracy.',
+      ko: '코너 위치를 서브픽셀 정확도로 정제합니다.',
+      zh: '将角点位置细化到亚像素精度。',
+      ja: 'コーナー位置をサブピクセル精度に精製します。',
+      de: 'Verfeinert die Eckpositionen auf Subpixel-Genauigkeit.',
+      es: 'Refina las ubicaciones de las esquinas con precisión de subpíxeles.',
+      fr: 'Affine les emplacements des coins avec une précision sub-pixel.'
+    },
     parameters: [
       {
         name: 'winSize',
@@ -1516,7 +3277,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 15,
         step: 2,
-        description: '검색 윈도우 크기',
+        description: {
+          en: 'Half of the side length of the search window',
+          ko: '검색 윈도우 크기',
+          zh: '搜索窗口边长的一半',
+          ja: '検索ウィンドウの辺長の半分',
+          de: 'Halbe Seitenlänge des Suchfensters',
+          es: 'Mitad de la longitud del lado de la ventana de búsqueda',
+          fr: 'Moitié de la longueur du côté de la fenêtre de recherche'
+        },
       },
       {
         name: 'maxCount',
@@ -1525,7 +3294,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 100,
         step: 10,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大反復回数',
+          de: 'Maximale Anzahl von Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximal d\'itérations'
+        },
       },
       {
         name: 'epsilon',
@@ -1534,7 +3311,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.001,
         max: 0.1,
         step: 0.001,
-        description: '정확도 기준',
+        description: {
+          en: 'Termination criteria epsilon',
+          ko: '정확도 기준',
+          zh: '终止准则 epsilon',
+          ja: '終了基準イプシロン',
+          de: 'Abbruchkriterium Epsilon',
+          es: 'Criterio de terminación épsilon',
+          fr: 'Critère de terminaison epsilon'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1543,9 +3328,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'cornerMinEigenVal',
-    name: 'Corner Min Eigen Value',
+    name: {
+      en: 'Corner Min Eigen Value',
+      ko: '코너 최소 고유값 (cornerMinEigenVal)',
+      zh: '角点最小特征值',
+      ja: 'コーナー最小固有値',
+      de: 'Ecken-Minimal-Eigenwert',
+      es: 'Valor propio mínimo de esquina',
+      fr: 'Valeur propre minimale de coin'
+    },
     category: 'feature',
-    description: '각 픽셀의 최소 고유값을 계산하여 코너를 검출합니다.',
+    description: {
+      en: 'Calculates the minimum eigenvalue of a 2x2 gradient covariance matrix for each pixel.',
+      ko: '각 픽셀의 최소 고유값을 계산하여 코너를 검출합니다.',
+      zh: '计算每个像素的 2x2 梯度协方差矩阵的最小特征值。',
+      ja: '各ピクセルの 2x2 勾配共分散行列の最小固有値を計算します。',
+      de: 'Berechnet den minimalen Eigenwert einer 2x2 Gradienten-Kovarianzmatrix für jedes Pixel.',
+      es: 'Calcula el valor propio mínimo de una matriz de covarianza de gradiente de 2x2 para cada píxel.',
+      fr: 'Calcule la valeur propre minimale d\'une matrice de covariance de gradient 2x2 pour chaque pixel.'
+    },
     parameters: [
       {
         name: 'blockSize',
@@ -1554,7 +3355,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 11,
         step: 2,
-        description: '블록 크기',
+        description: {
+          en: 'Neighborhood size',
+          ko: '블록 크기',
+          zh: '邻域大小',
+          ja: '近傍サイズ',
+          de: 'Nachbarschaftsgröße',
+          es: 'Tamaño del vecindario',
+          fr: 'Taille du voisinage'
+        },
       },
       {
         name: 'ksize',
@@ -1563,7 +3372,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Aperture parameter for the Sobel operator',
+          ko: 'Sobel 커널 크기',
+          zh: 'Sobel 算子的孔径参数',
+          ja: 'Sobel オペレータの開口パラメータ',
+          de: 'Aperturparameter für den Sobel-Operator',
+          es: 'Parámetro de apertura para el operador Sobel',
+          fr: 'Paramètre d\'ouverture pour l\'opérateur de Sobel'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1572,9 +3389,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'cornerEigenValsAndVecs',
-    name: 'Corner Eigen Values and Vectors',
+    name: {
+      en: 'Corner Eigen Values and Vectors',
+      ko: '코너 고유값 및 고유벡터 (cornerEigenValsAndVecs)',
+      zh: '角点特征值和特征向量',
+      ja: 'コーナー固有値と固有ベクトル',
+      de: 'Ecken-Eigenwerte und -Vektoren',
+      es: 'Valores y vectores propios de esquina',
+      fr: 'Valeurs et vecteurs propres de coin'
+    },
     category: 'feature',
-    description: '각 픽셀의 고유값과 고유벡터를 계산합니다.',
+    description: {
+      en: 'Calculates the eigenvalues and eigenvectors of the 2x2 gradient covariance matrix for every pixel.',
+      ko: '각 픽셀의 고유값과 고유벡터를 계산합니다.',
+      zh: '计算每个像素的 2x2 梯度协方差矩阵的特征值和特征向量。',
+      ja: '各ピクセルの 2x2 勾配共分散行列の固有値と固有ベクトルを計算します。',
+      de: 'Berechnet die Eigenwerte und Eigenvektoren der 2x2 Gradienten-Kovarianzmatrix für jedes Pixel.',
+      es: 'Calcula los valores y vectores propios de la matriz de covarianza de gradiente de 2x2 para cada píxel.',
+      fr: 'Calcule les valeurs et vecteurs propres de la matrice de covariance de gradient 2x2 pour chaque pixel.'
+    },
     parameters: [
       {
         name: 'blockSize',
@@ -1583,7 +3416,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 11,
         step: 2,
-        description: '블록 크기',
+        description: {
+          en: 'Neighborhood size',
+          ko: '블록 크기',
+          zh: '邻域大小',
+          ja: '近傍サイズ',
+          de: 'Nachbarschaftsgröße',
+          es: 'Tamaño del vecindario',
+          fr: 'Taille du voisinage'
+        },
       },
       {
         name: 'ksize',
@@ -1592,7 +3433,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Aperture parameter for the Sobel operator',
+          ko: 'Sobel 커널 크기',
+          zh: 'Sobel 算子的孔径参数',
+          ja: 'Sobel オペレータの開口パラメータ',
+          de: 'Aperturparameter für den Sobel-Operator',
+          es: 'Parámetro de apertura para el operador Sobel',
+          fr: 'Paramètre d\'ouverture pour l\'opérateur de Sobel'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1601,9 +3450,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'preCornerDetect',
-    name: 'Pre-Corner Detection',
+    name: {
+      en: 'Pre-Corner Detection',
+      ko: '사전 코너 검출 (preCornerDetect)',
+      zh: '预角点检测',
+      ja: '事前コーナー検出',
+      de: 'Vorecken-Erkennung',
+      es: 'Detección previa de esquinas',
+      fr: 'Pré-détection de coins'
+    },
     category: 'feature',
-    description: '코너 검출을 위한 사전 처리를 수행합니다.',
+    description: {
+      en: 'Calculates the feature map for the corner detector.',
+      ko: '코너 검출을 위한 사전 처리를 수행합니다.',
+      zh: '计算角点检测器的特征图。',
+      ja: 'コーナー検出器のフィーチャマップを計算します。',
+      de: 'Berechnet die Feature-Map für den Eckendetektor.',
+      es: 'Calcula el mapa de características para el detector de esquinas.',
+      fr: 'Calcule la carte de caractéristiques pour le détecteur de coins.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -1612,7 +3477,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Aperture parameter for the Sobel operator',
+          ko: 'Sobel 커널 크기',
+          zh: 'Sobel 算子的孔径参数',
+          ja: 'Sobel オペレータの開口パラメータ',
+          de: 'Aperturparameter für den Sobel-Operator',
+          es: 'Parámetro de apertura para el operador Sobel',
+          fr: 'Paramètre d\'ouverture pour l\'opérateur de Sobel'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1623,27 +3496,75 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 기본 연산
   {
     id: 'split',
-    name: 'Split Channels (채널 분리)',
+    name: {
+      en: 'Split Channels',
+      ko: '채널 분리',
+      zh: '拆分通道',
+      ja: 'チャネル分離',
+      de: 'Kanäle aufteilen',
+      es: 'Dividir canales',
+      fr: 'Diviser les canaux'
+    },
     category: 'basic',
-    description: '컬러 이미지를 개별 채널로 분리합니다 (B, G, R).',
+    description: {
+      en: 'Splits a color image into individual channels (e.g., B, G, R).',
+      ko: '컬러 이미지를 개별 채널(B, G, R 등)로 분리합니다.',
+      zh: '将彩色图像拆分为单个通道（例如 B、G、R）。',
+      ja: 'カラー画像を個々のチャネル (B、G、R など) に分離します。',
+      de: 'Teilt ein Farbbild in einzelne Kanäle auf (z. B. B, G, R).',
+      es: 'Divide una imagen en color en canales individuales (por ejemplo, B, G, R).',
+      fr: 'Divise une image en couleur en canaux individuels (par exemple, B, G, R).'
+    },
     parameters: [],
     syntax: 'split(src, mv)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga0547c7fed86152d7e9d0096029c8518a',
   },
   {
     id: 'merge',
-    name: 'Merge Channels (채널 병합)',
+    name: {
+      en: 'Merge Channels',
+      ko: '채널 병합',
+      zh: '合并通道',
+      ja: 'チャネル結合',
+      de: 'Kanäle zusammenführen',
+      es: 'Combinar canales',
+      fr: 'Fusionner les canales'
+    },
     category: 'basic',
-    description: '개별 채널을 하나의 컬러 이미지로 병합합니다.',
+    description: {
+      en: 'Merges individual channels into a single color image.',
+      ko: '개별 채널을 하나의 컬러 이미지로 병합합니다.',
+      zh: '将单个通道合并为单个彩色图像。',
+      ja: '個々のチャネルをひとつのカラー画像に結合します。',
+      de: 'Führt einzelne Kanäle zu einem einzigen Farbbild zusammen.',
+      es: 'Combina canales individuales en una sola imagen en color.',
+      fr: 'Fusionne les canaux individuels en une seule image en couleur.'
+    },
     parameters: [],
     syntax: 'merge(mv, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga7d7b4d6c6ee504b30a20b1680029c7b4',
   },
   {
     id: 'inRange',
-    name: 'In Range (범위 내 추출)',
+    name: {
+      en: 'In Range (Thresholding)',
+      ko: '범위 내 추출',
+      zh: '范围内提取',
+      ja: '範囲内抽出',
+      de: 'Im Bereich extrahieren',
+      es: 'En rango (Extracción)',
+      fr: 'Dans la plage (Extraction)'
+    },
     category: 'basic',
-    description: '특정 색상 범위 내의 픽셀��� 추출합니다.',
+    description: {
+      en: 'Extracts pixels that fall within a specific color range (thresholding).',
+      ko: '특정 색상 범위 내의 픽셀을 추출합니다 (이진화).',
+      zh: '提取落在特定颜色范围内的像素。',
+      ja: '特定の色範囲内にあるピクセルを抽出します。',
+      de: 'Extrahiert Pixel, die in einen bestimmten Farbbereich fallen.',
+      es: 'Extrae píxeles que caen dentro de un rango de color específico.',
+      fr: 'Extrait les pixels qui tombent dans une plage de couleurs spécifique.'
+    },
     parameters: [
       {
         name: 'lowerH',
@@ -1652,7 +3573,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 179,
         step: 1,
-        description: '하한 Hue',
+        description: {
+          en: 'Lower Hue',
+          ko: '하한 Hue',
+          zh: '下限色调',
+          ja: '下限色相',
+          de: 'Unterer Farbwert',
+          es: 'Tono inferior',
+          fr: 'Teinte inférieure'
+        },
       },
       {
         name: 'upperH',
@@ -1661,7 +3590,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 179,
         step: 1,
-        description: '상한 Hue',
+        description: {
+          en: 'Upper Hue',
+          ko: '상한 Hue',
+          zh: '上限色调',
+          ja: '上限色相',
+          de: 'Oberer Farbwert',
+          es: 'Tono superior',
+          fr: 'Teinte supérieure'
+        },
       },
     ],
     syntax: 'inRange(src, lowerb, upperb, dst)',
@@ -1669,18 +3606,50 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'bitwise_not',
-    name: 'Bitwise NOT (반전)',
+    name: {
+      en: 'Bitwise NOT (Inverse)',
+      ko: '비트 NOT (부정/반전)',
+      zh: '位非 (取反)',
+      ja: 'ビット単位の NOT (反転)',
+      de: 'Bitweises NOT (Negativ)',
+      es: 'NOT bit a bit (Inverso)',
+      fr: 'NOT bit à bit (Inverse)'
+    },
     category: 'basic',
-    description: '이미지의 모든 비트를 반전시킵니다 (네거티브 효과).',
+    description: {
+      en: 'Inverts all bits of the image (negative effect).',
+      ko: '이미지의 모든 비트를 반전시킵니다 (네거티브 효과).',
+      zh: '反转图像的所有位（负片效果）。',
+      ja: '画像のすべてのビットを反転させます (ネガ効果)。',
+      de: 'Invertiert alle Bits des Bildes (Negativeffekt).',
+      es: 'Invierte todos los bits de la imagen (efecto negativo).',
+      fr: 'NOT bit à bit (Inverse)'
+    },
     parameters: [],
     syntax: 'bitwise_not(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga4cec43ddc377f5a0c6f3c96e6e2a5af9',
   },
   {
     id: 'normalize',
-    name: 'Normalize (정규화)',
+    name: {
+      en: 'Normalize',
+      ko: '정규화',
+      zh: '归一化',
+      ja: '正規化',
+      de: 'Normalisieren',
+      es: 'Normalizar',
+      fr: 'Normaliser'
+    },
     category: 'basic',
-    description: '이미지의 픽셀 값을 특정 범위로 정규화합니다.',
+    description: {
+      en: 'Normalizes pixel values of the image to a specific range.',
+      ko: '이미지의 픽셀 값을 특정 범위로 정규화합니다.',
+      zh: '将图像的像素值归一化到特定范围。',
+      ja: '画像のピクセル値を特定の範囲に正規化します。',
+      de: 'Normalisiert die Pixelwerte des Bildes auf einen bestimmten Bereich.',
+      es: 'Normaliza los valores de píxel de la imagen a un rango específico.',
+      fr: 'Normalise les valeurs de pixel de l\'image dans une plage spécifique.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -1689,7 +3658,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '정규화 최소값',
+        description: {
+          en: 'Minimum value',
+          ko: '정규화 하한(최소값)',
+          zh: '最小值',
+          ja: '最小値',
+          de: 'Minimalwert',
+          es: 'Valor mínimo',
+          fr: 'Valeur minimale'
+        },
       },
       {
         name: 'beta',
@@ -1698,7 +3675,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 255,
         step: 1,
-        description: '정규화 최대값',
+        description: {
+          en: 'Maximum value',
+          ko: '정규화 상한(최대값)',
+          zh: '최대값',
+          ja: '最大値',
+          de: 'Maximalwert',
+          es: 'Valor máximo',
+          fr: 'Valeur maximale'
+        },
       },
     ],
     syntax: 'normalize(src, dst, alpha, beta, norm_type)',
@@ -1708,9 +3693,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 히스토그램
   {
     id: 'equalizeHist',
-    name: 'Histogram Equalization (히스토그램 균등화)',
+    name: {
+      en: 'Histogram Equalization',
+      ko: '히스토그램 평활화',
+      zh: '直方图均衡化',
+      ja: 'ヒストグラム均一化',
+      de: 'Histogramm-Entzerrung',
+      es: 'Ecualización de histograma',
+      fr: 'Égalisation d\'histogramme'
+    },
     category: 'histogram',
-    description: '히스토그램 균등화로 이미지 대비를 개선합니다.',
+    description: {
+      en: 'Improves image contrast by stretching the histogram.',
+      ko: '히스토그램 평활화로 이미지 대비를 개선합니다.',
+      zh: '通过拉伸直方图来提高图像对比度。',
+      ja: 'ヒストグラムを伸ばすことで画像のコントラストを改善します。',
+      de: 'Verbessert den Bildkontrast durch Dehnen des Histogramms.',
+      es: 'Mejora el contraste de la imagen estirando el histograma.',
+      fr: 'Améliore le contraste de l\'image en étirant l\'histogramme.'
+    },
     parameters: [],
     requiresGrayscale: true,
     syntax: 'equalizeHist(src, dst)',
@@ -1718,9 +3719,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'calcHist',
-    name: 'Calculate Histogram (히스토그램 계산)',
+    name: {
+      en: 'Calculate Histogram',
+      ko: '히스토그램 계산 (calcHist)',
+      zh: '计算直方图',
+      ja: 'ヒストグラム計算',
+      de: 'Histogramm berechnen',
+      es: 'Calcular histograma',
+      fr: 'Calculer l\'histogramme'
+    },
     category: 'histogram',
-    description: '이미지의 히스토그램을 계산하고 시각화합니다.',
+    description: {
+      en: 'Calculates the histogram of an image and visualizes it.',
+      ko: '이미지의 히스토그램을 계산하고 시각화합니다.',
+      zh: '计算并可视化图像的直方图。',
+      ja: '画像のヒストグラムを計算し、視覚化します。',
+      de: 'Berechnet und visualisiert das Histogramm eines Bildes.',
+      es: 'Calcula y visualiza el histograma de una imagen.',
+      fr: 'Calcule et visualise l\'histogramme d\'une image.'
+    },
     parameters: [
       {
         name: 'channel',
@@ -1732,7 +3749,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'Green', value: 'green' },
           { label: 'Red', value: 'red' },
         ],
-        description: '분석할 채널',
+        description: {
+          en: 'Channel to analyze',
+          ko: '분석할 채널',
+          zh: '要分析的通道',
+          ja: '分析するチャネル',
+          de: 'Zu analysierender Kanal',
+          es: 'Canal a analizar',
+          fr: 'Canal à analyser'
+        },
       },
     ],
     syntax: 'calcHist(images, channels, mask, histSize, ranges)',
@@ -1740,9 +3765,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'CLAHE',
-    name: 'CLAHE (적응형 히스토그램 균등화)',
+    name: {
+      en: 'CLAHE (Adaptive Histogram Equalization)',
+      ko: 'CLAHE (적응형 히스토그램 균등화)',
+      zh: 'CLAHE (自适应直方图均衡化)',
+      ja: 'CLAHE (適応的ヒストグラム均一化)',
+      de: 'CLAHE (Adaptive Histogramm-Entzerrung)',
+      es: 'CLAHE (Ecualización adaptativa del histograma)',
+      fr: 'CLAHE (Égalisation adaptative de l\'histogramme)'
+    },
     category: 'histogram',
-    description: 'Contrast Limited Adaptive Histogram Equalization으로 지역적 대비를 개선합니다.',
+    description: {
+      en: 'Improves local contrast using Contrast Limited Adaptive Histogram Equalization.',
+      ko: 'Contrast Limited Adaptive Histogram Equalization으로 지역적 대비를 개선합니다.',
+      zh: '使用对比度受限自适应直方图均衡化改善局部对比度。',
+      ja: 'コントラスト制限付き適応的ヒストグラム均一化を使用して局所コントラストを改善します。',
+      de: 'Verbessert den lokalen Kontrast mittels Contrast Limited Adaptive Histogram Equalization.',
+      es: 'Mejora el contraste local utilizando la ecualización adaptativa del histograma con límite de contraste.',
+      fr: 'Améliore le contraste local en utilisant l\'égalisation adaptative de l\'histogramme avec limitation de contraste.'
+    },
     parameters: [
       {
         name: 'clipLimit',
@@ -1751,7 +3792,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1.0,
         max: 10.0,
         step: 0.5,
-        description: '클립 제한값',
+        description: {
+          en: 'Clipping limit',
+          ko: '클립 제한값',
+          zh: '裁剪限制',
+          ja: 'クリッピング制限',
+          de: 'Clipping-Grenze',
+          es: 'Límite de recorte',
+          fr: 'Limite de découpage'
+        },
       },
       {
         name: 'tileGridSize',
@@ -1760,7 +3809,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 16,
         step: 2,
-        description: '타일 그리드 크기',
+        description: {
+          en: 'Size of the grid for histogram equalization',
+          ko: '타일 그리드 크기',
+          zh: '直方图均衡化的网格大小',
+          ja: 'ヒストグラム均一化のためのグリッドサイズ',
+          de: 'Größe des Gitters für die Histogramm-Entzerrung',
+          es: 'Tamaño de la cuadrícula para la ecualización del histograma',
+          fr: 'Taille de la grille pour l\'égalisation de l\'histogramme'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -1769,9 +3826,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'calcBackProject',
-    name: 'calcBackProject (히스토그램 역투영)',
+    name: {
+      en: 'Calculate Back Projection',
+      ko: '히스토그램 역투영 (calcBackProject)',
+      zh: '计算反向投影',
+      ja: 'バックプロジェクション計算',
+      de: 'Rückprojektion berechnen',
+      es: 'Calcular retroproyección',
+      fr: 'Calculer la rétroprojection'
+    },
     category: 'histogram',
-    description: '히스토그램을 사용하여 이미지에서 특정 객체를 찾습니다.',
+    description: {
+      en: 'Calculates the back projection of a histogram.',
+      ko: '히스토그램을 사용하여 이미지에서 특정 객체를 찾습니다.',
+      zh: '计算直方图的反向投影。',
+      ja: 'ヒストグラムのバックプロジェクションを計算します。',
+      de: 'Berechnet die Rückprojektion eines Histogramms.',
+      es: 'Calcula la retroproyección de un histograma.',
+      fr: 'Calcule la rétroprojection d\'un histogramme.'
+    },
     parameters: [
       {
         name: 'channel',
@@ -1782,7 +3855,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'Saturation (채도)', value: 'saturation' },
           { label: 'Value (명도)', value: 'value' },
         ],
-        description: '분석할 채널',
+        description: {
+          en: 'Channel to analyze',
+          ko: '분석할 채널',
+          zh: '要分析的通道',
+          ja: '分析するチャネル',
+          de: 'Zu analysierender Kanal',
+          es: 'Canal a analizar',
+          fr: 'Canal à analyser'
+        },
       },
       {
         name: 'histSize',
@@ -1791,7 +3872,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 16,
         max: 256,
         step: 16,
-        description: '히스토그램 빈 개수',
+        description: {
+          en: 'Number of histogram bins',
+          ko: '히스토그램 빈 개수',
+          zh: '直方图 bin 数量',
+          ja: 'ヒストグラムビン数',
+          de: 'Anzahl der Histogramm-Bins',
+          es: 'Número de bins del histograma',
+          fr: 'Nombre de bins de l\'histogramme'
+        },
       },
     ],
     syntax: 'calcBackProject(images, channels, hist, dst, ranges, scale)',
@@ -1799,9 +3888,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_CORREL',
-    name: 'compareHist - CORRELATION (상관관계)',
+    name: {
+      en: 'Compare Hist - CORRELATION',
+      ko: '히스토그램 비교 - 상관관계 (CORRELATION)',
+      zh: '比较直方图 - 相关性',
+      ja: 'ヒストグラム比較 - 相関',
+      de: 'Histogramm vergleichen - Korrelation',
+      es: 'Comparar Hist - CORRELACIÓN',
+      fr: 'Comparer Hist - CORRÉLATION'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 상관관계를 계산합니다 (1.0이 완전 일치).',
+    description: {
+      en: 'Compares two histograms using the correlation method (1.0 for perfect match).',
+      ko: '두 히스토그램의 상관관계를 계산합니다 (1.0이 완전 일치).',
+      zh: '使用相关性方法比较两个直方图（1.0 表示完美匹配）。',
+      ja: '相関法を使用して2つのヒストグラムを比較します (1.0で完全一致)。',
+      de: 'Vergleicht zwei Histogramme mittels der Korrelationsmethode (1.0 für perfekte Übereinstimmung).',
+      es: 'Compara dos histogramas utilizando el método de correlación (1.0 para coincidencia perfecta).',
+      fr: 'Compare deux histogrammes en utilisant la méthode de corrélation (1.0 pour une correspondance parfaite).'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1810,7 +3915,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율 (좌측 영역)',
+        description: {
+          en: 'Image split ratio (left region)',
+          ko: '이미지 분할 비율 (좌측 영역)',
+          zh: '图像分割比例（左侧区域）',
+          ja: '画像分割比率 (左領域)',
+          de: 'Bildteilungsverhältnis (linker Bereich)',
+          es: 'Relación de división de imagen (región izquierda)',
+          fr: 'Rapport de division d\'image (région gauche)'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_CORREL)',
@@ -1818,9 +3931,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_CHISQR',
-    name: 'compareHist - CHI-SQUARE (카이제곱)',
+    name: {
+      en: 'Compare Hist - CHI-SQUARE',
+      ko: '히스토그램 비교 - 카이제곱 (CHI-SQUARE)',
+      zh: '比较直方图 - 卡方',
+      ja: 'ヒストグラム比較 - カイ二乗',
+      de: 'Histogramm vergleichen - Chi-Quadrat',
+      es: 'Comparar Hist - CHI-CUADRADO',
+      fr: 'Comparer Hist - CHI-CARRÉ'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 카이제곱 거리를 계산합니다 (0이 완전 일치).',
+    description: {
+      en: 'Compares two histograms using the Chi-Square method (0 for perfect match).',
+      ko: '두 히스토그램의 카이제곱 거리를 계산합니다 (0이 완전 일치).',
+      zh: '使用卡方方法比较两个直方图（0 表示完美匹配）。',
+      ja: 'カイ二乗法を使用して2つのヒストグラムを比較します (0で完全一致)。',
+      de: 'Vergleicht zwei Histogramme mittels der Chi-Quadrat-Methode (0 für perfekte Übereinstimmung).',
+      es: 'Compara dos histogramas utilizando el método de Chi-Cuadrado (0 para coincidencia perfecta).',
+      fr: 'Compare deux histogrammes en utilisant la méthode du Chi-Carré (0 pour une correspondance parfaite).'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1829,7 +3958,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_CHISQR)',
@@ -1837,9 +3974,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_INTERSECT',
-    name: 'compareHist - INTERSECTION (교집합)',
+    name: {
+      en: 'Compare Hist - INTERSECTION',
+      ko: '히스토그램 비교 - 교집합 (INTERSECTION)',
+      zh: '比较直方图 - 交集',
+      ja: 'ヒストグラム比較 - 交差',
+      de: 'Histogramm vergleichen - Schnittmenge',
+      es: 'Comparar Hist - INTERSECCIÓN',
+      fr: 'Comparer Hist - INTERSECTION'
+    },
     category: 'histogram',
-    description: '�� 히스토그램의 교집합을 계산합니다 (값이 클수록 유사).',
+    description: {
+      en: 'Compares two histograms using the intersection method (larger value for more similarity).',
+      ko: '두 히스토그램의 교집합을 계산합니다 (값이 클수록 유사).',
+      zh: '使用交集方法比较两个直方图（值越大越相似）。',
+      ja: '交差法を使用して2つのヒストグラムを比較します (値が大きいほど類似)。',
+      de: 'Vergleicht zwei Histogramme mittels der Schnittmengenmethode (größerer Wert für mehr Ähnlichkeit).',
+      es: 'Compara dos histogramas utilizando el método de intersección (valor mayor para mayor similitud).',
+      fr: 'Compare deux histogrammes en utilisant la méthode d\'intersection (valeur plus grande pour plus de similarité).'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1848,7 +4001,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_INTERSECT)',
@@ -1856,9 +4017,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_BHATTACHARYYA',
-    name: 'compareHist - BHATTACHARYYA (바타차야)',
+    name: {
+      en: 'Compare Hist - BHATTACHARYYA',
+      ko: '히스토그램 비교 - 바타차야 (BHATTACHARYYA)',
+      zh: '比较直方图 - Bhattacharyya',
+      ja: 'ヒストグラム比較 - Bhattacharyya',
+      de: 'Histogramm vergleichen - Bhattacharyya',
+      es: 'Comparar Hist - BHATTACHARYYA',
+      fr: 'Comparer Hist - BHATTACHARYYA'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 바타차야 거리를 계산합니다 (0이 완전 일치).',
+    description: {
+      en: 'Compares two histograms using the Bhattacharyya distance (0 for perfect match).',
+      ko: '두 히스토그램의 바타차야 거리를 계산합니다 (0이 완전 일치).',
+      zh: '使用 Bhattacharyya 距离比较两个直方图（0 表示完美匹配）。',
+      ja: 'Bhattacharyya 距離を使用して2つのヒストグラムを比較します (0で完全一致)。',
+      de: 'Vergleicht zwei Histogramme mittels der Bhattacharyya-Distanz (0 für perfekte Übereinstimmung).',
+      es: 'Compara dos histogramas utilizando la distancia de Bhattacharyya (0 para coincidencia perfecta).',
+      fr: 'Compare deux histogrammes en utilisant la distance de Bhattacharyya (0 pour une correspondance parfaite).'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1867,7 +4044,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_BHATTACHARYYA)',
@@ -1875,9 +4060,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_HELLINGER',
-    name: 'compareHist - HELLINGER (헬링거)',
+    name: {
+      en: 'Compare Hist - HELLINGER',
+      ko: '히스토그램 비교 - 헬링거 (HELLINGER)',
+      zh: '比较直方图 - Hellinger',
+      ja: 'ヒストグラム比較 - Hellinger',
+      de: 'Histogramm vergleichen - Hellinger',
+      es: 'Comparar Hist - HELLINGER',
+      fr: 'Comparer Hist - HELLINGER'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 헬링거 거리를 계산합니다 (BHATTACHARYYA와 동일).',
+    description: {
+      en: 'Compares two histograms using the Hellinger distance (same as BHATTACHARYYA).',
+      ko: '두 히스토그램의 헬링거 거리를 계산합니다 (BHATTACHARYYA와 동일).',
+      zh: '使用 Hellinger 距离比较两个直方图（与 BHATTACHARYYA 相同）。',
+      ja: 'Hellinger 距離を使用して2つのヒストグラムを比較します (BHATTACHARYYA と同じ)。',
+      de: 'Vergleicht zwei Histogramme mittels der Hellinger-Distanz (identisch mit BHATTACHARYYA).',
+      es: 'Compara dos histogramas utilizando la distancia de Hellinger (igual que BHATTACHARYYA).',
+      fr: 'Compare deux histogrammes en utilisant la distance de Hellinger (identique à BHATTACHARYYA).'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1886,7 +4087,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_HELLINGER)',
@@ -1894,9 +4103,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_CHISQR_ALT',
-    name: 'compareHist - CHI-SQUARE ALT (대체 카이제곱)',
+    name: {
+      en: 'Compare Hist - CHI-SQUARE ALT',
+      ko: '히스토그램 비교 - 대체 카이제곱 (CHI-SQUARE ALT)',
+      zh: '比较直方图 - 替代卡方',
+      ja: 'ヒストグラム比較 - 代替カイ二乗',
+      de: 'Histogramm vergleichen - Chi-Quadrat Alt',
+      es: 'Comparar Hist - CHI-CUADRADO ALT',
+      fr: 'Comparer Hist - CHI-CARRÉ ALT'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 대체 카이제곱 거리를 계산합니다.',
+    description: {
+      en: 'Compares two histograms using the alternative Chi-Square method.',
+      ko: '두 히스토그램의 대체 카이제곱 거리를 계산합니다.',
+      zh: '使用替代卡方方法比较两个直方图。',
+      ja: '代替カイ二乗法を使用して2つのヒストグラムを比較します。',
+      de: 'Vergleicht zwei Histogramme mittels der alternativen Chi-Quadrat-Methode.',
+      es: 'Compara dos histogramas utilizando el método alternativo de Chi-Cuadrado.',
+      fr: 'Compare deux histogrammes en utilisant la méthode alternative du Chi-Carré.'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1905,7 +4130,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_CHISQR_ALT)',
@@ -1913,9 +4146,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'compareHist_KL_DIV',
-    name: 'compareHist - KL DIVERGENCE (쿨백-라이블러)',
+    name: {
+      en: 'Compare Hist - KL DIVERGENCE',
+      ko: '히스토그램 비교 - 쿨백-라이블러 (KL DIVERGENCE)',
+      zh: '比较直方图 - KL 散度',
+      ja: 'ヒストグラム比較 - KL ダイバージェンス',
+      de: 'Histogramm vergleichen - KL-Divergenz',
+      es: 'Comparar Hist - DIVERGENCIA KL',
+      fr: 'Comparer Hist - DIVERGENCE KL'
+    },
     category: 'histogram',
-    description: '두 히스토그램의 쿨백-라이블러 발산을 계산합니다.',
+    description: {
+      en: 'Compares two histograms using the Kullback-Leibler divergence.',
+      ko: '두 히스토그램의 쿨백-라이블러 발산을 계산합니다.',
+      zh: '使用 Kullback-Leibler 散度比较两个直方图。',
+      ja: 'Kullback-Leibler ダイバージェンスを使用して2つのヒストグラムを比較します。',
+      de: 'Vergleicht zwei Histogramme mittels der Kullback-Leibler-Divergenz.',
+      es: 'Compara dos histogramas utilizando la divergencia de Kullback-Leibler.',
+      fr: 'Compare deux histogrammes en utilisant la divergence de Kullback-Leibler.'
+    },
     parameters: [
       {
         name: 'splitRatio',
@@ -1924,7 +4173,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '이미지 분할 비율',
+        description: {
+          en: 'Image split ratio',
+          ko: '이미지 분할 비율',
+          zh: '图像分割比例',
+          ja: '画像分割比率',
+          de: 'Bildteilungsverhältnis',
+          es: 'Relación de división de imagen',
+          fr: 'Rapport de division d\'image'
+        },
       },
     ],
     syntax: 'compareHist(H1, H2, HISTCMP_KL_DIV)',
@@ -1934,18 +4191,42 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 그리기
   {
     id: 'rectangle',
-    name: 'Draw Rectangle (사각형 그리기)',
+    name: {
+      en: 'Draw Rectangle',
+      ko: '사각형 그리기 (rectangle)',
+      zh: '绘制矩形',
+      ja: '長方形を描画',
+      de: 'Rechteck zeichnen',
+      es: 'Dibujar rectángulo',
+      fr: 'Dessiner un rectangle'
+    },
     category: 'drawing',
-    description: '이미지에 사각형을 그립니다.',
+    description: {
+      en: 'Draws a simple, thick, or filled rectangle.',
+      ko: '이미지에 직선 또는 채워진 사각형을 그립니다.',
+      zh: '绘制简单的、粗的或填充的矩形。',
+      ja: '単純な、太い、または塗りつぶされた長方形を描画します。',
+      de: 'Zeichnet ein einfaches, dickes oder ausgefülltes Rechteck.',
+      es: 'Dibuja un rectángulo simple, grueso o relleno.',
+      fr: 'Dessine un rectangle simple, épais ou rempli.'
+    },
     parameters: [
       {
         name: 'thickness',
         type: 'slider',
         defaultValue: 3,
-        min: 1,
+        min: -1,
         max: 20,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness (-1 to fill)',
+          ko: '선 두께 (-1은 채우기)',
+          zh: '线厚度 (-1 表示填充)',
+          ja: '線の太さ (-1 は塗りつぶし)',
+          de: 'Linienstärke (-1 zum Ausfüllen)',
+          es: 'Grosor de línea (-1 para rellenar)',
+          fr: 'Épaisseur de ligne (-1 pour remplir)'
+        },
       },
       {
         name: 'size',
@@ -1954,17 +4235,41 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 300,
         step: 10,
-        description: '사각형 크기',
+        description: {
+          en: 'Rectangle size',
+          ko: '사각형 크기 (Size)',
+          zh: '矩形大小',
+          ja: '長方形のサイズ',
+          de: 'Rechteckgröße',
+          es: 'Tamaño del rectángulo',
+          fr: 'Taille du rectangle'
+        },
       },
     ],
     syntax: 'rectangle(img, pt1, pt2, color, thickness)',
-    documentation: 'https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga07d2f74cadcf8e305e810ce8eed13bc9',
+    documentation: 'https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga07d2f74ca0103262325946028b24da1c',
   },
   {
     id: 'circle',
-    name: 'Draw Circle (원 그리기)',
+    name: {
+      en: 'Draw Circle',
+      ko: '원 그리기 (circle)',
+      zh: '绘制圆',
+      ja: '円を描画',
+      de: 'Kreis zeichnen',
+      es: 'Dibujar círculo',
+      fr: 'Dessiner un cercle'
+    },
     category: 'drawing',
-    description: '이미지에 원을 그립니다.',
+    description: {
+      en: 'Draws a simple or filled circle.',
+      ko: '이미지에 직선 또는 채워진 원을 그립니다.',
+      zh: '绘制简单的或填充的圆。',
+      ja: '単純な、または塗りつぶされた円を描画します。',
+      de: 'Zeichnet einen einfachen oder ausgefüllten Kreis.',
+      es: 'Dibuja un círculo simple o relleno.',
+      fr: 'Dessine un cercle simple ou rempli.'
+    },
     parameters: [
       {
         name: 'radius',
@@ -1973,16 +4278,32 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 200,
         step: 5,
-        description: '반지름',
+        description: {
+          en: 'Circle radius',
+          ko: '원 반지름 (Radius)',
+          zh: '圆半径',
+          ja: '円の半径',
+          de: 'Kreisradius',
+          es: 'Radio del círculo',
+          fr: 'Rayon du cercle'
+        },
       },
       {
         name: 'thickness',
         type: 'slider',
         defaultValue: 3,
-        min: 1,
+        min: -1,
         max: 20,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness (-1 to fill)',
+          ko: '선 두께 (-1은 채우기)',
+          zh: '线厚度 (-1 表示填充)',
+          ja: '線の太さ (-1 は塗りつぶし)',
+          de: 'Linienstärke (-1 zum Ausfüllen)',
+          es: 'Grosor de línea (-1 para rellenar)',
+          fr: 'Épaisseur de ligne (-1 pour remplir)'
+        },
       },
     ],
     syntax: 'circle(img, center, radius, color, thickness)',
@@ -1990,9 +4311,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'line',
-    name: 'Draw Line (직선 그리기)',
+    name: {
+      en: 'Draw Line',
+      ko: '직선 그리기 (line)',
+      zh: '绘制直线',
+      ja: '直線を描画',
+      de: 'Linie zeichnen',
+      es: 'Dibujar línea',
+      fr: 'Dessiner une ligne'
+    },
     category: 'drawing',
-    description: '이미지에 직선을 그립니다.',
+    description: {
+      en: 'Draws a line segment connecting two points.',
+      ko: '두 지점을 연결하는 직선을 그립니다.',
+      zh: '绘制连接两点的线段。',
+      ja: '2 点を結ぶ線分を描画します。',
+      de: 'Zeichnet ein Liniensegment, das zwei Punkte verbindet.',
+      es: 'Dibuja un segmento de línea que conecta dos puntos.',
+      fr: 'Dessine un segment de ligne reliant deux points.'
+    },
     parameters: [
       {
         name: 'thickness',
@@ -2001,7 +4338,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 20,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness',
+          ko: '선 두께 (Thickness)',
+          zh: '线厚度',
+          ja: '線の太さ',
+          de: 'Linienstärke',
+          es: 'Grosor de línea',
+          fr: 'Épaisseur de ligne'
+        },
       },
     ],
     syntax: 'line(img, pt1, pt2, color, thickness)',
@@ -2009,9 +4354,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'putText',
-    name: 'Put Text (텍스트 추가)',
+    name: {
+      en: 'Put Text',
+      ko: '텍스트 추가 (putText)',
+      zh: '绘制文本',
+      ja: 'テキストを描画',
+      de: 'Text hinzufügen',
+      es: 'Insertar texto',
+      fr: 'Insérer du texte'
+    },
     category: 'drawing',
-    description: '이미지에 텍스트를 추가합니다.',
+    description: {
+      en: 'Draws a text string on the image.',
+      ko: '이미지에 지정된 텍스트를 그립니다.',
+      zh: '在图像上绘制文本字符串。',
+      ja: '画像上にテキスト文字列を描画します。',
+      de: 'Zeichnet eine Zeichenfolge auf das Bild.',
+      es: 'Dibuja una cadena de texto en la imagen.',
+      fr: 'Insère une chaîne de texte sur l\'image.'
+    },
     parameters: [
       {
         name: 'fontSize',
@@ -2020,7 +4381,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.5,
         max: 3.0,
         step: 0.1,
-        description: '폰트 크기',
+        description: {
+          en: 'Font scale factor',
+          ko: '폰트 크기 비율 (Font Scale)',
+          zh: '字体缩放因子',
+          ja: 'フォントスケール因子',
+          de: 'Schrift-Skalierungsfaktor',
+          es: 'Factor de escala de fuente',
+          fr: 'Facteur d\'échelle de police'
+        },
       },
       {
         name: 'thickness',
@@ -2029,7 +4398,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Text thickness',
+          ko: '글자 선 두께 (Thickness)',
+          zh: '文本厚度',
+          ja: 'テキストの太さ',
+          de: 'Textstärke',
+          es: 'Grosor del texto',
+          fr: 'Épaisseur del texto'
+        },
       },
     ],
     syntax: 'putText(img, text, org, fontFace, fontScale, color, thickness)',
@@ -2037,9 +4414,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'ellipse',
-    name: 'Draw Ellipse (타원 그리기)',
+    name: {
+      en: 'Draw Ellipse',
+      ko: '타원 그리기 (ellipse)',
+      zh: '绘制椭圆',
+      ja: '楕円を描画',
+      de: 'Ellipse zeichnen',
+      es: 'Dibujar elipse',
+      fr: 'Dessiner une ellipse'
+    },
     category: 'drawing',
-    description: '이미지에 타원을 그립니다.',
+    description: {
+      en: 'Draws a simple or filled elliptic arc or an entire ellipse.',
+      ko: '이미지에 직선 또는 채워진 타원을 그립니다.',
+      zh: '绘制简单的或填充的椭圆弧或整个椭圆。',
+      ja: '単純な、または塗りつぶされた楕円弧、または楕円全体を描画します。',
+      de: 'Zeichnet einen einfachen oder ausgefüllten elliptischen Bogen oder eine ganze Ellipse.',
+      es: 'Dibuja un arco elíptico simple o relleno o una elipse completa.',
+      fr: 'Dessine un arc elliptique simple ou rempli ou une ellipse entière.'
+    },
     parameters: [
       {
         name: 'width',
@@ -2048,7 +4441,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 200,
         step: 10,
-        description: '가로 반지름',
+        description: {
+          en: 'Half-width of the ellipse',
+          ko: '가로 반지름 (Width)',
+          zh: '椭圆的半宽',
+          ja: '楕円の幅の半分',
+          de: 'Halbe Breite der Ellipse',
+          es: 'Semiancho de la elipse',
+          fr: 'Demi-largeur de l\'ellipse'
+        },
       },
       {
         name: 'height',
@@ -2057,7 +4458,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 200,
         step: 10,
-        description: '세��� 반지름',
+        description: {
+          en: 'Half-height of the ellipse',
+          ko: '세로 반지름 (Height)',
+          zh: '椭圆的半高',
+          ja: '楕円の高さの半分',
+          de: 'Halbe Höhe der Ellipse',
+          es: 'Semialto de la elipse',
+          fr: 'Demi-hauteur de l\'ellipse'
+        },
       },
       {
         name: 'angle',
@@ -2066,26 +4475,58 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 15,
-        description: '회전 각도',
+        description: {
+          en: 'Rotation angle (degrees)',
+          ko: '회전 각도 (Angle)',
+          zh: '旋转角度 (度)',
+          ja: '回転角 (度)',
+          de: 'Rotationswinkel (Grad)',
+          es: 'Ángulo de rotación (grados)',
+          fr: 'Angle de rotation (degrés)'
+        },
       },
       {
         name: 'thickness',
         type: 'slider',
-        defaultValue: 3,
-        min: 1,
-        max: 20,
+        defaultValue: 2,
+        min: -1,
+        max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness (-1 to fill)',
+          ko: '선 두께 (-1은 채우기)',
+          zh: '线厚度 (-1 表示填充)',
+          ja: '線の太さ (-1 は塗りつぶし)',
+          de: 'Linienstärke (-1 zum Ausfüllen)',
+          es: 'Grosor de línea (-1 para rellenar)',
+          fr: 'Épaisseur de ligne (-1 pour remplir)'
+        },
       },
     ],
     syntax: 'ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness)',
-    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga28b2267d35786f5f890ca167236cbc69',
+    documentation: 'https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga28b239733516447c223c6cd823528892',
   },
   {
     id: 'arrowedLine',
-    name: 'Draw Arrowed Line (화살표 그리기)',
+    name: {
+      en: 'Draw Arrowed Line',
+      ko: '화살표 그리기 (arrowedLine)',
+      zh: '绘制箭头直线',
+      ja: '矢印を描画',
+      de: 'Pfeillinie zeichnen',
+      es: 'Dibujar línea con flecha',
+      fr: 'Dessiner une ligne fléchée'
+    },
     category: 'drawing',
-    description: '화살표가 있는 직선을 그립니다.',
+    description: {
+      en: 'Draws an arrowed line segment connecting two points.',
+      ko: '두 지점을 연결하는 화살표가 있는 직선을 그립니다.',
+      zh: '绘制连接两点的箭头线段。',
+      ja: '2 点を結ぶ矢印付きの線分を描画します。',
+      de: 'Zeichnet ein Pfeilliniensegment, das zwei Punkte verbindet.',
+      es: 'Dibuja un segmento de línea con flecha que conecta dos puntos.',
+      fr: 'Dessine un segment de ligne fléché reliant deux points.'
+    },
     parameters: [
       {
         name: 'thickness',
@@ -2094,16 +4535,32 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 20,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness',
+          ko: '선 두께 (Thickness)',
+          zh: '线厚度',
+          ja: '線の太さ',
+          de: 'Linienstärke',
+          es: 'Grosor de línea',
+          fr: 'Épaisseur de ligne'
+        },
       },
       {
         name: 'tipLength',
         type: 'slider',
         defaultValue: 0.1,
-        min: 0.05,
+        min: 0.1,
         max: 0.5,
         step: 0.05,
-        description: '화살표 크기 비율',
+        description: {
+          en: 'Arrow tip length factor',
+          ko: '화살표 촉 길이 비율 (Tip Length)',
+          zh: '箭头尖端长度因子',
+          ja: '矢印の先端の長さの因子',
+          de: 'Pfeilspitzen-Längenfaktor',
+          es: 'Factor de longitud de la punta de la flecha',
+          fr: 'Facteur de longueur de la pointe de la flèche'
+        },
       },
     ],
     syntax: 'arrowedLine(img, pt1, pt2, color, thickness, line_type, shift, tipLength)',
@@ -2111,33 +4568,65 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'drawMarker',
-    name: 'Draw Marker (마커 그리기)',
+    name: {
+      en: 'Draw Marker',
+      ko: '마커 그리기 (drawMarker)',
+      zh: '绘制标记',
+      ja: 'マーカーを描画',
+      de: 'Marker zeichnen',
+      es: 'Dibujar marcador',
+      fr: 'Dessiner un marqueur'
+    },
     category: 'drawing',
-    description: '특정 위치에 마커를 그립니다.',
+    description: {
+      en: 'Draws a marker on a predefined position in an image.',
+      ko: '이미지의 특정 위치에 마커를 그립니다.',
+      zh: '在图像的预定义位置绘制标记。',
+      ja: '画像内のあらかじめ定義された位置にマーカーを描画します。',
+      de: 'Zeichnet einen Marker an einer vordefinierten Position in einem Bild.',
+      es: 'Dibuja un marcador en una posición predefinida en una imagen.',
+      fr: 'Dessine un marqueur à une position prédéfinie dans une image.'
+    },
     parameters: [
       {
         name: 'markerType',
         type: 'select',
         defaultValue: 'MARKER_CROSS',
         options: [
-          { label: 'Cross (+)', value: 'MARKER_CROSS' },
-          { label: 'Tilted Cross (×)', value: 'MARKER_TILTED_CROSS' },
-          { label: 'Star (*)', value: 'MARKER_STAR' },
-          { label: 'Diamond (◆)', value: 'MARKER_DIAMOND' },
-          { label: 'Square (□)', value: 'MARKER_SQUARE' },
-          { label: 'Triangle Up (△)', value: 'MARKER_TRIANGLE_UP' },
-          { label: 'Triangle Down (▽)', value: 'MARKER_TRIANGLE_DOWN' },
+          { label: { en: 'Cross (+)', ko: '십자가 (+)', zh: '十字 (+)', ja: '十字 (+)', de: 'Kreuz (+)', es: 'Cruz (+)', fr: 'Croix (+)' }, value: 'MARKER_CROSS' },
+          { label: { en: 'Tilted Cross (x)', ko: 'X자 (x)', zh: '倾斜十字 (x)', ja: '斜め十字 (x)', de: 'Gekipptes Kreuz (x)', es: 'Cruz inclinada (x)', fr: 'Croix inclinée (x)' }, value: 'MARKER_TILTED_CROSS' },
+          { label: { en: 'Star (*)', ko: '별 (*)', zh: '星形 (*)', ja: '星 (*)', de: 'Stern (*)', es: 'Estrella (*)', fr: 'Étoile (*)' }, value: 'MARKER_STAR' },
+          { label: { en: 'Diamond (u)', ko: '다이아몬드 (u)', zh: '菱形 (u)', ja: '菱形 (u)', de: 'Diamant (u)', es: 'Diamante (u)', fr: 'Diamant (u)' }, value: 'MARKER_DIAMOND' },
+          { label: { en: 'Square (s)', ko: '정사각형 (s)', zh: '正方形 (s)', ja: '正方形 (s)', de: 'Quadrat (s)', es: 'Cuadrado (s)', fr: 'Carré (s)' }, value: 'MARKER_SQUARE' },
+          { label: { en: 'Triangle Up (^)', ko: '상향 삼각형 (^)', zh: '向上三角形 (^)', ja: '上向き三角形 (^)', de: 'Dreieck oben (^)', es: 'Triángulo arriba (^)', fr: 'Triangle haut (^)' }, value: 'MARKER_TRIANGLE_UP' },
+          { label: { en: 'Triangle Down (v)', ko: '하향 삼각형 (v)', zh: '向下三角形 (v)', ja: '下向き三角形 (v)', de: 'Dreieck unten (v)', es: 'Triángulo abajo (v)', fr: 'Triangle bas (v)' }, value: 'MARKER_TRIANGLE_DOWN' },
         ],
-        description: '마커 타입',
+        description: {
+          en: 'Type of the marker',
+          ko: '마커 종류 (Marker Type)',
+          zh: '标记类型',
+          ja: 'マーカーの種類',
+          de: 'Marker-Typ',
+          es: 'Tipo de marcador',
+          fr: 'Type de marqueur'
+        },
       },
       {
         name: 'markerSize',
         type: 'slider',
         defaultValue: 20,
         min: 5,
-        max: 50,
+        max: 100,
         step: 5,
-        description: '마커 크기',
+        description: {
+          en: 'Marker size',
+          ko: '마커 크기 (Marker Size)',
+          zh: '标记大小',
+          ja: 'マーカーのサイズ',
+          de: 'Marker-Größe',
+          es: 'Tamaño del marcador',
+          fr: 'Taille du marqueur'
+        },
       },
       {
         name: 'thickness',
@@ -2146,7 +4635,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Marker line thickness',
+          ko: '마커 선 두께 (Thickness)',
+          zh: '标记线厚度',
+          ja: 'マーカーの線の太さ',
+          de: 'Marker-Linienstärke',
+          es: 'Grosor de línea del marcador',
+          fr: 'Épaisseur de ligne del marcador'
+        },
       },
     ],
     syntax: 'drawMarker(img, position, color, markerType, markerSize, thickness)',
@@ -2154,9 +4651,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'polylines',
-    name: 'Draw Polylines (다각선 그리기)',
+    name: {
+      en: 'Draw Polylines',
+      ko: '다각선 그리기 (polylines)',
+      zh: '绘制多边线',
+      ja: '多角形を描画',
+      de: 'Polylinien zeichnen',
+      es: 'Dibujar polilíneas',
+      fr: 'Dessiner des polylignes'
+    },
     category: 'drawing',
-    description: '여러 점을 연결한 다각선을 그립니다.',
+    description: {
+      en: 'Draws several polygonal curves.',
+      ko: '여러 점을 연결한 다각형 곡선을 그립니다.',
+      zh: '绘制多条多边形曲线。',
+      ja: '複数の多角形の曲線を描画します。',
+      de: 'Zeichnet mehrere polygonale Kurven.',
+      es: 'Dibuja varias curvas poligonales.',
+      fr: 'Dessine plusieurs courbes polygonales.'
+    },
     parameters: [
       {
         name: 'numPoints',
@@ -2165,64 +4678,119 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 10,
         step: 1,
-        description: '점 개수',
+        description: {
+          en: 'Number of points',
+          ko: '점 개수 (Points)',
+          zh: '点数',
+          ja: '点の数',
+          de: 'Anzahl der Punkte',
+          es: 'Número de puntos',
+          fr: 'Nombre de points'
+        },
       },
       {
         name: 'isClosed',
         type: 'select',
-        defaultValue: false,
+        defaultValue: true,
         options: [
-          { label: '열린 선', value: false },
-          { label: '닫힌 선', value: true },
+          { label: { en: 'Open', ko: '열린 선', zh: '开放', ja: '開いた線', de: 'Offen', es: 'Abierta', fr: 'Ouverte' }, value: false },
+          { label: { en: 'Closed', ko: '닫힌 선', zh: '闭合', ja: '閉じだ線', de: 'Geschlossen', es: 'Cerrada', fr: 'Fermée' }, value: true },
         ],
-        description: '닫힌 도형 여부',
+        description: {
+          en: 'Closed or open polyline',
+          ko: '폐곡선 여부 (Closed)',
+          zh: '闭合或开放的多边线',
+          ja: '閉じた多角形か開いた多角形か',
+          de: 'Geschlossene oder offene Polylinie',
+          es: 'Polilínea cerrada o abierta',
+          fr: 'Polyligne fermée ou ouverte'
+        },
       },
       {
         name: 'thickness',
         type: 'slider',
-        defaultValue: 3,
+        defaultValue: 2,
         min: 1,
-        max: 20,
+        max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness',
+          ko: '선 두께 (Thickness)',
+          zh: '线厚도',
+          ja: '線の太さ',
+          de: 'Linienstärke',
+          es: 'Grosor de línea',
+          fr: 'Épaisseur de ligne'
+        },
       },
     ],
     syntax: 'polylines(img, pts, isClosed, color, thickness)',
-    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga1ea127ffbbb7e0bfc4fd6fd2eb64263c',
+    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga1ea2856d9ba6cfa62506292503ed7ae6',
   },
   {
     id: 'fillPoly',
-    name: 'Fill Polygon (다각형 채우기)',
+    name: {
+      en: 'Fill Polygon',
+      ko: '다각형 채우기 (fillPoly)',
+      zh: '填充多边形',
+      ja: '多角形を塗りつぶし',
+      de: 'Polygon füllen',
+      es: 'Rellenar polígono',
+      fr: 'Remplir un polygone'
+    },
     category: 'drawing',
-    description: '다각형 영역을 색으로 채웁니다.',
+    description: {
+      en: 'Fills the area bounded by several polygonal contours.',
+      ko: '이미지의 다각형 영역을 지정된 색으로 채웁니다.',
+      zh: '填充由多个多边形轮廓界定的区域。',
+      ja: 'いくつかの多角形の輪郭で囲まれた領域を塗りつぶします。',
+      de: 'Füllt den von mehreren polygonalen Konturen begrenzten Bereich aus.',
+      es: 'Rellena el área delimitada por varios contornos poligonales.',
+      fr: 'Remplit la zone délimitée par plusieurs contours polygonaux.'
+    },
     parameters: [
       {
         name: 'numPoints',
         type: 'slider',
         defaultValue: 6,
         min: 3,
-        max: 10,
+        max: 12,
         step: 1,
-        description: '점 개수',
-      },
-      {
-        name: 'opacity',
-        type: 'slider',
-        defaultValue: 0.7,
-        min: 0.1,
-        max: 1.0,
-        step: 0.1,
-        description: '불투명도',
+        description: {
+          en: 'Number of points',
+          ko: '점 개수 (Points)',
+          zh: '点数',
+          ja: '点の数',
+          de: 'Anzahl der Punkte',
+          es: 'Número de puntos',
+          fr: 'Nombre de points'
+        },
       },
     ],
     syntax: 'fillPoly(img, pts, color)',
-    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga8c69b68fab5f25e2223b6496aa60dad5',
+    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga311160e71d376c70a53e4622153a059c',
   },
   {
     id: 'fillConvexPoly',
-    name: 'Fill Convex Polygon (볼록 다각형 채우기)',
+    name: {
+      en: 'Fill Convex Polygon',
+      ko: '볼록 다각형 채우기 (fillConvexPoly)',
+      zh: '填充凸多边形',
+      ja: '凸多角形を塗りつぶし',
+      de: 'Konvexes Polygon füllen',
+      es: 'Rellenar polígono convexo',
+      fr: 'Remplir un polygone convexe'
+    },
     category: 'drawing',
-    description: '볼록 다각형 영역을 색으로 채웁니다 (더 빠름).',
+    description: {
+      en: 'Fills a convex polygon (faster than fillPoly).',
+      ko: '볼록 다각형 영역을 색으로 채웁니다 (더 빠름).',
+      zh: '填充一个凸多边形（比 fillPoly 快）。',
+      ja: '凸多角形を塗りつぶします (fillPoly より高速)。',
+      de: 'Füllt ein konvexes Polygon (schneller als fillPoly).',
+      es: 'Rellena un polígono convexo (más rápido que fillPoly).',
+      fr: 'Remplit un polygone convexe (plus rapide que fillPoly).'
+    },
     parameters: [
       {
         name: 'numPoints',
@@ -2231,7 +4799,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 8,
         step: 1,
-        description: '점 개수',
+        description: {
+          en: 'Number of points',
+          ko: '점 개수',
+          zh: '点数',
+          ja: '点の数',
+          de: 'Anzahl der Punkte',
+          es: 'Número de puntos',
+          fr: 'Nombre de points'
+        },
       },
       {
         name: 'opacity',
@@ -2240,7 +4816,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 1.0,
         step: 0.1,
-        description: '불투명도',
+        description: {
+          en: 'Opacity',
+          ko: '불투명도',
+          zh: '不透明度',
+          ja: '不透明度',
+          de: 'Deckkraft',
+          es: 'Opacidad',
+          fr: 'Opacité'
+        },
       },
     ],
     syntax: 'fillConvexPoly(img, points, color)',
@@ -2248,9 +4832,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'drawContours',
-    name: 'Draw Contours (윤곽선 그리기)',
+    name: {
+      en: 'Draw Contours',
+      ko: '윤곽선 그리기 (drawContours)',
+      zh: '绘制轮廓',
+      ja: '輪郭を描画',
+      de: 'Konturen zeichnen',
+      es: 'Dibujar contornos',
+      fr: 'Dessiner des contours'
+    },
     category: 'drawing',
-    description: '검출된 윤곽선을 그립니다.',
+    description: {
+      en: 'Draws contours outlines or fills them.',
+      ko: '검출된 윤곽선을 그립니다.',
+      zh: '绘制轮廓线或填充它们。',
+      ja: '輪郭線を描画するか、塗りつぶします。',
+      de: 'Zeichnet Konturumrisse oder füllt sie aus.',
+      es: 'Dibuja los contornos o los rellena.',
+      fr: 'Dessine les contours ou les remplit.'
+    },
     parameters: [
       {
         name: 'thickness',
@@ -2259,7 +4859,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -1,
         max: 10,
         step: 1,
-        description: '선 두께 (-1: 채우기)',
+        description: {
+          en: 'Line thickness (-1: fill)',
+          ko: '선 두께 (-1: 채우기)',
+          zh: '线厚度 (-1: 填充)',
+          ja: '線の太さ (-1: 塗りつぶし)',
+          de: 'Linienstärke (-1: Füllung)',
+          es: 'Grosor de línea (-1: rellenar)',
+          fr: 'Épaisseur de ligne (-1: remplir)'
+        },
       },
       {
         name: 'mode',
@@ -2270,7 +4878,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'List (모든 윤곽선)', value: 'RETR_LIST' },
           { label: 'Tree (계층 구조)', value: 'RETR_TREE' },
         ],
-        description: '윤곽선 검색 모드',
+        description: {
+          en: 'Contour retrieval mode',
+          ko: '윤곽선 검색 모드',
+          zh: '轮廓检索模式',
+          ja: '輪郭検索モード',
+          de: 'Kontur-Abrufmodus',
+          es: 'Modo de recuperación de contorno',
+          fr: 'Mode de récupération des contours'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -2279,9 +4895,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'ellipse2',
-    name: 'Draw Ellipse 2 (타원 호 그리기)',
+    name: {
+      en: 'Draw Elliptic Arc',
+      ko: '타원 호 그리기 (ellipse)',
+      zh: '绘制椭圆弧',
+      ja: '楕円弧を描画',
+      de: 'Elliptischen Bogen zeichnen',
+      es: 'Dibujar arco elíptico',
+      fr: 'Dessiner un arc elliptique'
+    },
     category: 'drawing',
-    description: '타원 호를 그리거나 타원 섹터를 채웁니다. 시작/끝 각도를 지정할 수 있습니다.',
+    description: {
+      en: 'Draws an elliptic arc or fills an ellipse sector. Start/end angles can be specified.',
+      ko: '타원 호를 그리거나 타원 섹터를 채웁니다. 시작/끝 각도를 지정할 수 있습니다.',
+      zh: '绘制椭圆弧或填充椭圆扇区。可以指定起始/结束角度。',
+      ja: '楕円弧を描画するか、楕円セクターを塗りつぶします。開始/終了角度を指定できます。',
+      de: 'Zeichnet einen elliptischen Bogen oder füllt einen Ellipsensektor. Start-/Endwinkel können angegeben werden.',
+      es: 'Dibuja un arco elíptico o rellena un sector elíptico. Se pueden especificar los ángulos de inicio/fin.',
+      fr: 'Dessine un arc elliptique ou remplit un secteur d\'ellipse. Les angles de début/fin peuvent être spécifiés.'
+    },
     parameters: [
       {
         name: 'axisWidth',
@@ -2290,7 +4922,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 200,
         step: 10,
-        description: '가로 반지름',
+        description: {
+          en: 'Half-width of the ellipse',
+          ko: '가로 반지름',
+          zh: '椭圆的半宽',
+          ja: '楕円の幅の半分',
+          de: 'Halbe Breite der Ellipse',
+          es: 'Semiancho de la elipse',
+          fr: 'Demi-largeur de l\'ellipse'
+        },
       },
       {
         name: 'axisHeight',
@@ -2299,7 +4939,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 20,
         max: 200,
         step: 10,
-        description: '세로 반지름',
+        description: {
+          en: 'Half-height of the ellipse',
+          ko: '세로 반지름',
+          zh: '椭圆的半高',
+          ja: '楕円の高さの半分',
+          de: 'Halbe Höhe der Ellipse',
+          es: 'Semialto de la elipse',
+          fr: 'Demi-hauteur de l\'ellipse'
+        },
       },
       {
         name: 'angle',
@@ -2308,7 +4956,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 15,
-        description: '타원 회전 각도',
+        description: {
+          en: 'Rotation angle (degrees)',
+          ko: '타원 회전 각도',
+          zh: '旋转角度 (度)',
+          ja: '回転角 (度)',
+          de: 'Rotationswinkel (Grad)',
+          es: 'Ángulo de rotación (grados)',
+          fr: 'Angle de rotation (degrés)'
+        },
       },
       {
         name: 'startAngle',
@@ -2317,7 +4973,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 15,
-        description: '호 시작 각도',
+        description: {
+          en: 'Start angle of the elliptic arc (degrees)',
+          ko: '호 시작 각도',
+          zh: '椭圆弧的起始角度 (度)',
+          ja: '楕円弧の開始角度 (度)',
+          de: 'Startwinkel des elliptischen Bogens (Grad)',
+          es: 'Ángulo de inicio del arco elíptico (grados)',
+          fr: 'Angle de début de l\'arc elliptique (degrés)'
+        },
       },
       {
         name: 'endAngle',
@@ -2326,7 +4990,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 360,
         step: 15,
-        description: '호 끝 각도',
+        description: {
+          en: 'End angle of the elliptic arc (degrees)',
+          ko: '호 끝 각도',
+          zh: '椭圆弧的结束角度 (度)',
+          ja: '楕円弧の終了角度 (度)',
+          de: 'Endwinkel des elliptischen Bogens (Grad)',
+          es: 'Ángulo final del arco elíptico (grados)',
+          fr: 'Angle de fin de l\'arc elliptique (degrés)'
+        },
       },
       {
         name: 'thickness',
@@ -2335,7 +5007,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -1,
         max: 20,
         step: 1,
-        description: '선 두께 (-1: 채우기)',
+        description: {
+          en: 'Line thickness (-1: fill)',
+          ko: '선 두께 (-1: 채우기)',
+          zh: '线厚度 (-1: 填充)',
+          ja: '線の太さ (-1: 塗りつぶし)',
+          de: 'Linienstärke (-1: Füllung)',
+          es: 'Grosor de línea (-1: rellenar)',
+          fr: 'Épaisseur de ligne (-1: remplir)'
+        },
       },
     ],
     syntax: 'ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness)',
@@ -2343,9 +5023,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'clipLine',
-    name: 'Clip Line (선 자르기)',
+    name: {
+      en: 'Clip Line',
+      ko: '선 자르기 (clipLine)',
+      zh: '裁剪直线',
+      ja: '線をクリップ',
+      de: 'Linie beschneiden',
+      es: 'Recortar línea',
+      fr: 'Couper une ligne'
+    },
     category: 'drawing',
-    description: '사각형 영역 내에서 선을 자릅니다.',
+    description: {
+      en: 'Clips the line against a rectangle.',
+      ko: '사각형 영역 내에서 선을 자릅니다.',
+      zh: '根据矩形裁剪直线。',
+      ja: '矩形に対して線をクリップします。',
+      de: 'Beschneidet die Linie an einem Rechteck.',
+      es: 'Recorta la línea contra un rectángulo.',
+      fr: 'Coupe la ligne par rapport à un rectangle.'
+    },
     parameters: [
       {
         name: 'thickness',
@@ -2354,7 +5050,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Line thickness',
+          ko: '선 두께',
+          zh: '线厚度',
+          ja: '線の太さ',
+          de: 'Linienstärke',
+          es: 'Grosor de línea',
+          fr: 'Épaisseur de ligne'
+        },
       },
     ],
     syntax: 'clipLine(imgRect, pt1, pt2)',
@@ -2362,9 +5066,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'getFontScaleFromHeight',
-    name: 'Get Font Scale From Height (높이로부터 폰트 스케일 계산)',
+    name: {
+      en: 'Get Font Scale from Height',
+      ko: '높이 기반 폰트 스케일 계산',
+      zh: '从高度获取字体缩放',
+      ja: '高さからフォントスケールを取得',
+      de: 'Schriftgröße aus Höhe berechnen',
+      es: 'Obtener escala de fuente de la altura',
+      fr: 'Obtenir l\'échelle de police à partir de la hauteur'
+    },
     category: 'drawing',
-    description: '지정된 픽셀 높이를 달성하기 위한 폰트 스케일을 계산합니다.',
+    description: {
+      en: 'Calculates the font scale to achieve a specified pixel height.',
+      ko: '지정된 픽셀 높이를 달성하기 위한 폰트 스케일을 계산합니다.',
+      zh: '计算达到指定像素高度的字体缩放比例。',
+      ja: '指定されたピクセルの高さを達成するためのフォントスケールを計算します。',
+      de: 'Berechnet die Schriftgröße, um eine bestimmte Pixelhöhe zu erreichen.',
+      es: 'Calcula la escala de la fuente para lograr una altura de píxel especificada.',
+      fr: 'Calcule l\'échelle de la police pour obtenir une hauteur de pixel spécifiée.'
+    },
     parameters: [
       {
         name: 'fontFace',
@@ -2379,7 +5099,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'Script Simplex', value: 'FONT_HERSHEY_SCRIPT_SIMPLEX' },
           { label: 'Script Complex', value: 'FONT_HERSHEY_SCRIPT_COMPLEX' },
         ],
-        description: '폰트 타입',
+        description: {
+          en: 'Font type',
+          ko: '폰트 타입',
+          zh: '字体类型',
+          ja: 'フォントタイプ',
+          de: 'Schrifttyp',
+          es: 'Tipo de fuente',
+          fr: 'Type de police'
+        },
       },
       {
         name: 'pixelHeight',
@@ -2388,7 +5116,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 10,
         max: 100,
         step: 5,
-        description: '목표 픽셀 높이',
+        description: {
+          en: 'Target pixel height',
+          ko: '목표 픽셀 높이',
+          zh: '目标像素高度',
+          ja: '目標ピクセル高',
+          de: 'Ziel-Pixelhöhe',
+          es: 'Altura de píxel de destino',
+          fr: 'Hauteur de pixel cible'
+        },
       },
       {
         name: 'thickness',
@@ -2397,11 +5133,19 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '선 두께',
+        description: {
+          en: 'Font thickness',
+          ko: '폰트 두께',
+          zh: '字体厚度',
+          ja: 'フォントの太さ',
+          de: 'Schriftdicke',
+          es: 'Grosor de fuente',
+          fr: 'Épaisseur de police'
+        },
       },
     ],
     syntax: 'getFontScaleFromHeight(fontFace, pixelHeight, thickness)',
-    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#ga0a0e89e6b5e1e8e0e5f7f1a6e1b2f3e4',
+    documentation: 'https://docs.opencv.org/4.12.0/d6/d6e/group__imgproc__draw.html#gaac514bf855e971d6248386f68c784775',
   },
   {
     id: 'getTextSize',
@@ -2460,9 +5204,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 산술 연산
   {
     id: 'add',
-    name: 'Add (덧셈)',
+    name: {
+      en: 'Addition',
+      ko: '더하기 (합)',
+      zh: '加法',
+      ja: '加算',
+      de: 'Addition',
+      es: 'Suma',
+      fr: 'Addition'
+    },
     category: 'arithmetic',
-    description: '두 이미지를 더합니다 (밝기 증가).',
+    description: {
+      en: 'Adds two images or a value to an image (increases brightness).',
+      ko: '두 이미지를 더하거나 이미지에 값을 더합니다 (밝기 증가).',
+      zh: '将两张图像或一个值相加（增加亮度）。',
+      ja: '2つの画像または画像に値を加算します (明るさが増加します)。',
+      de: 'Addiert zwei Bilder oder einen Wert zu einem Bild (erhöht die Helligkeit).',
+      es: 'Suma dos imágenes o un valor a una imagen (aumenta el brillo).',
+      fr: 'Ajoute deux images ou une valeur à une image (augmente la luminosité).'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -2472,7 +5232,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 100,
         step: 5,
-        description: '더할 값',
+        description: {
+          en: 'Value to add',
+          ko: '더할 값',
+          zh: '加值',
+          ja: '加算する値',
+          de: 'Zu addierender Wert',
+          es: 'Valor a sumar',
+          fr: 'Valeur à ajouter'
+        },
       },
     ],
     syntax: 'add(src1, src2, dst)',
@@ -2480,9 +5248,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'subtract',
-    name: 'Subtract (뺄셈)',
+    name: {
+      en: 'Subtraction',
+      ko: '빼기 (차)',
+      zh: '减法',
+      ja: '減算',
+      de: 'Subtraktion',
+      es: 'Resta',
+      fr: 'Soustraction'
+    },
     category: 'arithmetic',
-    description: '두 이미지를 뺍니다 (밝기 감소).',
+    description: {
+      en: 'Subtracts two images or a value from an image (decreases brightness).',
+      ko: '두 이미지를 빼거나 이미지에서 값을 뺍니다 (밝기 감소).',
+      zh: '将两张图像或一个值相减（降低亮度）。',
+      ja: '2つの画像または画像から値を減算します (明るさが減少します)。',
+      de: 'Subtrahiert zwei Bilder oder einen Wert von einem Bild (verringert die Helligkeit).',
+      es: 'Resta dos imágenes o un valor a una imagen (disminuye el brillo).',
+      fr: 'Soustrait deux images ou une valeur d\'une image (diminue la luminosité).'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -2492,7 +5276,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 100,
         step: 5,
-        description: '뺄 값',
+        description: {
+          en: 'Value to subtract',
+          ko: '뺄 값',
+          zh: '减值',
+          ja: '減算する値',
+          de: 'Zu subtrahierender Wert',
+          es: 'Valor a restar',
+          fr: 'Valeur à soustraire'
+        },
       },
     ],
     syntax: 'subtract(src1, src2, dst)',
@@ -2500,9 +5292,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'multiply',
-    name: 'Multiply (곱셈)',
+    name: {
+      en: 'Multiplication',
+      ko: '곱하기 (적)',
+      zh: '乘法',
+      ja: '乗算',
+      de: 'Multiplikation',
+      es: 'Multiplicación',
+      fr: 'Multiplication'
+    },
     category: 'arithmetic',
-    description: '이미지에 스칼라 값을 곱합니다.',
+    description: {
+      en: 'Multiplies image pixel values by a scalar value.',
+      ko: '이미지 픽셀 값에 스칼라 값을 곱합니다.',
+      zh: '将图像像素值乘以一个标量。',
+      ja: '画像のピクセル値にスカラー値を乗算します。',
+      de: 'Multipliziert Bildpixelwerte mit einem Skalarwert.',
+      es: 'Multiplica los valores de píxel de la imagen por un valor escalar.',
+      fr: 'Multiplie les valeurs des pixels de l\'image par une valeur scalaire.'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -2512,7 +5320,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 3.0,
         step: 0.1,
-        description: '곱할 값',
+        description: {
+          en: 'Scale factor',
+          ko: '배율 (곱할 값)',
+          zh: '缩放因子',
+          ja: 'スケール因子',
+          de: 'Skalierungsfaktor',
+          es: 'Factor de escala',
+          fr: 'Facteur d\'échelle'
+        },
       },
     ],
     syntax: 'multiply(src1, src2, dst, scale)',
@@ -2520,9 +5336,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'addWeighted',
-    name: 'Weighted Addition (가중 합)',
+    name: {
+      en: 'Weighted Add (Blending)',
+      ko: '가중치 합 (블렌딩)',
+      zh: '加权和 (融合)',
+      ja: '加重加算 (ブレンディング)',
+      de: 'Gewichtete Addition (Mischen)',
+      es: 'Adición ponderada (Mezcla)',
+      fr: 'Addition pondérée (Mélange)'
+    },
     category: 'arithmetic',
-    description: '두 이미지를 가중치를 두고 합칩니다 (블렌딩).',
+    description: {
+      en: 'Calculates the weighted sum of two images (blending effect).',
+      ko: '두 이미지의 가중치 합을 계산합니다 (블렌딩 효과).',
+      zh: '计算两张图像的加权和（融合效果）。',
+      ja: '2つの画像の加重和を計算します (ブレンディング効果)。',
+      de: 'Berechnet die gewichtete Summe zweier Bilder (Mischeffekt).',
+      es: 'Calcula la suma ponderada de dos imágenes (efecto de mezcla).',
+      fr: 'Calcule la somme pondérée de deux images (effet de mélange).'
+    },
     inputCount: 2,
     parameters: [
       {
@@ -2532,7 +5364,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.0,
         max: 1.0,
         step: 0.1,
-        description: '첫 번째 이미지 가중치',
+        description: {
+          en: 'Alpha (Weight 1)',
+          ko: '알파 (첫 번째 이미지 가중치)',
+          zh: 'Alpha (权重 1)',
+          ja: 'アルファ (重み 1)',
+          de: 'Alpha (Gewichtung 1)',
+          es: 'Alfa (Peso 1)',
+          fr: 'Alpha (Poids 1)'
+        },
       },
     ],
     syntax: 'addWeighted(src1, alpha, src2, beta, gamma, dst)',
@@ -2540,9 +5380,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'bitwise_and',
-    name: 'Bitwise AND (비트 AND)',
+    name: {
+      en: 'Bitwise AND',
+      ko: '비트 AND',
+      zh: '位与',
+      ja: 'ビット単位の AND',
+      de: 'Bitweises AND',
+      es: 'AND bit a bit',
+      fr: 'AND bit à bit'
+    },
     category: 'arithmetic',
-    description: '두 이미지의 비트 AND 연산을 수행합니다.',
+    description: {
+      en: 'Performs bitwise AND operation between two images.',
+      ko: '두 이미지의 비트 AND 연산을 수행합니다.',
+      zh: '在两张图像之间执行位与运算。',
+      ja: '2つの画像間でビット単位の AND 演算を実行します。',
+      de: 'Führt eine bitweise AND-Operation zwischen zwei Bildern durch.',
+      es: 'Realiza la operación AND bit a bit entre dos imágenes.',
+      fr: 'Effectue une opération AND bit à bit entre deux images.'
+    },
     inputCount: 2,
     parameters: [],
     syntax: 'bitwise_and(src1, src2, dst)',
@@ -2550,9 +5406,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'bitwise_or',
-    name: 'Bitwise OR (비트 OR)',
+    name: {
+      en: 'Bitwise OR',
+      ko: '비트 OR',
+      zh: '位或',
+      ja: 'ビット単位の OR',
+      de: 'Bitweises OR',
+      es: 'OR bit a bit',
+      fr: 'OR bit à bit'
+    },
     category: 'arithmetic',
-    description: '두 이미지의 비트 OR 연산을 수행합니다.',
+    description: {
+      en: 'Performs bitwise OR operation between two images.',
+      ko: '두 이미지의 비트 OR 연산을 수행합니다.',
+      zh: '在两张图像之间执行位或运算。',
+      ja: '2つの画像間でビット単位の OR 演算を実行します。',
+      de: 'Führt eine bitweise OR-Operation zwischen zwei Bildern durch.',
+      es: 'Realiza la operación OR bit a bit entre dos imágenes.',
+      fr: 'Effectue une opération OR bit à bit entre deux images.'
+    },
     inputCount: 2,
     parameters: [],
     syntax: 'bitwise_or(src1, src2, dst)',
@@ -2560,9 +5432,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'bitwise_xor',
-    name: 'Bitwise XOR (비트 XOR)',
+    name: {
+      en: 'Bitwise XOR',
+      ko: '비트 XOR',
+      zh: '位异或',
+      ja: 'ビット単位の XOR',
+      de: 'Bitweises XOR',
+      es: 'XOR bit a bit',
+      fr: 'XOR bit à bit'
+    },
     category: 'arithmetic',
-    description: '두 이미지의 비트 XOR 연산을 수행합니다.',
+    description: {
+      en: 'Performs bitwise XOR operation between two images.',
+      ko: '두 이미지의 비트 XOR 연산을 수행합니다.',
+      zh: '在两张图像之间执行位异或运算。',
+      ja: '2つの画像間でビット単位の XOR 演算を実行します。',
+      de: 'Führt eine bitweise XOR-Operation zwischen zwei Bildern durch.',
+      es: 'Realiza la operación XOR bit a bit entre dos imágenes.',
+      fr: 'Effectue une opération XOR bit à bit entre deux images.'
+    },
     inputCount: 2,
     parameters: [],
     syntax: 'bitwise_xor(src1, src2, dst)',
@@ -2572,9 +5460,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 행렬 연산
   {
     id: 'transpose',
-    name: 'Transpose (전치)',
+    name: {
+      en: 'Transpose',
+      ko: '치환 (Transpose)',
+      zh: '转置',
+      ja: '転置',
+      de: 'Transponieren',
+      es: 'Transponer',
+      fr: 'Transposer'
+    },
     category: 'matrix',
-    description: '행렬을 전치합니다 (행과 �����을 바꿈).',
+    description: {
+      en: 'Transposes a matrix (flips it over its diagonal).',
+      ko: '행렬을 전치합니다 (행과 열을 바꿈).',
+      zh: '转置矩阵（将其沿主对角线翻转）。',
+      ja: '行列を転置します (行と列を入れ替えます)。',
+      de: 'Transponiert eine Matrix (vertauscht Zeilen und Spalten).',
+      es: 'Transpone una matriz (la voltea sobre su diagonal).',
+      fr: 'Transpose une matrice (la retourne sur sa diagonale).'
+    },
     parameters: [],
     syntax: 'transpose(src, dst)',
     documentation: 'https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga46630ed6c0ea6254a35f447289bd7404',
@@ -2944,9 +5848,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 고급 필터
   {
     id: 'boxFilter',
-    name: 'Box Filter (박스 필터)',
+    name: {
+      en: 'Box Filter',
+      ko: '박스 필터',
+      zh: '方框滤波',
+      ja: 'ボックスフィルタ',
+      de: 'Box-Filter',
+      es: 'Filtro de Caja',
+      fr: 'Filtre boîte'
+    },
     category: 'advanced_filter',
-    description: '정규화된 박스 필터입니다. 커널 영역의 평균값을 계산합니다.',
+    description: {
+      en: 'Blurs an image using the box filter. It calculates the average of the kernel area.',
+      ko: '박스 필터를 사용하여 이미지를 블러 처리합니다. 커널 영역의 평균값을 계산합니다.',
+      zh: '使用方框滤波模糊图像。它计算内核区域的平均值。',
+      ja: 'ボックスフィルタを使用して画像をぼかします。カーネル領域の平均値を計算します。',
+      de: 'Glättet ein Bild mit dem Box-Filter. Es berechnet den Durchschnitt des Kernel-Bereichs.',
+      es: 'Desenfoca una imagen usando el filtro de caja. Calcula el promedio del área del núcleo.',
+      fr: 'Floute une image à l\'aide du filtre boîte. Il calcule la moyenne de la zone du noyau.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -2955,17 +5875,55 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernel-Größe',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
       {
         name: 'normalize',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: '정규화 O', value: true },
-          { label: '정규화 X', value: false },
+          { 
+            label: {
+              en: 'Normalize ON',
+              ko: '정규화 O',
+              zh: '归一化开启',
+              ja: '正規化 ON',
+              de: 'Normalisierung AN',
+              es: 'Normalización ACTIVADA',
+              fr: 'Normalisation ACTIVÉE'
+            }, 
+            value: true 
+          },
+          { 
+            label: {
+              en: 'Normalize OFF',
+              ko: '정규화 X',
+              zh: '归一化关闭',
+              ja: '正規化 OFF',
+              de: 'Normalisierung AUS',
+              es: 'Normalización DESACTIVADA',
+              fr: 'Normalisation DÉSACTIVÉE'
+            }, 
+            value: false 
+          },
         ],
-        description: '정규화 여부',
+        description: {
+          en: 'Whether to normalize the filter',
+          ko: '정규화 여부',
+          zh: '是否归一化过滤器',
+          ja: 'フィルタを正規化するかどうか',
+          de: 'Ob der Filter normalisiert werden soll',
+          es: 'Si se debe normalizar el filtro',
+          fr: 'S\'il faut normaliser le filtre'
+        },
       },
     ],
     syntax: 'boxFilter(src, dst, ddepth, ksize, normalize)',
@@ -2973,9 +5931,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'sqrBoxFilter',
-    name: 'Squared Box Filter (제곱 박스 필터)',
+    name: {
+      en: 'Squared Box Filter',
+      ko: '제곱 박스 필터',
+      zh: '平方方框滤波',
+      ja: '平方ボックスフィルタ',
+      de: 'Quadrierter Box-Filter',
+      es: 'Filtro de Caja Cuadrada',
+      fr: 'Filtre boîte au carré'
+    },
     category: 'advanced_filter',
-    description: '픽셀 값의 제곱의 합을 계산하는 박스 필터입니다.',
+    description: {
+      en: 'Calculates the sum of squares of pixel values in the kernel area.',
+      ko: '커널 영역에 있는 픽셀 값의 제곱의 합을 계산하는 박스 필터입니다.',
+      zh: '计算内核区域像素值的平方和。',
+      ja: 'カーネル領域内のピクセル値の二乗和を計算します。',
+      de: 'Berechnet die Summe der Quadrate der Pixelwerte im Kernel-Bereich.',
+      es: 'Calcula la suma de los cuadrados de los valores de los píxeles en el área del núcleo.',
+      fr: 'Calcule la somme des carrés des valeurs de pixels dans la zone du noyau.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -2984,7 +5958,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernel-Größe',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
     ],
     syntax: 'sqrBoxFilter(src, dst, ddepth, ksize)',
@@ -2992,21 +5974,89 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'filter2D',
-    name: 'Custom Filter 2D (사용자 정의 필터)',
+    name: {
+      en: 'Custom Filter 2D',
+      ko: '사용자 정의 필터',
+      zh: '自定义 2D 滤波',
+      ja: 'カスタム 2D フィルタ',
+      de: 'Benutzerdefinierter 2D-Filter',
+      es: 'Filtro 2D Personalizado',
+      fr: 'Filtre 2D personnalisé'
+    },
     category: 'advanced_filter',
-    description: '사용자 정의 커널로 이미지를 필터링합니다.',
+    description: {
+      en: 'Convolves an image with a custom kernel.',
+      ko: '사용자 정의 커널로 이미지를 필터링(컨볼루션)합니다.',
+      zh: '使用自定义内核对图像进行卷积。',
+      ja: 'カスタムカーネルで画像を畳み込みます。',
+      de: 'Faltet ein Bild mit einem benutzerdefinierten Kernel.',
+      es: 'Convuelve una imagen con un núcleo personalizado.',
+      fr: 'Applique une convolution à une image avec un noyau personnalisé.'
+    },
     parameters: [
       {
         name: 'filterType',
         type: 'select',
         defaultValue: 'sharpen',
         options: [
-          { label: 'Sharpen (샤프닝)', value: 'sharpen' },
-          { label: 'Edge Enhance (엣지 강화)', value: 'edge' },
-          { label: 'Emboss (엠보싱)', value: 'emboss' },
-          { label: 'Identity (원본)', value: 'identity' },
+          { 
+            label: {
+              en: 'Sharpen',
+              ko: '샤프닝',
+              zh: '锐化',
+              ja: 'シャープ',
+              de: 'Schärfen',
+              es: 'Afilar',
+              fr: 'Netteté'
+            }, 
+            value: 'sharpen' 
+          },
+          { 
+            label: {
+              en: 'Edge Enhance',
+              ko: '엣지 강화',
+              zh: '边缘增强',
+              ja: 'エッジ強調',
+              de: 'Kantenverbesserung',
+              es: 'Mejora de Bordes',
+              fr: 'Amélioration des contours'
+            }, 
+            value: 'edge' 
+          },
+          { 
+            label: {
+              en: 'Emboss',
+              ko: '엠보싱',
+              zh: '浮雕',
+              ja: 'エンボス',
+              de: 'Prägen',
+              es: 'Relieve',
+              fr: 'Gaufrage'
+            }, 
+            value: 'emboss' 
+          },
+          { 
+            label: {
+              en: 'Identity',
+              ko: '원본',
+              zh: '恒等转换',
+              ja: '元画像',
+              de: 'Identität',
+              es: 'Identidad',
+              fr: 'Identité'
+            }, 
+            value: 'identity' 
+          },
         ],
-        description: '필터 타입',
+        description: {
+          en: 'Type of filter to apply',
+          ko: '적용할 필터 타입',
+          zh: '要应用的过滤器类型',
+          ja: '適用するフィルタのタイプ',
+          de: 'Typ des anzuwendenden Filters',
+          es: 'Tipo de filtro a aplicar',
+          fr: 'Type de filtre à appliquer'
+        },
       },
     ],
     syntax: 'filter2D(src, dst, ddepth, kernel)',
@@ -3014,9 +6064,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'sepFilter2D',
-    name: 'Separable Filter 2D (분리 가능 필터)',
+    name: {
+      en: 'Separable Filter 2D',
+      ko: '분리 가능 필터',
+      zh: '可分离 2D 滤波',
+      ja: '分離可能 2D フィルタ',
+      de: 'Separierbarer 2D-Filter',
+      es: 'Filtro 2D Separable',
+      fr: 'Filtre 2D séparable'
+    },
     category: 'advanced_filter',
-    description: '분리 가능한 선형 필터를 적용합니다.',
+    description: {
+      en: 'Applies a separable linear filter to an image.',
+      ko: '분리 가능한 선형 필터를 적용합니다.',
+      zh: '对图像应用可分离线性滤波。',
+      ja: '画像に分離可能な線形フィルタを適用します。',
+      de: 'Wendet einen separierbaren linearen Filter auf ein Bild an.',
+      es: 'Aplica un filtro lineal separable a una imagen.',
+      fr: 'Applique un filtre linéaire séparable à une image.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -3025,7 +6091,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 15,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernel-Größe',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
     ],
     syntax: 'sepFilter2D(src, dst, ddepth, kernelX, kernelY)',
@@ -3033,9 +6107,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'Scharr',
-    name: 'Scharr Operator (샤르 연산자)',
+    name: {
+      en: 'Scharr Operator',
+      ko: '샤르 연산자',
+      zh: 'Scharr 算子',
+      ja: 'Scharr 演算子',
+      de: 'Scharr-Operator',
+      es: 'Operador Scharr',
+      fr: 'Opérateur de Scharr'
+    },
     category: 'advanced_filter',
-    description: 'Sobel보다 정확한 미분 연산자입니다.',
+    description: {
+      en: 'Calculates the first x- or y-image derivative using the Scharr operator. More accurate than Sobel for small kernels.',
+      ko: 'Scharr 연산자를 사용하여 이미지의 1차 x 또는 y 미분을 계산합니다. 작은 커널의 경우 Sobel보다 정확합니다.',
+      zh: '使用 Scharr 算子计算图像的一阶 x 或 y 导数。对于小内核，比 Sobel 更准确。',
+      ja: 'Scharr 演算子を使用して、画像の 1 次 x または y 微分を計算します。小さなカーネルの場合、Sobel よりも正確です。',
+      de: 'Berechnet die erste x- oder y-Bildableitung mit dem Scharr-Operator. Bei kleinen Kerneln genauer als Sobel.',
+      es: 'Calcula la primera derivada de la imagen en x o y usando el operador Scharr. Más preciso que Sobel para núcleos pequeños.',
+      fr: 'Calcule la première dérivée x ou y de l\'image à l\'aide de l\'opérateur de Scharr. Plus précis que Sobel pour les petits noyaux.'
+    },
     parameters: [
       {
         name: 'dx',
@@ -3044,7 +6134,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1,
         step: 1,
-        description: 'X 방향 미분 차수',
+        description: {
+          en: 'Derivative order in X direction',
+          ko: 'X 방향 미분 차수',
+          zh: 'X 方向导数阶数',
+          ja: 'X 方向の微分次数',
+          de: 'Ableitungsordnung in X-Richtung',
+          es: 'Orden de derivada en dirección X',
+          fr: 'Ordre de dérivée dans la direction X'
+        },
       },
       {
         name: 'dy',
@@ -3053,7 +6151,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 1,
         step: 1,
-        description: 'Y 방향 미분 차수',
+        description: {
+          en: 'Derivative order in Y direction',
+          ko: 'Y 방향 미분 차수',
+          zh: 'Y 方向导数阶数',
+          ja: 'Y 方向の微分次数',
+          de: 'Ableitungsordnung in Y-Richtung',
+          es: 'Orden de derivada en dirección Y',
+          fr: 'Ordre de dérivée dans la direction Y'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -3062,9 +6168,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'spatialGradient',
-    name: 'Spatial Gradient (공간 기울기)',
+    name: {
+      en: 'Spatial Gradient',
+      ko: '공간 기울기',
+      zh: '空间梯度',
+      ja: '空間勾配',
+      de: 'Räumlicher Gradient',
+      es: 'Gradiente Espacial',
+      fr: 'Gradient spatial'
+    },
     category: 'advanced_filter',
-    description: 'X와 Y 방향의 공간 기울기를 계산합니다.',
+    description: {
+      en: 'Calculates the first-order image derivatives in both x and y directions using a Sobel operator.',
+      ko: 'Sobel 연산자를 사용하여 x와 y 방향 모두의 1차 이미지 미분을 계산합니다.',
+      zh: '使用 Sobel 算子计算 x 和 y 方向的一阶图像导数。',
+      ja: 'Sobel 演算子を使用して、x と y の両方向の 1 次画像微分を計算します。',
+      de: 'Berechnet die Bildableitungen erster Ordnung in x- und y-Richtung mit einem Sobel-Operator.',
+      es: 'Calcula las derivadas de imagen de primer orden en las direcciones x e y usando un operador Sobel.',
+      fr: 'Calcule les dérivées d\'image du premier ordre dans les directions x et y à l\'aide d\'un opérateur de Sobel.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -3073,7 +6195,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: 'Sobel 커널 크기',
+        description: {
+          en: 'Sobel kernel size',
+          ko: 'Sobel 커널 크기',
+          zh: 'Sobel 内核大小',
+          ja: 'Sobel カーネルサイズ',
+          de: 'Sobel-Kernel-Größe',
+          es: 'Tamaño del núcleo Sobel',
+          fr: 'Taille du noyau de Sobel'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -3084,9 +6214,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 이미지 피라미드
   {
     id: 'pyrDown',
-    name: 'Pyramid Down (피라미드 다운샘플)',
+    name: {
+      en: 'Pyramid Down',
+      ko: '피라미드 다운샘플',
+      zh: '图像金字塔向下采样',
+      ja: 'ガウシアンピラミッド縮小',
+      de: 'Bildpyramide verkleinern',
+      es: 'Reducción de Pirámide',
+      fr: 'Réduction de pyramide'
+    },
     category: 'pyramid',
-    description: '이미지를 다운샘플링하여 크기를 절반으로 줄입니다.',
+    description: {
+      en: 'Downsamples an image and blurs it. It reduces the size by half.',
+      ko: '이미지를 블러 처리한 후 다운샘플링하여 크기를 가로세로 절반으로 줄입니다.',
+      zh: '对图像进行向下采样并模糊处理。它将尺寸减半。',
+      ja: '画像をぼかしてからダウンサンプルし、サイズを半分に縮小します。',
+      de: 'Verkleinert ein Bild und glättet es. Es reduziert die Größe um die Hälfte.',
+      es: 'Reduce el muestreo de una imagen y la desenfoca. Reduce el tamaño a la mitad.',
+      fr: 'Échantillonne une image vers le bas et la floute. Il réduit la taille de moitié.'
+    },
     parameters: [
       {
         name: 'iterations',
@@ -3095,7 +6241,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 4,
         step: 1,
-        description: '다운샘플 횟수',
+        description: {
+          en: 'Number of downsampling iterations',
+          ko: '다운샘플링 반복 횟수',
+          zh: '向下采样迭代次数',
+          ja: 'ダウンサンプルの繰り返し回数',
+          de: 'Anzahl der Verkleinerungsschritte',
+          es: 'Número de iteraciones de reducción de muestreo',
+          fr: 'Nombre d\'itérations de sous-échantillonnage'
+        },
       },
     ],
     syntax: 'pyrDown(src, dst, dstsize, borderType)',
@@ -3103,9 +6257,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'pyrUp',
-    name: 'Pyramid Up (피라미드 업샘플)',
+    name: {
+      en: 'Pyramid Up',
+      ko: '피라미드 업샘플',
+      zh: '图像金字塔向上采样',
+      ja: 'ガウシアンピラミッド拡大',
+      de: 'Bildpyramide vergrößern',
+      es: 'Aumento de Pirámide',
+      fr: 'Agrandissement de pyramide'
+    },
     category: 'pyramid',
-    description: '이미지를 업샘플링하여 크기를 두 배로 늘립니다.',
+    description: {
+      en: 'Upsamples an image and then blurs it. It doubles the size.',
+      ko: '이미지를 업샘플링한 후 블러 처리하여 크기를 가로세로 두 배로 늘립니다.',
+      zh: '对图像进行向上采样，然后进行模糊处理。它使尺寸翻倍。',
+      ja: '画像をアップサンプルしてからぼかし、サイズを 2 倍に拡大します。',
+      de: 'Vergrößert ein Bild und glättet es anschließend. Es verdoppelt die Größe.',
+      es: 'Aumenta el muestreo de una imagen y luego la desenfoca. Duplica el tamaño.',
+      fr: 'Échantillonne une image vers le haut puis la floute. Il double la taille.'
+    },
     parameters: [
       {
         name: 'iterations',
@@ -3114,7 +6284,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 4,
         step: 1,
-        description: '업샘플 횟수',
+        description: {
+          en: 'Number of upsampling iterations',
+          ko: '업샘플링 반복 횟수',
+          zh: '向上采样迭代次数',
+          ja: 'アップサンプルの繰り返し回数',
+          de: 'Anzahl der Vergrößerungsschritte',
+          es: 'Número de iteraciones de aumento de muestreo',
+          fr: 'Nombre d\'itérations de suréchantillonnage'
+        },
       },
     ],
     syntax: 'pyrUp(src, dst, dstsize, borderType)',
@@ -3122,9 +6300,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'pyrMeanShiftFiltering',
-    name: 'Mean Shift Filtering (평균 이동 필터링)',
+    name: {
+      en: 'Mean Shift Filtering',
+      ko: '평균 이동 필터링',
+      zh: '均值偏移滤波',
+      ja: 'ミーンシフトフィルタリング',
+      de: 'Mean-Shift-Filterung',
+      es: 'Filtrado por Desplazamiento de Medias',
+      fr: 'Filtrage par décalage de moyenne'
+    },
     category: 'pyramid',
-    description: 'Mean Shift 알고리즘을 사용한 이미지 세그먼테이션입니다.',
+    description: {
+      en: 'Performs initial step of meanshift segmentation of an image.',
+      ko: '이미지의 평균 이동(meanshift) 세그먼테이션의 초기 단계를 수행합니다.',
+      zh: '执行图像均值偏移分割的初始步骤。',
+      ja: '画像のミーンシフトセグメンテーションの初期段階を実行します。',
+      de: 'Führt den ersten Schritt der Mean-Shift-Segmentierung eines Bildes aus.',
+      es: 'Realiza el paso inicial de la segmentación por desplazamiento de medias de una imagen.',
+      fr: 'Effectue l\'étape initiale de segmentation par décalage de moyenne d\'une image.'
+    },
     parameters: [
       {
         name: 'sp',
@@ -3133,26 +6327,75 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 50,
         step: 5,
-        description: '공간 윈도우 반지름',
+        description: {
+          en: 'Spatial window radius',
+          ko: '공간 윈도우 반지름',
+          zh: '空间窗口半径',
+          ja: '空間ウィンドウの半径',
+          de: 'Räumlicher Fensterradius',
+          es: 'Radio de la ventana espacial',
+          fr: 'Rayon de la fenêtre spatiale'
+        },
       },
       {
         name: 'sr',
         type: 'slider',
         defaultValue: 40,
         min: 10,
-        max: 100,
-        step: 10,
-        description: '색상 윈��우 반지름',
+        max: 80,
+        step: 5,
+        description: {
+          en: 'Color window radius',
+          ko: '색상 윈도우 반지름',
+          zh: '色彩窗口半径',
+          ja: '色のウィンドウの半径',
+          de: 'Farbfensterradius',
+          es: 'Radio de la ventana de color',
+          fr: 'Rayon de la fenêtre de couleur'
+        },
+      },
+      {
+        name: 'maxLevel',
+        type: 'slider',
+        defaultValue: 2,
+        min: 0,
+        max: 4,
+        step: 1,
+        description: {
+          en: 'Maximum level of the pyramid for the segmentation',
+          ko: '세그먼테이션을 위한 피라미드의 최대 레벨',
+          zh: '用于分割的金字塔最大层数',
+          ja: 'セグメンテーションに使用するピラミッドの最大レベル',
+          de: 'Maximale Ebene der Pyramide für die Segmentierung',
+          es: 'Nivel máximo de la pirámide para la segmentación',
+          fr: 'Niveau maximum de la pyramide pour la segmentation'
+        },
       },
     ],
-    syntax: 'pyrMeanShiftFiltering(src, dst, sp, sr, maxLevel, termcrit)',
-    documentation: 'https://docs.opencv.org/4.12.0/d4/d86/group__imgproc__filter.html#ga9fabdce9543bd602445f5db3827e4cc0',
+    syntax: 'pyrMeanShiftFiltering(src, dst, sp, sr, maxLevel)',
+    documentation: 'https://docs.opencv.org/4.12.0/d4/d86/group__imgproc__filter.html#ga9ae5433ce1830607f35316377317e137',
   },
   {
     id: 'buildPyramid',
-    name: 'Build Pyramid (피라미드 생성)',
+    name: {
+      en: 'Build Pyramid',
+      ko: '피라미드 생성',
+      zh: '构建图像金字塔',
+      ja: 'ガウシアンピラミッドの構築',
+      de: 'Bildpyramide erstellen',
+      es: 'Construir Pirámide',
+      fr: 'Construire une pyramide'
+    },
     category: 'pyramid',
-    description: '가우시안 피라미드를 생성합니다.',
+    description: {
+      en: 'Constructs a Gaussian pyramid for an image.',
+      ko: '이미지에 대한 가우시안 피라미드를 생성합니다.',
+      zh: '为图像构建高斯金字塔。',
+      ja: '画像からガウシアンピラミッドを構築します。',
+      de: 'Erstellt eine Gauß-Pyramide für ein Bild.',
+      es: 'Construye una pirámide gaussiana para una imagen.',
+      fr: 'Construit une pyramide gaussienne pour une image.'
+    },
     parameters: [
       {
         name: 'maxlevel',
@@ -3161,7 +6404,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 5,
         step: 1,
-        description: '피라미드 레벨',
+        description: {
+          en: 'Maximum level of the pyramid',
+          ko: '피라미드 최대 레벨',
+          zh: '金字塔最大层数',
+          ja: 'ピラミッドの最大レベル',
+          de: 'Maximale Ebene der Pyramide',
+          es: 'Nivel máximo de la pirámide',
+          fr: 'Niveau maximum de la pyramide'
+        },
       },
     ],
     syntax: 'buildPyramid(src, dst, maxlevel, borderType)',
@@ -3171,9 +6422,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 미분 연산
   {
     id: 'getDerivKernels',
-    name: 'Get Derivative Kernels (미분 커널 얻기)',
+    name: {
+      en: 'Get Derivative Kernels',
+      ko: '미분 커널 얻기',
+      zh: '获取导数内核',
+      ja: '微分カーネルの取得',
+      de: 'Ableitungskerne abrufen',
+      es: 'Obtener núcleos de derivada',
+      fr: 'Obtenir les noyaux de dérivée'
+    },
     category: 'derivative',
-    description: 'Sobel 필터 계산을 위한 미분 커널을 생성합니다.',
+    description: {
+      en: 'Computes and returns filter coefficients for computing spatial image derivatives.',
+      ko: '공간 이미지 미분을 계산하기 위한 필터 계수를 계산하여 반환합니다.',
+      zh: '计算并返回用于计算空间图像导数的滤波器系数。',
+      ja: '空間的な画像の微分を計算するためのフィルタ係数を計算して返します。',
+      de: 'Berechnet und liefert Filterkoeffizienten zur Berechnung räumlicher Bildableitungen.',
+      es: 'Calcula y devuelve coeficientes de filtro para calcular derivadas espaciales de imagen.',
+      fr: 'Calcule et renvoie les coefficients de filtre pour le calcul des dérivées spatiales d\'image.'
+    },
     parameters: [
       {
         name: 'dx',
@@ -3182,7 +6449,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 2,
         step: 1,
-        description: 'X 방향 미분 차수',
+        description: {
+          en: 'Derivative order in X direction',
+          ko: 'X 방향 미분 차수',
+          zh: 'X 方向导数阶数',
+          ja: 'X 方向の微分次数',
+          de: 'Ableitungsordnung in X-Richtung',
+          es: 'Orden de derivada en dirección X',
+          fr: 'Ordre de dérivée dans la direction X'
+        },
       },
       {
         name: 'dy',
@@ -3191,7 +6466,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 2,
         step: 1,
-        description: 'Y 방�� 미분 차수',
+        description: {
+          en: 'Derivative order in Y direction',
+          ko: 'Y 방향 미분 차수',
+          zh: 'Y 方向导数阶数',
+          ja: 'Y 方向の微分次数',
+          de: 'Ableitungsordnung in Y-Richtung',
+          es: 'Orden de derivada en dirección Y',
+          fr: 'Ordre de dérivée dans la direction Y'
+        },
       },
       {
         name: 'ksize',
@@ -3200,7 +6483,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 7,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Aperture size',
+          ko: '조리개(커널) 크기',
+          zh: '孔径（内核）大小',
+          ja: 'アパーチャ（カーネル）サイズ',
+          de: 'Blenden- (Kernel-) Größe',
+          es: 'Tamaño de apertura (núcleo)',
+          fr: 'Taille d\'ouverture (noyau)'
+        },
       },
     ],
     syntax: 'getDerivKernels(kx, ky, dx, dy, ksize, normalize, ktype)',
@@ -3208,9 +6499,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'getGaborKernel',
-    name: 'Get Gabor Kernel (가버 커널)',
+    name: {
+      en: 'Get Gabor Kernel',
+      ko: '가버 커널 생성',
+      zh: '获取 Gabor 内核',
+      ja: 'ガボールカーネルの取得',
+      de: 'Gabor-Kernel abrufen',
+      es: 'Obtener núcleo Gabor',
+      fr: 'Obtenir le noyau de Gabor'
+    },
     category: 'derivative',
-    description: 'Gabor 필터 커널을 생성합니다. 텍스처 분석에 유용합니다.',
+    description: {
+      en: 'Returns Gabor filter coefficients. Useful for texture analysis.',
+      ko: 'Gabor 필터 계수를 반환합니다. 텍스처 분석에 유용합니다.',
+      zh: '返回 Gabor 滤波器系数。对纹理分析很有用。',
+      ja: 'ガボールフィルタ係数を返します。テクスチャ分析に役立ちます。',
+      de: 'Liefert Gabor-Filterkoeffizienten. Nützlich für die Texturanalyse.',
+      es: 'Devuelve coeficientes de filtro Gabor. Útil para el análisis de texturas.',
+      fr: 'Renvoie les coefficients du filtre de Gabor. Utile pour l\'analyse de texture.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -3219,7 +6526,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 51,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Kernel size',
+          ko: '커널 크기',
+          zh: '内核大小',
+          ja: 'カーネルサイズ',
+          de: 'Kernel-Größe',
+          es: 'Tamaño del núcleo',
+          fr: 'Taille du noyau'
+        },
       },
       {
         name: 'sigma',
@@ -3228,7 +6543,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1.0,
         max: 10.0,
         step: 0.5,
-        description: '가우시안 표준편차',
+        description: {
+          en: 'Standard deviation of the gaussian envelope',
+          ko: '가우시안 엔벨로프의 표준편차',
+          zh: '高斯包络的标准差',
+          ja: 'ガウスエンベロープの標準偏差',
+          de: 'Standardabweichung der Gauß-Einhüllenden',
+          es: 'Desviación estándar de la envolvente gaussiana',
+          fr: 'Écart-type de l\'enveloppe gaussienne'
+        },
       },
       {
         name: 'theta',
@@ -3237,7 +6560,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 180,
         step: 15,
-        description: '방향 (각도)',
+        description: {
+          en: 'Orientation of the normal to the parallel stripes of a Gabor function',
+          ko: 'Gabor 함수의 평행한 줄무늬에 대한 법선 방향(각도)',
+          zh: 'Gabor 函数平行条纹法线的方向（角度）',
+          ja: 'ガボール関数の平行なストライプの法線方向（角度）',
+          de: 'Orientierung der Normalen zu den parallelen Streifen einer Gabor-Funktion',
+          es: 'Orientación de la normal a las franjas paralelas de una función de Gabor',
+          fr: 'Orientation de la normale aux bandes parallèles d\'une fonction de Gabor'
+        },
       },
       {
         name: 'lambd',
@@ -3246,7 +6577,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1.0,
         max: 20.0,
         step: 1.0,
-        description: '파장',
+        description: {
+          en: 'Wavelength of the sinusoidal factor',
+          ko: '사인파 인자의 파장',
+          zh: '正弦因子的波长',
+          ja: '正弦波因子の波長',
+          de: 'Wellenlänge des sinusförmigen Faktors',
+          es: 'Longitud de onda del factor sinusoidal',
+          fr: 'Longueur d\'onde du facteur sinusoïdal'
+        },
       },
     ],
     syntax: 'getGaborKernel(ksize, sigma, theta, lambd, gamma, psi, ktype)',
@@ -3254,9 +6593,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'getGaussianKernel',
-    name: 'Get Gaussian Kernel (가우시안 커널)',
+    name: {
+      en: 'Get Gaussian Kernel',
+      ko: '가우시안 커널 생성',
+      zh: '获取高斯内核',
+      ja: 'ガウシアンカーネルの取得',
+      de: 'Gauß-Kernel abrufen',
+      es: 'Obtener núcleo gaussiano',
+      fr: 'Obtenir le noyau gaussien'
+    },
     category: 'derivative',
-    description: '가우시안 필터 커널을 생성합니다.',
+    description: {
+      en: 'Returns Gaussian filter coefficients.',
+      ko: '가우시안 필터 계수를 반환합니다.',
+      zh: '返回高斯滤波器系数。',
+      ja: 'ガウシアンフィルタ係数を返します。',
+      de: 'Liefert Gauß-Filterkoeffizienten.',
+      es: 'Devuelve coeficientes de filtro gaussiano.',
+      fr: 'Renvoie les coefficients du filtre gaussien.'
+    },
     parameters: [
       {
         name: 'ksize',
@@ -3265,7 +6620,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 31,
         step: 2,
-        description: '커널 크기',
+        description: {
+          en: 'Aperture size. It should be odd and positive.',
+          ko: '조리개(속도) 크기. 양수의 홀수여야 합니다.',
+          zh: '孔径大小。应为正奇数。',
+          ja: 'アパーチャサイズ。正の奇数である必要があります。',
+          de: 'Blendenöffnung. Sie sollte ungerade und positiv sein.',
+          es: 'Tamaño de apertura. Debe ser impar y positivo.',
+          fr: 'Taille d\'ouverture. Elle doit être impaire et positive.'
+        },
       },
       {
         name: 'sigma',
@@ -3274,7 +6637,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 5.0,
         step: 0.1,
-        description: '표준편차',
+        description: {
+          en: 'Gaussian standard deviation',
+          ko: '가우시안 표준편차',
+          zh: '高斯标准差',
+          ja: 'ガウスの標準偏差',
+          de: 'Gauß-Standardabweichung',
+          es: 'Desviación estándar gaussiana',
+          fr: 'Écart-type gaussien'
+        },
       },
     ],
     syntax: 'getGaussianKernel(ksize, sigma, ktype)',
@@ -3284,20 +6655,44 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 각종 이미지변환
   {
     id: 'distanceTransform',
-    name: 'Distance Transform (거리 변환)',
+    name: {
+      en: 'Distance Transform',
+      ko: '거리 변환',
+      zh: '距离变换',
+      ja: '距離変換',
+      de: 'Distanztransformation',
+      es: 'Transformación de distancia',
+      fr: 'Transformation de distance'
+    },
     category: 'misc',
-    description: '이진 이미지에서 각 픽셀과 가장 가까운 0 픽셀까지의 거리를 계산합니다.',
+    description: {
+      en: 'Calculates the distance to the closest zero pixel for each pixel of the binary image.',
+      ko: '이진 이미지에서 각 픽셀과 가장 가까운 0 픽셀까지의 거리를 계산합니다.',
+      zh: '计算二值图像中每个像素到最近零像素的距离。',
+      ja: '二値画像において、各ピクセルから最も近い0ピクセルまでの距離を計算します。',
+      de: 'Berechnet den Abstand zum nächsten Nullpixel für jedes Pixel des Binärbildes.',
+      es: 'Calcula la distancia al píxel cero más cercano para cada píxel de la imagen binaria.',
+      fr: 'Calcule la distance au pixel zéro le plus proche pour chaque pixel de l\'image binaire.'
+    },
     parameters: [
       {
         name: 'distanceType',
         type: 'select',
         defaultValue: 'DIST_L2',
         options: [
-          { label: 'L1 (맨하탄)', value: 'DIST_L1' },
-          { label: 'L2 (유클리드)', value: 'DIST_L2' },
-          { label: 'C (체스판)', value: 'DIST_C' },
+          { label: { en: 'L1 (Manhattan)', ko: 'L1 (맨하탄)', zh: 'L1 (曼哈顿)', ja: 'L1 (マンハッタン)', de: 'L1 (Manhattan)', es: 'L1 (Manhattan)', fr: 'L1 (Manhattan)' }, value: 'DIST_L1' },
+          { label: { en: 'L2 (Euclidean)', ko: 'L2 (유클리드)', zh: 'L2 (欧几里德)', ja: 'L2 (ユークリッド)', de: 'L2 (Euklidisch)', es: 'L2 (Euclidiana)', fr: 'L2 (Euclidienne)' }, value: 'DIST_L2' },
+          { label: { en: 'C (Chessboard)', ko: 'C (체스판)', zh: 'C (棋盘)', ja: 'C (チェスボード)', de: 'C (Schachbrett)', es: 'C (Tablero de ajedrez)', fr: 'C (Échiquier)' }, value: 'DIST_C' },
         ],
-        description: '거리 계산 방식',
+        description: {
+          en: 'Type of distance',
+          ko: '거리 계산 방식',
+          zh: '距离类型',
+          ja: '距離の種類',
+          de: 'Distanztyp',
+          es: 'Tipo de distancia',
+          fr: 'Type de distance'
+        },
       },
       {
         name: 'maskSize',
@@ -3307,7 +6702,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '3x3', value: 3 },
           { label: '5x5', value: 5 },
         ],
-        description: '마스크 크기',
+        description: {
+          en: 'Size of the distance transform mask',
+          ko: '거리 변환 마스크 크기',
+          zh: '距离变换掩码的大小',
+          ja: '距離変換マスクのサイズ',
+          de: 'Größe der Distanztransformationsmaske',
+          es: 'Tamaño de la máscara de transformación de distancia',
+          fr: 'Taille du masque de transformation de distance'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -3316,9 +6719,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'floodFill',
-    name: 'Flood Fill (영역 채우기)',
+    name: {
+      en: 'Flood Fill',
+      ko: '영역 채우기',
+      zh: '漫水填充',
+      ja: '防波堤（シードポイント）からの塗りつぶし',
+      de: 'Flutfüllung',
+      es: 'Relleno de inundación',
+      fr: 'Remplissage par diffusion'
+    },
     category: 'misc',
-    description: '시드 포인트에서 시작하여 연결된 영역을 특정 색상으로 채웁니다.',
+    description: {
+      en: 'Fills a connected component starting from the seed point with the specified color.',
+      ko: '시드 포인트에서 시작하여 연결된 영역을 특정 색상으로 채웁니다.',
+      zh: '从种子点开始用指定颜色填充连通分量。',
+      ja: 'シードポイントから開始して、接続されたコンポーネントを指定された色で塗りつぶします。',
+      de: 'Füllt eine zusammenhängende Komponente beginnend am Startpunkt mit der angegebenen Farbe.',
+      es: 'Rellena un componente conectado comenzando desde el punto semilla con el color especificado.',
+      fr: 'Remplit une composante connectée à partir du point germe avec la couleur spécifiée.'
+    },
     parameters: [
       {
         name: 'tolerance',
@@ -3327,7 +6746,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 50,
         step: 5,
-        description: '색상 허용 오차',
+        description: {
+          en: 'Color tolerance for filling',
+          ko: '채우기를 위한 색상 허용 오차',
+          zh: '填充的颜色容差',
+          ja: '塗りつぶしの色の許容誤差',
+          de: 'Farbtoleranz für die Füllung',
+          es: 'Tolerancia de color para el relleno',
+          fr: 'Tolérance de couleur pour le remplissage'
+        },
       },
     ],
     syntax: 'floodFill(image, mask, seedPoint, newVal, rect, loDiff, upDiff, flags)',
@@ -3335,9 +6762,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'watershed',
-    name: 'Watershed (워터셰드)',
+    name: {
+      en: 'Watershed',
+      ko: '워터셰드',
+      zh: '分水岭算法',
+      ja: '分水嶺アルゴリズム',
+      de: 'Watershed-Algorithmus',
+      es: 'Cuenca hidrográfica (Watershed)',
+      fr: 'Ligne de partage des eaux (Watershed)'
+    },
     category: 'misc',
-    description: '워터셰드 알고리즘을 사용하여 이미지를 ��할합니다.',
+    description: {
+      en: 'Performs a marker-based image segmentation using the watershed algorithm.',
+      ko: '워터셰드 알고리즘을 사용하여 마커 기반 이미지 분할을 수행합니다.',
+      zh: '使用分水岭算法执行基于标记的图像分割。',
+      ja: '分水嶺アルゴリズムを使用して、マーカーベースの画像セグメンテーションを実行します。',
+      de: 'Führt eine markerbasierte Bildsegmentierung mit dem Watershed-Algorithmus durch.',
+      es: 'Realiza una segmentación de imagen basada en marcadores mediante el algoritmo de cuenca hidrográfica.',
+      fr: 'Effectue une segmentation d\'image basée sur des marqueurs en utilisant l\'algorithme de ligne de partage des eaux.'
+    },
     parameters: [
       {
         name: 'threshold',
@@ -3346,7 +6789,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 50,
         max: 200,
         step: 10,
-        description: '이진화 임계값',
+        description: {
+          en: 'Binary threshold value for markers',
+          ko: '마커 생성을 위한 이진화 임계값',
+          zh: '标记的二值化阈值',
+          ja: 'マーカーの二値化しきい値',
+          de: 'Binärer Schwellenwert für Marker',
+          es: 'Valor de umbral binario para marcadores',
+          fr: 'Valeur de seuil binaire pour les marqueurs'
+        },
       },
     ],
     syntax: 'watershed(image, markers)',
@@ -3354,19 +6805,43 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'connectedComponents',
-    name: 'Connected Components (연결 요소)',
+    name: {
+      en: 'Connected Components',
+      ko: '연결 요소 레이블링',
+      zh: '连通分量标记',
+      ja: '連通成分のラベル付け',
+      de: 'Zusammenhangskomponenten',
+      es: 'Componentes conectados',
+      fr: 'Composantes connectées'
+    },
     category: 'misc',
-    description: '이진 이미지에서 연결된 요소를 레이블링합니다.',
+    description: {
+      en: 'Computes the connected components labeled image of boolean image.',
+      ko: '이진 이미지에서 연결된 요소를 레이블링하여 이미지를 생성합니다.',
+      zh: '计算布尔图像的连通分量标记图像。',
+      ja: 'ブール画像の連通成分ラベル付け画像を計算します。',
+      de: 'Berechnet das markierte Bild der Zusammenhangskomponenten eines booleschen Bildes.',
+      es: 'Calcula la imagen etiquetada de componentes conectados de una imagen booleana.',
+      fr: 'Calcule l\'image étiquetée des composantes connectées d\'une image booléenne.'
+    },
     parameters: [
       {
         name: 'connectivity',
         type: 'select',
         defaultValue: 8,
         options: [
-          { label: '4-연결', value: 4 },
-          { label: '8-연결', value: 8 },
+          { label: { en: '4-connectivity', ko: '4-연결', zh: '4 连通', ja: '4-連結', de: '4-Zusammenhang', es: 'Conectividad-4', fr: 'Connectivité-4' }, value: 4 },
+          { label: { en: '8-connectivity', ko: '8-연결', zh: '8 连通', ja: '8-連結', de: '8-Zusammenhang', es: 'Conectividad-8', fr: 'Connectivité-8' }, value: 8 },
         ],
-        description: '연결성',
+        description: {
+          en: 'Connectivity (4 or 8)',
+          ko: '연결성 (4 또는 8)',
+          zh: '连通性（4 或 8）',
+          ja: '連結性（4または8）',
+          de: 'Zusammenhang (4 oder 8)',
+          es: 'Conectividad (4 u 8)',
+          fr: 'Connectivité (4 ou 8)'
+        },
       },
     ],
     requiresGrayscale: true,
@@ -3377,9 +6852,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   // 모션 분석 및 객체 추적
   {
     id: 'accumulate',
-    name: 'Accumulate (누적)',
+    name: {
+      en: 'Accumulate',
+      ko: '누적',
+      zh: '图像累加',
+      ja: '累積（アキュムレート）',
+      de: 'Akkumulieren',
+      es: 'Acumular',
+      fr: 'Accumuler'
+    },
     category: 'motion',
-    description: '입력 이미지를 누적 이미지에 더합니다. 배경 모델링이나 모션 분석에 사용됩니다.',
+    description: {
+      en: 'Adds an image to the accumulator image. Used for background modeling or motion analysis.',
+      ko: '입력 이미지를 누적 이미지에 더합니다. 배경 모델링이나 모션 분석에 사용됩니다.',
+      zh: '将图像添加到累加器图像。用于背景建模或运动分析。',
+      ja: '入力画像を累積画像に加算します。背景モデリングや動き分析に使用されます。',
+      de: 'Fügt ein Bild zum Akkumulatorbild hinzu. Wird für Hintergrundmodellierung oder Bewegungsanalyse verwendet.',
+      es: 'Añade una imagen a la imagen del acumulador. Se utiliza para el modelado de fondo o el análisis de movimiento.',
+      fr: 'Ajoute une image à l\'image accumulateur. Utilisé pour la modélisation de l\'arrière-plan ou l\'analyse de mouvement.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -3388,7 +6879,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 1.0,
         step: 0.1,
-        description: '누적 가중치 (작을수록 이전 프레임 영향 큼)',
+        description: {
+          en: 'Accumulation weight',
+          ko: '누적 가중치',
+          zh: '累加权重',
+          ja: '累積の重み',
+          de: 'Akkumulationsgewicht',
+          es: 'Peso de acumulación',
+          fr: 'Poids d\'accumulation'
+        },
       },
     ],
     inputCount: 2,
@@ -3397,9 +6896,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'accumulateSquare',
-    name: 'Accumulate Square (제곱 누적)',
+    name: {
+      en: 'Accumulate Square',
+      ko: '제곱 누적',
+      zh: '平方阶累加',
+      ja: '平方累積',
+      de: 'Quadratisches Akkumulieren',
+      es: 'Acumular cuadrado',
+      fr: 'Accumuler le carré'
+    },
     category: 'motion',
-    description: '입력 이미지의 제곱을 누적 이미지에 더합니다. 분산 계산에 사용됩니다.',
+    description: {
+      en: 'Adds the square of the source image to the accumulator image.',
+      ko: '입력 이미지의 제곱을 누적 이미지에 더합니다. 분산 계산 등에 사용됩니다.',
+      zh: '将源图像的平方添加到累加器图像。',
+      ja: 'ソース画像の平方を入力画像に累積します。',
+      de: 'Fügt das Quadrat des Quellbildes zum Akkumulatorbild hinzu.',
+      es: 'Añade el cuadrado de la imagen de origen a la imagen del acumulador.',
+      fr: 'Ajoute le carré de l\'image source à l\'image accumulateur.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -3408,7 +6923,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 1.0,
         step: 0.1,
-        description: '누적 가중치',
+        description: {
+          en: 'Accumulation weight',
+          ko: '누적 가중치',
+          zh: '累加权重',
+          ja: '累積の重み',
+          de: 'Akkumulationsgewicht',
+          es: 'Peso de acumulación',
+          fr: 'Poids d\'accumulation'
+        },
       },
     ],
     inputCount: 2,
@@ -3417,9 +6940,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'accumulateProduct',
-    name: 'Accumulate Product (곱 누적)',
+    name: {
+      en: 'Accumulate Product',
+      ko: '곱 누적',
+      zh: '图像乘积累加',
+      ja: '積累積',
+      de: 'Produkt akkumulieren',
+      es: 'Acumular producto',
+      fr: 'Accumuler le produit'
+    },
     category: 'motion',
-    description: '두 입력 이미지의 곱을 누적 이미지에 더합니다. 공분산 계산에 사용됩니다.',
+    description: {
+      en: 'Adds the product of two input images to the accumulator image. Used for covariance calculation.',
+      ko: '두 입력 이미지의 곱을 누적 이미지에 더합니다. 공분산 계산에 사용됩니다.',
+      zh: '将两个输入图像的乘积添加到累加器图像。用于协方差计算。',
+      ja: '2つの入力画像の積を累積画像に加算します。共分散計算に使用されます。',
+      de: 'Fügt das Produkt zweier Eingabebilder zum Akkumulatorbild hinzu. Wird für die Kovarianzberechnung verwendet.',
+      es: 'Añade el producto de dos imágenes de entrada a la imagen del acumulador. Se utiliza para el cálculo de la covarianza.',
+      fr: 'Ajoute le produit de deux images d\'entrée à l\'image accumulateur. Utilisé pour le calcul de la covariance.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -3428,7 +6967,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 1.0,
         step: 0.1,
-        description: '누적 가중치',
+        description: {
+          en: 'Accumulation weight',
+          ko: '누적 가중치',
+          zh: '累加权重',
+          ja: '累積の重み',
+          de: 'Akkumulationsgewicht',
+          es: 'Peso de acumulación',
+          fr: 'Poids d\'accumulation'
+        },
       },
     ],
     inputCount: 2,
@@ -3437,9 +6984,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'accumulateWeighted',
-    name: 'Accumulate Weighted (가중 누적)',
+    name: {
+      en: 'Accumulate Weighted',
+      ko: '가중 누적',
+      zh: '权重累加',
+      ja: '加重累積',
+      de: 'Gewichtet akkumulieren',
+      es: 'Acumular ponderado',
+      fr: 'Accumuler pondéré'
+    },
     category: 'motion',
-    description: '입력 이미지를 가중치를 적용하여 누적합니다. 배경 차분에 널리 사용됩니다.',
+    description: {
+      en: 'Calculates the weighted sum of the input image and the accumulator. Widely used for background subtraction.',
+      ko: '입력 이미지와 누적 이미지의 가중 합을 계산합니다. 배경 차분에 널리 사용됩니다.',
+      zh: '计算输入图像和累加器的加权和。广泛用于背景减法。',
+      ja: '入力画像と累積画像の加重和を計算します。背景差分に広く使用されます。',
+      de: 'Berechnet die gewichtete Summe des Eingabebildes und des Akkumulators. Wird häufig für die Hintergrundsubtraktion verwendet.',
+      es: 'Calcula la suma ponderada de la imagen de entrada y el acumulador. Ampliamente utilizado para la sustracción de fondo.',
+      fr: 'Calcule la somme pondérée de l\'image d\'entrée et de l\'accumulateur. Largement utilisé pour la soustraction d\'arrière-plan.'
+    },
     parameters: [
       {
         name: 'alpha',
@@ -3448,7 +7011,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.01,
         max: 1.0,
         step: 0.01,
-        description: '학습률 (작을수록 배경 업데이트 느림)',
+        description: {
+          en: 'Learning rate (smaller values mean slower background update)',
+          ko: '학습률 (작을수록 배경 업데이트가 느림)',
+          zh: '学习率（值越小表示背景更新越慢）',
+          ja: '学習率（値が小さいほど背景の更新が遅くなります）',
+          de: 'Lernrate (kleinere Werte bedeuten langsamere Hintergrundaktualisierung)',
+          es: 'Tasa de aprendizaje (valores más pequeños significan una actualización de fondo más lenta)',
+          fr: 'Taux d\'apprentissage (des valeurs plus petites signifient une mise à jour plus lente de l\'arrière-plan)'
+        },
       },
     ],
     inputCount: 2,
@@ -3457,9 +7028,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'createHanningWindow',
-    name: 'Create Hanning Window (한닝 윈도우)',
+    name: {
+      en: 'Create Hanning Window',
+      ko: '한닝 윈도우 생성',
+      zh: '创建汉宁窗',
+      ja: 'ハン窓の作成',
+      de: 'Hanning-Fenster erstellen',
+      es: 'Crear ventana Hanning',
+      fr: 'Créer une fenêtre de Hanning'
+    },
     category: 'motion',
-    description: '주파수 영역에서 사용할 한닝 윈도우를 생성합니다. 위상 상관에 사용됩니다.',
+    description: {
+      en: 'Computes a Hanning window coefficients for phase correlation.',
+      ko: '위상 상관을 위한 한닝 윈도우 계수를 계산합니다.',
+      zh: '计算用于相位相关的汉宁窗系数。',
+      ja: '位相相関用のハン窓係数を計算します。',
+      de: 'Berechnet Hanning-Fensterkoeffizienten für die Phasenkorrelation.',
+      es: 'Calcula los coeficientes de la ventana Hanning para la correlación de fase.',
+      fr: 'Calcule les coefficients d\'une fenêtre de Hanning pour la corrélation de phase.'
+    },
     parameters: [
       {
         name: 'winSize',
@@ -3471,7 +7058,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '256x256', value: 256 },
           { label: '512x512', value: 512 },
         ],
-        description: '윈도우 크기',
+        description: {
+          en: 'Window size',
+          ko: '윈도우 크기',
+          zh: '窗口大小',
+          ja: 'ウィンドウサイズ',
+          de: 'Fenstergröße',
+          es: 'Tamaño de ventana',
+          fr: 'Taille de la fenêtre'
+        },
       },
     ],
     syntax: 'createHanningWindow(dst, winSize, type)',
@@ -3479,9 +7074,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'phaseCorrelate',
-    name: 'Phase Correlate (위상 상관)',
+    name: {
+      en: 'Phase Correlate',
+      ko: '위상 상관',
+      zh: '相位相关',
+      ja: '位相相関',
+      de: 'Phasenkorrelation',
+      es: 'Correlación de fase',
+      fr: 'Corrélation de phase'
+    },
     category: 'motion',
-    description: '두 이미지 간의 위상 상관을 이용하여 이동 벡터를 계산합니다.',
+    description: {
+      en: 'Calculates the shift between two images using phase correlation.',
+      ko: '위상 상관을 이용하여 두 이미지 간의 이동 변위를 계산합니다.',
+      zh: '使用相位相关计算两个图像之间的位移。',
+      ja: '位相相関を使用して2つの画像間のズレを計算します。',
+      de: 'Berechnet die Verschiebung zwischen zwei Bildern mithilfe der Phasenkorrelation.',
+      es: 'Calcula el desplazamiento entre dos imágenes mediante correlación de fase.',
+      fr: 'Calcule le décalage entre deux images en utilisant la corrélation de phase.'
+    },
     parameters: [
       {
         name: 'windowSize',
@@ -3492,7 +7103,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: '128x128', value: 128 },
           { label: '256x256', value: 256 },
         ],
-        description: '윈도우 크기',
+        description: {
+          en: 'Window size',
+          ko: '윈도우 크기',
+          zh: '窗口大小',
+          ja: 'ウィンドウサイズ',
+          de: 'Fenstergröße',
+          es: 'Tamaño de ventana',
+          fr: 'Taille de la fenêtre'
+        },
       },
     ],
     inputCount: 2,
@@ -3502,9 +7121,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'meanShift',
-    name: 'Mean Shift',
+    name: {
+      en: 'Mean Shift',
+      ko: '평균 이동(Mean Shift)',
+      zh: '均值漂移',
+      ja: 'ミーンシフト',
+      de: 'Mean Shift',
+      es: 'Desplazamiento de media (Mean Shift)',
+      fr: 'Décalage de moyenne (Mean Shift)'
+    },
     category: 'motion',
-    description: 'Mean Shift 알고리즘을 사용하여 객체를 추적합니다.',
+    description: {
+      en: 'Finds an object on a back projection image using the Mean Shift algorithm.',
+      ko: 'Mean Shift 알고리즘을 사용하여 역투영 이미지에서 객체를 찾습니다.',
+      zh: '使用均值漂移算法在反向投影图像上查找对象。',
+      ja: 'ミーンシフトアルゴリズムを使用して、逆投影画像上のオブジェクトを検索します。',
+      de: 'Findet ein Objekt in einem Rückprojektionsbild mithilfe des Mean-Shift-Algorithmus.',
+      es: 'Encuentra un objeto en una imagen de retroproyección mediante el algoritmo Mean Shift.',
+      fr: 'Trouve un objet sur une image de rétroprojection en utilisant l\'algorithme Mean Shift.'
+    },
     parameters: [
       {
         name: 'maxIter',
@@ -3513,7 +7148,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 100,
         step: 1,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'epsilon',
@@ -3522,7 +7165,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 10.0,
         step: 0.1,
-        description: '수렴 정밀도',
+        description: {
+          en: 'Convergence precision',
+          ko: '수렴 정밀도',
+          zh: '收敛精度',
+          ja: '収束精度',
+          de: 'Konvergenzpräzision',
+          es: 'Precisión de convergencia',
+          fr: 'Précision de convergence'
+        },
       },
     ],
     syntax: 'meanShift(probImage, window, criteria)',
@@ -3530,9 +7181,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'CamShift',
-    name: 'CamShift',
+    name: {
+      en: 'CamShift',
+      ko: '캠시프트(CamShift)',
+      zh: '连续自适应均值漂移',
+      ja: 'カムシフト',
+      de: 'CamShift',
+      es: 'CamShift',
+      fr: 'CamShift'
+    },
     category: 'motion',
-    description: 'Continuously Adaptive Mean Shift 알고리즘으로 크기가 변하는 객체를 추적합니다.',
+    description: {
+      en: 'Finds an object center, size, and orientation using the CAMSHIFT algorithm.',
+      ko: 'CAMSHIFT 알고리즘을 사용하여 객체의 중심, 크기 및 방향을 찾습니다.',
+      zh: '使用 CAMSHIFT 算法查找对象的中心、大小和方向。',
+      ja: 'CAMSHIFTアルゴリズムを使用して、オブジェクトの中心、サイズ、および方向を検索します。',
+      de: 'Findet Objektzentrum, Größe und Orientierung mit dem CAMSHIFT-Algorithmus.',
+      es: 'Encuentra el centro, el tamaño y la orientación del objeto mediante el algoritmo CAMSHIFT.',
+      fr: 'Trouve le centre, la taille et l\'orientation d\'un objet en utilisant l\'algorithme CAMSHIFT.'
+    },
     parameters: [
       {
         name: 'maxIter',
@@ -3541,7 +7208,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 100,
         step: 1,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'epsilon',
@@ -3550,7 +7225,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 10.0,
         step: 0.1,
-        description: '수렴 정밀도',
+        description: {
+          en: 'Convergence precision',
+          ko: '수렴 정밀도',
+          zh: '收敛精度',
+          ja: '収束精度',
+          de: 'Konvergenzpräzision',
+          es: 'Precisión de convergencia',
+          fr: 'Précision de convergence'
+        },
       },
     ],
     syntax: 'CamShift(probImage, window, criteria)',
@@ -3558,9 +7241,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'calcOpticalFlowPyrLK',
-    name: 'Optical Flow Pyramidal LK (피라미달 Lucas-Kanade)',
+    name: {
+      en: 'Optical Flow Pyramidal LK',
+      ko: '피라미달 Lucas-Kanade 광학 흐름',
+      zh: '金字塔 Lucas-Kanade 光流',
+      ja: 'ピラミダル Lucas-Kanade オプティカルフロー',
+      de: 'Pyramidales Lucas-Kanade Optischer Fluss',
+      es: 'Flujo óptico Lucas-Kanade piramidal',
+      fr: 'Flux optique Lucas-Kanade pyramidal'
+    },
     category: 'motion',
-    description: '피라미달 Lucas-Kanade 방법을 사용하여 희소 특징점의 광학 흐름(optical flow)을 계산합니다.',
+    description: {
+      en: 'Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyramids.',
+      ko: '피라미드를 사용하는 반복적 Lucas-Kanade 방법을 이용하여 희소 특징점의 광학 흐름(optical flow)을 계산합니다.',
+      zh: '使用带有金字塔的迭代 Lucas-Kanade 方法计算稀疏特征集的光流。',
+      ja: 'ピラミッドを使用した反復 Lucas-Kanade 法を使用して、スパース（稀に）な特徴セットのオプティカルフローを計算します。',
+      de: 'Berechnet einen optischen Fluss für einen spärlichen Merkmalsatz mithilfe der iterativen Lucas-Kanade-Methode mit Pyramiden.',
+      es: 'Calcula un flujo óptico para un conjunto de características dispersas mediante el método iterativo Lucas-Kanade con pirámides.',
+      fr: 'Calcule un flux optique pour un ensemble de caractéristiques éparses en utilisant la méthode itérative de Lucas-Kanade avec des pyramides.'
+    },
     parameters: [
       {
         name: 'maxLevel',
@@ -3569,7 +7268,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 10,
         step: 1,
-        description: '피라미드 최대 레벨 (0=단일 레벨)',
+        description: {
+          en: '0-based maximal pyramid level number (0 means single level)',
+          ko: '피라미드 최대 레벨 (0은 단일 레벨을 의미)',
+          zh: '基于 0 的最大金字塔层数（0 表示单层）',
+          ja: '0ベースの最大ピラミッドレベル番号（0は単一レベルを意味します）',
+          de: '0-basierte maximale Pyramidenebene (0 bedeutet eine einzelne Ebene)',
+          es: 'Número máximo de nivel de pirámide basado en 0 (0 significa nivel único)',
+          fr: 'Numéro de niveau de pyramide maximal basé sur 0 (0 signifie niveau unique)'
+        },
       },
       {
         name: 'winSize',
@@ -3578,7 +7285,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 51,
         step: 2,
-        description: '검색 윈도우 크기',
+        description: {
+          en: 'Size of the search window at each pyramid level',
+          ko: '각 피라미드 레벨에서의 검색 윈도우 크기',
+          zh: '每个金字塔层级的搜索窗口大小',
+          ja: '各ピラミッドレベルでの検索ウィンドウのサイズ',
+          de: 'Größe des Suchfensters auf jeder Pyramidenebene',
+          es: 'Tamaño de la ventana de búsqueda en cada nivel de la pirámide',
+          fr: 'Taille de la fenêtre de recherche à chaque niveau de pyramide'
+        },
       },
       {
         name: 'maxIter',
@@ -3587,7 +7302,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 100,
         step: 1,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'epsilon',
@@ -3596,7 +7319,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.001,
         max: 1.0,
         step: 0.001,
-        description: '수렴 정밀도',
+        description: {
+          en: 'Convergence precision',
+          ko: '수렴 정밀도',
+          zh: '收敛精度',
+          ja: '収束精度',
+          de: 'Konvergenzpräzision',
+          es: 'Precisión de convergencia',
+          fr: 'Précision de convergence'
+        },
       },
     ],
     inputCount: 2,
@@ -3605,9 +7336,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'calcOpticalFlowFarneback',
-    name: 'Optical Flow Farneback (밀집 광학 흐름)',
+    name: {
+      en: 'Optical Flow Farneback',
+      ko: '밀집 광학 흐름(Farneback)',
+      zh: 'Farneback 稠密光流',
+      ja: 'Farneback 密なオプティカルフロー',
+      de: 'Farneback Dichter Optischer Fluss',
+      es: 'Flujo óptico denso de Farneback',
+      fr: 'Flux optique dense de Farneback'
+    },
     category: 'motion',
-    description: 'Gunnar Farneback 알고리즘을 사용하여 밀집 광학 흐름(dense optical flow)을 계산합니다.',
+    description: {
+      en: 'Computes a dense optical flow using the Gunnar Farneback algorithm.',
+      ko: 'Gunnar Farneback 알고리즘을 사용하여 밀집 광학 흐름(dense optical flow)을 계산합니다.',
+      zh: '使用 Gunnar Farneback 算法计算稠密光流。',
+      ja: 'Gunnar Farneback アルゴリズムを使用して、密な（デンス）オプティカルフローを計算します。',
+      de: 'Berechnet einen dichten optischen Fluss mit dem Gunnar-Farneback-Algorithmus.',
+      es: 'Calcula un flujo óptico denso mediante el algoritmo de Gunnar Farneback.',
+      fr: 'Calcule un flux optique dense en utilisant l\'algorithme de Gunnar Farneback.'
+    },
     parameters: [
       {
         name: 'pyrScale',
@@ -3616,7 +7363,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 0.9,
         step: 0.1,
-        description: '피라미드 스케일 (이미지 크기 비율)',
+        description: {
+          en: 'Scale to build pyramids (image size ratio)',
+          ko: '피라미드 스케일 (이미지 크기 비율)',
+          zh: '构建金字塔的缩放比例（图像尺寸比例）',
+          ja: 'ピラミッドを構築するためのスケール（画像サイズ比）',
+          de: 'Maßstab zum Erstellen von Pyramiden (Bildgrößenverhältnis)',
+          es: 'Escala para construir pirámides (relación de tamaño de imagen)',
+          fr: 'Échelle pour construire des pyramides (rapport de taille d\'image)'
+        },
       },
       {
         name: 'levels',
@@ -3625,7 +7380,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '피라미드 레벨 수',
+        description: {
+          en: 'Number of pyramid levels',
+          ko: '피라미드 레벨 수',
+          zh: '金字塔层数',
+          ja: 'ピラミッドレベルの数',
+          de: 'Anzahl der Pyramidenebenen',
+          es: 'Número de niveles de la pirámide',
+          fr: 'Nombre de niveaux de pyramide'
+        },
       },
       {
         name: 'winsize',
@@ -3634,7 +7397,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 51,
         step: 2,
-        description: '평균 윈도우 크기',
+        description: {
+          en: 'Averaging window size',
+          ko: '평균 윈도우 크기',
+          zh: '平均窗口大小',
+          ja: '平均ウィンドウサイズ',
+          de: 'Größe des Mittelungsfensters',
+          es: 'Tamaño de la ventana de promedio',
+          fr: 'Taille de la fenêtre de moyenne'
+        },
       },
       {
         name: 'iterations',
@@ -3643,7 +7414,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 10,
         step: 1,
-        description: '각 피라미드 레벨의 반복 횟수',
+        description: {
+          en: 'Number of iterations at each pyramid level',
+          ko: '각 피라미드 레벨에서의 반복 횟수',
+          zh: '每个金字塔层级的迭代次数',
+          ja: '各ピラミッドレベルでの繰り返し回数',
+          de: 'Anzahl der Iterationen auf jeder Pyramidenebene',
+          es: 'Número de iteraciones en cada nivel de la pirámide',
+          fr: 'Nombre d\'itérations à chaque niveau de pyramide'
+        },
       },
       {
         name: 'polyN',
@@ -3652,7 +7431,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 5,
         max: 7,
         step: 2,
-        description: '픽셀 이웃 크기 (5 또는 7)',
+        description: {
+          en: 'Size of the pixel neighborhood (usually 5 or 7)',
+          ko: '픽셀 이웃 크기 (일반적으로 5 또는 7)',
+          zh: '像素邻域大小（通常为 5 或 7）',
+          ja: 'ピクセル近傍のサイズ（通常は 5 または 7）',
+          de: 'Größe der Pixelelleachbarschaft (normalerweise 5 oder 7)',
+          es: 'Tamaño del vecindario de píxeles (generalmente 5 o 7)',
+          fr: 'Taille du voisinage de pixels (généralement 5 ou 7)'
+        },
       },
       {
         name: 'polySigma',
@@ -3661,7 +7448,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1.1,
         max: 2.0,
         step: 0.1,
-        description: '가우시안 표준편차',
+        description: {
+          en: 'Gaussian standard deviation',
+          ko: '가우시안 표준편차',
+          zh: '高斯标准差',
+          ja: 'ガウスの標準偏差',
+          de: 'Gauß-Standardabweichung',
+          es: 'Desviación estándar gaussiana',
+          fr: 'Écart-type gaussien'
+        },
       },
     ],
     inputCount: 2,
@@ -3671,9 +7466,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'buildOpticalFlowPyramid',
-    name: 'Build Optical Flow Pyramid (광학 흐름 피라미드)',
+    name: {
+      en: 'Build Optical Flow Pyramid',
+      ko: '광학 흐름 피라미드 생성',
+      zh: '构建光流金字塔',
+      ja: 'オプティカルフローピラミッドの構築',
+      de: 'Optischer-Fluss-Pyramide erstellen',
+      es: 'Construir pirámide de flujo óptico',
+      fr: 'Construire une pyramide de flux optique'
+    },
     category: 'motion',
-    description: '광학 흐름 계산을 위한 이미지 피라미드를 생성합니다.',
+    description: {
+      en: 'Constructs an image pyramid for sparse optical flow computations.',
+      ko: '희소 광학 흐름(sparse optical flow) 계산을 위한 이미지 피라미드를 생성합니다.',
+      zh: '为稀疏光流计算构建图像金字塔。',
+      ja: 'スパースなオプティカルフロー計算用の画像ピラミッドを構築します。',
+      de: 'Erstellt eine Bildpyramide für spärliche optische Flussberechnungen.',
+      es: 'Construye una pirámide de imágenes para cálculos de flujo óptico disperso.',
+      fr: 'Construit une pyramide d\'images pour les calculs de flux optique éparses.'
+    },
     parameters: [
       {
         name: 'winSize',
@@ -3682,7 +7493,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 51,
         step: 2,
-        description: '윈도우 크기',
+        description: {
+          en: 'Window size',
+          ko: '윈도우 크기',
+          zh: '窗口大小',
+          ja: 'ウィンドウサイズ',
+          de: 'Fenstergröße',
+          es: 'Tamaño de ventana',
+          fr: 'Taille de la fenêtre'
+        },
       },
       {
         name: 'maxLevel',
@@ -3691,17 +7510,33 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0,
         max: 10,
         step: 1,
-        description: '피라미드 최대 레벨',
+        description: {
+          en: 'Maximum level of the pyramid',
+          ko: '피라미드 최대 레벨',
+          zh: '金字塔最大层数',
+          ja: 'ピラミッドの最大レベル',
+          de: 'Maximale Ebene der Pyramide',
+          es: 'Nivel máximo de la pirámide',
+          fr: 'Niveau maximum de la pyramide'
+        },
       },
       {
         name: 'withDerivatives',
         type: 'select',
         defaultValue: true,
         options: [
-          { label: '미분 포함', value: true },
-          { label: '미분 제외', value: false },
+          { label: { en: 'With derivatives', ko: '미분 포함', zh: '包括导数', ja: '微分を含む', de: 'Mit Ableitungen', es: 'Con derivadas', fr: 'Avec dérivées' }, value: true },
+          { label: { en: 'Without derivatives', ko: '미분 제외', zh: '不包括导数', ja: '微分を含まない', de: 'Ohne Ableitungen', es: 'Sin derivadas', fr: 'Sans dérivées' }, value: false },
         ],
-        description: '공간 미분 계산 여부',
+        description: {
+          en: 'Whether to compute spatial derivatives',
+          ko: '공간 미분 계산 여부',
+          zh: '是否计算空间导数',
+          ja: '空間微分を計算するかどうか',
+          de: 'Ob räumliche Ableitungen berechnet werden sollen',
+          es: 'Si calcular derivadas espaciales',
+          fr: 'S\'il faut calculer les dérivées spatiales'
+        },
       },
     ],
     syntax: 'buildOpticalFlowPyramid(img, pyramid, winSize, maxLevel, withDerivatives)',
@@ -3709,9 +7544,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'estimateAffine2D',
-    name: 'Estimate Affine 2D (아핀 변환 추정)',
+    name: {
+      en: 'Estimate Affine 2D',
+      ko: '2D 아핀 변환 추정',
+      zh: '估算 2D 仿射变换',
+      ja: '2D アフィン変換の推定',
+      de: '2D-Affine-Transformation schätzen',
+      es: 'Estimación afin 2D',
+      fr: 'Estimer une transformation affine 2D'
+    },
     category: 'motion',
-    description: '두 점 집합 간의 최적 아핀 변환 행렬을 추정합니다. 모션 추정에 사용됩니다.',
+    description: {
+      en: 'Estimates an optimal 2D affine transformation between two 2D point sets.',
+      ko: '두 2D 점 집합 간의 최적 아핀 변환 행렬을 추정합니다. 모션 추정 등에 사용됩니다.',
+      zh: '估计两个 2D 点集之间的最佳 2D 仿射变换。',
+      ja: '2つの 2D 点セット間の最適な 2D アフィン変換を推定します。',
+      de: 'Schätzt eine optimale affine 2D-Transformation zwischen zwei 2D-Punktsätzen.',
+      es: 'Estima una transformación afín 2D óptima entre dos conjuntos de puntos 2D.',
+      fr: 'Estime une transformation affine 2D optimale entre deux ensembles de points 2D.'
+    },
     parameters: [
       {
         name: 'method',
@@ -3721,7 +7572,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'RANSAC', value: 'RANSAC' },
           { label: 'LMEDS', value: 'LMEDS' },
         ],
-        description: '추정 방법',
+        description: {
+          en: 'Robust estimation method',
+          ko: '강인한 추정 방법',
+          zh: '鲁棒估计方法',
+          ja: '堅牢な推定方法',
+          de: 'Robuste Schätzmethode',
+          es: 'Método de estimación robusto',
+          fr: 'Méthode d\'estimation robuste'
+        },
       },
       {
         name: 'ransacThreshold',
@@ -3730,7 +7589,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 10.0,
         step: 0.1,
-        description: 'RANSAC 임계값',
+        description: {
+          en: 'Maximum allowed distance for inliers (RANSAC)',
+          ko: '인라이어(정상치)로 허용되는 최대 거리 (RANSAC)',
+          zh: '内点的最大允许距离 (RANSAC)',
+          ja: 'インライアとして許可される最大距離 (RANSAC)',
+          de: 'Maximal zulässiger Abstand für Inlier (RANSAC)',
+          es: 'Distancia máxima permitida para valores atípicos (RANSAC)',
+          fr: 'Distance maximale autorisée pour les inliers (RANSAC)'
+        },
       },
       {
         name: 'maxIters',
@@ -3739,7 +7606,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 10000,
         step: 100,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'confidence',
@@ -3748,7 +7623,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.9,
         max: 0.999,
         step: 0.001,
-        description: '신뢰도',
+        description: {
+          en: 'Confidence level (0 to 1)',
+          ko: '신뢰도 (0에서 1 사이)',
+          zh: '置信度（0 到 1）',
+          ja: '信頼レベル（0から1）',
+          de: 'Konfidenzniveau (0 bis 1)',
+          es: 'Nivel de confianza (0 a 1)',
+          fr: 'Niveau de confiance (0 à 1)'
+        },
       },
     ],
     inputCount: 2,
@@ -3757,9 +7640,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'estimateAffinePartial2D',
-    name: 'Estimate Affine Partial 2D (부분 아핀 변환)',
+    name: {
+      en: 'Estimate Affine Partial 2D',
+      ko: '부분적 아핀 변환 추정',
+      zh: '估算局部 2D 仿射变换',
+      ja: '部分的な 2D アフィン変換の推定',
+      de: 'Partielle affine 2D-Transformation schätzen',
+      es: 'Estimación afin parcial 2D',
+      fr: 'Estimer une transformation affine partielle 2D'
+    },
     category: 'motion',
-    description: '회전, 이동, 균일 스케일링만 포함하는 부분 아핀 변환을 추정합니다.',
+    description: {
+      en: 'Estimates a partial affine transformation (rotation, translation, and scale).',
+      ko: '회전, 이동 및 스케일링만 포함하는 부분적 아핀 변환을 추정합니다.',
+      zh: '估计局部仿射变换（旋转、平移和缩放）。',
+      ja: '部分的なアフィン変換（回転、移動、スケール）を推定します。',
+      de: 'Schätzt eine partielle affine Transformation (Rotation, Translation und Skalierung).',
+      es: 'Estima una transformación afín parcial (rotación, traslación y escala).',
+      fr: 'Estime une transformation affine partielle (rotation, translation et échelle).'
+    },
     parameters: [
       {
         name: 'method',
@@ -3769,7 +7668,15 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'RANSAC', value: 'RANSAC' },
           { label: 'LMEDS', value: 'LMEDS' },
         ],
-        description: '추정 방법',
+        description: {
+          en: 'Robust estimation method',
+          ko: '강인한 추정 방법',
+          zh: '鲁棒估计方法',
+          ja: '堅牢な推定方法',
+          de: 'Robuste Schätzmethode',
+          es: 'Método de estimación robusto',
+          fr: 'Méthode d\'estimation robuste'
+        },
       },
       {
         name: 'ransacThreshold',
@@ -3778,7 +7685,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 10.0,
         step: 0.1,
-        description: 'RANSAC 임계값',
+        description: {
+          en: 'Maximum allowed distance for inliers (RANSAC)',
+          ko: '인라이어(정상치)로 허용되는 최대 거리 (RANSAC)',
+          zh: '内点的最大允许距离 (RANSAC)',
+          ja: 'インライアとして許可される最大距離 (RANSAC)',
+          de: 'Maximal zulässiger Abstand für Inlier (RANSAC)',
+          es: 'Distancia máxima permitida para valores atípicos (RANSAC)',
+          fr: 'Distance maximale autorisée pour les inliers (RANSAC)'
+        },
       },
       {
         name: 'maxIters',
@@ -3787,7 +7702,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 100,
         max: 10000,
         step: 100,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'confidence',
@@ -3796,30 +7719,62 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.9,
         max: 0.999,
         step: 0.001,
-        description: '신뢰도',
+        description: {
+          en: 'Confidence level (0 to 1)',
+          ko: '신뢰도 (0에서 1 사이)',
+          zh: '置信度（0 到 1）',
+          ja: '信頼レベル（0から1）',
+          de: 'Konfidenzniveau (0 bis 1)',
+          es: 'Nivel de confianza (0 a 1)',
+          fr: 'Niveau de confiance (0 à 1)'
+        },
       },
     ],
     inputCount: 2,
     syntax: 'estimateAffinePartial2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence)',
-    documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gad767faff73e9cbd8b9d92b955b50062d',
+    documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gadf69bd46f00dbbe48be993414972e3a1',
   },
   {
     id: 'findTransformECC',
-    name: 'Find Transform ECC (ECC 변환)',
+    name: {
+      en: 'Find Transform ECC',
+      ko: 'ECC 변환 생성',
+      zh: '寻找 ECC 变换',
+      ja: 'ECC 変換の検索',
+      de: 'ECC-Transformation finden',
+      es: 'Encontrar transformación ECC',
+      fr: 'Trouver une transformation ECC'
+    },
     category: 'motion',
-    description: 'ECC(Enhanced Correlation Coefficient) 최대화를 사용하여 두 이미지 간의 기하학적 변환을 찾습니다.',
+    description: {
+      en: 'Finds the geometric transformation between two images in terms of the Enhanced Correlation Coefficient (ECC).',
+      ko: 'ECC(향상된 상관 계수)를 최대화하여 두 이미지 간의 기하학적 변환을 찾습니다.',
+      zh: '使用增强相关系数 (ECC) 寻找两个图像之间的几何变换。',
+      ja: '拡張相関係数 (ECC) を使用して、2つの画像間の幾何学的変換を検索します。',
+      de: 'Findet die geometrische Transformation zwischen zwei Bildern basierend auf dem Enhanced Correlation Coefficient (ECC).',
+      es: 'Encuentra la transformación geométrica entre dos imágenes en términos del coeficiente de correlación mejorado (ECC).',
+      fr: 'Trouve la transformation géométrique entre deux images en termes de coefficient de corrélation amélioré (ECC).'
+    },
     parameters: [
       {
         name: 'motionType',
         type: 'select',
         defaultValue: 'MOTION_AFFINE',
         options: [
-          { label: 'MOTION_TRANSLATION (이동)', value: 'MOTION_TRANSLATION' },
-          { label: 'MOTION_EUCLIDEAN (유클리드)', value: 'MOTION_EUCLIDEAN' },
-          { label: 'MOTION_AFFINE (아핀)', value: 'MOTION_AFFINE' },
-          { label: 'MOTION_HOMOGRAPHY (호모그래피)', value: 'MOTION_HOMOGRAPHY' },
+          { label: { en: 'Translation', ko: '이동 (Translation)', zh: '平移', ja: '平行移動', de: 'Translation', es: 'Traslación', fr: 'Translation' }, value: 'MOTION_TRANSLATION' },
+          { label: { en: 'Euclidean', ko: '유클리드 (Euclidean)', zh: '欧几里得', ja: 'ユークリッド', de: 'Euklidisch', es: 'Euclidiano', fr: 'Euclidien' }, value: 'MOTION_EUCLIDEAN' },
+          { label: { en: 'Affine', ko: '아핀 (Affine)', zh: '仿射', ja: 'アフィン', de: 'Affin', es: 'Afín', fr: 'Affine' }, value: 'MOTION_AFFINE' },
+          { label: { en: 'Homography', ko: '호모그래피 (Homography)', zh: '单应性', ja: 'ホモグラフィ', de: 'Homographie', es: 'Homografía', fr: 'Homographie' }, value: 'MOTION_HOMOGRAPHY' },
         ],
-        description: '모션 타입',
+        description: {
+          en: 'Motion model',
+          ko: '모션 모델',
+          zh: '运动模型',
+          ja: 'モーションモデル',
+          de: 'Bewegungsmodell',
+          es: 'Modelo de movimiento',
+          fr: 'Modèle de mouvement'
+        },
       },
       {
         name: 'maxIters',
@@ -3828,7 +7783,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 1,
         max: 200,
         step: 1,
-        description: '최대 반복 횟수',
+        description: {
+          en: 'Maximum number of iterations',
+          ko: '최대 반복 횟수',
+          zh: '最大迭代次数',
+          ja: '最大繰り返し回数',
+          de: 'Maximale Anzahl der Iterationen',
+          es: 'Número máximo de iteraciones',
+          fr: 'Nombre maximum d\'itérations'
+        },
       },
       {
         name: 'epsilon',
@@ -3837,7 +7800,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.0001,
         max: 0.1,
         step: 0.0001,
-        description: '수렴 정밀도',
+        description: {
+          en: 'Convergence precision',
+          ko: '수렴 정밀도',
+          zh: '收敛精度',
+          ja: '収束精度',
+          de: 'Konvergenzpräzision',
+          es: 'Precisión de convergencia',
+          fr: 'Précision de convergence'
+        },
       },
     ],
     inputCount: 2,
@@ -3846,9 +7817,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'readOpticalFlow',
-    name: 'Read Optical Flow (광학 흐름 읽기)',
+    name: {
+      en: 'Read Optical Flow',
+      ko: '광학 흐름 읽기',
+      zh: '读取光流',
+      ja: 'オプティカルフローの読み込み',
+      de: 'Optischer Fluss lesen',
+      es: 'Leer flujo óptico',
+      fr: 'Lire le flux optique'
+    },
     category: 'motion',
-    description: '파일에서 광학 흐름을 읽어옵니다. .flo 포맷을 지원합니다.',
+    description: {
+      en: 'Reads an optical flow from a file. Currently supports .flo files.',
+      ko: '파일에서 광학 흐름(optical flow)을 읽어옵니다. 현재 .flo 포맷을 지원합니다.',
+      zh: '从文件中读取光流。当前支持 .flo 文件。',
+      ja: 'ファイルからオプティカルフローを読み込みます。現在 .flo ファイルをサポートしています。',
+      de: 'Liest einen optischen Fluss aus einer Datei. Unterstützt derzeit .flo-Dateien.',
+      es: 'Lee un flujo óptico desde un archivo. Actualmente admite archivos .flo.',
+      fr: 'Lit un flux optique à partir d\'un fichier. Prend actuellement en charge les fichiers .flo.'
+    },
     parameters: [
       {
         name: 'format',
@@ -3857,7 +7844,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         options: [
           { label: '.flo (Middlebury)', value: '.flo' },
         ],
-        description: '파일 포맷',
+        description: {
+          en: 'File format',
+          ko: '파일 포맷',
+          zh: '文件格式',
+          ja: 'ファイル形式',
+          de: 'Datei-Format',
+          es: 'Formato de archivo',
+          fr: 'Format de fichier'
+        },
       },
     ],
     syntax: 'readOpticalFlow(path)',
@@ -3865,9 +7860,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'writeOpticalFlow',
-    name: 'Write Optical Flow (광학 흐름 저장)',
+    name: {
+      en: 'Write Optical Flow',
+      ko: '광학 흐름 저장',
+      zh: '写入光流',
+      ja: 'オプティカルフローの書き込み',
+      de: 'Optischer Fluss schreiben',
+      es: 'Escribir flujo óptico',
+      fr: 'Écrire le flux optique'
+    },
     category: 'motion',
-    description: '광학 흐름을 파일로 저장합니다. .flo 포맷을 지원합니다.',
+    description: {
+      en: 'Writes an optical flow to a file in .flo format.',
+      ko: '광학 흐름을 .flo 포맷 파일로 저장합니다.',
+      zh: '将光流以 .flo 格式写入文件。',
+      ja: 'オプティカルフローを .flo 形式でファイルに書き込みます。',
+      de: 'Schreibt einen optischen Fluss im .flo-Format in eine Datei.',
+      es: 'Escribe un flujo óptico en un archivo en formato .flo.',
+      fr: 'Écrit un flux optique dans un fichier au format .flo.'
+    },
     parameters: [
       {
         name: 'format',
@@ -3876,7 +7887,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         options: [
           { label: '.flo (Middlebury)', value: '.flo' },
         ],
-        description: '파일 포맷',
+        description: {
+          en: 'File format',
+          ko: '파일 포맷',
+          zh: '文件格式',
+          ja: 'ファイル形式',
+          de: 'Datei-Format',
+          es: 'Formato de archivo',
+          fr: 'Format de fichier'
+        },
       },
     ],
     syntax: 'writeOpticalFlow(path, flow)',
@@ -5097,13 +9116,45 @@ export const opencvFunctions: OpenCVFunction[] = [
   // Camera Calibration & 3D Reconstruction
   {
     id: 'findChessboardCorners',
-    name: 'Find Chessboard Corners (체스보드 코너 검출)',
+    name: {
+      en: 'Find Chessboard Corners',
+      ko: '체스보드 코너 검출',
+      zh: '查找棋盘格角点',
+      ja: 'チェスボードコーナーの検出',
+      de: 'Schachbrett-Ecken finden',
+      es: 'Encontrar esquinas de tablero de ajedrez',
+      fr: 'Trouver les coins de l\'échiquier'
+    },
     category: 'calib3d',
-    description: '체스보드 패턴의 내부 코너를 검출합니다. 카메라 캘리브레이션에 사용됩니다.',
+    description: {
+      en: 'Finds the positions of internal corners of the chessboard. Used for camera calibration.',
+      ko: '체스보드 패턴의 내부 코너 위치를 검출합니다. 카메라 캘리브레이션에 사용됩니다.',
+      zh: '查找棋盘格的内部角点位置。用于相机标定。',
+      ja: 'チェスボードパターンの内部コーナーの位置を検出します。カメラキャリブレーションに使用されます。',
+      de: 'Findet die Positionen der internen Ecken des Schachbretts. Wird für die Kamerakalibrierung verwendet.',
+      es: 'Encuentra las posiciones de las esquinas internas del tablero de ajedrez. Se utiliza para la calibración de la cámara.',
+      fr: 'Trouve les positions des coins internes de l\'échiquier. Utilisé pour l\'étalonnage de la caméra.'
+    },
     requiresGrayscale: true,
-    customSrcLabel: 'image: 입력 체스보드 이미지',
+    customSrcLabel: {
+      en: 'image: Input chessboard image',
+      ko: 'image: 입력 체스보드 이미지',
+      zh: 'image: 输入棋盘图像',
+      ja: 'image: 入力チェスボード画像',
+      de: 'image: Eingabe-Schachbrettbild',
+      es: 'image: Imagen de tablero de ajedrez de entrada',
+      fr: 'image: Image de l\'échiquier d\'entrée'
+    },
     hideDst: false,
-    customDstLabel: 'dst: 코너 시각화 결과',
+    customDstLabel: {
+      en: 'dst: Corner visualization result',
+      ko: 'dst: 코너 시각화 결과',
+      zh: 'dst: 角点可视化结果',
+      ja: 'dst: コーナー可視化結果',
+      de: 'dst: Eckenvisualisierungsergebnis',
+      es: 'dst: Resultado de visualización de esquinas',
+      fr: 'dst: Résultat de visualisation des coins'
+    },
     parameters: [
       {
         name: 'patternWidth',
@@ -5112,7 +9163,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 15,
         step: 1,
-        description: '체스보드 가로 코너 개수 (내부)',
+        description: {
+          en: 'Number of inner corners per chessboard row',
+          ko: '체스보드 가로 코너 개수 (내부)',
+          zh: '每个棋盘行内部角点的数量',
+          ja: 'チェスボードの行ごとの内部コーナーの数',
+          de: 'Anzahl der inneren Ecken pro Schachbrettreihe',
+          es: 'Número de esquinas internas por fila de tablero de ajedrez',
+          fr: 'Nombre de coins intérieurs par ligne d\'échiquier'
+        },
       },
       {
         name: 'patternHeight',
@@ -5121,7 +9180,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 15,
         step: 1,
-        description: '체스보드 세로 코너 개수 (내부)',
+        description: {
+          en: 'Number of inner corners per chessboard column',
+          ko: '체스보드 세로 코너 개수 (내부)',
+          zh: '每个棋盘列内部角点的数量',
+          ja: 'チェスボードの列ごとの内部コーナーの数',
+          de: 'Anzahl der inneren Ecken pro Schachbrettspalte',
+          es: 'Número de esquinas internas por columna de tablero de ajedrez',
+          fr: 'Nombre de coins intérieurs par colonne d\'échiquier'
+        },
       },
       {
         name: 'flags',
@@ -5132,9 +9199,17 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'CALIB_CB_NORMALIZE_IMAGE', value: 2 },
           { label: 'CALIB_CB_FILTER_QUADS', value: 4 },
           { label: 'CALIB_CB_FAST_CHECK', value: 8 },
-          { label: 'Default', value: 0 },
+          { label: { en: 'Default', ko: '기본값', zh: '默认', ja: 'デフォルト', de: 'Standard', es: 'Predeterminado', fr: 'Par défaut' }, value: 0 },
         ],
-        description: '검출 플래그',
+        description: {
+          en: 'Detection flags',
+          ko: '검출 플래그',
+          zh: '检测标志',
+          ja: '検出フラグ',
+          de: 'Erkennungsflags',
+          es: 'Banderas de detección',
+          fr: 'Indicateurs de détection'
+        },
       },
     ],
     syntax: 'findChessboardCorners(image, patternSize, corners, flags=CALIB_CB_ADAPTIVE_THRESH+CALIB_CB_NORMALIZE_IMAGE)',
@@ -5142,9 +9217,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'drawChessboardCorners',
-    name: 'Draw Chessboard Corners (체스보드 코너 그리기)',
+    name: {
+      en: 'Draw Chessboard Corners',
+      ko: '체스보드 코너 그리기',
+      zh: '绘制棋盘格角点',
+      ja: 'チェスボードコーナーの描画',
+      de: 'Schachbrett-Ecken zeichnen',
+      es: 'Dibujar esquinas de tablero de ajedrez',
+      fr: 'Dessiner les coins de l\'échiquier'
+    },
     category: 'calib3d',
-    description: '검출된 체스보드 코너를 이미지에 그립니다.',
+    description: {
+      en: 'Draws detected chessboard corners onto the image.',
+      ko: '검출된 체스보드 코너를 이미지 위에 그립니다.',
+      zh: '将检测到的棋盘格角点绘制到图像上。',
+      ja: '検出されたチェスボードのコーナーを画像に描画します。',
+      de: 'Zeichnet erkannte Schachbrett-Ecken auf das Bild.',
+      es: 'Dibuja las esquinas detectadas del tablero de ajedrez en la imagen.',
+      fr: 'Dessine les coins de l\'échiquier détectés sur l\'image.'
+    },
     parameters: [
       {
         name: 'patternWidth',
@@ -5153,7 +9244,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 15,
         step: 1,
-        description: '체스보드 가로 코너 개수',
+        description: {
+          en: 'Number of inner corners per row',
+          ko: '체스보드 가로 코너 개수',
+          zh: '每行内部角点的数量',
+          ja: '行ごとの内部コーナーの数',
+          de: 'Anzahl der inneren Ecken pro Reihe',
+          es: 'Número de esquinas internas por fila',
+          fr: 'Nombre de coins intérieurs par ligne'
+        },
       },
       {
         name: 'patternHeight',
@@ -5162,7 +9261,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 3,
         max: 15,
         step: 1,
-        description: '체스보드 세로 코너 개수',
+        description: {
+          en: 'Number of inner corners per column',
+          ko: '체스보드 세로 코너 개수',
+          zh: '每列内部角点的数量',
+          ja: '列ごとの内部コーナーの数',
+          de: 'Anzahl der inneren Ecken pro Spalte',
+          es: 'Número de esquinas internas por columna',
+          fr: 'Nombre de coins intérieurs par colonne'
+        },
       },
     ],
     syntax: 'drawChessboardCorners(image, patternSize, corners, patternWasFound)',
@@ -5170,9 +9277,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'findCirclesGrid',
-    name: 'Find Circles Grid (원형 그리드 검출)',
+    name: {
+      en: 'Find Circles Grid',
+      ko: '원형 그리드 검출',
+      zh: '查找圆圈网格',
+      ja: '円グリッドの検出',
+      de: 'Kreisgitter finden',
+      es: 'Encontrar cuadrícula de círculos',
+      fr: 'Trouver une grille de cercles'
+    },
     category: 'calib3d',
-    description: '원형 패턴의 중심점을 검출합니다.',
+    description: {
+      en: 'Finds centers in the grid of circles.',
+      ko: '원형 패턴 그리드에서 중심점들을 검출합니다.',
+      zh: '在圆圈网格中查找中心点。',
+      ja: '円のグリッド内で中心を検出します。',
+      de: 'Findet Zentren im Kreisgitter.',
+      es: 'Encuentra centros en la cuadrícula de círculos.',
+      fr: 'Trouve les centres dans la grille de cercles.'
+    },
     requiresGrayscale: true,
     parameters: [
       {
@@ -5182,7 +9305,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 10,
         step: 1,
-        description: '그리드 가로 원 개수',
+        description: {
+          en: 'Number of circles per grid row',
+          ko: '그리드 가로 원 개수',
+          zh: '每行圆圈的数量',
+          ja: 'グリッドの行ごとの円の数',
+          de: 'Anzahl der Kreise pro Gitterreihe',
+          es: 'Número de círculos por fila de la cuadrícula',
+          fr: 'Nombre de cercles par ligne de grille'
+        },
       },
       {
         name: 'patternHeight',
@@ -5191,7 +9322,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 2,
         max: 15,
         step: 1,
-        description: '그리드 세로 원 개수',
+        description: {
+          en: 'Number of circles per grid column',
+          ko: '그리드 세로 원 개수',
+          zh: '每列圆圈的数量',
+          ja: 'グリッドの列ごとの円の数',
+          de: 'Anzahl der Kreise pro Gitterspalte',
+          es: 'Número de círculos por columna de la cuadrícula',
+          fr: 'Nombre de cercles par colonne de grille'
+        },
       },
       {
         name: 'flags',
@@ -5201,9 +9340,17 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'CALIB_CB_SYMMETRIC_GRID', value: 1 },
           { label: 'CALIB_CB_ASYMMETRIC_GRID', value: 2 },
           { label: 'CALIB_CB_CLUSTERING', value: 4 },
-          { label: 'Default', value: 0 },
+          { label: { en: 'Default', ko: '기본값', zh: '默认', ja: 'デフォルト', de: 'Standard', es: 'Predeterminado', fr: 'Par défaut' }, value: 0 },
         ],
-        description: '검출 플래그',
+        description: {
+          en: 'Detection flags',
+          ko: '검출 플래그',
+          zh: '检测标志',
+          ja: '検出フラグ',
+          de: 'Erkennungsflags',
+          es: 'Banderas de detección',
+          fr: 'Indicateurs de détection'
+        },
       },
     ],
     syntax: 'findCirclesGrid(image, patternSize, centers, flags=CALIB_CB_SYMMETRIC_GRID)',
@@ -5211,9 +9358,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'calibrateCamera',
-    name: 'Calibrate Camera (카메라 캘리브레이션)',
+    name: {
+      en: 'Calibrate Camera',
+      ko: '카메라 캘리브레이션',
+      zh: '相机标定',
+      ja: 'カメラキャリブレーション',
+      de: 'Kamerakalibrierung',
+      es: 'Calibrar cámara',
+      fr: 'Étalonner la caméra'
+    },
     category: 'calib3d',
-    description: '체스보드 이미지들로부터 카메라 내부 파라미터와 왜곡 계수를 계산합니다.',
+    description: {
+      en: 'Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.',
+      ko: '캘리브레이션 패턴의 여러 뷰로부터 카메라 내부 파라미터와 왜곡 계수를 계산합니다.',
+      zh: '从标定图案的多个视图中寻找相机的内参和外参。',
+      ja: 'キャリブレーションパターンの複数のビューから、カメラの内部および外部パラメータを検出します。',
+      de: 'Findet die intrinsischen und extrinsischen Kameraparameter aus mehreren Ansichten eines Kalibrierungsmusters.',
+      es: 'Encuentra los parámetros intrínsecos y extrínsecos de la cámara a partir de varias vistas de un patrón de calibración.',
+      fr: 'Trouve les paramètres intrinsèques et extrinsèques de la caméra à partir de plusieurs vues d\'un motif d\'étalonnage.'
+    },
     parameters: [
       {
         name: 'squareSize',
@@ -5222,7 +9385,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: 0.1,
         max: 100,
         step: 0.1,
-        description: '체스보드 정사각형 크기 (mm)',
+        description: {
+          en: 'The size of a square on the chessboard (mm)',
+          ko: '체스보드 정사각형 한 변의 크기 (mm)',
+          zh: '棋盘格上正方形的大小 (mm)',
+          ja: 'チェスボード上の正方形のサイズ (mm)',
+          de: 'Die Größe eines Quadrats auf dem Schachbrett (mm)',
+          es: 'El tamaño de un cuadrado en el tablero de ajedrez (mm)',
+          fr: 'La taille d\'un carré sur l\'échiquier (mm)'
+        },
       },
       {
         name: 'flags',
@@ -5233,9 +9404,17 @@ export const opencvFunctions: OpenCVFunction[] = [
           { label: 'CALIB_FIX_PRINCIPAL_POINT', value: 4 },
           { label: 'CALIB_ZERO_TANGENT_DIST', value: 8 },
           { label: 'CALIB_RATIONAL_MODEL', value: 16384 },
-          { label: 'Default', value: 0 },
+          { label: { en: 'Default', ko: '기본값', zh: '默认', ja: 'デフォルト', de: 'Standard', es: 'Predeterminado', fr: 'Par défaut' }, value: 0 },
         ],
-        description: '캘리브레이션 플래그',
+        description: {
+          en: 'Calibration flags',
+          ko: '캘리브레이션 플래그',
+          zh: '标定标志',
+          ja: 'キャリブレーションフラグ',
+          de: 'Kalibrierungsflags',
+          es: 'Banderas de calibración',
+          fr: 'Indicateurs d\'étalonnage'
+        },
       },
     ],
     syntax: 'calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, rvecs, tvecs, flags=0)',
@@ -5243,9 +9422,25 @@ export const opencvFunctions: OpenCVFunction[] = [
   },
   {
     id: 'undistort',
-    name: 'Undistort Image (이미지 왜곡 보정)',
+    name: {
+      en: 'Undistort Image',
+      ko: '이미지 왜곡 보정',
+      zh: '图像去畸变',
+      ja: '画像の歪み補正',
+      de: 'Bild entzerren',
+      es: 'Corregir distorsión de imagen',
+      fr: 'Correction de la distorsion d\'image'
+    },
     category: 'calib3d',
-    description: '카메라 왜곡을 보정하여 이미지를 변환합니다.',
+    description: {
+      en: 'Transforms an image to compensate for lens distortion.',
+      ko: '카메라 렌즈 왜곡을 보정하여 이미지를 변환합니다.',
+      zh: '转换图像以补偿镜头畸变。',
+      ja: 'レンズの歪みを補正するために画像を変換します。',
+      de: 'Transformiert ein Bild, um Linsenverzerrungen auszugleichen.',
+      es: 'Transforma una imagen para compensar la distorsión de la lente.',
+      fr: 'Transforme une image pour compenser la distorsion de l\'objectif.'
+    },
     parameters: [
       {
         name: 'k1',
@@ -5254,7 +9449,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -1,
         max: 1,
         step: 0.01,
-        description: 'Radial 왜곡 계수 k1',
+        description: {
+          en: 'Radial distortion coefficient k1',
+          ko: '방사 왜곡 계수 k1',
+          zh: '径向畸变系数 k1',
+          ja: '放射方向の歪み係数 k1',
+          de: 'Radialer Verzerrungskoeffizient k1',
+          es: 'Coeficiente de distorsión radial k1',
+          fr: 'Coefficient de distorsion radiale k1'
+        },
       },
       {
         name: 'k2',
@@ -5263,7 +9466,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -1,
         max: 1,
         step: 0.01,
-        description: 'Radial 왜곡 계수 k2',
+        description: {
+          en: 'Radial distortion coefficient k2',
+          ko: '방사 왜곡 계수 k2',
+          zh: '径向畸变系数 k2',
+          ja: '放射方向の歪み係数 k2',
+          de: 'Radialer Verzerrungskoeffizient k2',
+          es: 'Coeficiente de distorsión radial k2',
+          fr: 'Coefficient de distorsion radiale k2'
+        },
       },
       {
         name: 'p1',
@@ -5272,7 +9483,15 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -0.1,
         max: 0.1,
         step: 0.001,
-        description: 'Tangential 왜곡 계수 p1',
+        description: {
+          en: 'Tangential distortion coefficient p1',
+          ko: '접선 왜곡 계수 p1',
+          zh: '切向畸变系数 p1',
+          ja: '接線方向の歪み係수 p1',
+          de: 'Tangentialer Verzerrungskoeffizient p1',
+          es: 'Coeficiente de distorsión tangencial p1',
+          fr: 'Coefficient de distorsion tangentielle p1'
+        },
       },
       {
         name: 'p2',
@@ -5281,11 +9500,19 @@ export const opencvFunctions: OpenCVFunction[] = [
         min: -0.1,
         max: 0.1,
         step: 0.001,
-        description: 'Tangential 왜곡 계수 p2',
+        description: {
+          en: 'Tangential distortion coefficient p2',
+          ko: '접선 왜곡 계수 p2',
+          zh: '切向畸变系数 p2',
+          ja: '接線方向の歪み係수 p2',
+          de: 'Tangentialer Verzerrungskoeffizient p2',
+          es: 'Coeficiente de distorsión tangencial p2',
+          fr: 'Coefficient de distorsion tangentielle p2'
+        },
       },
     ],
     syntax: 'undistort(src, dst, cameraMatrix, distCoeffs, newCameraMatrix=None)',
-    documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga69f2545a8b62a6b0fc2ee060dc30559d',
+    documentation: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga69fd6eb1e82708b5a9ca5c202e5b5d1c',
   },
   {
     id: 'getOptimalNewCameraMatrix',

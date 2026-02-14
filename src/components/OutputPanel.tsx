@@ -8,12 +8,23 @@ interface OutputPanelProps {
   onSave: () => void;
 }
 
+import { useLanguage } from '@/lib/i18n';
+
+interface OutputPanelProps {
+  outputImage: string | null;
+  processingInfo: string;
+  processingTime: number;
+  onSave: () => void;
+}
+
 export function OutputPanel({
   outputImage,
   processingInfo,
   processingTime,
   onSave,
 }: OutputPanelProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-6">
       <div className="group relative border-2 border-dashed border-gray-200 rounded-3xl overflow-hidden bg-gray-50/50 transition-all hover:border-blue-400/50">
@@ -24,7 +35,7 @@ export function OutputPanel({
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               src={outputImage}
-              alt="처리된 결과"
+              alt={t('processedResult')}
               className="w-full h-auto max-h-[400px] object-contain relative z-10"
             />
           ) : (
@@ -33,7 +44,7 @@ export function OutputPanel({
                 <div className="size-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-2">
                   <Info size={32} className="opacity-50" />
                 </div>
-                <p className="font-medium text-sm">처리 결과가 여기에 표시됩니다</p>
+                <p className="font-medium text-sm">{t('resultWillBeShownHere')}</p>
               </div>
             </div>
           )}
@@ -51,7 +62,7 @@ export function OutputPanel({
               <div className="flex items-start gap-3">
                 <CheckCircle2 size={18} className="text-blue-600 mt-0.5" />
                 <div className="flex-1">
-                  <div className="text-xs font-bold text-blue-900/60 uppercase tracking-widest mb-2">Processing Details</div>
+                  <div className="text-xs font-bold text-blue-900/60 uppercase tracking-widest mb-2">{t('processingDetails')}</div>
                   <div className="text-sm text-blue-800 font-medium leading-relaxed">{processingInfo}</div>
                   <div className="flex items-center gap-1.5 mt-3 text-xs font-bold text-blue-600">
                     <Clock size={12} />
@@ -68,7 +79,7 @@ export function OutputPanel({
               className="w-full flex items-center justify-center gap-2 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all"
             >
               <Download size={20} />
-              Save Result Image
+              {t('saveResultImage')}
             </motion.button>
           </motion.div>
         )}
