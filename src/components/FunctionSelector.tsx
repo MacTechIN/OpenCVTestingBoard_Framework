@@ -81,7 +81,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
           
           <div className="relative">
             <select
-              value={selectedFunction?.id || ''}
+              value={filteredFunctions.some(f => f.id === selectedFunction?.id) ? selectedFunction?.id : ''}
               onChange={(e) => {
                 const func = filteredFunctions.find(f => f.id === e.target.value);
                 if (func) onFunctionSelect(func);
