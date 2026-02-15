@@ -4,6 +4,12 @@
   <img src="public/opencv-logo.png" alt="OpenCV Logo" width="120" />
 </p>
 
+<p align="center">
+  <a href="https://opencv-testing-board.pages.dev">
+    <img src="https://img.shields.io/badge/Live%20Demo-Cloudflare%20Pages-orange?style=for-the-badge&logo=cloudflare" alt="Live Demo" />
+  </a>
+</p>
+
 ## 🌐 Languages / 언어 / 語言 / 言語 / Sprachen / Idiomas / Langues
 
 [**한국어 (Korean)**](#-한국어) | [**English**](#-english) | [**中文 (Chinese)**](#-中文) | [**日本語 (Japanese)**](#-日本語) | [**Deutsch (German)**](#-deutsch) | [**Español (Spanish)**](#-español) | [**Français (French)**](#-français)

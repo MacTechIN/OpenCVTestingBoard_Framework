@@ -280,7 +280,7 @@ export default function App() {
           <div className="flex-1 overflow-y-auto bg-white">
             <div className="p-4 lg:p-6">
               <div className="flex items-center justify-between mb-4 lg:mb-6">
-                <h2 className="text-base lg:text-lg font-semibold flex items-center gap-2">
+                <h2 className="text-lg lg:text-xl font-bold flex items-center gap-2">
                   <span className="text-xl lg:text-2xl">⚙️</span>
                   <span>{t('selectFunction')}</span>
                 </h2>
@@ -289,7 +289,7 @@ export default function App() {
                   <button
                     onClick={handleProcess}
                     disabled={!inputCanvas || isProcessing}
-                    className="flex items-center justify-center gap-2 px-6 py-3 text-base font-bold bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 ring-2 ring-blue-100"
+                    className="flex items-center justify-center gap-2 px-6 py-3 text-lg font-bold bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 ring-2 ring-blue-100"
                   >
                     {isProcessing ? (
                       <Loader2 size={20} className="animate-spin" />
@@ -308,7 +308,7 @@ export default function App() {
 
               {selectedFunction && (
                 <div className="mt-4 lg:mt-6">
-                  <h3 className="text-sm lg:text-md font-semibold mb-2 lg:mb-3">{t('parameters')}</h3>
+                  <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3">{t('parameters')}</h3>
                   <div className="p-3 lg:p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="mb-3 lg:mb-4 pb-3 lg:pb-4 border-b border-gray-300">
                       <div className="font-medium text-sm lg:text-base">{translate(selectedFunction.name)}</div>
@@ -394,7 +394,7 @@ export default function App() {
 
           {activeTab === 'function' && (
             <div className="p-4">
-              <h2 className="text-base font-semibold mb-3 flex items-center gap-2">
+              <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
                 <span className="text-xl">⚙️</span>
                 <span>{t('selectFunction')}</span>
               </h2>
@@ -406,7 +406,7 @@ export default function App() {
 
               {selectedFunction && (
                 <div className="mt-4">
-                  <h3 className="text-sm font-semibold mb-2">{t('parameters')}</h3>
+                  <h3 className="text-base font-bold mb-2">{t('parameters')}</h3>
                   <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="mb-3 pb-3 border-b border-gray-300">
                       <div className="font-medium text-sm">{translate(selectedFunction.name)}</div>
