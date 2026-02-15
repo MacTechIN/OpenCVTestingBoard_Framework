@@ -72,7 +72,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
 
         {/* Function Dropdown */}
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm shrink-0">
-          <label className="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
+          <label className="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
             <span>{t('availableFunctions')}</span>
             <span className="text-xs font-normal text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
               {filteredFunctions.length} {t('functionsCount')}

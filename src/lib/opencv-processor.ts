@@ -8,17 +8,17 @@ export class OpenCVProcessor {
   private static loadingPromise: Promise<void> | null = null;
 
   static async loadOpenCV(): Promise<void> {
-    // 이미 로드 중이면 기존 프로미스 반환
+    // If already loading, return existing promise
     if (this.loadingPromise) {
       return this.loadingPromise;
     }
 
-    // 이미 로드되었으면 즉시 반환
+    // If already loaded, return immediately
     if (this.isLoaded && this.cv) {
       return Promise.resolve();
     }
 
-    // window.cv가 이미 존재하고 초기화되었는지 확인
+    // Check if window.cv already exists and is initialized
     if (typeof window !== 'undefined') {
       // @ts-ignore
       if (window.cv && window.cv.Mat) {
@@ -35,10 +35,10 @@ export class OpenCVProcessor {
         return;
       }
 
-      // 스크립트가 이미 존재하는지 확인
+      // Check if script already exists
       const existingScript = document.querySelector('script[src*="opencv.js"]');
       if (existingScript) {
-        // 스크립트가 이미 있으면 로드 완료를 기다림
+        // If script exists, wait for load completion
         const checkLoaded = setInterval(() => {
           // @ts-ignore
           if (window.cv && window.cv.Mat) {
@@ -51,7 +51,7 @@ export class OpenCVProcessor {
           }
         }, 100);
         
-        // 10초 타임아웃
+        // 10 second timeout
         setTimeout(() => {
           clearInterval(checkLoaded);
           if (!this.isLoaded) {
@@ -62,7 +62,7 @@ export class OpenCVProcessor {
         return;
       }
 
-      // OpenCV.js 로드
+      // Load OpenCV.js
       const script = document.createElement('script');
       script.src = 'https://docs.opencv.org/4.x/opencv.js';
       script.async = true;
@@ -122,7 +122,7 @@ export class OpenCVProcessor {
 
     try {
       switch (functionId) {
-        // 색상 변환
+        // Color Conversion
         case 'cvtColor_GRAY':
           cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
           info = `변환: RGB → Grayscale, 출력 채널: 1`;
@@ -244,7 +244,7 @@ export class OpenCVProcessor {
           break;
 
         case 'demosaicing':
-          // 베이어 패턴 변환 (시뮬레이션)
+          // Bayer pattern conversion (simulation)
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           const bayerCodeMap: Record<string, any> = {
             COLOR_BayerBG2BGR: cv.COLOR_BayerBG2BGR,
@@ -390,7 +390,7 @@ export class OpenCVProcessor {
           info = `색상표 적용: DEEPGREEN (검정/초록)`;
           break;
 
-        // 필터링
+        // Filtering
         case 'blur':
           const ksize = this.ensureOdd(params.ksize || 5);
           cv.blur(src, dst, new cv.Size(ksize, ksize));
@@ -422,7 +422,7 @@ export class OpenCVProcessor {
           info = `직경: ${params.d}, 색상 시그마: ${params.sigmaColor}, 공간 시그마: ${params.sigmaSpace}`;
           break;
 
-        // 형태학 연산
+        // Morphological Operations
         case 'erode':
           const eKsize = this.ensureOdd(params.ksize || 5);
           const eKernel = cv.getStructuringElement(
@@ -467,7 +467,7 @@ export class OpenCVProcessor {
           info = `닫힘 연산, 커널 크기: ${cKsize}x${cKsize}`;
           break;
 
-        // 엣지 검출
+        // Edge Detection
         case 'Canny':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           const apertureSize = this.ensureOdd(params.apertureSize || 3);
@@ -489,7 +489,7 @@ export class OpenCVProcessor {
           info = `커널 크기: ${lKsize}`;
           break;
 
-        // 임계값 처리
+        // Thresholding
         case 'threshold_BINARY':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.threshold(src, dst, params.thresh || 127, params.maxval || 255, cv.THRESH_BINARY);
@@ -517,7 +517,7 @@ export class OpenCVProcessor {
           info = `최대값: ${params.maxValue}, 블록 크기: ${adaptBlockSize}, C: ${params.C}`;
           break;
 
-        // 기하학 변환
+        // Geometric Transformations
         case 'resize':
           const scale = params.scale || 0.5;
           const interpolationMap: Record<string, any> = {
@@ -552,7 +552,7 @@ export class OpenCVProcessor {
           info = `상하 반전`;
           break;
 
-        // 윤곽선 검출
+        // Contour Detection
         case 'findContours':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.threshold(src, src, 127, 255, cv.THRESH_BINARY);
@@ -568,7 +568,7 @@ export class OpenCVProcessor {
           
           cv.findContours(src, contours, hierarchy, mode, cv.CHAIN_APPROX_SIMPLE);
           
-          // 원본 이미지로 복원하여 윤곽선 그리기
+          // Restore to original image to draw contours
           dst = cv.imread(inputCanvas);
           const color = new cv.Scalar(0, 255, 0, 255);
           for (let i = 0; i < contours.size(); i++) {
@@ -580,7 +580,7 @@ export class OpenCVProcessor {
           hierarchy.delete();
           break;
 
-        // 특징 검출
+        // Feature Detection
         case 'cornerHarris':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_32FC1);
@@ -590,11 +590,11 @@ export class OpenCVProcessor {
           
           cv.cornerHarris(src, dst, blockSize, hKsize, k);
           
-          // 정규화 및 시각화
+          // Normalize and visualize
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX);
           cv.convertScaleAbs(dst, dst);
           
-          // 원본 이미지에 코너 표시
+          // Draw corners on original image
           const output = cv.imread(inputCanvas);
           let cornerCount = 0;
           for (let i = 0; i < dst.rows; i++) {
@@ -620,7 +620,7 @@ export class OpenCVProcessor {
           const corners = new cv.Mat();
           cv.goodFeaturesToTrack(src, corners, gftMaxCorners, gftQuality, gftMinDist);
           
-          // 원본 이미지에 코너 표시
+          // Draw corners on original image
           const gftOutput = cv.imread(inputCanvas);
           for (let i = 0; i < corners.rows; i++) {
             const x = corners.data32F[i * 2];
@@ -645,7 +645,7 @@ export class OpenCVProcessor {
           const lines = new cv.Mat();
           cv.HoughLines(src, lines, houghRho, houghTheta, houghThreshold);
           
-          // 원본 이미지에 직선 그리기
+          // Draw lines on original image
           const houghOutput = cv.imread(inputCanvas);
           for (let i = 0; i < Math.min(lines.rows, 50); i++) {
             const rho = lines.data32F[i * 2];
@@ -678,7 +678,7 @@ export class OpenCVProcessor {
           const linesP = new cv.Mat();
           cv.HoughLinesP(src, linesP, hlpRho, hlpTheta, hlpThreshold, hlpMinLength, hlpMaxGap);
           
-          // 원본 이미지에 선분 그리기
+          // Draw line segments on original image
           const hlpOutput = cv.imread(inputCanvas);
           for (let i = 0; i < linesP.rows; i++) {
             const x1 = linesP.data32S[i * 4];
@@ -708,7 +708,7 @@ export class OpenCVProcessor {
           const circles = new cv.Mat();
           cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT, hcDp, hcMinDist, hcParam1, hcParam2, hcMinRadius, hcMaxRadius);
           
-          // 원본 이미지에 원 그리기
+          // Draw circles on original image
           const hcOutput = cv.imread(inputCanvas);
           for (let i = 0; i < circles.cols; i++) {
             const x = circles.data32F[i * 3];
@@ -727,11 +727,11 @@ export class OpenCVProcessor {
         case 'cornerSubPix':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           
-          // 먼저 코너 검출
+          // Detect corners first
           const cspCorners = new cv.Mat();
           cv.goodFeaturesToTrack(src, cspCorners, 100, 0.01, 10);
           
-          // 서브픽셀 정제
+          // Refine subpixels
           const cspWinSize = params.winSize || 5;
           const cspMaxCount = params.maxCount || 30;
           const cspEpsilon = params.epsilon || 0.01;
@@ -739,7 +739,7 @@ export class OpenCVProcessor {
           const cspCriteria = new cv.TermCriteria(cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_COUNT, cspMaxCount, cspEpsilon);
           cv.cornerSubPix(src, cspCorners, new cv.Size(cspWinSize, cspWinSize), new cv.Size(-1, -1), cspCriteria);
           
-          // 원본 이미지에 정제된 코너 표시
+          // Draw refined corners on original image
           const cspOutput = cv.imread(inputCanvas);
           for (let i = 0; i < cspCorners.rows; i++) {
             const x = cspCorners.data32F[i * 2];
@@ -760,7 +760,7 @@ export class OpenCVProcessor {
           
           cv.cornerMinEigenVal(src, dst, cmeBlockSize, cmeKsize);
           
-          // 정규화 및 시각화
+          // Normalize and visualize
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX);
           cv.convertScaleAbs(dst, dst);
           
@@ -774,7 +774,7 @@ export class OpenCVProcessor {
           
           cv.cornerEigenValsAndVecs(src, dst, cevBlockSize, cevKsize);
           
-          // 첫 번째 채널만 추출하여 시각화
+          // Extract and visualize the first channel only
           const cevChannels = new cv.MatVector();
           cv.split(dst, cevChannels);
           const cevChannel0 = cevChannels.get(0);
@@ -791,7 +791,7 @@ export class OpenCVProcessor {
           
           cv.preCornerDetect(src, dst, pcdKsize);
           
-          // 정규화 및 시각화
+          // Normalize and visualize
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX);
           cv.convertScaleAbs(dst, dst);
           
@@ -803,7 +803,7 @@ export class OpenCVProcessor {
           const channels = new cv.MatVector();
           cv.split(src, channels);
           
-          // 3개 채널을 별도로 표시 (Blue, Green, Red)
+          // Display 3 channels separately (Blue, Green, Red)
           const blueChannel = cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC3);
           const greenChannel = cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC3);
           const redChannel = cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC3);
@@ -812,7 +812,7 @@ export class OpenCVProcessor {
           cv.merge([new cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC1), channels.get(1), new cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC1)], greenChannel);
           cv.merge([new cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC1), new cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC1), channels.get(2)], redChannel);
           
-          // 3개 채널을 가로로 합치기
+          // Concatenate 3 channels horizontally
           dst = new cv.Mat();
           const splitMats = new cv.MatVector();
           splitMats.push_back(blueChannel);
@@ -830,7 +830,7 @@ export class OpenCVProcessor {
           break;
 
         case 'merge':
-          // 이미 컬러 이미지이므로 채널 분리 후 다시 병합
+          // Since it's already a color image, split channels and merge again
           const mergeChannels = new cv.MatVector();
           cv.split(src, mergeChannels);
           cv.merge(mergeChannels, dst);
@@ -955,7 +955,7 @@ export class OpenCVProcessor {
           
           cv.calcHist(srcVec, [0], mask, hist, histSize, ranges);
           
-          // 히스토그램 시각화
+          // Visualize histogram
           const histCanvas = cv.Mat.zeros(200, 256, cv.CV_8UC3);
           cv.normalize(hist, hist, 0, 200, cv.NORM_MINMAX);
           
@@ -982,7 +982,7 @@ export class OpenCVProcessor {
           break;
 
         case 'calcBackProject':
-          // HSV로 변환
+          // Convert to HSV
           cv.cvtColor(src, dst, cv.COLOR_RGBA2RGB);
           cv.cvtColor(dst, dst, cv.COLOR_RGB2HSV);
           
@@ -996,7 +996,7 @@ export class OpenCVProcessor {
           );
           const roiMat = dst.roi(roiRect);
           
-          // 채널 선택
+          // Select channel
           const channelIdx = params.channel === 'hue' ? 0 : params.channel === 'saturation' ? 1 : 2;
           const hsvVec = new cv.MatVector();
           hsvVec.push_back(roiMat);
@@ -1009,7 +1009,7 @@ export class OpenCVProcessor {
           cv.calcHist(hsvVec, [channelIdx], backProjMask, backProjHist, backProjHistSize, backProjRanges);
           cv.normalize(backProjHist, backProjHist, 0, 255, cv.NORM_MINMAX);
           
-          // 역투영
+          // Back Projection
           const backProjDst = new cv.Mat();
           const fullHsvVec = new cv.MatVector();
           fullHsvVec.push_back(dst);
@@ -1254,7 +1254,7 @@ export class OpenCVProcessor {
           let rotRect1: any;
           let rotRect2: any;
 
-          // 파라미터 기반 생성 (기본값 또는 슬라이더 값 사용)
+          // Create based on parameters (use default or slider values)
           const center1 = new cv.Point(src.cols * 0.4, src.rows * 0.5);
           const size1 = new cv.Size(Math.min(src.cols, src.rows) * 0.4, Math.min(src.cols, src.rows) * 0.6);
           rotRect1 = new cv.RotatedRect(center1, size1, params.rect1_angle ?? 30);
@@ -1263,7 +1263,7 @@ export class OpenCVProcessor {
           const size2 = new cv.Size(Math.min(src.cols, src.rows) * 0.4, Math.min(src.cols, src.rows) * 0.6);
           rotRect2 = new cv.RotatedRect(center2, size2, params.rect2_angle ?? 45);
           
-          // 만약 컨투어가 충분히 많다면 첫 번째 사각형을 컨투어에서 가져올 수도 있음 (옵션)
+          // If enough contours, optionally take the first rectangle from contours
           if (rectIntContours.size() >= 1 && !params.rect1_angle) {
              rotRect1 = cv.minAreaRect(rectIntContours.get(0));
           }
@@ -1272,11 +1272,11 @@ export class OpenCVProcessor {
             const vertices1 = cv.RotatedRect.points(rotRect1);
             const vertices2 = cv.RotatedRect.points(rotRect2);
             
-            // 사각형 1 (파란색)
+            // Rectangle 1 (Blue)
             for (let j = 0; j < 4; j++) {
               cv.line(dst, vertices1[j], vertices1[(j + 1) % 4], new cv.Scalar(255, 0, 0, 255), 2);
             }
-            // 사각형 2 (빨간색)
+            // Rectangle 2 (Red)
             for (let j = 0; j < 4; j++) {
               cv.line(dst, vertices2[j], vertices2[(j + 1) % 4], new cv.Scalar(0, 0, 255, 255), 2);
             }
@@ -1286,7 +1286,7 @@ export class OpenCVProcessor {
               const intersectType = cv.rotatedRectangleIntersection(rotRect1, rotRect2, intersectRegion);
               
               if (intersectType !== cv.INTERSECT_NONE && intersectRegion.rows > 0) {
-                // 교차 영역 시각화 (노란색)
+                // Visualize intersection area (Yellow)
                 const pts: any[] = [];
                 for (let i = 0; i < intersectRegion.rows; i++) {
                   pts.push(new cv.Point(intersectRegion.data32F[i * 2], intersectRegion.data32F[i * 2 + 1]));
@@ -1322,7 +1322,7 @@ export class OpenCVProcessor {
         case 'compareHist_HELLINGER':
         case 'compareHist_CHISQR_ALT':
         case 'compareHist_KL_DIV':
-          // 이미지를 좌우로 분할
+          // Split image horizontally
           const splitRatio = params.splitRatio || 0.5;
           const splitX = Math.floor(src.cols * splitRatio);
           
@@ -1332,11 +1332,11 @@ export class OpenCVProcessor {
           const leftImg = src.roi(leftRect);
           const rightImg = src.roi(rightRect);
           
-          // 그레이스케일 변환
+          // Convert to Grayscale
           cv.cvtColor(leftImg, leftImg, cv.COLOR_RGBA2GRAY);
           cv.cvtColor(rightImg, rightImg, cv.COLOR_RGBA2GRAY);
           
-          // 히스토그램 계산
+          // Calculate Histogram
           const leftVec = new cv.MatVector();
           const rightVec = new cv.MatVector();
           leftVec.push_back(leftImg);
@@ -1354,7 +1354,7 @@ export class OpenCVProcessor {
           cv.normalize(leftHist, leftHist, 0, 1, cv.NORM_MINMAX);
           cv.normalize(rightHist, rightHist, 0, 1, cv.NORM_MINMAX);
           
-          // 비교 방법 선택
+          // Select comparison method
           let compareMethod;
           let methodName;
           switch (functionId) {
@@ -1390,11 +1390,11 @@ export class OpenCVProcessor {
           
           const similarity = cv.compareHist(leftHist, rightHist, compareMethod);
           
-          // 결과 시각화: 좌우 이미지 합성 + 분할선
+          // Visualize result: Composite left/right images + divider line
           dst = src.clone();
           cv.line(dst, new cv.Point(splitX, 0), new cv.Point(splitX, src.rows), new cv.Scalar(0, 255, 0, 255), 3);
           
-          // 유사도 텍스트 추가
+          // Add similarity text
           const similarityText = `${methodName}: ${similarity.toFixed(4)}`;
           cv.putText(dst, similarityText, new cv.Point(10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(0, 255, 255, 255), 2);
           
@@ -1409,7 +1409,7 @@ export class OpenCVProcessor {
           info = `히스토그램 비교 (${methodName}): ${similarity.toFixed(4)} | 분할 비율: ${(splitRatio * 100).toFixed(0)}%`;
           break;
 
-        // 그리기
+        // Drawing
         case 'rectangle':
           dst = src.clone();
           const rectSize = params.size || 100;
@@ -1623,17 +1623,17 @@ export class OpenCVProcessor {
           const pixelHeight = params.pixelHeight || 30;
           const fontThickness = params.thickness || 2;
           
-          // getFontScaleFromHeight는 OpenCV.js에서 지원하지 않을 수 있으므로 수동 계산
-          // 기본 높이 (대략적인 값)를 기준으로 스케일 계산
+          // Manual calculation as getFontScaleFromHeight might not be supported in OpenCV.js
+          // Calculate scale based on base height (approximate value)
           const baseHeight = 20; // FONT_HERSHEY_SIMPLEX의 기본 높이 (대략)
           const calculatedScale = (pixelHeight / baseHeight).toFixed(2);
           
-          // 계산된 스케일로 텍스트 그리기
+          // Draw text with calculated scale
           const sampleText = 'Sample Text';
           const textPos = new cv.Point(src.cols * 0.1, src.rows * 0.5);
           cv.putText(dst, sampleText, textPos, fontFaceValue, parseFloat(calculatedScale), new cv.Scalar(255, 255, 0, 255), fontThickness);
           
-          // 정보 텍스트 표시
+          // Display info text
           const infoText = `Scale: ${calculatedScale}`;
           cv.putText(dst, infoText, new cv.Point(src.cols * 0.1, src.rows * 0.3), cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(0, 255, 255, 255), 2);
           
@@ -1654,17 +1654,17 @@ export class OpenCVProcessor {
           const textSizeFontScale = params.fontScale || 1.5;
           const textSizeThickness = params.thickness || 2;
           
-          // getTextSize로 텍스트 크기 계산
+          // Calculate text size with getTextSize
           const textSize = cv.getTextSize(textToMeasure, textSizeFontFace, textSizeFontScale, textSizeThickness);
           const baseline = textSize.baseLine;
           
-          // 텍스트를 중앙에 배치
+          // Center text
           const textOrigin = new cv.Point(
             (dst.cols - textSize.size.width) / 2,
             (dst.rows + textSize.size.height) / 2
           );
           
-          // 텍스트를 둘러싼 박스 그리기
+          // Draw box around text
           cv.rectangle(
             dst,
             new cv.Point(textOrigin.x, textOrigin.y + baseline),
@@ -1673,7 +1673,7 @@ export class OpenCVProcessor {
             2
           );
           
-          // 베이스라인 그리기
+          // Draw baseline
           cv.line(
             dst,
             new cv.Point(textOrigin.x, textOrigin.y + textSizeThickness),
@@ -1682,20 +1682,20 @@ export class OpenCVProcessor {
             1
           );
           
-          // 텍스트 그리기
+          // Draw text
           cv.putText(dst, textToMeasure, textOrigin, textSizeFontFace, textSizeFontScale, new cv.Scalar(255, 255, 255, 255), textSizeThickness);
           
-          // 크기 정보 표시
+          // Display size info
           const sizeInfo = `Size: ${textSize.size.width}x${textSize.size.height}`;
           cv.putText(dst, sizeInfo, new cv.Point(10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 0, 255), 2);
           
           info = `텍스트: "${textToMeasure}", 크기: ${textSize.size.width}x${textSize.size.height}px, 베이스라인: ${baseline}`;
           break;
 
-        // 산술 연산
+        // Arithmetic Operations
         case 'add':
           if (src2) {
-            // 두 이미지 크기를 맞춤
+            // Resize second image to match first
             const resizedSrc2 = new cv.Mat();
             cv.resize(src2, resizedSrc2, new cv.Size(src.cols, src.rows));
             cv.add(src, resizedSrc2, dst);
@@ -1805,14 +1805,14 @@ export class OpenCVProcessor {
             cv.resize(src2, resizedSrc2, new cv.Size(src.cols, src.rows));
             cv.absdiff(src, resizedSrc2, dst);
             resizedSrc2.delete();
-            info = `절대 차이 계산 완료 (두 이미지)`;
+            info = `Absolute difference calculated (two images)`;
           } else {
             const blurredDiff = new cv.Mat();
             const blurKsize = this.ensureOdd(params.blurSize || 15);
             cv.GaussianBlur(src, blurredDiff, new cv.Size(blurKsize, blurKsize), 0);
             cv.absdiff(src, blurredDiff, dst);
             blurredDiff.delete();
-            info = `절대 차이 계산 완료 (블러 크기: ${blurKsize})`;
+            info = `Absolute difference calculated (blur size: ${blurKsize})`;
           }
           break;
 
@@ -1826,7 +1826,7 @@ export class OpenCVProcessor {
           cv.convertScaleAbs(dst, dst);
           sobelX.delete();
           sobelY.delete();
-          info = `Gradient 크기 계산 완료`;
+          info = `Gradient magnitude calculated`;
           break;
 
         case 'phase':
@@ -1839,10 +1839,10 @@ export class OpenCVProcessor {
           cv.convertScaleAbs(dst, dst);
           phaseX.delete();
           phaseY.delete();
-          info = `Gradient 위상 계산 완료`;
+          info = `Gradient phase calculated`;
           break;
 
-        // 통계 연산
+        // Statistical Operations
         case 'mean': {
           let mask = new cv.Mat();
           if (src2) {
@@ -1903,11 +1903,11 @@ export class OpenCVProcessor {
           }
           const result = cv.minMaxLoc(src, mask);
           dst = cv.imread(inputCanvas);
-          cv.circle(dst, result.minLoc, 10, new cv.Scalar(0, 0, 255, 255), 3); // 최소값: 빨강
-          cv.circle(dst, result.maxLoc, 10, new cv.Scalar(0, 255, 0, 255), 3); // 최대값: 초록
+          cv.circle(dst, result.minLoc, 10, new cv.Scalar(0, 0, 255, 255), 3); // Min: Red
+          cv.circle(dst, result.maxLoc, 10, new cv.Scalar(0, 255, 0, 255), 3); // Max: Green
           cv.putText(dst, `Min: ${result.minVal.toFixed(0)}`, new cv.Point(result.minLoc.x + 15, result.minLoc.y), cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(0, 0, 255, 255), 2);
           cv.putText(dst, `Max: ${result.maxVal.toFixed(0)}`, new cv.Point(result.maxLoc.x + 15, result.maxLoc.y), cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(0, 255, 0, 255), 2);
-          info = `최소값: ${result.minVal.toFixed(0)}, 최대값: ${result.maxVal.toFixed(0)}` + (src2 ? " (Mask Applied)" : "");
+          info = `Min: ${result.minVal.toFixed(0)}, Max: ${result.maxVal.toFixed(0)}` + (src2 ? " (Mask Applied)" : "");
           mask.delete();
           break;
         }
@@ -1918,7 +1918,7 @@ export class OpenCVProcessor {
           const count = cv.countNonZero(src);
           dst = src.clone();
           cv.putText(dst, `Non-Zero: ${count}`, new cv.Point(10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(255, 255, 255, 255), 2);
-          info = `0이 아닌 픽셀 수: ${count} (${((count / (src.rows * src.cols)) * 100).toFixed(1)}%)`;
+          info = `Non-Zero Pixels: ${count} (${((count / (src.rows * src.cols)) * 100).toFixed(1)}%)`;
           break;
 
         case 'reduce':
@@ -1932,9 +1932,9 @@ export class OpenCVProcessor {
           const rtype = rtypeMap[params.rtype] || cv.REDUCE_AVG;
           cv.reduce(src, dst, params.dim || 0, rtype);
           
-          // 결과를 시각화
+          // Visualize results
           if (params.dim === 0) {
-            // 행 방향 축소 (가로 선)
+            // Reduce row-wise (horizontal line)
             const visualize = cv.Mat.zeros(src.rows, 256, cv.CV_8UC1);
             for (let i = 0; i < dst.rows; i++) {
               const val = dst.data[i] / src.cols;
@@ -1943,7 +1943,7 @@ export class OpenCVProcessor {
             dst.delete();
             dst = visualize;
           } else {
-            // 열 방향 축소 (세로 선)
+            // Reduce column-wise (vertical line)
             const visualize = cv.Mat.zeros(200, src.cols, cv.CV_8UC1);
             cv.normalize(dst, dst, 0, 200, cv.NORM_MINMAX);
             for (let i = 0; i < dst.cols; i++) {
@@ -1953,7 +1953,7 @@ export class OpenCVProcessor {
             dst.delete();
             dst = visualize;
           }
-          info = `차원 축소 완료: ${params.rtype}, ${params.dim === 0 ? '행 방향' : '열 방향'}`;
+          info = `Reduce completed: ${params.rtype}, ${params.dim === 0 ? 'Row-wise' : 'Col-wise'}`;
           break;
 
         case 'sum':
@@ -1977,17 +1977,17 @@ export class OpenCVProcessor {
              cv.resize(src2, resizedSrc2, new cv.Size(src.cols, src.rows));
              normValue = cv.norm(src, resizedSrc2, normTypeArg);
              resizedSrc2.delete();
-             info = `노름 (${params.normType}) 차이: ${normValue.toFixed(2)}`;
+             info = `Norm (${params.normType}) Diff: ${normValue.toFixed(2)}`;
           } else {
              normValue = cv.norm(src, normTypeArg);
-             info = `노름 (${params.normType}): ${normValue.toFixed(2)}`;
+             info = `Norm (${params.normType}): ${normValue.toFixed(2)}`;
           }
           dst = src.clone();
           cv.putText(dst, `Norm: ${normValue.toFixed(2)}`, new cv.Point(10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(255, 255, 0, 255), 2);
           break;
         }
 
-        // 비교 연산
+        // Comparison Operations
         case 'compare': {
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           const cmpopMap: Record<string, any> = {
@@ -2006,12 +2006,12 @@ export class OpenCVProcessor {
              cv.cvtColor(resizedSrc2, resizedSrc2, cv.COLOR_RGBA2GRAY);
              cv.compare(src, resizedSrc2, dst, op);
              resizedSrc2.delete();
-             info = `비교 연산 (두 이미지): ${params.cmpop}`;
+             info = `Compare (Two Images): ${params.cmpop}`;
           } else {
              const cmpValue = new cv.Mat(src.rows, src.cols, src.type(), new cv.Scalar(params.value || 127));
              cv.compare(src, cmpValue, dst, op);
              cmpValue.delete();
-             info = `비교 연산 (값 ${params.value}): ${params.cmpop}`;
+             info = `Compare (Value ${params.value}): ${params.cmpop}`;
           }
           break;
         }
@@ -2022,14 +2022,14 @@ export class OpenCVProcessor {
             cv.resize(src2, resizedSrc2, new cv.Size(src.cols, src.rows));
             cv.min(src, resizedSrc2, dst);
             resizedSrc2.delete();
-            info = `최소값 선택 완료 (두 이미지)`;
+            info = `Min selected (Two Images)`;
           } else {
             const minBlurred = new cv.Mat();
             const minBlurSize = this.ensureOdd(params.blurSize || 15);
             cv.GaussianBlur(src, minBlurred, new cv.Size(minBlurSize, minBlurSize), 0);
             cv.min(src, minBlurred, dst);
             minBlurred.delete();
-            info = `최소값 선택 완료 (원본 vs 블러)`;
+            info = `Min selected (Original vs Blur)`;
           }
           break;
 
@@ -2039,37 +2039,37 @@ export class OpenCVProcessor {
             cv.resize(src2, resizedSrc2, new cv.Size(src.cols, src.rows));
             cv.max(src, resizedSrc2, dst);
             resizedSrc2.delete();
-            info = `최대값 선택 완료 (두 이미지)`;
+            info = `Max selected (Two Images)`;
           } else {
             const maxBlurred = new cv.Mat();
             const maxBlurSize = this.ensureOdd(params.blurSize || 15);
             cv.GaussianBlur(src, maxBlurred, new cv.Size(maxBlurSize, maxBlurSize), 0);
             cv.max(src, maxBlurred, dst);
             maxBlurred.delete();
-            info = `최대값 선택 완료 (원본 vs 블러)`;
+            info = `Max selected (Original vs Blur)`;
           }
           break;
 
         case 'checkRange':
           const inRange = cv.checkRange(src, true, new cv.Point(params.minVal || 50, params.maxVal || 200));
           dst = src.clone();
-          const rangeText = inRange ? `범위 내: [${params.minVal}, ${params.maxVal}]` : `범위 외 값 존재`;
+          const rangeText = inRange ? `In Range: [${params.minVal}, ${params.maxVal}]` : `Values out of range exist`;
           const rangeColor = inRange ? new cv.Scalar(0, 255, 0, 255) : new cv.Scalar(0, 0, 255, 255);
           cv.putText(dst, rangeText, new cv.Point(10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, rangeColor, 2);
           info = rangeText;
           break;
 
-        // 고급 필터
+        // Advanced Filters
         case 'boxFilter':
           const boxKsize = this.ensureOdd(params.ksize || 5);
           cv.boxFilter(src, dst, -1, new cv.Size(boxKsize, boxKsize), new cv.Point(-1, -1), params.normalize !== false);
-          info = `박스 필터 적용: 커널 ${boxKsize}x${boxKsize}, 정규화: ${params.normalize !== false ? 'O' : 'X'}`;
+          info = `Box Filter: Kernel ${boxKsize}x${boxKsize}, Normalize: ${params.normalize !== false ? 'Yes' : 'No'}`;
           break;
 
         case 'sqrBoxFilter':
           const sqrKsize = this.ensureOdd(params.ksize || 5);
           cv.sqrBoxFilter(src, dst, -1, new cv.Size(sqrKsize, sqrKsize));
-          info = `제곱 박스 필터 적용: 커널 ${sqrKsize}x${sqrKsize}`;
+          info = `SqrBox Filter: Kernel ${sqrKsize}x${sqrKsize}`;
           break;
 
         case 'filter2D':
@@ -2099,7 +2099,7 @@ export class OpenCVProcessor {
           const kernel2D = cv.matFromArray(3, 3, cv.CV_32FC1, kernelData.flat());
           cv.filter2D(src, dst, cv.CV_8U, kernel2D);
           kernel2D.delete();
-          info = `Custom 필터 적용: ${params.filterType}`;
+          info = `Custom Filter: ${params.filterType}`;
           break;
 
         case 'sepFilter2D':
@@ -2109,13 +2109,13 @@ export class OpenCVProcessor {
           cv.sepFilter2D(src, dst, cv.CV_8U, kernelX, kernelY);
           kernelX.delete();
           kernelY.delete();
-          info = `분리 가능 필터 적용: 커널 ${sepKsize}`;
+          info = `Separable Filter: Kernel ${sepKsize}`;
           break;
 
         case 'Scharr':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.Scharr(src, dst, cv.CV_8U, params.dx || 1, params.dy || 0);
-          info = `Scharr 연산자: dx=${params.dx}, dy=${params.dy}`;
+          info = `Scharr Operator: dx=${params.dx}, dy=${params.dy}`;
           break;
 
         case 'spatialGradient':
@@ -2127,10 +2127,10 @@ export class OpenCVProcessor {
           cv.convertScaleAbs(dst, dst);
           gradX.delete();
           gradY.delete();
-          info = `공간 기울기 계산: 커널 ${params.ksize}`;
+          info = `Spatial Gradient: Kernel ${params.ksize}`;
           break;
 
-        // 이미지 피라미드
+        // Image Pyramids
         case 'pyrDown':
           let pyrDownSrc = src.clone();
           for (let i = 0; i < (params.iterations || 1); i++) {
@@ -2140,7 +2140,7 @@ export class OpenCVProcessor {
             pyrDownSrc = temp;
           }
           dst = pyrDownSrc;
-          info = `다운샘플링 ${params.iterations || 1}회: ${src.cols}x${src.rows} → ${dst.cols}x${dst.rows}`;
+          info = `Downsampling ${params.iterations || 1}x: ${src.cols}x${src.rows} → ${dst.cols}x${dst.rows}`;
           break;
 
         case 'pyrUp':
@@ -2152,45 +2152,45 @@ export class OpenCVProcessor {
             pyrUpSrc = temp;
           }
           dst = pyrUpSrc;
-          info = `업샘플링 ${params.iterations || 1}회: ${src.cols}x${src.rows} → ${dst.cols}x${dst.rows}`;
+          info = `Upsampling ${params.iterations || 1}x: ${src.cols}x${src.rows} → ${dst.cols}x${dst.rows}`;
           break;
 
         case 'pyrMeanShiftFiltering':
           cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
           cv.pyrMeanShiftFiltering(src, dst, params.sp || 20, params.sr || 40);
-          info = `Mean Shift 필터링: sp=${params.sp}, sr=${params.sr}`;
+          info = `Mean Shift Filtering: sp=${params.sp}, sr=${params.sr}`;
           break;
 
         case 'buildPyramid':
           const pyramid = new cv.MatVector();
           cv.buildPyramid(src, pyramid, params.maxlevel || 3);
           
-          // 피라미드의 모든 레벨을 시각화
+          // Visualize all levels of the pyramid
           const pyramidImages = [];
           for (let i = 0; i < Math.min(pyramid.size(), params.maxlevel + 1); i++) {
             pyramidImages.push(pyramid.get(i));
           }
           
-          // 가로로 연결 (크기가 다르므로 첫 번째 레벨만 사용)
+          // Concatenate horizontally (sizes differ, so use first level/appropriate logic)
           dst = pyramid.get(Math.min(2, pyramid.size() - 1)).clone();
           pyramid.delete();
-          info = `가우시안 피라미드 생성: ${params.maxlevel + 1}레벨`;
+          info = `Gaussian Pyramid: ${params.maxlevel + 1} levels`;
           break;
 
-        // 미분 연산
+        // Derivative Operations
         case 'getDerivKernels':
           const kx = new cv.Mat();
           const ky = new cv.Mat();
           cv.getDerivKernels(kx, ky, params.dx || 1, params.dy || 0, params.ksize || 3, true, cv.CV_32F);
           
-          // 커널을 이미지로 시각화
+          // Visualize kernels as image
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           const kernelResult = new cv.Mat();
           cv.sepFilter2D(src, kernelResult, cv.CV_8U, kx, ky);
           dst = kernelResult;
           kx.delete();
           ky.delete();
-          info = `미분 커널 적용: dx=${params.dx}, dy=${params.dy}, ksize=${params.ksize}`;
+          info = `Deriv Kernels: dx=${params.dx}, dy=${params.dy}, ksize=${params.ksize}`;
           break;
 
         case 'getGaborKernel':
@@ -2208,7 +2208,7 @@ export class OpenCVProcessor {
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.filter2D(src, dst, cv.CV_8U, gaborKernel);
           gaborKernel.delete();
-          info = `Gabor 필터 적용: ksize=${gaborKsize}, sigma=${params.sigma}, theta=${params.theta}°, lambda=${params.lambd}`;
+          info = `Gabor Filter: ksize=${gaborKsize}, sigma=${params.sigma}, theta=${params.theta}°, lambda=${params.lambd}`;
           break;
 
         case 'getGaussianKernel':
@@ -2219,10 +2219,10 @@ export class OpenCVProcessor {
           cv.filter2D(src, dst, cv.CV_8U, gaussKernel2D);
           gaussKernel.delete();
           gaussKernel2D.delete();
-          info = `가우시안 커널 적용: ksize=${gaussKsize}, sigma=${params.sigma}`;
+          info = `Gaussian Kernel: ksize=${gaussKsize}, sigma=${params.sigma}`;
           break;
 
-        // 각종 이미지변환
+        // Image Transformations
         case 'distanceTransform':
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.threshold(src, src, 127, 255, cv.THRESH_BINARY);
@@ -2235,7 +2235,7 @@ export class OpenCVProcessor {
           cv.distanceTransform(src, dst, distType, params.maskSize || 5);
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX);
           cv.convertScaleAbs(dst, dst);
-          info = `거리 변환: ${params.distanceType}, 마스크: ${params.maskSize}x${params.maskSize}`;
+          info = `Distance Transform: ${params.distanceType}, Mask: ${params.maskSize}x${params.maskSize}`;
           break;
 
         case 'floodFill': {
@@ -2266,10 +2266,10 @@ export class OpenCVProcessor {
              resizedSrc2.copyTo(innerMask);
              innerMask.delete();
              resizedSrc2.delete();
-             info = `영역 채우기 (마스크 포함): ${params.tolerance}`;
+             info = `Flood Fill (With Mask): ${params.tolerance}`;
           } else {
              floodMask = new cv.Mat.zeros(dst.rows + 2, dst.cols + 2, cv.CV_8UC1);
-             info = `영역 채우기: ${params.tolerance}`;
+             info = `Flood Fill: ${params.tolerance}`;
           }
           
           cv.floodFill(dst, floodMask, seedPoint, newColor, new cv.Rect(), loDiff, upDiff);
@@ -2281,12 +2281,12 @@ export class OpenCVProcessor {
           cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           cv.threshold(src, src, params.threshold || 127, 255, cv.THRESH_BINARY);
           
-          // 거리 변환
+          // Distance Transform
           const distTransform = new cv.Mat();
           cv.distanceTransform(src, distTransform, cv.DIST_L2, 5);
           cv.normalize(distTransform, distTransform, 0, 1, cv.NORM_MINMAX);
           
-          // 마커 생성
+          // Create markers
           const markers = new cv.Mat(src.rows, src.cols, cv.CV_32S);
           for (let i = 0; i < markers.rows; i++) {
             for (let j = 0; j < markers.cols; j++) {
@@ -2294,11 +2294,11 @@ export class OpenCVProcessor {
             }
           }
           
-          // 워터셰드 적용
+          // Apply Watershed
           const srcColor = cv.imread(inputCanvas);
           cv.watershed(srcColor, markers);
           
-          // 결과 시각화
+          // Visualize result
           dst = new cv.Mat(src.rows, src.cols, cv.CV_8UC3);
           for (let i = 0; i < markers.rows; i++) {
             for (let j = 0; j < markers.cols; j++) {
@@ -2318,7 +2318,7 @@ export class OpenCVProcessor {
           distTransform.delete();
           markers.delete();
           srcColor.delete();
-          info = `워터셰드 분할 완료`;
+          info = `Watershed segmentation completed`;
           break;
 
         case 'connectedComponents':
@@ -2327,7 +2327,7 @@ export class OpenCVProcessor {
           const labels = new cv.Mat();
           const numLabels = cv.connectedComponents(src, labels, params.connectivity || 8, cv.CV_32S);
           
-          // 레이블을 색상으로 시각화
+          // Visualize labels with colors
           dst = new cv.Mat(labels.rows, labels.cols, cv.CV_8UC3);
           for (let i = 0; i < labels.rows; i++) {
             for (let j = 0; j < labels.cols; j++) {
@@ -2340,7 +2340,7 @@ export class OpenCVProcessor {
           }
           cv.cvtColor(dst, dst, cv.COLOR_HSV2RGB);
           labels.delete();
-          info = `연결 요소: ${numLabels}개 (${params.connectivity}-연결)`;
+          info = `Connected Components: ${numLabels} (${params.connectivity}-way)`;
           break;
 
         case 'arcLength': {
@@ -2351,7 +2351,7 @@ export class OpenCVProcessor {
           const closed = params.closed === 'true' || params.closed === true;
 
           if (contours_arc.size() > 0) {
-            // 가장 긴 윤곽선 찾기
+            // Find longest contour
             let maxArcContour = contours_arc.get(0);
             let maxArcLen = 0;
             
@@ -2365,9 +2365,9 @@ export class OpenCVProcessor {
             }
             
             const arcLen = cv.arcLength(maxArcContour, closed);
-            info = `최대 윤곽선 길이: ${arcLen.toFixed(2)} px (closed=${closed})`;
+            info = `Max Contour Length: ${arcLen.toFixed(2)} px (closed=${closed})`;
             
-            // 시각화
+            // Visualize
             cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
             const color = new cv.Scalar(0, 255, 0, 255);
             const vec = new cv.MatVector();
@@ -2375,7 +2375,7 @@ export class OpenCVProcessor {
             cv.drawContours(dst, vec, 0, color, 2);
             vec.delete();
           } else {
-            info = '윤곽선이 검출되지 않았습니다.';
+            info = 'No contours detected.';
             cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
           }
           
@@ -2390,7 +2390,7 @@ export class OpenCVProcessor {
           cv.findContours(src, contours_def, hierarchy_def, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE);
           
           if (contours_def.size() > 0) {
-            // 가장 큰 윤곽선 찾기
+            // Find largest contour
             let maxArea = 0;
             let maxContourIndex = 0;
             for (let i = 0; i < contours_def.size(); i++) {
@@ -2405,25 +2405,25 @@ export class OpenCVProcessor {
             const hull = new cv.Mat();
             const defects = new cv.Mat();
             
-            // Hull indices 구하기 (returnPoints = false)
+            // Calculate Hull indices (returnPoints = false)
             cv.convexHull(cnt, hull, false, false);
             
             if (hull.rows > 3) {
               cv.convexityDefects(cnt, hull, defects);
               
-              info = `Convexity Defects: ${defects.rows}개 발견`;
+              info = `Convexity Defects: ${defects.rows} detected`;
               
-              // 시각화
+              // Visualize
               cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
               const color = new cv.Scalar(0, 255, 0, 255);
               
-              // 윤곽선 그리기
+              // Draw contours
               const vec = new cv.MatVector();
               vec.push_back(cnt);
               cv.drawContours(dst, vec, 0, color, 2);
               vec.delete();
               
-              // 결함 그리기
+              // Draw defects
               for (let i = 0; i < defects.rows; ++i) {
                 let start = new cv.Point(cnt.data32S[defects.data32S[i * 4] * 2], cnt.data32S[defects.data32S[i * 4] * 2 + 1]);
                 let end = new cv.Point(cnt.data32S[defects.data32S[i * 4 + 1] * 2], cnt.data32S[defects.data32S[i * 4 + 1] * 2 + 1]);
@@ -2432,14 +2432,14 @@ export class OpenCVProcessor {
                 cv.circle(dst, far, 3, new cv.Scalar(0, 0, 255, 255), -1);
               }
             } else {
-              info = 'Convex hull을 구성할 점이 부족합니다.';
+              info = 'Not enough points to form a convex hull.';
               cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
             }
             
             hull.delete();
             defects.delete();
           } else {
-            info = '윤곽선이 검출되지 않았습니다.';
+            info = 'No contours detected.';
             cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
           }
           contours_def.delete();
@@ -2453,7 +2453,7 @@ export class OpenCVProcessor {
           cv.findContours(src, contours_fit, hierarchy_fit, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE);
           
           if (contours_fit.size() > 0) {
-             // 가장 큰 윤곽선 사용
+             // Use the largest contour
             let maxArea = 0;
             let maxContourIndex = 0;
             for (let i = 0; i < contours_fit.size(); i++) {
@@ -2478,14 +2478,14 @@ export class OpenCVProcessor {
             const lefty = Math.round((-x * vy / vx) + y);
             const righty = Math.round(((src.cols - x) * vy / vx) + y);
             
-             // 시각화
+            // Visualization
             cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
             cv.line(dst, new cv.Point(src.cols - 1, righty), new cv.Point(0, lefty), new cv.Scalar(255, 0, 0, 255), 2);
             
-            info = `직선 피팅: (vx=${vx.toFixed(2)}, vy=${vy.toFixed(2)}) type=${distTypeStr}`;
+            info = `Line Fitting: (vx=${vx.toFixed(2)}, vy=${vy.toFixed(2)}) type=${distTypeStr}`;
             line.delete();
           } else {
-             info = '윤곽선이 없습니다.';
+             info = 'No contours found.';
              cv.cvtColor(src, dst, cv.COLOR_GRAY2RGBA);
           }
           contours_fit.delete();
@@ -2516,7 +2516,7 @@ export class OpenCVProcessor {
           
           approxContours_shape.delete();
           approxHierarchy_shape.delete();
-          info = `다각형 근사: epsilon=${params.epsilon}%`;
+          info = `Polygon Approximation: epsilon=${params.epsilon}%`;
           break;
 
         case 'boundingRect':
@@ -2536,7 +2536,7 @@ export class OpenCVProcessor {
           
           boundContours_shape.delete();
           boundHierarchy_shape.delete();
-          info = `경계 사각형: ${boundRectCount}개`;
+          info = `Bounding Rects: ${boundRectCount}`;
           break;
 
         case 'contourArea':
@@ -2555,7 +2555,7 @@ export class OpenCVProcessor {
             totalArea_shape += area;
             cv.drawContours(dst, areaContours_shape, i, new cv.Scalar(0, 255, 0, 255), 2);
             
-            // 면적 텍스트 표시
+            // Display area text
             const moment = cv.moments(areaContours_shape.get(i));
             const cx = moment.m10 / moment.m00;
             const cy = moment.m01 / moment.m00;
@@ -2564,7 +2564,7 @@ export class OpenCVProcessor {
           
           areaContours_shape.delete();
           areaHierarchy_shape.delete();
-          info = `총 면적: ${Math.round(totalArea_shape)}px² (${areaCount}개 윤곽선)`;
+          info = `Total Area: ${Math.round(totalArea_shape)}px² (${areaCount} contours)`;
           break;
 
         case 'convexHull':
@@ -2582,20 +2582,21 @@ export class OpenCVProcessor {
             const returnPoints = params.returnPoints === 'true' || params.returnPoints === true;
             cv.convexHull(hullContours_shape.get(i), hull, clockwise, returnPoints);
             
-            // 시각화를 위해 returnPoints가 false(인덱스 반환)일 경우 점 좌표를 구해야 함
-            // 하지만 JS OpenCV 바인딩에서 drawContours는 점들의 배열(Mat)을 기대함.
-            // returnPoints=true여야 drawContours로 그릴 수 있음.
-            // 만약 false라면 인덱스를 이용해 점을 추출하는 로직이 필요.
-            // 여기서는 시각화를 우선시하여, 사용자가 returnPoints=false를 요청했더라도 
-            // 시각화용으로는 true로 따로 계산하거나, 일단 params를 적용하되 그리기 위해 별도 처리.
+            // To visualize when returnPoints is false (returns indices), we need to get point coordinates.
+            // However, drawContours in JS OpenCV binding expects a Mat of points.
+            // It must be returnPoints=true to be drawn with drawContours.
+            // If false, logic to extract points using indices is needed.
+            // Here, for visualization, even if user requested returnPoints=false,
+            // we calculate it separately or treat it specially for drawing.
+            // For visualization, calculate separately as true, or apply params but handle separately for drawing.
             
-            // 간단히: params 적용하고, 그릴 때는 점 좌표가 필요하므로 다시 계산하거나
-            // returnPoints가 true일 때만 그리기?
-            // 사용자 의도를 존중해 params를 넣되, returnPoints=false면 그리기에서 에러 날 수 있음.
-            // 안전하게: 시각화용 Hull은 항상 returnPoints=true로 계산.
+            // Simply: Apply params, but since we need point coordinates for drawing, recalculate or...
+            // Draw only when returnPoints is true?
+            // Respect user intent and apply params, but drawing might fail if returnPoints=false.
+            // Safely: Calculate Hull for visualization always with returnPoints=true.
             
-            // 실제 로직:
-            cv.convexHull(hullContours_shape.get(i), hull, clockwise, true); // 시각화를 위해 항상 true로 덮어씀 (웹 데모 특성상)
+            // Actual logic:
+            cv.convexHull(hullContours_shape.get(i), hull, clockwise, true); // Always overwrite to true for visualization (web demo characteristic)
             // Warning: We are ignoring returnPoints param for visualization purposes because drawContours needs points.
             
             const hullVec = new cv.MatVector();
@@ -2607,7 +2608,7 @@ export class OpenCVProcessor {
           
           hullContours_shape.delete();
           hullHierarchy_shape.delete();
-          info = `볼록 껍질: ${hullCount}개`;
+          info = `Convex Hulls: ${hullCount}`;
           break;
 
         case 'fitEllipse':
@@ -2630,90 +2631,90 @@ export class OpenCVProcessor {
           
           ellipseContours.delete();
           ellipseHierarchy.delete();
-          info = `타원 피팅: ${fitCount}개`;
+          info = `Ellipse Fitting: ${fitCount}`;
           break;
 
-        // 모션 분석 및 객체 추적
+        // Motion Analysis and Object Tracking
         case 'accumulate':
           if (!src2) {
             throw new Error('accumulate requires two input images');
           }
-          // src를 그레이스케일로 변���
+          // Convert src to grayscale���
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
-          // src2를 32F로 변환 (누적용)
+          // Convert src2 to 32F (for accumulation)
           src2.convertTo(src2, cv.CV_32F);
-          // src를 32F로 변환
+          // Convert src to 32F
           const srcFloat = new cv.Mat();
           src.convertTo(srcFloat, cv.CV_32F);
-          // 누적: dst = dst + src
+          // Accumulate: dst = dst + src
           cv.add(src2, srcFloat, src2);
-          // 결과를 8U로 다시 변환
+          // Convert result back to 8U
           src2.convertTo(dst, cv.CV_8U);
           srcFloat.delete();
-          info = `이미지 누적 완료 (alpha: ${params.alpha || 0.5})`;
+          info = `Image accumulation completed (alpha: ${params.alpha || 0.5})`;
           break;
 
         case 'accumulateSquare':
           if (!src2) {
             throw new Error('accumulateSquare requires two input images');
           }
-          // src를 그레이스케일로 변환
+          // Convert src to grayscale
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
-          // src를 32F로 변환
+          // Convert src to 32F
           const srcFloat2 = new cv.Mat();
           src.convertTo(srcFloat2, cv.CV_32F);
-          // 제곱
+          // Square
           const srcSquared = new cv.Mat();
           cv.multiply(srcFloat2, srcFloat2, srcSquared);
-          // src2를 32F로 변환
+          // Convert src2 to 32F
           src2.convertTo(src2, cv.CV_32F);
-          // 누적
+          // Accumulate
           cv.add(src2, srcSquared, src2);
-          // 결과를 8U로 다시 변환
+          // Convert result back to 8U
           src2.convertTo(dst, cv.CV_8U);
           srcFloat2.delete();
           srcSquared.delete();
-          info = `제곱 이미지 누적 완료 (alpha: ${params.alpha || 0.5})`;
+          info = `Squared image accumulation completed (alpha: ${params.alpha || 0.5})`;
           break;
 
         case 'accumulateProduct':
           if (!src2) {
             throw new Error('accumulateProduct requires two input images');
           }
-          // 두 이미지를 그레이스케일로 변환
+          // Convert both images to grayscale
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
           if (src2.channels() > 1) {
             cv.cvtColor(src2, src2, cv.COLOR_RGBA2GRAY);
           }
-          // 32F로 변환
+          // Convert to 32F
           const srcF1 = new cv.Mat();
           const srcF2 = new cv.Mat();
           src.convertTo(srcF1, cv.CV_32F);
           src2.convertTo(srcF2, cv.CV_32F);
-          // 곱셈
+          // Multiply
           cv.multiply(srcF1, srcF2, dst);
-          // 정규화
+          // Normalize
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX, cv.CV_8U);
           srcF1.delete();
           srcF2.delete();
-          info = `두 이미지의 곱 누적 완료 (alpha: ${params.alpha || 0.5})`;
+          info = `Product accumulation of two images completed (alpha: ${params.alpha || 0.5})`;
           break;
 
         case 'accumulateWeighted':
           if (!src2) {
             throw new Error('accumulateWeighted requires two input images');
           }
-          // src를 그레이스케일로 변환
+          // Convert src to grayscale
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
-          // 32F로 변환
+          // Convert to 32F
           const srcW1 = new cv.Mat();
           const srcW2 = new cv.Mat();
           src.convertTo(srcW1, cv.CV_32F);
@@ -2726,23 +2727,23 @@ export class OpenCVProcessor {
           
           srcW1.delete();
           srcW2.delete();
-          info = `가중 누적 완료 (학습률: ${alpha})`;
+          info = `Weighted accumulation completed (learning rate: ${alpha})`;
           break;
 
         case 'createHanningWindow':
           const winSize = params.winSize || 128;
           dst = new cv.Mat(winSize, winSize, cv.CV_32F);
           cv.createHanningWindow(dst, new cv.Size(winSize, winSize), cv.CV_32F);
-          // 시각화를 위해 0-255로 스케일링
+          // Scale to 0-255 for visualization
           cv.normalize(dst, dst, 0, 255, cv.NORM_MINMAX, cv.CV_8U);
-          info = `한닝 윈도우 생성 (크기: ${winSize}x${winSize})`;
+          info = `Hanning window created (size: ${winSize}x${winSize})`;
           break;
 
         case 'phaseCorrelate':
           if (!src2) {
             throw new Error('phaseCorrelate requires two input images');
           }
-          // 그레이스케일로 변환
+          // Convert to grayscale
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
@@ -2750,22 +2751,22 @@ export class OpenCVProcessor {
             cv.cvtColor(src2, src2, cv.COLOR_RGBA2GRAY);
           }
           
-          // 32F로 변환
+          // Convert to 32F
           const pc1 = new cv.Mat();
           const pc2 = new cv.Mat();
           src.convertTo(pc1, cv.CV_32F);
           src2.convertTo(pc2, cv.CV_32F);
           
-          // 한닝 윈도우 생성
+          // Create Hanning window
           const window = new cv.Mat();
           const windowSize = params.windowSize || 128;
           cv.createHanningWindow(window, new cv.Size(Math.min(windowSize, src.cols), Math.min(windowSize, src.rows)), cv.CV_32F);
           
           try {
-            // 위상 상관 계산
+            // Calculate phase correlation
             const shift = cv.phaseCorrelate(pc1, pc2, window);
             
-            // 결과 시각화 - 두 이미지를 나란히 표시
+            // Visualize result - Display two images side-by-side
             dst = new cv.Mat(src.rows, src.cols * 2, cv.CV_8UC3);
             const roi1 = dst.roi(new cv.Rect(0, 0, src.cols, src.rows));
             const roi2 = dst.roi(new cv.Rect(src.cols, 0, src.cols, src.rows));
@@ -2773,7 +2774,7 @@ export class OpenCVProcessor {
             cv.cvtColor(src, roi1, cv.COLOR_GRAY2RGB);
             cv.cvtColor(src2, roi2, cv.COLOR_GRAY2RGB);
             
-            // 이동 벡터 표시
+            // Display movement vector
             const center1 = new cv.Point(src.cols / 2, src.rows / 2);
             const center2 = new cv.Point(src.cols + src.cols / 2 + shift.x, src.rows / 2 + shift.y);
             cv.arrowedLine(dst, center1, center2, new cv.Scalar(0, 255, 0, 255), 2);
@@ -2782,11 +2783,11 @@ export class OpenCVProcessor {
             
             roi1.delete();
             roi2.delete();
-            info = `위상 상관: 이동 (${shift.x.toFixed(2)}, ${shift.y.toFixed(2)})`;
+            info = `Phase Correlate: Shift (${shift.x.toFixed(2)}, ${shift.y.toFixed(2)})`;
           } catch (e) {
-            // 위상 상관 실패 시 원본 이미지 표시
+            // Display original image on phase correlation failure
             cv.cvtColor(src, dst, cv.COLOR_GRAY2RGB);
-            info = `위상 상관 계산 실패`;
+            info = `Phase Correlation calculation failed`;
           }
           
           pc1.delete();
@@ -2796,12 +2797,12 @@ export class OpenCVProcessor {
 
         case 'meanShift':
         case 'CamShift':
-          // 그레이스케일로 변환
+          // Convert to grayscale
           if (src.channels() > 1) {
             cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
           }
           
-          // 초기 추적 윈도우 (이미지 중앙)
+          // Initial tracking window (center of image)
           const trackWindow = new cv.Rect(
             Math.floor(src.cols * 0.3),
             Math.floor(src.rows * 0.3),
@@ -2809,33 +2810,33 @@ export class OpenCVProcessor {
             Math.floor(src.rows * 0.4)
           );
           
-          // 종료 조건
+          // Termination criteria
           const criteria = new cv.TermCriteria(
             cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_COUNT,
             params.maxIter || 10,
             params.epsilon || 1.0
           );
           
-          // RGB로 변환하여 결과 표시
+          // Convert to RGB for result display
           cv.cvtColor(src, dst, cv.COLOR_GRAY2RGB);
           
-          // 추적 윈도우를 녹색 사각형으로 표시
+          // Display tracking window as green rectangle
           cv.rectangle(dst, trackWindow, new cv.Scalar(0, 255, 0, 255), 2);
           
           const trackingMethod = functionId === 'CamShift' ? 'CamShift' : 'Mean Shift';
           cv.putText(dst, `${trackingMethod} Tracking Window`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(0, 255, 0, 255), 2);
           
-          info = `${trackingMethod} 추적 (반복: ${params.maxIter || 10}, 정밀도: ${params.epsilon || 1.0})`;
+          info = `${trackingMethod} Tracking (Iter: ${params.maxIter || 10}, Epsilon: ${params.epsilon || 1.0})`;
           break;
 
         case 'calcOpticalFlowPyrLK':
           // Pyramidal Lucas-Kanade Optical Flow
           if (!src2) {
-            throw new Error('두 개의 이미지가 필요합니다 (이전 프레임과 현재 프레임)');
+            throw new Error('Two images required (previous frame and current frame)');
           }
           
-          // 그레이스케일로 변환
+          // Convert to grayscale
           const prevGray = new cv.Mat();
           const nextGray = new cv.Mat();
           
@@ -2851,7 +2852,7 @@ export class OpenCVProcessor {
             src2.copyTo(nextGray);
           }
           
-          // 특징점 검출 (간단한 그리드 포인트 사용)
+          // Feature detection (Using simple grid points)
           const prevPoints = new cv.Mat();
           const gridSpacing = 20;
           const pointsArray = [];
@@ -2868,7 +2869,7 @@ export class OpenCVProcessor {
             prevPoints.data32F[i * 2 + 1] = pointsArray[i * 2 + 1];
           }
           
-          // 광학 흐름 계산
+          // Calculate Optical Flow
           const nextPoints = new cv.Mat();
           const status = new cv.Mat();
           const err = new cv.Mat();
@@ -2885,14 +2886,14 @@ export class OpenCVProcessor {
             winSizeLK, params.maxLevel || 3, criteriaLK
           );
           
-          // 결과 시각화 (컬러 이미지에 벡터 그리기)
+          // Visualize result (Draw vectors on color image)
           if (src2.channels() === 1) {
             cv.cvtColor(src2, dst, cv.COLOR_GRAY2RGB);
           } else {
             src2.copyTo(dst);
           }
           
-          // 광학 흐름 벡터 그리기
+          // Draw Optical Flow vectors
           let goodPoints = 0;
           for (let i = 0; i < status.rows; i++) {
             if (status.data[i] === 1) {
@@ -2901,13 +2902,13 @@ export class OpenCVProcessor {
               const nextX = nextPoints.data32F[i * 2];
               const nextY = nextPoints.data32F[i * 2 + 1];
               
-              // 벡터 그리기
+              // Draw vector
               cv.line(dst, 
                 new cv.Point(prevX, prevY),
                 new cv.Point(nextX, nextY),
                 new cv.Scalar(0, 255, 0, 255), 2);
               
-              // 끝점에 원 그리기
+              // Draw circle at endpoint
               cv.circle(dst, new cv.Point(nextX, nextY), 3, new cv.Scalar(0, 0, 255, 255), -1);
               goodPoints++;
             }
@@ -2916,7 +2917,7 @@ export class OpenCVProcessor {
           cv.putText(dst, `Optical Flow: ${goodPoints} points tracked`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(255, 255, 0, 255), 2);
           
-          info = `Lucas-Kanade 광학 흐름 (${goodPoints}개 점 추적, 레벨: ${params.maxLevel || 3})`;
+          info = `Lucas-Kanade Optical Flow (${goodPoints} points tracked, Level: ${params.maxLevel || 3})`;
           
           prevGray.delete();
           nextGray.delete();
@@ -2929,7 +2930,7 @@ export class OpenCVProcessor {
         case 'calcOpticalFlowFarneback':
           // Farneback Dense Optical Flow
           if (!src2) {
-            throw new Error('두 개의 이미지가 필요합니다 (이전 프레임과 현재 프레임)');
+            throw new Error('Two images required (previous frame and current frame)');
           }
           
           const prev = new cv.Mat();
@@ -2960,7 +2961,7 @@ export class OpenCVProcessor {
             0
           );
           
-          // 흐름을 HSV 색상으로 시각화
+          // Visualize flow with HSV colors
           const flowVis = new cv.Mat();
           const flowParts = new cv.MatVector();
           cv.split(flow, flowParts);
@@ -2969,15 +2970,15 @@ export class OpenCVProcessor {
           const angle = new cv.Mat();
           cv.cartToPolar(flowParts.get(0), flowParts.get(1), magnitude, angle, true);
           
-          // HSV 이미지 생성
+          // Create HSV image
           const hsv = new cv.Mat(flow.rows, flow.cols, cv.CV_8UC3);
           
-          // H: 각도, S: 255, V: 크기
+          // H: Angle, S: 255, V: Magnitude
           for (let i = 0; i < hsv.rows; i++) {
             for (let j = 0; j < hsv.cols; j++) {
               const idx = i * hsv.cols + j;
               const h = angle.data32F[idx] / 2; // 0-180
-              const v = Math.min(magnitude.data32F[idx] * 10, 255); // 스케일 조정
+              const v = Math.min(magnitude.data32F[idx] * 10, 255); // Scale adjustment
               
               hsv.data[idx * 3] = h;
               hsv.data[idx * 3 + 1] = 255;
@@ -2990,7 +2991,7 @@ export class OpenCVProcessor {
           cv.putText(dst, 'Dense Optical Flow (Farneback)', new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(255, 255, 255, 255), 2);
           
-          info = `Farneback 밀집 광학 흐름 (레벨: ${params.levels || 3}, 윈도우: ${params.winsize || 15})`;
+          info = `Farneback Dense Optical Flow (Level: ${params.levels || 3}, Window: ${params.winsize || 15})`;
           
           prev.delete();
           next.delete();
@@ -3016,12 +3017,12 @@ export class OpenCVProcessor {
             params.withDerivatives !== false
           );
           
-          // 피라미드 시각화 (각 레벨을 타일로 표시)
+          // Pyramid visualization
           if (pyramidOF.size() > 0) {
             const firstLevel = pyramidOF.get(0);
             cv.cvtColor(firstLevel, dst, cv.COLOR_GRAY2RGB);
             
-            // 피라미드 레벨 정보 표시
+            // Display pyramid level information
             let yPos = 30;
             for (let level = 0; level < Math.min(pyramidOF.size(), 5); level++) {
               const levelMat = pyramidOF.get(level);
@@ -3034,7 +3035,7 @@ export class OpenCVProcessor {
             src.copyTo(dst);
           }
           
-          info = `광학 흐름 피라미드 (${pyramidOF.size()}개 레벨, 윈도우: ${params.winSize || 15})`;
+          info = `Optical Flow Pyramid (${pyramidOF.size()} levels, Window: ${params.winSize || 15})`;
           
           pyramidOF.delete();
           break;
@@ -3043,10 +3044,10 @@ export class OpenCVProcessor {
         case 'estimateAffinePartial2D':
           // Affine transformation estimation
           if (!src2) {
-            throw new Error('두 개의 이미지가 필요합니다');
+            throw new Error('Two images required');
           }
           
-          // 샘플 점 생성 (실제로는 특징점 매칭 결과 사용)
+          // Generate sample points (In practice, use feature matching results)
           const numPoints = 50;
           const fromPts = [];
           const toPts = [];
@@ -3056,7 +3057,7 @@ export class OpenCVProcessor {
             const y = Math.random() * src.rows;
             fromPts.push(x, y);
             
-            // 약간의 변환 추가
+            // Add slight transformation
             const angle = 0.1;
             const scale = 1.05;
             const tx = 10;
@@ -3067,7 +3068,7 @@ export class OpenCVProcessor {
             toPts.push(newX, newY);
           }
           
-          // 결과 표시
+          // Display result
           src.copyTo(dst);
           
           cv.putText(dst, `${functionId === 'estimateAffine2D' ? 'Affine' : 'Partial Affine'} Transform`, 
@@ -3082,13 +3083,13 @@ export class OpenCVProcessor {
                     new cv.Point(10, 85),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `${functionId === 'estimateAffine2D' ? '아핀' : '부분 아핀'} 변환 추정 (${params.method || 'RANSAC'})`;
+          info = `${functionId === 'estimateAffine2D' ? 'Affine' : 'Partial Affine'} Transform Estimation (${params.method || 'RANSAC'})`;
           break;
 
         case 'findTransformECC':
           // ECC-based geometric transformation
           if (!src2) {
-            throw new Error('두 개의 이미지가 필요합니다 (템플릿과 입력 이미지)');
+            throw new Error('Two images required (Template and Input)');
           }
           
           const template = new cv.Mat();
@@ -3106,20 +3107,20 @@ export class OpenCVProcessor {
             src2.copyTo(input);
           }
           
-          // 결과 시각화
+          // Visualize result
           cv.cvtColor(input, dst, cv.COLOR_GRAY2RGB);
           
           const motionTypes: { [key: string]: string } = {
-            'MOTION_TRANSLATION': '이동',
-            'MOTION_EUCLIDEAN': '유클리드',
-            'MOTION_AFFINE': '아핀',
-            'MOTION_HOMOGRAPHY': '호모그래피'
+            'MOTION_TRANSLATION': 'Translation',
+            'MOTION_EUCLIDEAN': 'Euclidean',
+            'MOTION_AFFINE': 'Affine',
+            'MOTION_HOMOGRAPHY': 'Homography'
           };
           
           cv.putText(dst, 'ECC Transform Estimation', new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(255, 100, 0, 255), 2);
           
-          cv.putText(dst, `Type: ${motionTypes[params.motionType] || '아핀'}`, 
+          cv.putText(dst, `Type: ${motionTypes[params.motionType] || 'Affine'}`, 
                     new cv.Point(10, 60),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
           
@@ -3127,7 +3128,7 @@ export class OpenCVProcessor {
                     new cv.Point(10, 85),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `ECC 변환 추정 (${motionTypes[params.motionType] || '아핀'}, 반복: ${params.maxIters || 50})`;
+          info = `ECC Transform Estimation (${motionTypes[params.motionType] || 'Affine'}, Iterations: ${params.maxIters || 50})`;
           
           template.delete();
           input.delete();
@@ -3138,7 +3139,7 @@ export class OpenCVProcessor {
           // Optical flow I/O functions
           src.copyTo(dst);
           
-          const ioFunction = functionId === 'readOpticalFlow' ? '광학 흐름 읽기' : '광학 흐름 저장';
+          const ioFunction = functionId === 'readOpticalFlow' ? 'Read Optical Flow' : 'Write Optical Flow';
           
           cv.putText(dst, `[${ioFunction}]`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(100, 200, 255, 255), 2);
@@ -3149,13 +3150,13 @@ export class OpenCVProcessor {
           cv.putText(dst, 'Middlebury .flo format supported', new cv.Point(10, dst.rows - 20),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(200, 200, 200, 255), 1);
           
-          info = `${ioFunction} (${params.format || '.flo'} 포맷)`;
+          info = `${ioFunction} (${params.format || '.flo'} Format)`;
           break;
 
         case 'calcOpticalFlowSF':
           // SimpleFlow optical flow
           if (!src2) {
-            throw new Error('두 개의 이미지가 필요합니다');
+            throw new Error('Two images required');
           }
           
           const sfPrev = new cv.Mat();
@@ -3173,7 +3174,7 @@ export class OpenCVProcessor {
             src2.copyTo(sfNext);
           }
           
-          // SimpleFlow는 웹 버전에서 지원되지 않을 수 있으므로 시뮬레이션
+          // SimpleFlow might not be supported in Web version, so simulate
           cv.cvtColor(sfNext, dst, cv.COLOR_GRAY2RGB);
           
           cv.putText(dst, 'SimpleFlow Algorithm', new cv.Point(10, 30),
@@ -3185,7 +3186,7 @@ export class OpenCVProcessor {
           cv.putText(dst, `Block Size: ${params.averagingBlockSize || 2}`, new cv.Point(10, 85),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `SimpleFlow 광학 흐름 (레벨: ${params.layers || 3}, 블록: ${params.averagingBlockSize || 2})`;
+          info = `SimpleFlow Optical Flow (Levels: ${params.layers || 3}, Block: ${params.averagingBlockSize || 2})`;
           
           sfPrev.delete();
           sfNext.delete();
@@ -3200,7 +3201,7 @@ export class OpenCVProcessor {
         case 'trackerBoosting':
         case 'trackerGOTURN':
         case 'trackerTLD':
-          // Tracker 시뮬레이션 - 웹 버전에서는 완전한 구현이 어려움
+          // Tracker Simulation - Complete implementation is difficult in Web version
           src.copyTo(dst);
           
           const trackerNames: { [key: string]: string } = {
@@ -3214,7 +3215,7 @@ export class OpenCVProcessor {
             'trackerTLD': 'TLD Tracker'
           };
           
-          // 추적 영역 그리기
+          // Draw tracking area
           const bbox = {
             x: params.x || 100,
             y: params.y || 100,
@@ -3222,31 +3223,31 @@ export class OpenCVProcessor {
             height: params.height || 150
           };
           
-          // 추적 영역 사각형
+          // Tracking area rectangle
           cv.rectangle(dst, 
             new cv.Point(bbox.x, bbox.y),
             new cv.Point(bbox.x + bbox.width, bbox.y + bbox.height),
             new cv.Scalar(0, 255, 0, 255), 3);
           
-          // 추적기 이름 표시
+          // Display tracker name
           cv.putText(dst, trackerNames[functionId], new cv.Point(bbox.x, bbox.y - 10),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(0, 255, 0, 255), 2);
           
-          // 추적 영역 정보
+          // Tracking area info
           cv.putText(dst, `Tracking Area: (${bbox.x}, ${bbox.y})`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
           cv.putText(dst, `Size: ${bbox.width}x${bbox.height}`, new cv.Point(10, 55),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `${trackerNames[functionId]} - 추적 영역: (${bbox.x},${bbox.y}) ${bbox.width}x${bbox.height}`;
+          info = `${trackerNames[functionId]} - Tracking Area: (${bbox.x},${bbox.y}) ${bbox.width}x${bbox.height}`;
           break;
 
         case 'createBackgroundSubtractorMOG2':
-          // MOG2 배경 차분 시뮬레이션
+          // MOG2 Background Subtraction Simulation
           src.copyTo(dst);
           
-          // 간단한 thresholding으로 전경 검출 시뮬레이션
+          // Simulate foreground detection with simple thresholding
           const mogGray = new cv.Mat();
           if (src.channels() > 1) {
             cv.cvtColor(src, mogGray, cv.COLOR_RGBA2GRAY);
@@ -3269,12 +3270,12 @@ export class OpenCVProcessor {
           cv.putText(dst, `Detect Shadows: ${params.detectShadows ? 'Yes' : 'No'}`, new cv.Point(10, 110),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `MOG2 배경 차분 (히스토리: ${params.history || 500}, 임계값: ${params.varThreshold || 16})`;
+          info = `MOG2 Background Subtraction (History: ${params.history || 500}, Threshold: ${params.varThreshold || 16})`;
           mogGray.delete();
           break;
 
         case 'createBackgroundSubtractorKNN':
-          // KNN 배경 차분 시뮬레이션
+          // KNN Background Subtraction Simulation
           src.copyTo(dst);
           
           const knnGray = new cv.Mat();
@@ -3299,24 +3300,24 @@ export class OpenCVProcessor {
           cv.putText(dst, `Detect Shadows: ${params.detectShadows ? 'Yes' : 'No'}`, new cv.Point(10, 110),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `KNN 배경 차분 (히스토리: ${params.history || 500}, 거리: ${params.dist2Threshold || 400})`;
+          info = `KNN Background Subtraction (History: ${params.history || 500}, Dist: ${params.dist2Threshold || 400})`;
           knnGray.delete();
           break;
 
         case 'multiTracker':
-          // Multi Tracker 시뮬레이션
+          // Multi Tracker Simulation
           src.copyTo(dst);
           
           const objectCount = params.objectCount || 2;
           const trackerType = params.trackerType || 'KCF';
           
-          // 여러 추적 영역 그리기
+          // Draw multiple tracking areas
           const colors = [
-            new cv.Scalar(255, 0, 0, 255),    // 빨강
-            new cv.Scalar(0, 255, 0, 255),    // 초록
-            new cv.Scalar(0, 0, 255, 255),    // 파랑
-            new cv.Scalar(255, 255, 0, 255),  // 노랑
-            new cv.Scalar(255, 0, 255, 255),  // 자홍
+            new cv.Scalar(255, 0, 0, 255),    // Red
+            new cv.Scalar(0, 255, 0, 255),    // Green
+            new cv.Scalar(0, 0, 255, 255),    // Blue
+            new cv.Scalar(255, 255, 0, 255),  // Yellow
+            new cv.Scalar(255, 0, 255, 255),  // Magenta
           ];
           
           for (let i = 0; i < Math.min(objectCount, 5); i++) {
@@ -3343,7 +3344,7 @@ export class OpenCVProcessor {
           cv.putText(dst, `Objects: ${objectCount}`, new cv.Point(10, 60),
                     cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `다중 객체 추적 (${trackerType}, ${objectCount}개 객체)`;
+          info = `Multi-Object Tracking (${trackerType}, ${objectCount} objects)`;
           break;
 
         // High-level GUI Functions
@@ -3356,20 +3357,20 @@ export class OpenCVProcessor {
         case 'getWindowProperty':
         case 'setWindowProperty':
         case 'startWindowThread':
-          // GUI 윈도우 관련 함수들은 웹 환경에서 시뮬레이션
+          // GUI Window functions are simulated in Web environment
           src.copyTo(dst);
           
-          // 정보 텍스트 추가
+          // Add info text
           const guiFunctionNames: { [key: string]: string } = {
-            'namedWindow': '윈도우 생성',
-            'destroyWindow': '윈도우 삭제',
-            'destroyAllWindows': '모든 윈도우 삭제',
-            'resizeWindow': '윈도우 크기 조절',
-            'moveWindow': '윈도우 이동',
-            'setWindowTitle': '윈도우 제목 설정',
-            'getWindowProperty': '윈도우 속성 가져오기',
-            'setWindowProperty': '윈도우 속성 설정',
-            'startWindowThread': '윈도우 스레드 시작'
+            'namedWindow': 'Create Window',
+            'destroyWindow': 'Destroy Window',
+            'destroyAllWindows': 'Destroy All Windows',
+            'resizeWindow': 'Resize Window',
+            'moveWindow': 'Move Window',
+            'setWindowTitle': 'Set Window Title',
+            'getWindowProperty': 'Get Window Property',
+            'setWindowProperty': 'Set Window Property',
+            'startWindowThread': 'Start Window Thread'
           };
           
           cv.putText(dst, `[${guiFunctionNames[functionId]}]`, new cv.Point(10, 30),
@@ -3395,15 +3396,15 @@ export class OpenCVProcessor {
                       cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(200, 200, 200, 255), 1);
           }
           
-          info = `${guiFunctionNames[functionId]} - 웹 환경에서는 시뮬레이션됩니다`;
+          info = `${guiFunctionNames[functionId]} - Simulated in Web Environment`;
           break;
 
         case 'waitKey':
         case 'pollKey':
-          // 키보드 입력 대기 함수들
+          // Keyboard Wait Functions
           src.copyTo(dst);
           
-          const keyFunctionName = functionId === 'waitKey' ? '키보드 입력 대기' : '키보드 상태 확인';
+          const keyFunctionName = functionId === 'waitKey' ? 'Wait Key' : 'Poll Key';
           cv.putText(dst, `[${keyFunctionName}]`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(0, 255, 255, 255), 2);
           
@@ -3424,15 +3425,15 @@ export class OpenCVProcessor {
         case 'setTrackbarPos':
         case 'setTrackbarMin':
         case 'setTrackbarMax':
-          // 트랙바 관련 함수들
+          // Trackbar Functions
           src.copyTo(dst);
           
           const trackbarFunctionNames: { [key: string]: string } = {
-            'createTrackbar': '트랙바 생성',
-            'getTrackbarPos': '트랙바 위치 가져오기',
-            'setTrackbarPos': '트랙바 위치 설정',
-            'setTrackbarMin': '트랙바 최소값 설정',
-            'setTrackbarMax': '트랙바 최대값 설정'
+            'createTrackbar': 'Create Trackbar',
+            'getTrackbarPos': 'Get Trackbar Pos',
+            'setTrackbarPos': 'Set Trackbar Pos',
+            'setTrackbarMin': 'Set Trackbar Min',
+            'setTrackbarMax': 'Set Trackbar Max'
           };
           
           cv.putText(dst, `[${trackbarFunctionNames[functionId]}]`, new cv.Point(10, 30),
@@ -3458,27 +3459,27 @@ export class OpenCVProcessor {
                       cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(200, 200, 200, 255), 1);
           }
           
-          // 트랙바 시뮬레이션 그리기
+          // Draw Trackbar Simulation
           if (params.value !== undefined && params.count !== undefined) {
             const barY = dst.rows - 80;
             const barX = 50;
             const barWidth = dst.cols - 100;
             const barHeight = 20;
             
-            // 배경
+            // Background
             cv.rectangle(dst, 
               new cv.Point(barX, barY), 
               new cv.Point(barX + barWidth, barY + barHeight),
               new cv.Scalar(50, 50, 50, 255), -1);
             
-            // 트랙바
+            // Trackbar
             const fillWidth = (params.value / params.count) * barWidth;
             cv.rectangle(dst, 
               new cv.Point(barX, barY), 
               new cv.Point(barX + fillWidth, barY + barHeight),
               new cv.Scalar(100, 255, 100, 255), -1);
             
-            // 값 표시
+            // Display Value
             cv.putText(dst, `${params.value}`, new cv.Point(barX + barWidth + 10, barY + 15),
                       cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
           }
@@ -3488,26 +3489,26 @@ export class OpenCVProcessor {
 
         case 'selectROI':
         case 'selectROIs':
-          // ROI 선택 함수들
+          // ROI Selection Functions
           src.copyTo(dst);
           
-          const roiName = functionId === 'selectROI' ? 'ROI 선택' : '여러 ROI 선택';
+          const roiName = functionId === 'selectROI' ? 'Select ROI' : 'Select ROIs';
           cv.putText(dst, `[${roiName}]`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(255, 100, 255, 255), 2);
           
-          // 샘플 ROI 표시
+          // Display Sample ROI
           const roiWidth = Math.floor(dst.cols * 0.4);
           const roiHeight = Math.floor(dst.rows * 0.4);
           const roiX = Math.floor((dst.cols - roiWidth) / 2);
           const roiY = Math.floor((dst.rows - roiHeight) / 2);
           
-          // ROI 사각형
+          // ROI Rectangle
           cv.rectangle(dst, 
             new cv.Point(roiX, roiY), 
             new cv.Point(roiX + roiWidth, roiY + roiHeight),
             new cv.Scalar(255, 100, 255, 255), 2);
           
-          // 십자선 (showCrosshair가 true일 때)
+          // Crosshair (when showCrosshair is true)
           if (params.showCrosshair !== false) {
             const centerX = roiX + roiWidth / 2;
             const centerY = roiY + roiHeight / 2;
@@ -3527,17 +3528,17 @@ export class OpenCVProcessor {
                     new cv.Point(10, dst.rows - 20),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
           
-          info = `${roiName} - 마우스로 영역을 드래그하여 선택`;
+          info = `${roiName} - Select area by dragging mouse`;
           break;
 
         case 'setMouseCallback':
         case 'getMouseWheelDelta':
-          // 마우스 관련 함수들
+          // Mouse Functions
           src.copyTo(dst);
           
           const mouseFunctionName = functionId === 'setMouseCallback' 
-            ? '마우스 콜백 설정' 
-            : '마우스 휠 변화량';
+            ? 'Set Mouse Callback' 
+            : 'Get Mouse Wheel Delta';
           
           cv.putText(dst, `[${mouseFunctionName}]`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(255, 200, 0, 255), 2);
@@ -3547,7 +3548,7 @@ export class OpenCVProcessor {
                       cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(255, 255, 255, 255), 1);
           }
           
-          // 마우스 커서 시뮬레이션
+          // Simulate Mouse Cursor
           const mouseX = Math.floor(dst.cols / 2);
           const mouseY = Math.floor(dst.rows / 2);
           
@@ -3557,14 +3558,14 @@ export class OpenCVProcessor {
           cv.putText(dst, 'Click here', new cv.Point(mouseX + 25, mouseY),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 200, 0, 255), 1);
           
-          info = `${mouseFunctionName} - 마우스 이벤트 처리`;
+          info = `${mouseFunctionName} - Mouse Event Processing`;
           break;
 
         case 'imshow':
-          // 이미지 표시 함수
+          // Image Display Function
           src.copyTo(dst);
           
-          cv.putText(dst, '[imshow - 이미지 표시]', new cv.Point(10, 30),
+          cv.putText(dst, '[imshow - Display Image]', new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.8, new cv.Scalar(0, 255, 0, 255), 2);
           
           if (params.windowName) {
@@ -3575,7 +3576,7 @@ export class OpenCVProcessor {
           cv.putText(dst, `Size: ${dst.cols}x${dst.rows}`, new cv.Point(10, dst.rows - 20),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(200, 200, 200, 255), 1);
           
-          info = `이미지 표시${params.windowName ? ` - ${params.windowName}` : ''}`;
+          info = `Display Image${params.windowName ? ` - ${params.windowName}` : ''}`;
           break;
 
         // Camera Calibration & 3D Reconstruction
@@ -3610,17 +3611,17 @@ export class OpenCVProcessor {
         case 'composeRT':
         case 'computeCorrespondEpilines':
         case 'validateDisparity':
-          // Camera Calibration & 3D 함수들은 웹 환경에서 제한적으로 동작
+          // Camera Calibration & 3D functions have limited support in Web environment
           src.copyTo(dst);
           const funcName = functionId.replace(/([A-Z])/g, ' $1').trim();
           cv.putText(dst, `[${funcName}]`, new cv.Point(10, 30),
                     cv.FONT_HERSHEY_SIMPLEX, 0.7, new cv.Scalar(0, 255, 255, 255), 2);
           cv.putText(dst, 'Camera Calibration & 3D Reconstruction', new cv.Point(10, 60),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(255, 255, 255, 255), 1);
-          cv.putText(dst, '이 함수는 실제 카메라 데이터가 필요합니다', new cv.Point(10, 85),
+          cv.putText(dst, 'This function requires real camera data', new cv.Point(10, 85),
                     cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(200, 200, 200, 255), 1);
           
-          // 간단한 시각화
+          // Simple Visualization
           if (functionId === 'findChessboardCorners') {
             dst = src.clone();
             const patternSize = new cv.Size(params.patternWidth || 9, params.patternHeight || 6);
@@ -3628,15 +3629,15 @@ export class OpenCVProcessor {
             const found = cv.findChessboardCorners(src, patternSize, corners, params.flags || 0);
             if (found) {
               cv.drawChessboardCorners(dst, patternSize, corners, found);
-              info = `체스보드 코너 검출 성공: ${corners.rows}개`;
+              info = `Chessboard Corners Detected: ${corners.rows}`;
             } else {
-              info = `체스보드 코너 검출 실패`;
+              info = `Chessboard Corners Detection Failed`;
             }
             corners.delete();
           } else if (functionId === 'drawChessboardCorners') {
-             // draw용 데이터가 없으므로 find와 병합된 형태가 많을 것이나 단독 요청 시 더미로 대응하거나 안내
+             // Since there is no data for draw, it is often merged with find, but for standalone requests, handle as dummy or guide
              dst = src.clone();
-             info = `그리기 완료 (검출 데이터 필요)`;
+             info = `Drawing Completed (Detection Data Required)`;
           } else if (functionId === 'findCirclesGrid') {
             dst = src.clone();
             const patternSize = new cv.Size(params.patternWidth || 4, params.patternHeight || 11);
@@ -3647,16 +3648,16 @@ export class OpenCVProcessor {
                 const center = new cv.Point(centers.data32F[i * 2], centers.data32F[i * 2 + 1]);
                 cv.circle(dst, center, 5, new cv.Scalar(255, 0, 0, 255), -1);
               }
-              info = `원형 그리드 검출 성공: ${centers.rows}개`;
+              info = `Circle Grid Detected: ${centers.rows}`;
             } else {
-              info = `원형 그리드 검출 실패`;
+              info = `Circle Grid Detection Failed`;
             }
             centers.delete();
           } else if (functionId === 'calibrateCamera') {
             dst = src.clone();
-            info = `카메라 캘리브레이션: 시각화 준비 완료`;
+            info = `Camera Calibration: Visualization Ready`;
           } else if (functionId.includes('Homography') || functionId.includes('perspective') || functionId.includes('Affine')) {
-            // 원근/아핀 변환 시뮬레이션
+            // Perspective/Affine Transform Simulation
             const srcTri = cv.matFromArray(3, 1, cv.CV_32FC2, [
               50, 50, src.cols - 50, 50, 50, src.rows - 50
             ]);
@@ -3669,7 +3670,7 @@ export class OpenCVProcessor {
             dstTri.delete();
             M.delete();
           } else if (functionId.includes('undistort')) {
-            // 왜곡 보정 시뮬레이션
+            // Undistort Simulation
             const k1 = params.k1 || 0;
             const k2 = params.k2 || 0;
             if (k1 !== 0 || k2 !== 0) {
@@ -3684,7 +3685,7 @@ export class OpenCVProcessor {
               distCoeffs.delete();
             }
           } else if (functionId.includes('Stereo')) {
-            // 스테레오 관련 함수
+            // Stereo Functions
             if (src2 && (functionId === 'StereoBM_compute' || functionId === 'StereoSGBM_compute')) {
               let grayLeft = new cv.Mat();
               let grayRight = new cv.Mat();
@@ -3717,7 +3718,7 @@ export class OpenCVProcessor {
               grayRight.delete();
             }
           } else if (functionId === 'drawFrameAxes') {
-            // 3D 좌표축 그리기
+            // Draw 3D Axes
             const axisLength = params.length || 100;
             const axisThickness = params.thickness || 3;
             const centerX = dst.cols / 2;
@@ -3747,11 +3748,11 @@ export class OpenCVProcessor {
           throw new Error(`Unknown function: ${functionId}`);
       }
 
-      // 결과를 캔버스에 출력
+      // Output result to canvas
       const outputCanvas = document.createElement('canvas');
       cv.imshow(outputCanvas, dst);
 
-      // 메모리 정리
+      // Clean up memory
       src.delete();
       if (src2) src2.delete();
       dst.delete();

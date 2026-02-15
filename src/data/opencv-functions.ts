@@ -596,7 +596,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Converts a 3-channel BGR image to a 4-channel BGRA image (adds alpha channel).',
       ko: '3채널 BGR 이미지를 4채널 BGRA 이미지로 변환합니다 (알파 채널 추가).',
       zh: '将 3 通道 BGR 图像转换为 4 通道 BGRA 图像（添加 alpha 通道）。',
-      ja: '3チャネル BGR 画像を 4チャネル BGRA 画像に変換します（アルファチャネル 추가）。',
+      ja: '3チャネル BGR 画像を 4チャネル BGRA 画像に変換します（アルファチャネル追加）。',
       de: 'Konvertiert ein 3-Kanal-BGR-Bild in ein 4-Kanal-BGRA-Bild (fügt einen Alpha-Kanal hinzu).',
       es: 'Convierte una imagen BGR de 3 canales en una imagen BGRA de 4 canales (agrega un canal alfa).',
       fr: 'Convertit une image BGR à 3 canaux en une image BGRA à 4 canaux (ajoute un canal alpha).'
@@ -696,7 +696,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Inversely converts LAB color space to BGR color space.',
       ko: 'LAB 색공간을 BGR 색공간으로 역변환합니다.',
       zh: '将 LAB 颜色空间逆转换为 BGR 颜色空间。',
-      ja: 'LAB 色空間を BGR 色空間에 역변환합니다.',
+      ja: 'LAB 色空間を BGR 色空間に逆変換します。',
       de: 'Konvertiert den LAB-Farbraum invers in den BGR-Farbraum.',
       es: 'Convierte inversamente el espacio de color LAB al espacio de color BGR.',
       fr: 'Convertit inversement l\'espace colorimétrique LAB en espace colorimétrique BGR.'
@@ -721,7 +721,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Inversely converts YCrCb color space to BGR color space.',
       ko: 'YCrCb 색공간을 BGR 색공간으로 역변환합니다.',
       zh: '将 YCrCb 颜色空间逆转换为 BGR 颜色空间。',
-      ja: 'YCrCb 色空間を BGR 色空間에 역변환합니다.',
+      ja: 'YCrCb 色空間を BGR 色空間に逆変換します。',
       de: 'Konvertiert den YCrCb-Farbraum invers in den BGR-Farbraum.',
       es: 'Convierte inversamente el espacio de color YCrCb al espacio de color BGR.',
       fr: 'Convertit inversement l\'espace colorimétrique YCrCb en espace colorimétrique BGR.'
@@ -746,7 +746,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Inversely converts YUV color space to BGR color space.',
       ko: 'YUV 색공간을 BGR 색공간으로 역변환합니다.',
       zh: '将 YUV 颜色空间逆转换为 BGR 颜色空间。',
-      ja: 'YUV 色空間を BGR 色空間에 역변환합니다.',
+      ja: 'YUV 色空間を BGR 色空間に逆変換します。',
       de: 'Konvertiert den YUV-Farbraum invers in den BGR-Farbraum.',
       es: 'Convierte inversamente el espacio de color YUV al espacio de color BGR.',
       fr: 'Convertit inversement l\'espace colorimétrique YUV en espace colorimétrique BGR.'
@@ -771,7 +771,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Inversely converts CIE XYZ color space to BGR color space.',
       ko: 'CIE XYZ 색공간을 BGR 색공간으로 역변환합니다.',
       zh: '将 CIE XYZ 颜色空间逆转换为 BGR 颜色空间。',
-      ja: 'CIE XYZ 色空間を BGR 色空間에 역변환합니다.',
+      ja: 'CIE XYZ 色空間を BGR 色空間に逆変換します。',
       de: 'Konvertiert den CIE-XYZ-Farbraum invers in den BGR-Farbraum.',
       es: 'Convierte inversamente el espacio de color CIE XYZ al espacio de color BGR.',
       fr: 'Convertit inversement l\'espace colorimétrique CIE XYZ en espace colorimétrique BGR.'
@@ -796,7 +796,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Inversely converts HLS color space to BGR color space.',
       ko: 'HLS 색공간을 BGR 색공간으로 역변환합니다.',
       zh: '将 HLS 颜色空间逆转换为 BGR 颜色空间。',
-      ja: 'HLS 色空間を BGR 색공간에 역변환합니다.',
+      ja: 'HLS 色空間を BGR 色空間に逆変換します。',
       de: 'Konvertiert den HLS-Farbraum invers in den BGR-Farbraum.',
       es: 'Convierte inversamente el espacio de color HLS al espacio de color BGR.',
       fr: 'Convertit inversement l\'espace colorimétrique HLS en espace colorimétrique BGR.'
@@ -1046,7 +1046,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Applies the Viridis color map (purple-blue-green-yellow).',
       ko: 'Viridis 색상표를 적용합니다 (보라-파랑-초록-노랑).',
       zh: '应用 Viridis 颜色映射 (紫-蓝-绿-黄)。',
-      ja: 'Viridis カラーマップ (紫-青-緑-黄) を 적용します。',
+      ja: 'Viridis カラーマップ (紫-青-緑-黄) を適用します。',
       de: 'Wendet die Viridis-Farbtabelle an (violett-blau-grün-gelb).',
       es: 'Aplica el mapa de color Viridis (púrpura-azul-verde-amarillo).',
       fr: 'Applique la carte de couleurs Viridis (violet-bleu-vert-jaune).'
@@ -3056,7 +3056,7 @@ export const opencvFunctions: OpenCVFunction[] = [
         description: {
           en: 'Angle resolution (degrees)',
           ko: '각도 해상도 (도)',
-          zh: '角度分辨率 (도)',
+          zh: '角度分辨率 (度)',
           ja: '角度解像度 (度)',
           de: 'Winkelauflösung (Grad)',
           es: 'Resolución de ángulo (grados)',
@@ -3236,7 +3236,7 @@ export const opencvFunctions: OpenCVFunction[] = [
         description: {
           en: 'Max radius',
           ko: '최대 반지름 (maxRadius)',
-          zh: '최대 반지름',
+          zh: '最大半径',
           ja: '最大半径',
           de: 'Maximaler Radius',
           es: 'Radio máximo',
@@ -3678,7 +3678,7 @@ export const opencvFunctions: OpenCVFunction[] = [
         description: {
           en: 'Maximum value',
           ko: '정규화 상한(최대값)',
-          zh: '최대값',
+          zh: '最大值',
           ja: '最大値',
           de: 'Maximalwert',
           es: 'Valor máximo',
@@ -4716,7 +4716,7 @@ export const opencvFunctions: OpenCVFunction[] = [
         description: {
           en: 'Line thickness',
           ko: '선 두께 (Thickness)',
-          zh: '线厚도',
+          zh: '线宽',
           ja: '線の太さ',
           de: 'Linienstärke',
           es: 'Grosor de línea',
@@ -11119,7 +11119,7 @@ export const opencvFunctions: OpenCVFunction[] = [
           en: 'Tangential distortion coefficient p1',
           ko: '접선 왜곡 계수 p1',
           zh: '切向畸变系数 p1',
-          ja: '接線方向の歪み係수 p1',
+          ja: '接線方向の歪み係数 p1',
           de: 'Tangentialer Verzerrungskoeffizient p1',
           es: 'Coeficiente de distorsión tangencial p1',
           fr: 'Coefficient de distorsion tangentielle p1'
@@ -11136,7 +11136,7 @@ export const opencvFunctions: OpenCVFunction[] = [
           en: 'Tangential distortion coefficient p2',
           ko: '접선 왜곡 계수 p2',
           zh: '切向畸变系数 p2',
-          ja: '接線方向の歪み係수 p2',
+          ja: '接線方向の歪み係数 p2',
           de: 'Tangentialer Verzerrungskoeffizient p2',
           es: 'Coeficiente de distorsión tangencial p2',
           fr: 'Coefficient de distorsion tangentielle p2'
@@ -11152,7 +11152,7 @@ export const opencvFunctions: OpenCVFunction[] = [
       en: 'Get Optimal New Camera Matrix',
       ko: '최적 카메라 행렬 계산',
       zh: '获取最佳新相机矩阵',
-      ja: '最適な新しいカメラ行列의取得',
+      ja: '最適な新しいカメラ行列の取得',
       de: 'Optimale neue Kameramatrix erhalten',
       es: 'Obtener la nueva matriz de cámara óptima',
       fr: 'Obtenir la nouvelle matrice de caméra optimale'
@@ -11620,7 +11620,7 @@ export const opencvFunctions: OpenCVFunction[] = [
           en: 'Maximum disparity minus minimum disparity (must be divisible by 16)',
           ko: '시차 범위 (16의 배수여야 함)',
           zh: '最大视差减去最小视差（必须能被 16 整除）',
-          ja: '最大視差から最小視差를引いたもの（16で割り切れる必要があります）',
+          ja: '最大視差から最小視差を引いたもの（16で割り切れる必要があります）',
           de: 'Maximale Disparität minus minimale Disparität (muss durch 16 teilbar sein)',
           es: 'Disparidad máxima menos disparidad mínima (debe ser divisible por 16)',
           fr: 'Disparité maximale moins disparité minimale (doit être divisible par 16)'
