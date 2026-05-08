@@ -32,7 +32,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
       {selectedFunction.parameters.map((param) => (
         <div key={param.name} className="space-y-2 group">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <label className="text-xs lg:text-sm font-semibold text-slate-700 flex items-center gap-1.5">
+            <label htmlFor={`param-${param.name}`} className="text-xs lg:text-sm font-semibold text-slate-700 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
               {translate(param.name)}
               <span className="text-[10px] lg:text-xs font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded uppercase">
@@ -55,6 +55,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
               <div className="flex items-center gap-3 lg:gap-4 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
                 <input
                   type="range"
+                  aria-label={translate(param.name)}
                   min={param.min}
                   max={param.max}
                   step={param.step || 1}
@@ -64,6 +65,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
                 />
                 <div className="flex items-center gap-2">
                   <input
+                    id={`param-${param.name}`}
                     type="number"
                     min={param.min}
                     max={param.max}
