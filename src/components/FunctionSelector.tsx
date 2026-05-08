@@ -31,9 +31,10 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
     <div className="flex flex-col gap-4 h-full overflow-hidden">
       {/* Search Header - Keeping it but styling it to fit */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} aria-hidden="true" />
         <input
           type="text"
+          aria-label={t('searchPlaceholder')}
           placeholder={t('searchPlaceholder')}
           className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
           value={searchQuery}
@@ -72,7 +73,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
 
         {/* Function Dropdown */}
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm shrink-0">
-          <label className="text-base font-bold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
+          <label htmlFor="function-select" className="text-base font-bold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
             <span>{t('availableFunctions')}</span>
             <span className="text-xs font-normal text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
               {filteredFunctions.length} {t('functionsCount')}
@@ -81,6 +82,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
           
           <div className="relative">
             <select
+              id="function-select"
               value={filteredFunctions.some(f => f.id === selectedFunction?.id) ? selectedFunction?.id : ''}
               onChange={(e) => {
                 const func = filteredFunctions.find(f => f.id === e.target.value);
@@ -98,7 +100,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
               ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-               <ChevronRight className="rotate-90" size={16} />
+               <ChevronRight className="rotate-90" size={16} aria-hidden="true" />
             </div>
           </div>
           

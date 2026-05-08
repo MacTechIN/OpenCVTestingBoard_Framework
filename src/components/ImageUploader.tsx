@@ -76,7 +76,7 @@ export function ImageUploader({ onImageLoad, currentImage, onClear }: ImageUploa
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
         >
-          <Upload className="mx-auto mb-3 sm:mb-4 text-gray-400" size={36} />
+          <Upload className="mx-auto mb-3 sm:mb-4 text-gray-400" size={36} aria-hidden="true" />
           <p className="mb-2 text-xs sm:text-sm text-gray-600">
             {t('dragAndDropImage')}
           </p>
@@ -110,9 +110,9 @@ export function ImageUploader({ onImageLoad, currentImage, onClear }: ImageUploa
           <button
             onClick={onClear}
             className="absolute top-2 right-2 p-1.5 sm:p-2 bg-red-500 text-white rounded-full hover:bg-red-600 active:scale-95 transition-all shadow-lg"
-            title={t('removeImage')}
+            aria-label={t('removeImage')}
           >
-            <X size={16} className="sm:w-5 sm:h-5" />
+            <X size={16} className="sm:w-5 sm:h-5" aria-hidden="true" />
           </button>
         </div>
       )}
