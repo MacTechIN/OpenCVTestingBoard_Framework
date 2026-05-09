@@ -31,8 +31,10 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
     <div className="flex flex-col gap-4 h-full overflow-hidden">
       {/* Search Header - Keeping it but styling it to fit */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+        <label htmlFor="search-input" className="sr-only">{t('searchPlaceholder')}</label>
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} aria-hidden="true" />
         <input
+          id="search-input"
           type="text"
           placeholder={t('searchPlaceholder')}
           className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
@@ -53,6 +55,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
                    // Reset selection or auto-select first?
                    // Default: just filter the dropdown.
                 }}
+                aria-pressed={selectedCategoryId === cat.id}
                 className={`flex flex-col items-center justify-center p-0.5 rounded-lg transition-all aspect-square border ${
                   selectedCategoryId === cat.id
                     ? 'bg-blue-50 border-blue-200 text-blue-700 ring-1 ring-blue-300 shadow-sm'
@@ -72,7 +75,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
 
         {/* Function Dropdown */}
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm shrink-0">
-          <label className="text-base font-bold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
+          <label htmlFor="function-select" className="cursor-pointer text-base font-bold text-gray-700 mb-2 uppercase tracking-wider flex items-center justify-between">
             <span>{t('availableFunctions')}</span>
             <span className="text-xs font-normal text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
               {filteredFunctions.length} {t('functionsCount')}
@@ -81,6 +84,7 @@ export const FunctionSelector: React.FC<FunctionSelectorProps> = ({
           
           <div className="relative">
             <select
+              id="function-select"
               value={filteredFunctions.some(f => f.id === selectedFunction?.id) ? selectedFunction?.id : ''}
               onChange={(e) => {
                 const func = filteredFunctions.find(f => f.id === e.target.value);
