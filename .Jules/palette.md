@@ -1,0 +1,3 @@
+## 2026-05-12 - Accessibility Improvements for Icon-only Buttons
+**Learning:** Icon-only buttons (like the mobile menu and the image uploader's remove button) need explicit `aria-label` utilizing the `t()` translation function to ensure proper internationalization support for screen readers. Internal icon elements must have `aria-hidden="true"` to prevent redundant screen reader announcements. Using Tailwind's `:focus-visible` ensures clear focus indicators for keyboard navigation while avoiding unnecessary visual focus styles for mouse interactions.
+**Action:** Always add translated `aria-label` attributes, `aria-hidden="true"` to SVG icons, and `focus-visible` utility classes to icon-only buttons for comprehensive accessibility.

@@ -14,6 +14,15 @@ export const LANGUAGES: { code: LanguageCode; label: string; flag: string }[] = 
 ];
 
 export const UI_STRINGS: Record<string, Record<LanguageCode, string>> = {
+  menu: {
+    en: "Menu",
+    ko: "메뉴",
+    zh: "菜单",
+    ja: "メニュー",
+    de: "Menü",
+    es: "Menú",
+    fr: "Menu",
+  },
   appName: {
     en: 'OpenCV Function Testing Board',
     ko: 'OpenCV 함수 학습 보드',
