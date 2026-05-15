@@ -473,6 +473,15 @@ export const UI_STRINGS: Record<string, Record<LanguageCode, string>> = {
     es: 'Error desconocido',
     fr: 'Erreur inconnue',
   },
+  toggleMenu: {
+    en: 'Toggle menu',
+    ko: '메뉴 토글',
+    zh: '切换菜单',
+    ja: 'メニューを切り替える',
+    de: 'Menü umschalten',
+    es: 'Alternar menú',
+    fr: 'Basculer le menu',
+  },
 };
 
 export function useLanguage() {
