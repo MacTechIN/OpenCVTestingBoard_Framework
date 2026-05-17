@@ -1,0 +1,3 @@
+## 2026-05-17 - Accessible Icon-Only Buttons
+**Learning:** Found a recurring pattern where icon-only buttons (like the Remove Image button) lack adequate accessibility attributes and visible focus states for keyboard users.
+**Action:** When creating or modifying icon-only buttons in the future, ensure they always include an `aria-label`, `aria-hidden="true"` on the SVG/icon itself, and Tailwind `:focus-visible` utility classes (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`) to provide clear visual feedback during keyboard navigation.
