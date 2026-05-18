@@ -1,0 +1,3 @@
+## 2024-05-18 - Icon-Only Button Accessibility
+**Learning:** In this application, icon-only buttons (like the remove image button) need explicit `aria-label` (using the `t()` translation function for i18n), `aria-hidden="true"` on the internal icon element to prevent redundant screen reader announcements, and `:focus-visible` classes (e.g. `focus-visible:ring-2 focus-visible:outline-none`) for proper keyboard navigation and focus states.
+**Action:** Always ensure icon-only buttons include `aria-label`, hide the decorative icon from screen readers, and implement `focus-visible` utility classes.
