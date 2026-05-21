@@ -473,6 +473,15 @@ export const UI_STRINGS: Record<string, Record<LanguageCode, string>> = {
     es: 'Error desconocido',
     fr: 'Erreur inconnue',
   },
+  menu: {
+    en: 'Menu',
+    ko: '메뉴',
+    zh: '菜单',
+    ja: 'メニュー',
+    de: 'Menü',
+    es: 'Menú',
+    fr: 'Menu',
+  },
 };
 
 export function useLanguage() {
