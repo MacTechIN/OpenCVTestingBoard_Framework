@@ -1,0 +1,3 @@
+## 2026-05-24 - Absolute Overlay Button Accessibility
+**Learning:** For absolute positioned overlay buttons (like remove image buttons over uploaded images) within `overflow-hidden` containers, standard focus rings can get clipped or remain invisible against varied backgrounds.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2` combined with `shadow-lg` to prevent the focus ring from clipping and ensure the focus state is clearly visible regardless of the image background underneath. Also, always ensure icon-only overlay buttons have explicit `aria-label` utilizing translation and `aria-hidden="true"` on the icon itself.
