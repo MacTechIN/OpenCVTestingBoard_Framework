@@ -1,0 +1,3 @@
+## 2024-05-31 - [Accessibility: Absolute Positioned Overlay Buttons]
+**Learning:** Absolute positioned icon-only buttons (like a remove/clear button) over images within `overflow-hidden` containers often have their default focus rings clipped. Additionally, since they sit on variable image backgrounds, the focus ring needs a shadow or offset to guarantee visibility.
+**Action:** For absolute positioned overlay buttons, always combine `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-blue-500` with `shadow-lg` to prevent clipping and ensure visibility against any background.
