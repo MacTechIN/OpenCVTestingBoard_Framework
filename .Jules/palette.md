@@ -1,0 +1,3 @@
+## 2026-02-14 - Accessible Overlay Buttons
+**Learning:** Icon-only buttons positioned absolutely over images or containers can be difficult to use for keyboard navigators if focus styles are clipped or blend into varied backgrounds.
+**Action:** Always add an explicit `aria-label` (using translations like `t()`), `aria-hidden="true"` on the internal icon, and ensure focus rings are visible using Tailwind's `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` (with an appropriate ring color like `focus-visible:ring-red-500`) combined with `shadow-lg` to prevent clipping and enhance contrast.
