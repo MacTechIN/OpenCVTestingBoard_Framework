@@ -1,0 +1,3 @@
+## 2025-06-05 - Accessible Overlay Buttons over Images
+**Learning:** Absolute positioned overlay buttons (like the image removal "X" button) over images present a specific accessibility challenge. Without explicit focus rings, keyboard users cannot easily identify them against varied or complex image backgrounds.
+**Action:** When adding absolute positioned overlay buttons, ensure they have an explicit `aria-label` mapped to a translation, set `aria-hidden="true"` on the internal icon, and use robust Tailwind focus utility classes (e.g., `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with an appropriate ring color like `focus-visible:ring-red-500`) to guarantee visibility on diverse backgrounds.
