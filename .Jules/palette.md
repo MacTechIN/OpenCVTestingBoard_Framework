@@ -1,0 +1,3 @@
+## 2024-03-24 - [Accessible Focus on Overlay Buttons]
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, standard focus rings can get clipped or be hard to see against varied backgrounds.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` (with an appropriate ring color like `focus-visible:ring-blue-500`) combined with `shadow-lg` to prevent the focus ring from clipping and to ensure focus visibility against varied backgrounds. Always add explicit `aria-label` utilizing the `t()` translation function, and `aria-hidden="true"` on the internal icon element for icon-only buttons.
