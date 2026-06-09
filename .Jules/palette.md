@@ -1,0 +1,3 @@
+## 2024-06-09 - Remove Image Icon Button A11y
+**Learning:** For absolute positioned overlay buttons (like the X to remove an image) within `overflow-hidden` containers or complex backgrounds, generic focus rings might blend in or get clipped.
+**Action:** Use specific focus rings that stand out against the background and avoid clipping. E.g., `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg`. For warning/destructive actions like removing an image, `focus-visible:ring-red-500` is appropriate and matches the button's background intent. Also, remember to add `aria-label` utilizing `t()` translations for icon-only buttons and hide the inner icon from screen readers using `aria-hidden="true"`.
