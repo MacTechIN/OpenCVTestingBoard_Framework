@@ -1,0 +1,3 @@
+## 2024-05-15 - [Added ARIA Label and Focus Ring to Clear Image Button]
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, keyboard focus rings might clip or be hard to see without adequate styling. Furthermore, icon-only buttons need an explicit `aria-label` utilizing translation files like `t()` and must have the inner icon marked as `aria-hidden="true"`.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus ring doesn't clip and adjust the color appropriately (`focus-visible:ring-red-500` for destructive actions). Ensure icon-only buttons implement `aria-label` and `aria-hidden` attributes correctly.
