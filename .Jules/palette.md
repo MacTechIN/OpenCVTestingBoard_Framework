@@ -1,0 +1,3 @@
+## 2024-06-13 - Focus Styles for Absolute Overlay Buttons within Overflow Hidden Containers
+**Learning:** When placing absolute positioned icon-only overlay buttons (like a remove or close button) over images within `overflow-hidden` containers, the browser default focus rings will often clip against the container edges, rendering them invisible or poorly styled.
+**Action:** Always combine Tailwind `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2` with an appropriate ring color (e.g., `focus-visible:ring-red-500`) and a `shadow-lg` on the button itself. This ensures the offset ring renders clearly above the image and doesn't clip, maintaining keyboard navigation accessibility.
