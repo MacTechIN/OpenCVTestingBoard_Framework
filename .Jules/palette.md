@@ -1,0 +1,3 @@
+## 2024-05-24 - [Fix Absolute Positioned Overlay Focus Rings]
+**Learning:** Absolute positioned overlay buttons (e.g., "Remove Image" in `ImageUploader`) placed over images within `overflow-hidden` containers can have their focus rings clipped, leading to a poor keyboard navigation experience.
+**Action:** Always combine Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` for absolute positioned overlay buttons to ensure the focus ring remains visible and does not clip. The ring color should adapt to the action intent (e.g., `focus-visible:ring-red-500` for destructive actions).
