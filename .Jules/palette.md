@@ -1,0 +1,3 @@
+## 2024-06-17 - Accessible Icon-Only Overlay Buttons
+**Learning:** For absolute positioned icon-only overlay buttons (like the image removal button) placed within `overflow-hidden` containers or image bounding boxes, standard focus rings can be clipped, reducing visibility for keyboard navigation.
+**Action:** Use `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping. Ensure the ring color reflects the action's intent (e.g., `focus-visible:ring-red-500` for destructive clear actions). Always pair icon-only buttons with explicit `aria-label` utilizing `t()` and set `aria-hidden="true"` on the internal icon.
