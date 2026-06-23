@@ -1,0 +1,3 @@
+## 2024-05-18 - Focus Ring Clipping in Overflow-Hidden Containers
+**Learning:** When using absolute positioned interactive elements (like an overlay close button) inside a container with `overflow-hidden`, the browser's default or simple Tailwind focus rings (`focus:ring`) can get clipped by the container bounds, making them invisible or poorly visible for keyboard users.
+**Action:** Always combine `focus-visible:ring-offset-2` with `focus-visible:ring-2` to push the ring inwards or outwards, and add a `shadow-lg` or similar to the button if the ring needs to pop out over an image. For destructive buttons like "Remove", use `focus-visible:ring-red-500` to match the button's intent.
