@@ -1,0 +1,3 @@
+## 2026-06-27 - Absolute Positioned Button Focus Clipping
+**Learning:** In Tailwind, absolute positioned overlay buttons (like 'Remove Image' over an image) can have their focus rings clipped if the parent container uses `overflow-hidden`. While adding standard `focus-visible` classes is standard practice, without `focus-visible:ring-offset-2` and `shadow-lg`, the focus state can become invisible or truncated.
+**Action:** Always combine `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` for absolute positioned overlay buttons, and adapt the ring color to the action (e.g., `ring-red-500` for destructive actions).
