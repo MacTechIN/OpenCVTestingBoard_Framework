@@ -199,10 +199,11 @@ export default function App() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden ml-2 p-2 hover:bg-blue-600 rounded-lg transition-colors"
+            className="lg:hidden ml-2 p-2 hover:bg-blue-600 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded-lg transition-colors"
             aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </div>
