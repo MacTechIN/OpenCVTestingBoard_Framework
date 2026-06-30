@@ -1,0 +1,3 @@
+## 2023-10-27 - Keyboard Navigation for Absolute Positioned Buttons
+**Learning:** Icon-only buttons positioned absolutely over images using `overflow-hidden` containers (like in `ImageUploader.tsx`) can have their focus rings clipped if default styles are used, making them inaccessible to keyboard users.
+**Action:** Always add explicit `focus-visible` utility classes (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) combined with `shadow-lg` for such buttons to ensure the focus ring is fully visible and not clipped. Ensure the ring color matches the action's intent (e.g., `ring-red-500` for destructive actions).
