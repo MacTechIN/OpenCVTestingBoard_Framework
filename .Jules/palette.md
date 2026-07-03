@@ -1,0 +1,3 @@
+## 2024-07-03 - Accessible Overlays in Overflow Containers
+**Learning:** Absolute positioned overlay buttons (e.g., delete/close icons) within `overflow-hidden` containers lose their default focus rings because the rings are clipped by the container bounds. Standard hover state alone is insufficient for keyboard navigation.
+**Action:** Use specific offset focus ring utilities (`focus-visible:ring-2 focus-visible:ring-offset-2`) combined with appropriate padding and intent-specific colors (`focus-visible:ring-red-500` for destructive actions) on these overlay buttons to ensure visibility. Additionally, explicitly add `focus-visible:outline-none` to override default browser outlines that might still clip.
