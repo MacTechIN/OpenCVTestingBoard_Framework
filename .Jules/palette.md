@@ -1,0 +1,3 @@
+## 2026-02-15 - [Absolute Positioned Buttons in Overflow-Hidden Containers]
+**Learning:** Keyboard focus rings on absolute positioned interactive elements (like overlay action buttons) within `overflow-hidden` containers can frequently get clipped, degrading visibility for keyboard users.
+**Action:** Always combine standard focus-visible classes (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) with a shadow property (e.g., `shadow-lg`) or sufficient internal padding to ensure the focus ring remains fully visible. Adapt ring colors logically to the action context (e.g., destructive actions like 'Remove' should use red).
