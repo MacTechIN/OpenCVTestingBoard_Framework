@@ -1,0 +1,3 @@
+## 2024-03-20 - Focus Rings on Absolute Positioned Overlay Buttons
+**Learning:** In Tailwind, absolutely positioned buttons (like a "Remove Image" icon placed on top of an image inside an `overflow-hidden` container) often have their keyboard focus rings clipped by the container if they are placed near the edges, especially when combined with styles like `rounded-full`.
+**Action:** When styling floating/overlay icon buttons, ensure focus states remain visible for keyboard users without clipping. Use `focus-visible:ring-offset-2` with `focus-visible:ring-2` to push the ring out slightly, and pair it with a `shadow-lg` if needed. Also match the ring color to the intent of the button (e.g., `focus-visible:ring-red-500` for destructive actions like delete or remove).
