@@ -1,0 +1,5 @@
+## 2025-02-28 - [Accessibility] Improve focus indicator for absolute positioned overlay buttons
+
+**Learning:** Absolute positioned overlay buttons (like a remove button on an image) within an `overflow-hidden` container can have their default browser focus ring clipped or entirely hidden when navigated via keyboard. Icon-only buttons must have an explicit `aria-label` utilizing the `t()` translation function, `aria-hidden="true"` on the internal icon element, and Tailwind `:focus-visible` classes for keyboard focus navigation.
+
+**Action:** For absolute positioned overlay buttons within `overflow-hidden` containers, use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions). Add `aria-label` and `aria-hidden="true"` to icon-only buttons for screen readers.
