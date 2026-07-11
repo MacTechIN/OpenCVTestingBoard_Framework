@@ -1,0 +1,3 @@
+## 2026-02-14 - Fix focus ring clipping on absolute overlay buttons
+**Learning:** When adding focus rings (`focus-visible:ring-2`) to absolute positioned overlay buttons (e.g., a "Remove Image" icon button in a corner) within an `overflow-hidden` container, the focus ring is often visually clipped by the container edge, reducing its effectiveness as an accessibility indicator.
+**Action:** Always combine `focus-visible:ring-offset-2` with `shadow-lg` on the absolute positioned button. The shadow ensures the offset ring renders fully outside the element boundaries even at the edge of hidden-overflow containers.
