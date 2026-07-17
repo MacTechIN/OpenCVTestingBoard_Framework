@@ -1,0 +1,3 @@
+## 2024-05-18 - Icon-Only Button Accessibility in Tailwind
+**Learning:** Absolute positioned icon-only buttons over images within `overflow-hidden` containers often clip focus rings. Screen readers require explicit `aria-label` when the content is purely visual (like a Lucide icon).
+**Action:** Used `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus ring is clearly visible and prevents clipping. Added `aria-label` to the `<button>` and `aria-hidden="true"` to the internal SVG to prevent redundant screen reader announcements.
