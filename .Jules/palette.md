@@ -1,0 +1,3 @@
+## 2026-07-20 - Focus Ring Clipping on Absolute Positioned Buttons
+**Learning:** When adding focus rings (`focus-visible:ring-2`) to absolute positioned overlay buttons (e.g., a "clear image" button over an uploaded preview) inside an `overflow-hidden` container, the focus ring often gets clipped by the container's boundaries.
+**Action:** Always combine the focus ring classes (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) with a shadow class (like `shadow-lg`) and ensure the ring color matches the button's intent (e.g., `focus-visible:ring-red-500` for destructive actions) to ensure the focus state remains fully visible and distinct without being clipped by the parent container.
