@@ -1,0 +1,3 @@
+## 2024-07-23 - Accessible Absolute Icon Buttons
+**Learning:** Icon-only buttons that are positioned absolutely over content (like images) within `overflow-hidden` containers require specific attention. Standard focus rings can be clipped by the container.
+**Action:** Always add `aria-label` using translated strings, `aria-hidden="true"` to the internal icon element, and apply `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with an appropriate ring color (e.g. `focus-visible:ring-red-500` for destructive actions) to ensure the focus indicator remains fully visible and screen readers correctly announce the button intent.
