@@ -1,0 +1,3 @@
+## 2024-05-17 - Keyboard Focus on Image Uploader
+**Learning:** For absolute positioned overlay buttons (e.g., remove image "X" over an uploaded image) within `overflow-hidden` containers, using standard focus rings might result in clipping.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus ring is clearly visible and not clipped. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions like delete/remove, `focus-visible:ring-blue-500` for general actions). Ensure all icon-only buttons include an `aria-label` and `aria-hidden="true"` on the SVG.
