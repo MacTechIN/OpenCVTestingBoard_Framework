@@ -1,0 +1,3 @@
+## 2024-08-01 - Absolute Positioned Icon-only Buttons A11y and Focus States
+**Learning:** Absolute positioned icon-only buttons (like remove image 'X') over images in `overflow-hidden` containers can clip default focus rings, and require explicit aria-labels and hiding of the inner SVG.
+**Action:** Always add explicit `aria-label` using translation function, `aria-hidden="true"` to the internal icon element, and adjust focus-visible classes (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) combined with `shadow-lg` to prevent focus ring clipping, using intent-appropriate colors (e.g. `focus-visible:ring-red-500` for destructive actions).
