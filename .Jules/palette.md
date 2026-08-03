@@ -1,0 +1,3 @@
+## 2026-02-14 - Accessible Icon-only Overlay Buttons and Focus Ring Clipping
+**Learning:** Icon-only buttons positioned absolutely over images within `overflow-hidden` containers are prone to clipping their keyboard focus rings, reducing visibility for keyboard users.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent focus ring clipping on overlay buttons, and adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions like delete/remove). Always ensure icon-only buttons have an `aria-label` using the translation function and `aria-hidden="true"` on the internal icon.
