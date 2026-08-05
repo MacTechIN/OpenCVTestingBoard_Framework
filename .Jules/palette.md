@@ -1,0 +1,3 @@
+## 2025-02-28 - Focus Styling on Overlay Buttons in Overflow Containers
+**Learning:** When dealing with absolute positioned overlay buttons (e.g., a remove image button over an image) that are placed within an `overflow-hidden` container, standard focus rings can get clipped by the container bounds if they are positioned too close to the edges.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus indicator remains visible without clipping, and match the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions).
