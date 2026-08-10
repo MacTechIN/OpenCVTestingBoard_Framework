@@ -1,0 +1,3 @@
+## 2024-06-25 - Focus rings on absolute positioned buttons
+**Learning:** Absolute positioned interactive elements (like icon buttons) placed inside `overflow-hidden` containers will clip standard focus rings, rendering them invisible.
+**Action:** When adding keyboard focus support to absolute buttons over images or within clipped containers, ensure you use focus-visible styles like `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus indicator is always prominent. Also always apply explicit `aria-label` to icon-only actions.
