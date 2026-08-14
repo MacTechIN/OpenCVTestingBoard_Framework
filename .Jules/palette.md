@@ -1,0 +1,3 @@
+## 2025-02-28 - Focus Ring Clipping on Absolute Positioned Buttons
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within containers that have `overflow-hidden`, standard focus rings might get clipped by the container bounds. Additionally, icon-only overlay buttons often miss accessible labels.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping and enhance visibility. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions). Ensure icon-only buttons receive an explicit `aria-label` utilizing translation functions, and hide the internal icon with `aria-hidden="true"`.
