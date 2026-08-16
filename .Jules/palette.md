@@ -1,0 +1,3 @@
+## 2024-08-16 - Prevent Focus Ring Clipping on Overlay Buttons
+**Learning:** When using absolute positioning for overlay buttons (like an image remove button) inside containers with `overflow-hidden`, standard focus rings can get clipped by the container bounds, breaking the visual accessibility indicator for keyboard users.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent clipping and ensure the ring stands out against complex image backgrounds. Adapt the ring color to the action (e.g., `focus-visible:ring-red-500` for destructive actions).
