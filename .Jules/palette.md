@@ -1,0 +1,3 @@
+## 2024-10-24 - Add focus styles to overlay buttons in overflow-hidden containers
+**Learning:** Absolute positioned overlay buttons inside `overflow-hidden` containers (like the image preview container) require `focus-visible:ring-offset-2` (and often a shadow) along with the focus ring, otherwise the focus indicator will be clipped by the container's overflow-hidden property, making it invisible or distorted.
+**Action:** Always add `focus-visible:ring-offset-2` and test keyboard focus on absolute positioned overlay elements inside constrained containers. Apply `aria-hidden="true"` to nested informative icons and `aria-label` using `t()` on the button element.
