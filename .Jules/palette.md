@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessible Icon-Only Overlay Buttons
+**Learning:** Icon-only buttons used for overlay actions (like removing an image) often lack robust keyboard focus indicators because they rely on hover states. They must have an explicit `aria-label` utilizing the translation function, `aria-hidden="true"` on the internal icon to prevent redundant screen reader announcements, and robust `focus-visible` styles with offsets (`focus-visible:ring-2 focus-visible:ring-offset-2`) so the focus ring is clearly visible against the underlying image without clipping.
+**Action:** Always add `aria-label`, `aria-hidden="true"` on the icon, and proper `focus-visible` classes to icon-only buttons.
