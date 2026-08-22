@@ -1,0 +1,3 @@
+## 2024-08-22 - Focus Rings on Absolute Positioned Image Overlays
+**Learning:** When using absolute positioned icon-only overlay buttons (like a remove button) over `overflow-hidden` image containers, the focus ring can easily be clipped or hard to see. Furthermore, icon-only buttons require explicit `aria-label`s and `aria-hidden` attributes on the SVG to be accessible for screen readers.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent clipping and improve visibility. Ensure `aria-label` (using translations) is added to the button and `aria-hidden="true"` is on the icon. Adapt ring colors to intent (e.g. `ring-red-500` for destructive).
