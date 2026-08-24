@@ -1,0 +1,3 @@
+## 2026-02-14 - Absolute Overlay Buttons and Focus Rings
+**Learning:** In Tailwind CSS, when using `absolute` positioned buttons overlaid on images inside `overflow-hidden` containers, standard focus rings (`focus:ring`) get clipped by the container bounds, making keyboard navigation inaccessible visually.
+**Action:** Always combine `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` on absolute overlay buttons to ensure the focus state is clearly visible without clipping. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions like delete/remove).
