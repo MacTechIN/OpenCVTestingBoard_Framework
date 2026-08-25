@@ -1,0 +1,3 @@
+## 2024-05-24 - Image Uploader Button Accessibility
+**Learning:** Absolute positioned overlay buttons over images inside `overflow-hidden` containers require specific focus ring styles (e.g. `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) and `shadow-lg` to prevent the focus ring from clipping. Also, icon-only buttons need specific ARIA attributes (`aria-label`) and `aria-hidden="true"` on the icon itself.
+**Action:** When adding focus states to absolutely positioned elements in `overflow-hidden` containers, add explicit focus ring styling with offset and shadows. For icon-only buttons, always ensure `aria-label` utilizing `t()` function and `aria-hidden="true"` on the internal icon.
