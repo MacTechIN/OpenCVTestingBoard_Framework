@@ -1,0 +1,3 @@
+## 2024-05-24 - Focus Ring Clipping in Overlay Buttons
+**Learning:** For absolute positioned overlay buttons (like the `removeImage` button) that are placed over elements or within containers that might have `overflow-hidden` or tight boundaries, default focus rings can get clipped or look uneven.
+**Action:** Always add `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent clipping and ensure the ring is clearly visible against diverse backgrounds. Ensure the ring color matches the button's intent (e.g., `focus-visible:ring-red-500` for destructive actions).
