@@ -1,0 +1,3 @@
+## 2026-02-14 - Absolute Positioned Overlay Buttons in Overflow Hidden Containers
+**Learning:** When using absolute positioned overlay buttons (e.g., a "Remove Image" button over an image container) that have `overflow-hidden` applied to their parent container, standard focus rings can get clipped by the container bounds, breaking the visual keyboard focus indication.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent clipping and ensure the focus ring remains clearly visible. Additionally, adjust the ring color to match the action intent (e.g., `focus-visible:ring-red-500` for destructive actions).
