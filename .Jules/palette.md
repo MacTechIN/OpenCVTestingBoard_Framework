@@ -1,0 +1,3 @@
+## 2026-08-30 - Add Accessible Focus States and Labels to ImageUploader floating buttons
+**Learning:** For floating overlay buttons (like the clear 'X' on an uploaded image preview), it's critical to include an explicit `aria-label`, set `aria-hidden="true"` on the inner icon, and configure context-appropriate keyboard focus rings (e.g., `focus-visible:ring-red-500` for destructive actions) because standard hover styles don't translate to screen readers or keyboard navigation.
+**Action:** When adding or reviewing floating icon-only action buttons over images, always implement `aria-label`, `aria-hidden` on the icon, and specific `focus-visible` utility classes that complement the action's intent and visibility against the background.

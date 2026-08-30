@@ -1,0 +1,19 @@
+
+> opencv-testing-board@0.1.1 dev /app
+> next dev
+
+   ▲ Next.js 15.1.7
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.6s
+ ○ Compiling / ...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled / in 13.2s (1437 modules)
+ GET / 200 in 6375ms
+ GET / 200 in 59ms
+ GET / 200 in 45ms
+ ELIFECYCLE  Command failed.
