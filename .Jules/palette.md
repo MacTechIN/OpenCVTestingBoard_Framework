@@ -1,0 +1,4 @@
+
+## 2026-08-31 - Accessibility for Icon-only Overlay Buttons
+**Learning:** Icon-only overlay buttons (like a remove "X" button placed over an image) within `overflow-hidden` containers often clip standard focus rings, rendering them invisible for keyboard users. Furthermore, missing ARIA labels on these buttons prevent screen readers from understanding their action, and visible icons shouldn't be read by screen readers.
+**Action:** Always add an explicit `aria-label` utilizing the translation function `t()` to icon-only buttons. Apply `aria-hidden="true"` to the internal icon element itself. For the focus ring on absolute positioned buttons within `overflow-hidden` containers, use `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-lg` to prevent clipping and adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions).
