@@ -1,0 +1,3 @@
+## 2025-02-27 - [Improve Accessibility of Icon-only and Primary Buttons]
+**Learning:** Absolute positioned icon-only buttons need an explicit `aria-label` utilizing the `t()` translation function, `aria-hidden="true"` on the internal icon element, and specific focus ring classes (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-red-500`) with offsets to prevent the focus ring from clipping due to container bounds or overlapping elements.
+**Action:** When working on absolute positioned overlay buttons, always ensure proper ARIA labelling, hide the raw SVG from screen readers, and add appropriately colored `focus-visible` classes with `ring-offset-2` to guarantee clear keyboard navigation visibility.
