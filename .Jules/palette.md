@@ -1,0 +1,3 @@
+## 2026-09-10 - Accessible Icon-Only Buttons & Overlay Focus Rings
+**Learning:** Icon-only buttons positioned as overlays within containers lacking robust focus rings can cause clipping or invisibility of the focus state. Furthermore, translating aria-labels via `t()` requires careful attention to the inner icon's screen reader visibility.
+**Action:** Always add explicit `aria-label` (using translations) to icon-only buttons with `aria-hidden="true"` on the internal icon. For absolute positioned buttons, apply `focus-visible:ring-2 focus-visible:ring-offset-2` combined with `shadow-lg` and adjust the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions like removing images).
