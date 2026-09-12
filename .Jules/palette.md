@@ -1,0 +1,3 @@
+## 2024-03-24 - Interactive Component Focus States and File Input Resets
+**Learning:** In absolute positioned buttons over images (like "Remove Image" in ImageUploader), standard `focus-visible` outlines can clip. Also, custom file inputs using a hidden native input need explicit reset logic `e.target.value = ''` otherwise the `onChange` event won't fire if the user deletes an image and tries to upload the exact same file again.
+**Action:** Use `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` for overlays to prevent clipping, match the ring color to the action intent (e.g. `ring-red-500` for destructive actions), and always reset the hidden file input value in `onChange` handlers for custom file uploaders to allow re-uploading the same file.
