@@ -1,0 +1,3 @@
+## 2025-02-28 - [Focus Ring on Overlay Buttons]
+**Learning:** Absolutely positioned overlay buttons (e.g., over images) within `overflow-hidden` containers can cause keyboard focus rings to be clipped visually, impairing accessibility.
+**Action:** When applying `focus-visible` styles to such buttons, combine `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` to prevent the focus ring from clipping and adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions).
