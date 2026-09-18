@@ -1,0 +1,3 @@
+## 2024-05-18 - Image Uploader Re-upload and Overlay Button Focus
+**Learning:** For absolute positioned overlay buttons (e.g. over images), using standard focus-visible rings without outlines can clip or appear hard to see. Furthermore, hidden file inputs can block re-uploading the exact same file after clearing the state if the native input value isn't reset.
+**Action:** Always add `e.target.value = ''` inside the `onChange` handler of custom file inputs when clearing is supported, ensuring users can re-upload the same file. Also, use `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-red-500` (or appropriate color) combined with `shadow-lg` for absolute buttons so the ring isn't clipped and the action intent is clear.
