@@ -1,0 +1,3 @@
+## 2026-02-14 - Overlay Buttons and File Input Re-upload
+**Learning:** Absolute positioned overlay buttons inside `overflow-hidden` containers can clip their focus rings. Additionally, when clearing a custom file input UI, if the native hidden file input's value isn't cleared, users cannot re-upload the exact same file immediately after.
+**Action:** Use `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` for absolute positioned overlay buttons to prevent clipping, and adapt the ring color to the action's intent. When creating custom file inputs, always clear the native input's value (e.g. `e.target.value = ''`) inside its `onChange` handler or clear handler.
