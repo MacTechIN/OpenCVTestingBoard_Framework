@@ -1,0 +1,3 @@
+## 2026-09-23 - Focus Ring Clipping on Absolute Overlay Buttons
+**Learning:** When placing absolute positioned icon buttons over images (like a "Remove Image" close button) within containers that have `overflow-hidden`, standard focus rings can get clipped or completely hidden.
+**Action:** Always combine Tailwind `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` (or an appropriate shadow) to ensure the focus ring remains visible and distinct above the background image, adjusting the ring color (e.g., `focus-visible:ring-red-500`) to match the action's destructive or primary nature.
