@@ -1,0 +1,3 @@
+## 2024-06-25 - Prevent focus ring clipping on absolutely positioned elements in overflow containers
+**Learning:** When using absolute positioning for interactive elements (like a "remove image" button overlaying an image container) inside a parent with `overflow-hidden`, standard focus rings can get clipped by the parent's boundary.
+**Action:** Always combine Tailwind's focus-visible utilities (`focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`) to ensure the focus indicator is clearly visible and offset from the element, avoiding overlap with `overflow-hidden` constraints.
