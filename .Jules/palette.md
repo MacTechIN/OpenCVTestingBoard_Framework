@@ -1,0 +1,3 @@
+## 2026-02-14 - Accessible Icon-Only Remove Button in ImageUploader
+**Learning:** Icon-only absolute-positioned buttons over images (like "Remove image") require robust focus styles to stand out, and explicit ARIA labels are essential since the icon alone provides no context to screen readers. We need `focus-visible:ring-offset-2` along with the ring color that matches the action (e.g. `focus-visible:ring-red-500` for delete).
+**Action:** Always add `aria-label` (using translation function) to icon-only buttons, set `aria-hidden="true"` on the icon itself, and ensure `focus-visible` utility classes are present and provide adequate contrast against potentially complex backgrounds like images.
