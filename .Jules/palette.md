@@ -1,0 +1,3 @@
+## 2025-03-09 - Improving Accessibility on ImageUploader
+**Learning:** For absolute positioned overlay buttons (e.g., a remove button over an image) within `overflow-hidden` containers, standard focus rings can be clipped. Also, native file inputs need their value reset explicitly on upload to ensure users can re-upload the same file after clearing it.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping, adjusting the ring color based on the action (e.g., `ring-red-500` for delete). Ensure native hidden file input's value is cleared in its `onChange` handler, and add `tabIndex={-1}` and `aria-hidden="true"`.
