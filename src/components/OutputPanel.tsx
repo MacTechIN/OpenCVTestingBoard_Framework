@@ -76,9 +76,9 @@ export function OutputPanel({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onSave}
-              className="w-full flex items-center justify-center gap-2 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all"
+              className="w-full flex items-center justify-center gap-2 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 focus-visible:outline-none"
             >
-              <Download size={20} />
+              <Download size={20} aria-hidden="true" />
               {t('saveResultImage')}
             </motion.button>
           </motion.div>
