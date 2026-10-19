@@ -1,0 +1,3 @@
+## 2025-02-23 - Focus Rings and File Inputs
+**Learning:** Absolute positioned overlay buttons inside overflow-hidden components require `shadow-lg` and custom ring offsets so focus rings aren't clipped. React's `onChange` for `<input type="file">` fails to fire if the user uploads the exact same file repeatedly (like uploading an image, clearing it, then uploading it again) unless `e.target.value = ''` is explicitly cleared.
+**Action:** When adding focus styles to overlay buttons, include offset and adapt the ring color to the action's intent (`ring-red-500` for clear). When implementing custom file upload UIs that can be cleared, always reset the hidden input value inside the `onChange` handler.
