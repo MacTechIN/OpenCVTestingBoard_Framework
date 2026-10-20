@@ -92,9 +92,12 @@ export function ImageUploader({ onImageLoad, currentImage, onClear }: ImageUploa
             type="file"
             accept="image/*"
             className="hidden"
+            tabIndex={-1}
+            aria-hidden="true"
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (file) handleFileSelect(file);
+              e.target.value = '';
             }}
           />
         </div>
@@ -109,10 +112,11 @@ export function ImageUploader({ onImageLoad, currentImage, onClear }: ImageUploa
           </div>
           <button
             onClick={onClear}
-            className="absolute top-2 right-2 p-1.5 sm:p-2 bg-red-500 text-white rounded-full hover:bg-red-600 active:scale-95 transition-all shadow-lg"
+            aria-label={t('removeImage')}
+            className="absolute top-2 right-2 p-1.5 sm:p-2 bg-red-500 text-white rounded-full hover:bg-red-600 active:scale-95 transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-red-500"
             title={t('removeImage')}
           >
-            <X size={16} className="sm:w-5 sm:h-5" />
+            <X size={16} className="sm:w-5 sm:h-5" aria-hidden="true" />
           </button>
         </div>
       )}
