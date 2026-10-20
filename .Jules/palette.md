@@ -1,0 +1,3 @@
+## 2026-10-20 - Accessible absolute buttons and reset file input
+**Learning:** Absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers can have their focus rings clipped. For hidden file inputs, not resetting the value prevents users from re-uploading the same file after clearing it.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping, and adapt the ring color to the action's intent. Inside the `onChange` handler of a hidden file input, always reset `e.target.value = ''` so the same file can be re-selected. Add `tabIndex={-1}` and `aria-hidden="true"` to hidden file inputs as a defensive practice.
