@@ -1,0 +1,3 @@
+## 2025-02-27 - Accessible Absolute Positioned Overlay Buttons
+**Learning:** Absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers can clip default focus rings, making them inaccessible via keyboard.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent focus ring clipping. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions like removing an image). Ensure icon-only buttons have an explicit `aria-label` and `aria-hidden="true"` on the icon itself.
