@@ -1,0 +1,3 @@
+## 2024-10-24 - Improve ImageUploader accessibility and file re-upload UX
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, standard focus rings can be clipped. Also, hidden native `<input type="file">` elements must have their values manually reset in the `onChange` handler (e.g., `e.target.value = ''`) to allow users to remove an image and re-upload the exact same file in a custom UI wrapper.
+**Action:** Use `focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to prevent the focus ring from clipping on absolute positioned elements, and ensure native hidden file inputs always have their values reset after processing to maintain re-upload functionality.
