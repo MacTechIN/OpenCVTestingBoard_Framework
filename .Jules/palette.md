@@ -1,0 +1,3 @@
+## 2024-10-25 - Improve Accessibility of Absolute Positioned Overlay Buttons
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, standard focus rings can get clipped by the container bounds, breaking keyboard accessibility visual feedback.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` to ensure the focus ring remains visible and does not clip. Adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions).
