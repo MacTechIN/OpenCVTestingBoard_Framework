@@ -1,0 +1,3 @@
+## 2024-10-28 - Overlay Button Focus Ring Accessibility
+**Learning:** Absolute positioned overlay buttons (e.g., clear image buttons) within containers that have `overflow-hidden` can have their focus rings clipped, making keyboard navigation less apparent. Applying appropriate Tailwind focus rings is crucial but they must not be clipped by the parent layout.
+**Action:** Always use `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` alongside `shadow-lg` for absolute positioned buttons over images to ensure the focus ring remains clearly visible and unclipped. Adapt the ring color (e.g., `focus-visible:ring-red-500` for destructive actions) to match the button's intent.
