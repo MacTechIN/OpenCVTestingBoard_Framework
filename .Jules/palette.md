@@ -1,0 +1,3 @@
+## 2023-10-29 - Accessibility and UX Learnings
+**Learning:** Absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers require specific focus-visible styles to ensure keyboard accessibility without the focus ring being clipped or invisible. Icon-only buttons must have an explicit `aria-label` utilizing the `t()` translation function, `aria-hidden="true"` on the internal icon element, and Tailwind `:focus-visible` classes.
+**Action:** Use Tailwind classes `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` combined with `shadow-lg` for absolute positioned buttons. Ensure all icon-only buttons include an `aria-label` using the translation function and `aria-hidden="true"` on the icon itself.
