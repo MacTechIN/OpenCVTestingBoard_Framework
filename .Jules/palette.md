@@ -1,0 +1,3 @@
+## 2024-05-20 - Custom File Upload & Focus Rings
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, standard focus rings might clip. Furthermore, to allow re-uploading the exact same file after clearing it via a custom UI, the native hidden file input won't trigger `onChange` unless its value is explicitly reset.
+**Action:** Use Tailwind `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` for absolute buttons to prevent focus ring clipping, adapting the ring color to the action's intent. Always reset `e.target.value = ''` in the `onChange` handler for hidden file inputs. Icon-only buttons must have an explicit `aria-label` and `aria-hidden="true"` on the internal icon.
