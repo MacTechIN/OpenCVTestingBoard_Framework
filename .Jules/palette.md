@@ -1,0 +1,3 @@
+## 2024-05-24 - Focus Rings on Absolute Overlay Buttons
+**Learning:** For absolute positioned overlay buttons (e.g., over images) within `overflow-hidden` containers, standard focus rings might clip or be invisible. Combining `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none` with `shadow-lg` ensures the focus ring is clearly visible and doesn't get clipped by the container.
+**Action:** Always add explicit `focus-visible` offset classes and adapt the ring color to the action's intent (e.g., `focus-visible:ring-red-500` for destructive actions) for absolute positioned buttons.
